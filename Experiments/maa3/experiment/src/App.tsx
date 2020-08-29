@@ -58,6 +58,8 @@ function App() {
   const [showAddBaseModal, setShowAddBaseModal] = useState(false);
   const [addBaseModalInput, setAddBaseModalInput] = useState('');
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showAlertModal, setShowAlertModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,6 +68,7 @@ function App() {
         style={{ position: 'fixed', bottom: 50, right: 50, zIndex: 1 }}
         size='large'
         onClick={() => setShowAddBaseModal(true)}
+        disabled={additionalBases.length == 30}
       >
         <Add />
       </Fab>
@@ -80,7 +83,7 @@ function App() {
             }}
             value={addBaseModalInput}
             onChange={(event) => {
-              if (event.target.value == '' || Number.parseInt(event.target.value) > 36 || Number.parseInt(event.target.value) < 2) {
+              if (event.target.value == '' || Number.parseInt(event.target.value) > 36 || Number.parseInt(event.target.value) < 1) {
                 setAddBaseModalInput('');
               } else if (!isNaN(Number.parseInt(event.target.value))) {
                 setAddBaseModalInput(event.target.value);
@@ -93,10 +96,14 @@ function App() {
             Cancel
           </Button>
           <Button onClick={() => {
-            if (additionalBases.length == 36) {
+            if (addBaseModalInput == '2' || addBaseModalInput == '8' || addBaseModalInput == '10' || addBaseModalInput == '16' || additionalBases.includes(Number.parseInt(addBaseModalInput))) {
+              setShowAlertModal(true);
+              return;
+            } else if (addBaseModalInput == '1') {
+              setShowErrorModal(true);
               return;
             }
-            let newAdditionalBases = additionalBases;
+            let newAdditionalBases = [...additionalBases];
             newAdditionalBases.push(Number.parseInt(addBaseModalInput));
             setAdditionalBases(newAdditionalBases);
             setShowAddBaseModal(false);
@@ -115,6 +122,26 @@ function App() {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setShowInfoModal(false)}>
+            Close
+        </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={showAlertModal} onClose={() => setShowAlertModal(false)}>
+        <DialogContent>
+          <Typography variant='body1'>Base conversion block already exists.</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setShowAlertModal(false)}>
+            Close
+        </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={showErrorModal} onClose={() => setShowErrorModal(false)}>
+        <DialogContent>
+          <Typography variant='body1'>Base cannot be less than 2.</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setShowErrorModal(false)}>
             Close
         </Button>
         </DialogActions>
@@ -216,7 +243,7 @@ function App() {
                 InputProps={{
                   endAdornment: <InputAdornment position='end'>
                     <IconButton onClick={() => {
-                      let newAdditionalBases = additionalBases;
+                      let newAdditionalBases = [...additionalBases];
                       newAdditionalBases.splice(index, 1);
                       setAdditionalBases(newAdditionalBases);
                     }}>
@@ -233,6 +260,7 @@ function App() {
                     setNumber(Number.parseInt(num.toString(10)));
                   }
                 }}
+                key={`${base}-${index}`}
               />
             ))}
           </Paper>}
