@@ -63,7 +63,6 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       <Fab color='primary'
         style={{ position: 'fixed', bottom: 50, right: 50, zIndex: 1 }}
         size='large'
