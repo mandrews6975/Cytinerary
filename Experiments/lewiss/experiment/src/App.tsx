@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {TextField, Button} from '@material-ui/core'
+import Task from './Task'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <div style = {{display: 'inline-block'}}>
+            <TextField placeholder = 'Task Text' multiline/>
+            <Button>
+            Enter
+            </Button>
+          </div>
+          <Task text = 'This is a task'/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
