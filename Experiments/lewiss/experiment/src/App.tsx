@@ -32,6 +32,13 @@ class App extends React.Component<IProps, IState> {
       })
     }
   }
+  deleteTask(task : string) {
+    let index: number = this.state.tasks!.indexOf(task);
+    let tasks: string[] = this.state.tasks!.splice(index, 1);
+    this.setState({
+      tasks
+    });
+  }
 
   render() {
     return (
@@ -44,12 +51,12 @@ class App extends React.Component<IProps, IState> {
               Enter
               </Button>
             </form>
-            {
-              this.state.tasks!.map((item: string) => (
-                 <Task key = {shortid.generate()} text = {item} />
-              ))
-            }
           </div>
+          {
+            this.state.tasks!.map((item: string) => (
+               <Task key = {shortid.generate()} text = {item} />
+            ))
+          }
         </header>
       </div>
     );
