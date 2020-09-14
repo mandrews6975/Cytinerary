@@ -1,7 +1,6 @@
 import React, {
   useState
 } from 'react';
-import logo from './logo.svg';
 import {
   ThemeProvider,
   createMuiTheme
@@ -55,11 +54,11 @@ function App() {
 
   const [number, setNumber] = useState(0);
   const [additionalBases, setAdditionalBases] = useState<number[]>([]);
-  const [showAddBaseModal, setShowAddBaseModal] = useState(false);
-  const [addBaseModalInput, setAddBaseModalInput] = useState('');
-  const [showInfoModal, setShowInfoModal] = useState(false);
-  const [showAlertModal, setShowAlertModal] = useState(false);
-  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showAddBaseModal, setShowAddBaseModal] = useState<boolean>(false);
+  const [addBaseModalInput, setAddBaseModalInput] = useState<string>('');
+  const [showInfoModal, setShowInfoModal] = useState<boolean>(false);
+  const [showAlertModal, setShowAlertModal] = useState<boolean>(false);
+  const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
 
   return (
     <ThemeProvider theme={theme}>
@@ -107,7 +106,9 @@ function App() {
             setAdditionalBases(newAdditionalBases);
             setShowAddBaseModal(false);
             setAddBaseModalInput('');
-          }}>
+          }}
+            disabled={addBaseModalInput == ''}
+          >
             Add
           </Button>
         </DialogActions>
