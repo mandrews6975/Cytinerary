@@ -18,6 +18,9 @@ class NewEventModal extends React.Component<IProps, IState> {
       currentInput: '',
     }
   }
+  post() {
+
+  }
   render() {
     return(
       <div>
@@ -47,7 +50,7 @@ class NewEventModal extends React.Component<IProps, IState> {
                   </div>
                   <div>
                   <Button onClick = {() => {this.props.onClose()}} style = {{color:'black'}}>Cancel</Button>
-                  <Button onClick = {() => {this.props.onClose()}} style = {{color:'black'}}>Create</Button>
+                  <Button onClick = {() => {this.post(); this.props.onClose()}} style = {{color:'black'}}>Create</Button>
                   </div>
                 </div>
               </DialogContent>
