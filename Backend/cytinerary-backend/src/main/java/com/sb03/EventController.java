@@ -19,6 +19,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.sb03.modal.Event;
+import com.sb03.repository.EventRepository;
 import com.sb03.service.EventService;
 
 
@@ -29,9 +30,10 @@ public class EventController {
   @Autowired
   private EventRepository eventRepository;
 
-	@GetMapping("/getEvents")
-  public @ResponseBody Collection<Event> getEvents() {
-  return eventRepository.getEvents();
+  @Transactional
+  @PostMapping("/getEvents")
+  public @ResponseBody Collection<Event> getEvents(@RequestBody Map<String, Object> payload) {
+    return eventRepository.getEvents((String) payload.get("creator"));
   }
 
   @Transactional
@@ -44,5 +46,12 @@ public class EventController {
   @PostMapping("/getEvent")
   public @ResponseBody Collection<Event> getEvent(@RequestBody Map<String, Object> payload) {
     return eventRepository.getEvent((String) payload.get("eventId"));
+  }
+
+  @Transactional
+  @PostMapping("/createEvent")
+  public @ResponseBody String createEvent(@RequestBody Map<String, Object> payload) {
+    eventRepository.createEvent((String) payload.get("creator"), (String) payload.get("name"), (String) payload.get("description"), (String) payload.get("label"));
+    return("Event " + ((String) payload.get("name")) + " Created");
   }
 }
