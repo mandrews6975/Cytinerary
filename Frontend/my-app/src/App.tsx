@@ -25,14 +25,14 @@ function App() {
         <NewEventModal open = {showAddBaseModal} onClose = {() => {toggleModal(false)}}/>
         <Button onClick = {() => {
           try{
-            fetch('http://localhost:8080/getEvent', {
+            fetch('http://localhost:8080/getEvents', {
               method: 'POST',
                 headers: {
                   Accept: 'application/json',
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  eventId : "2"
+                  creator : "111"
                 }),
             }).then((response) => response.json())
             .then((json) => {
@@ -41,7 +41,7 @@ function App() {
           }catch(err){
             console.log(err);
           }
-        }}>Click here to display the Modal</Button>
+        }}>Click here to display this user's events</Button>
 
         <Button onClick = {() => {toggleModal(true)}}>Click here to display the Modal</Button>
       </header>
