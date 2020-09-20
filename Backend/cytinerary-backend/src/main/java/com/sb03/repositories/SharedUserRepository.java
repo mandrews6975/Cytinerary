@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 @Repository
 public interface SharedUserRepository extends CrudRepository<SharedUser, Long>{
 
-  @Query(value="select * from sharedusers where sharer = ?1", nativeQuery = true)
+  @Query(value="select userId, netId, LastName, FirstName from users inner join sharedusers on users.userId = sharedusers.shareeId where sharer = ?1 ", nativeQuery = true)
   Collection<User> getSharedUsers(String sharerId);
 
   @Modifying
