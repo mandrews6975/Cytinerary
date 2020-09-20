@@ -21,7 +21,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.sb03.modal.Event;
 import com.sb03.service.EventService;
 
-
 @RestController
 @CrossOrigin(origins = "*")
 public class EventController {
