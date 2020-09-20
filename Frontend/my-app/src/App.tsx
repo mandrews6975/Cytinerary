@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState} from 'react';
 import logo from './logo.svg';
+import {Button} from '@material-ui/core'
 import './App.css';
+import NewEventModal from './components/newEventModal'
 
 function App() {
+  const [showAddBaseModal, toggleModal] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,28 @@ function App() {
         >
           Learn React
         </a>
+        <NewEventModal open = {showAddBaseModal} onClose = {() => {toggleModal(false)}}/>
+        <Button onClick = {() => {
+          try{
+            fetch('http://localhost:8080/getEvent', {
+              method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  eventId : "2"
+                }),
+            }).then((response) => response.json())
+            .then((json) => {
+              alert(JSON.stringify(json))
+            });
+          }catch(err){
+            console.log(err);
+          }
+        }}>Click here to display the Modal</Button>
+
+        <Button onClick = {() => {toggleModal(true)}}>Click here to display the Modal</Button>
       </header>
     </div>
   );
