@@ -23,13 +23,13 @@ import com.sb03.repositories.SharedUserRepository;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class UserController {
+public class SharedUserController {
 
   @Autowired
   private SharedUserRepository sharedUserRepository;
 
 	@GetMapping("/getSharedUsers")
-  public @ResponseBody Collection<User> getSharedUsers(@RequestBody Map<String, Object> payload) {
+  public @ResponseBody Collection<SharedUser> getSharedUsers(@RequestBody Map<String, Object> payload) {
   return sharedUserRepository.getSharedUsers((String) payload.get("sharerId"));
   }
 
@@ -43,7 +43,7 @@ public class UserController {
   @Transactional
   @PostMapping("/deleteSharedUser")
   public @ResponseBody String deleteSharedUser(@RequestBody Map<String, Object> payload) {
-    sharedUserRepository.deleteUser((String) payload.get("sharerId"), (String) payload.get("shareeId"));
+    sharedUserRepository.deleteSharedUser((String) payload.get("sharerId"), (String) payload.get("shareeId"));
     return ((String) payload.get("shareeId") + "deleted");
   }
 

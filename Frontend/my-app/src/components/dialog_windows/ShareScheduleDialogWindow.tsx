@@ -55,38 +55,65 @@ const sharerId = '1';
 
 function ShareScheduleDialogWindow(props: Props) {
 
-  const [currentlyShared, setCurrentlyShared] = useState<{userId: string, name: string, email: string}[]>([]);
+  const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
+  const [discoveredUsers, setDiscoveredUsers] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [autocompleteAnchor, setAutocompleteAnchor] = useState<HTMLElement | null>(null);
   const [input, setInput] = useState<string>('');
 
-  function getSharedUsers(sharerId: string) {
-    try{
-      fetch('http://localhost:8080/getSharedUsers', {
-        method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            sharerId: sharerId
-          }),
+  function getUsers() {
+    try {
+      fetch('http://localhost:8080/getUsers', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
       }).then((response) => response.json())
-      .then((json) => {
-        let newCurrentlyShared: {userId: string, name: string, email: string}[] = [];
-        json.forEach((sharee: {userId: string, FirstName: string, LastName: string, netId: string}) => {
-          newCurrentlyShared.push({
-            userId: sharee.userId,
-            name: sharee.FirstName + ' ' + sharee.LastName,
-            email: sharee.netId + '@iastate.edu'
+        .then((json) => {
+          let newDiscoveredUsers: { userId: string, name: string, email: string }[] = [];
+          json.forEach((user: { userId: string, FirstName: string, LastName: string, netId: string }) => {
+            newDiscoveredUsers.push({
+              userId: user.userId,
+              name: user.FirstName + ' ' + user.LastName,
+              email: user.netId + '@iastate.edu'
+            });
           });
+          setDiscoveredUsers(newDiscoveredUsers);
         });
-        setCurrentlyShared(newCurrentlyShared);
-      });
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
   }
 
+  function getSharedUsers(sharerId: string) {
+    try {
+      fetch('http://localhost:8080/getSharedUsers', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sharerId: sharerId
+        }),
+      }).then((response) => response.json())
+        .then((json) => {
+          let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
+          json.forEach((sharee: { userId: string, FirstName: string, LastName: string, netId: string }) => {
+            newCurrentlyShared.push({
+              userId: sharee.userId,
+              name: sharee.FirstName + ' ' + sharee.LastName,
+              email: sharee.netId + '@iastate.edu'
+            });
+          });
+          setCurrentlyShared(newCurrentlyShared);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  getUsers();
   return (
     <Dialog
       open={props.visible}
@@ -129,26 +156,38 @@ function ShareScheduleDialogWindow(props: Props) {
           >
             <Paper>
               <List>
-                {people.map((
-                  person: { name: string, email: string},
+                {discoveredUsers.map((
+                  user: { name: string, email: string, userId: string },
                   index: number,
-                  array: { name: string, email: string}[]
+                  array: { name: string, email: string, userId: string }[]
                 ) => (
-                    (person.name.toUpperCase().includes(input.toUpperCase()) || person.email.toUpperCase().includes(input.toUpperCase())) && <ShareDialogSearchListItem
-                      name={person.name}
-                      email={person.email}
+                    (user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && <ShareDialogSearchListItem
+                      name={user.name}
+                      email={user.email}
                       color='red'
                       onClick={() => {
-                        let newCurrentlyShared = [...currentlyShared];
-                        newCurrentlyShared.push({
-                          name: person.name,
-                          email: person.email,
-                          color: 'red'
-                        })
-                        setCurrentlyShared(newCurrentlyShared);
+                        try {
+                          fetch('http://localhost:8080/addSharedUser', {
+                            method: 'POST',
+                            headers: {
+                              Accept: 'application/json',
+                              'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                              sharerId: sharerId,
+                              shareeId: user.userId
+                            }),
+                          }).then((response) => response.json())
+                            .then((json) => {
+                              getSharedUsers(sharerId);
+                            });
+                        } catch (err) {
+                          console.log(err);
+                        }
+                        getSharedUsers(sharerId);
                         setInput('');
                       }}
-                      key={`${person.name}-${person.email}-${index}-search`}
+                      key={`${user.name}-${user.email}-${index}-search`}
                     />
                   ))}
               </List>
@@ -168,31 +207,31 @@ function ShareScheduleDialogWindow(props: Props) {
           >
             <List>
               {currentlyShared.map((
-                person: {userId: string, name: string, email: string},
+                person: { userId: string, name: string, email: string },
                 index: number,
-                array: {userId: string, name: string, email: string}[]
+                array: { userId: string, name: string, email: string }[]
               ) => (
                   <ShareDialogSharedListItem
                     name={person.name}
                     email={person.email}
                     color='red'
                     onRemove={() => {
-                      try{
+                      try {
                         fetch('http://localhost:8080/deleteSharedUser', {
                           method: 'POST',
-                            headers: {
-                              Accept: 'application/json',
-                              'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                              sharerId: sharerId,
-                              shareeId: person.userId
-                            }),
+                          headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            sharerId: sharerId,
+                            shareeId: person.userId
+                          }),
                         }).then((response) => response.json())
-                        .then((json) => {
-                          getSharedUsers(sharerId);
-                        });
-                      }catch(err){
+                          .then((json) => {
+                            getSharedUsers(sharerId);
+                          });
+                      } catch (err) {
                         console.log(err);
                       }
                     }}

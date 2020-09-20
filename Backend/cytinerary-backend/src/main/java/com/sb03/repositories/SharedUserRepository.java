@@ -8,11 +8,13 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import com.sb03.modal.User;
+
 @Repository
 public interface SharedUserRepository extends CrudRepository<SharedUser, Long>{
 
   @Query(value="select userId, netId, LastName, FirstName from users inner join sharedusers on users.userId = sharedusers.shareeId where sharer = ?1 ", nativeQuery = true)
-  Collection<User> getSharedUsers(String sharerId);
+  Collection<SharedUser> getSharedUsers(String sharerId);
 
   @Modifying
   @Query(value="insert into sharedusers(sharer, sharee) values(?1, ?2)", nativeQuery = true)
