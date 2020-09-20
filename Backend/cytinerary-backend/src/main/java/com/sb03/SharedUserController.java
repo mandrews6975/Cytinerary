@@ -18,37 +18,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import com.sb03.modal.User;
-import com.sb03.repositories.UserRepository;
+import com.sb03.modal.SharedUser;
+import com.sb03.repositories.SharedUserRepository;
 
 @RestController
 @CrossOrigin(origins = "*")
 public class UserController {
 
   @Autowired
-  private UserRepository userRepository;
+  private SharedUserRepository sharedUserRepository;
 
-	@GetMapping("/getUsers")
-  public @ResponseBody Collection<User> getUsers() {
-  return userRepository.getUsers();
+	@GetMapping("/getSharedUsers")
+  public @ResponseBody Collection<User> getSharedUsers(@RequestBody Map<String, Object> payload) {
+  return sharedUserRepository.getSharedUsers((String) payload.get("sharerId"));
   }
 
   @Transactional
-  @PostMapping("/addUser")
-  public @ResponseBody String addUser(@RequestBody Map<String, Object> payload) {
-    userRepository.addUser((String) payload.get("netId"), (String) payload.get("LastName"), (String) payload.get("FirstName"), (String) payload.get("password"));
-    return ((String) payload.get("userId") + "added");
+  @PostMapping("/addSharedUser")
+  public @ResponseBody String addSharedUser(@RequestBody Map<String, Object> payload) {
+    sharedUserRepository.addSharedUser((String) payload.get("sharerId"), (String) payload.get("shareeId"));
+    return ((String) payload.get("shareeId") + "added");
   }
 
   @Transactional
-  @PostMapping("/deleteUser")
-  public @ResponseBody String deleteUser(@RequestBody Map<String, Object> payload) {
-    userRepository.deleteUser((String) payload.get("userId"));
-    return ((String) payload.get("userId") + "deleted");
+  @PostMapping("/deleteSharedUser")
+  public @ResponseBody String deleteSharedUser(@RequestBody Map<String, Object> payload) {
+    sharedUserRepository.deleteUser((String) payload.get("sharerId"), (String) payload.get("shareeId"));
+    return ((String) payload.get("shareeId") + "deleted");
   }
 
-  @PostMapping("/getUser")
-  public @ResponseBody Collection<User> getUser(@RequestBody Map<String, Object> payload) {
-    return userRepository.getUser((String) payload.get("UserId"));
-  }
 }
