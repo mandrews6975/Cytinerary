@@ -51,4 +51,9 @@ public class UserController {
   public @ResponseBody Collection<User> getUser(@RequestBody Map<String, Object> payload) {
     return userRepository.getUser((String) payload.get("UserId"));
   }
+
+  @PostMapping("/userExists")
+  public @ResponseBody Collection<User> userExists(@RequestBody Map<String, Object> payload) {
+    return userRepository.userExists((String) payload.get("netId"));
+  }
 }

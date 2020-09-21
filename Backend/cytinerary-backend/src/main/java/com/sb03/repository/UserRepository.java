@@ -17,6 +17,9 @@ public interface UserRepository extends CrudRepository<User, Long>{
   @Query(value="select * from users where userId = ?1", nativeQuery = true)
   Collection<User> getUser(String UserId);
 
+  @Query(value="select * from users where netId = ?1", nativeQuery = true)
+  Collection<User> userExists(String netId);
+
   @Modifying
   @Query(value="insert into users(userId, netId, LastName, FirstName, password) values(uuid(), ?1, ?2, ?3, ?4)", nativeQuery = true)
   void addUser(String netId, String lastName, String firstName, String password);
