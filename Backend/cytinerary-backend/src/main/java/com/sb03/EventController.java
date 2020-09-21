@@ -51,7 +51,7 @@ public class EventController {
   @Transactional
   @PostMapping("/createEvent")
   public @ResponseBody String createEvent(@RequestBody Map<String, Object> payload) {
-    eventRepository.createEvent((String) payload.get("creator"), (String) payload.get("name"), (String) payload.get("description"), (String) payload.get("label"));
+    eventRepository.createEvent((String) payload.get("eventId"), (String) payload.get("creator"), (String) payload.get("name"), (String) payload.get("description"), (String) payload.get("label"));
     return("Event " + ((String) payload.get("name")) + " Created");
   }
 }

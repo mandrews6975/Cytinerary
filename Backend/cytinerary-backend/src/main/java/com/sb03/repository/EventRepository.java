@@ -22,6 +22,6 @@ public interface EventRepository extends CrudRepository<Event, Long>{
   void deleteEvent(String eventId);
 
   @Modifying
-  @Query(value="insert into events(eventId, creator, name, description, label) values(UUID(), ?1, ?2, ?3, ?4)", nativeQuery = true)
-  void createEvent(String creator, String name, String description, String label);
+  @Query(value="insert into events(eventId, creator, name, description, label) values(?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
+  void createEvent(String eventId, String creator, String name, String description, String label);
 }

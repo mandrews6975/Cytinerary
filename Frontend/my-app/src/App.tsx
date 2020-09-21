@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import logo from './logo.svg';
 import {Button} from '@material-ui/core'
 import './App.css';
-import NewEventModal from './components/newEventModal'
+import NewEventModal from './components/dialog_windows/newEventModal'
 
 function App() {
   const [showAddBaseModal, toggleModal] = useState(false);
@@ -22,7 +22,7 @@ function App() {
         >
           Learn React
         </a>
-        <NewEventModal open = {showAddBaseModal} onClose = {() => {toggleModal(false)}}/>
+        <NewEventModal visible = {showAddBaseModal} user = {'111'} onClose = {() => {toggleModal(false)}}/>
         <Button onClick = {() => {
           try{
             fetch('http://localhost:8080/getEvents', {
