@@ -19,6 +19,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.sb03.modal.SharedUser;
+import com.sb03.modal.User;
 import com.sb03.repositories.SharedUserRepository;
 
 @RestController
@@ -28,9 +29,9 @@ public class SharedUserController {
   @Autowired
   private SharedUserRepository sharedUserRepository;
 
-	@GetMapping("/getSharedUsers")
-  public @ResponseBody Collection<SharedUser> getSharedUsers(@RequestBody Map<String, Object> payload) {
-  return sharedUserRepository.getSharedUsers((String) payload.get("sharerId"));
+  @PostMapping("/getSharedUsers")
+  public @ResponseBody Collection<Object> getSharedUsers(@RequestBody Map<String, Object> payload) {
+	return sharedUserRepository.getSharedUsers((String) payload.get("sharerId"));
   }
 
   @Transactional

@@ -1,51 +1,62 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
-import {Button} from '@material-ui/core'
+import {
+  Button,
+  ThemeProvider,
+  createMuiTheme
+} from '@material-ui/core'
+import red from '@material-ui/core/colors/red';
+import yellow from '@material-ui/core/colors/yellow';
+import grey from '@material-ui/core/colors/grey';
 import './App.css';
-import NewEventModal from './components/newEventModal'
+import ShareScheduleDialogWindow from './components/dialog_windows/ShareScheduleDialogWindow';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: red[600]
+    },
+    secondary: {
+      main: yellow[700]
+    },
+    type: 'dark',
+    background: {
+      paper: grey[800],
+      default: grey[900]
+    },
+  },
+  typography: {
+    fontFamily: 'Roboto'
+  }
+});
 
 function App() {
-  const [showAddBaseModal, toggleModal] = useState(false);
+  const [showShareScheduleDialog, setShowShareScheduleDialog] = useState<boolean>(false);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider
+      theme={theme}
+    >
+      <div style={{
+        display: 'flex',
+        backgroundColor: 'black',
+        height: window.innerHeight,
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <ShareScheduleDialogWindow
+          onClose={() => setShowShareScheduleDialog(false)}
+          visible={showShareScheduleDialog}
+        />
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={() => setShowShareScheduleDialog(true)}
         >
-          Learn React
-        </a>
-        <NewEventModal open = {showAddBaseModal} onClose = {() => {toggleModal(false)}}/>
-        <Button onClick = {() => {
-          try{
-            fetch('http://localhost:8080/getEvent', {
-              method: 'POST',
-                headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  eventId : "2"
-                }),
-            }).then((response) => response.json())
-            .then((json) => {
-              alert(JSON.stringify(json))
-            });
-          }catch(err){
-            console.log(err);
-          }
-        }}>Click here to display the Modal</Button>
-
-        <Button onClick = {() => {toggleModal(true)}}>Click here to display the Modal</Button>
-      </header>
-    </div>
+          Share
+      </Button>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -13,15 +13,15 @@ import com.sb03.modal.User;
 @Repository
 public interface SharedUserRepository extends CrudRepository<SharedUser, Long>{
 
-  @Query(value="select userId, netId, LastName, FirstName from users inner join sharedusers on users.userId = sharedusers.shareeId where sharer = ?1 ", nativeQuery = true)
-  Collection<SharedUser> getSharedUsers(String sharerId);
+  @Query(value="select user.userId, user.netId, user.lastName, user.firstName from users user inner join sharedusers on user.userId = sharedusers.sharee where sharedusers.sharer = ?1", nativeQuery = true)
+  Collection<Object> getSharedUsers(String sharerId);
 
   @Modifying
   @Query(value="insert into sharedusers(sharer, sharee) values(?1, ?2)", nativeQuery = true)
   void addSharedUser(String sharerId, String shareeId);
 
   @Modifying
-  @Query(value="delete from sharedusers where sharerId = ?1 and shareeId = ?2", nativeQuery = true)
+  @Query(value="delete from sharedusers where sharer = ?1 and sharee = ?2", nativeQuery = true)
   void deleteSharedUser(String sharerId, String shareeId);
 
 }

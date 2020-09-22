@@ -1,5 +1,6 @@
 import React, {
-  useState
+  useState,
+  useEffect
 } from 'react';
 import {
   ThemeProvider,
@@ -51,7 +52,7 @@ const theme = createMuiTheme({
   }
 });
 
-const sharerId = '1';
+const sharerId = '0';
 
 function ShareScheduleDialogWindow(props: Props) {
 
@@ -59,6 +60,9 @@ function ShareScheduleDialogWindow(props: Props) {
   const [discoveredUsers, setDiscoveredUsers] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [autocompleteAnchor, setAutocompleteAnchor] = useState<HTMLElement | null>(null);
   const [input, setInput] = useState<string>('');
+
+  useEffect(getUsers, []);
+  useEffect(() => getSharedUsers(sharerId), []);
 
   function getUsers() {
     try {
@@ -71,10 +75,10 @@ function ShareScheduleDialogWindow(props: Props) {
       }).then((response) => response.json())
         .then((json) => {
           let newDiscoveredUsers: { userId: string, name: string, email: string }[] = [];
-          json.forEach((user: { userId: string, FirstName: string, LastName: string, netId: string }) => {
+          json.forEach((user: { userId: string, firstName: string, lastName: string, netId: string }) => {
             newDiscoveredUsers.push({
               userId: user.userId,
-              name: user.FirstName + ' ' + user.LastName,
+              name: user.firstName + ' ' + user.lastName,
               email: user.netId + '@iastate.edu'
             });
           });
@@ -99,11 +103,11 @@ function ShareScheduleDialogWindow(props: Props) {
       }).then((response) => response.json())
         .then((json) => {
           let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
-          json.forEach((sharee: { userId: string, FirstName: string, LastName: string, netId: string }) => {
+          json.forEach((sharee: string[]) => {
             newCurrentlyShared.push({
-              userId: sharee.userId,
-              name: sharee.FirstName + ' ' + sharee.LastName,
-              email: sharee.netId + '@iastate.edu'
+              userId: sharee[0],
+              name: sharee[3] + ' ' + sharee[2],
+              email: sharee[1] + '@iastate.edu'
             });
           });
           setCurrentlyShared(newCurrentlyShared);
@@ -113,7 +117,6 @@ function ShareScheduleDialogWindow(props: Props) {
     }
   }
 
-  getUsers();
   return (
     <Dialog
       open={props.visible}
@@ -147,7 +150,7 @@ function ShareScheduleDialogWindow(props: Props) {
             key='input'
           />
           <Popper
-            open={input != ''}
+            open={input !== ''}
             anchorEl={autocompleteAnchor}
             placement='bottom-start'
             style={{
@@ -161,7 +164,7 @@ function ShareScheduleDialogWindow(props: Props) {
                   index: number,
                   array: { name: string, email: string, userId: string }[]
                 ) => (
-                    (user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && <ShareDialogSearchListItem
+                    ((user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && user.userId != sharerId && !currentlyShared.some((sharedUser) => sharedUser.userId === user.userId)) && <ShareDialogSearchListItem
                       name={user.name}
                       email={user.email}
                       color='red'
@@ -177,10 +180,7 @@ function ShareScheduleDialogWindow(props: Props) {
                               sharerId: sharerId,
                               shareeId: user.userId
                             }),
-                          }).then((response) => response.json())
-                            .then((json) => {
-                              getSharedUsers(sharerId);
-                            });
+                          }).then(() => getSharedUsers(sharerId));
                         } catch (err) {
                           console.log(err);
                         }
@@ -227,10 +227,7 @@ function ShareScheduleDialogWindow(props: Props) {
                             sharerId: sharerId,
                             shareeId: person.userId
                           }),
-                        }).then((response) => response.json())
-                          .then((json) => {
-                            getSharedUsers(sharerId);
-                          });
+                        }).then(() => getSharedUsers(sharerId));
                       } catch (err) {
                         console.log(err);
                       }
