@@ -1,4 +1,4 @@
-package com.sb03;
+package com.sb03.repositories;
 
 import org.springframework.stereotype.Repository;
 import java.util.Collection;

@@ -19,7 +19,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.sb03.modal.Event;
-import com.sb03.service.EventService;
+import com.sb03.repositories.EventRepository;
 
 
 @RestController
