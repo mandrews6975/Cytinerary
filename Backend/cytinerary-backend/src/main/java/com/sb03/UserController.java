@@ -19,7 +19,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.sb03.modal.User;
-import com.sb03.repositories.UserRepository;
+import com.sb03.repository.UserRepository;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -50,5 +50,10 @@ public class UserController {
   @PostMapping("/getUser")
   public @ResponseBody Collection<User> getUser(@RequestBody Map<String, Object> payload) {
     return userRepository.getUser((String) payload.get("UserId"));
+  }
+
+  @PostMapping("/userExists")
+  public @ResponseBody Collection<User> userExists(@RequestBody Map<String, Object> payload) {
+    return userRepository.userExists((String) payload.get("netId"));
   }
 }

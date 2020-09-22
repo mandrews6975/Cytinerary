@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import {
   Button,
   ThemeProvider,
@@ -9,6 +8,7 @@ import red from '@material-ui/core/colors/red';
 import yellow from '@material-ui/core/colors/yellow';
 import grey from '@material-ui/core/colors/grey';
 import './App.css';
+import NewEventModal from './components/dialog_windows/newEventModal'
 import ShareScheduleDialogWindow from './components/dialog_windows/ShareScheduleDialogWindow';
 
 const theme = createMuiTheme({
@@ -32,6 +32,7 @@ const theme = createMuiTheme({
 
 function App() {
   const [showShareScheduleDialog, setShowShareScheduleDialog] = useState<boolean>(false);
+  const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
 
   return (
     <ThemeProvider
@@ -48,14 +49,37 @@ function App() {
           onClose={() => setShowShareScheduleDialog(false)}
           visible={showShareScheduleDialog}
         />
+        <NewEventModal visible = {showNewEventDialog} user = {'111'} onClose = {() => {setNewEventDialog(false)}}/>
         <Button
           color='primary'
           variant='contained'
           onClick={() => setShowShareScheduleDialog(true)}
         >
           Share
-      </Button>
-      </div>
+        </Button>
+
+        <Button color='primary' variant='contained' onClick = {() => {
+          try{
+            fetch('http://localhost:8080/getEvents', {
+              method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  creator : "111"
+                }),
+            }).then((response) => response.json())
+            .then((json) => {
+              alert(JSON.stringify(json))
+            });
+          }catch(err){
+            console.log(err);
+          }
+        }}>Click here to display this user's events</Button>
+
+        <Button color='primary' variant='contained' onClick = {() => {setNewEventDialog(true)}}>Create a New Event</Button>
+    </div>
     </ThemeProvider>
   );
 }

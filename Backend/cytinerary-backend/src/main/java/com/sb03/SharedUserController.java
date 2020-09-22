@@ -20,7 +20,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.sb03.modal.SharedUser;
 import com.sb03.modal.User;
-import com.sb03.repositories.SharedUserRepository;
+import com.sb03.repository.SharedUserRepository;
 
 @RestController
 @CrossOrigin(origins = "*")

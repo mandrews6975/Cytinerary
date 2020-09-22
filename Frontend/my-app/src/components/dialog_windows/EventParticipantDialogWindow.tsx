@@ -1,6 +1,5 @@
 import React, {
-  useState,
-  useEffect
+  useState
 } from 'react';
 import {
   ThemeProvider,
@@ -25,8 +24,8 @@ import {
 import {
   People
 } from '@material-ui/icons';
-import ShareDialogSharedListItem from '../list_items/ShareDialogSharedListItem';
-import ShareDialogSearchListItem from '../list_items/ShareDialogSearchListItem';
+import ParticipantSharedListItem from '../list_items/ParticipantDialogSharedListItem';
+import ParticipantSearchListItem from '../list_items/ParticipantDialogSearchListItem';
 
 interface Props {
   visible: boolean,
@@ -52,17 +51,14 @@ const theme = createMuiTheme({
   }
 });
 
-const sharerId = '111';
+const sharerId = '1';
 
-function ShareScheduleDialogWindow(props: Props) {
+function EventParticipantDialogWindow(props: Props) {
 
   const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [discoveredUsers, setDiscoveredUsers] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [autocompleteAnchor, setAutocompleteAnchor] = useState<HTMLElement | null>(null);
   const [input, setInput] = useState<string>('');
-
-  useEffect(getUsers, []);
-  useEffect(() => getSharedUsers(sharerId), []);
 
   function getUsers() {
     try {
@@ -75,10 +71,10 @@ function ShareScheduleDialogWindow(props: Props) {
       }).then((response) => response.json())
         .then((json) => {
           let newDiscoveredUsers: { userId: string, name: string, email: string }[] = [];
-          json.forEach((user: { userId: string, firstName: string, lastName: string, netId: string }) => {
+          json.forEach((user: { userId: string, FirstName: string, LastName: string, netId: string }) => {
             newDiscoveredUsers.push({
               userId: user.userId,
-              name: user.firstName + ' ' + user.lastName,
+              name: user.FirstName + ' ' + user.LastName,
               email: user.netId + '@iastate.edu'
             });
           });
@@ -103,11 +99,11 @@ function ShareScheduleDialogWindow(props: Props) {
       }).then((response) => response.json())
         .then((json) => {
           let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
-          json.forEach((sharee: string[]) => {
+          json.forEach((sharee: { userId: string, FirstName: string, LastName: string, netId: string }) => {
             newCurrentlyShared.push({
-              userId: sharee[0],
-              name: sharee[3] + ' ' + sharee[2],
-              email: sharee[1] + '@iastate.edu'
+              userId: sharee.userId,
+              name: sharee.FirstName + ' ' + sharee.LastName,
+              email: sharee.netId + '@iastate.edu'
             });
           });
           setCurrentlyShared(newCurrentlyShared);
@@ -117,6 +113,7 @@ function ShareScheduleDialogWindow(props: Props) {
     }
   }
 
+  getUsers();
   return (
     <Dialog
       open={props.visible}
@@ -164,7 +161,7 @@ function ShareScheduleDialogWindow(props: Props) {
                   index: number,
                   array: { name: string, email: string, userId: string }[]
                 ) => (
-                    ((user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && user.userId != sharerId && !currentlyShared.some((sharedUser) => sharedUser.userId === user.userId)) && <ShareDialogSearchListItem
+                    (user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && <ParticipantSearchListItem
                       name={user.name}
                       email={user.email}
                       color='red'
@@ -180,7 +177,10 @@ function ShareScheduleDialogWindow(props: Props) {
                               sharerId: sharerId,
                               shareeId: user.userId
                             }),
-                          }).then(() => getSharedUsers(sharerId));
+                          }).then((response) => response.json())
+                            .then((json) => {
+                              getSharedUsers(sharerId);
+                            });
                         } catch (err) {
                           console.log(err);
                         }
@@ -211,7 +211,7 @@ function ShareScheduleDialogWindow(props: Props) {
                 index: number,
                 array: { userId: string, name: string, email: string }[]
               ) => (
-                  <ShareDialogSharedListItem
+                  <ParticipantSharedListItem
                     name={person.name}
                     email={person.email}
                     color='red'
@@ -227,7 +227,10 @@ function ShareScheduleDialogWindow(props: Props) {
                             sharerId: sharerId,
                             shareeId: person.userId
                           }),
-                        }).then(() => getSharedUsers(sharerId));
+                        }).then((response) => response.json())
+                          .then((json) => {
+                            getSharedUsers(sharerId);
+                          });
                       } catch (err) {
                         console.log(err);
                       }
@@ -258,4 +261,4 @@ function ShareScheduleDialogWindow(props: Props) {
 
 }
 
-export default ShareScheduleDialogWindow;
+export default EventParticipantDialogWindow;
