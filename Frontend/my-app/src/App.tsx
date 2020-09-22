@@ -1,29 +1,64 @@
-import React, { useState} from 'react';
-import logo from './logo.svg';
-import {Button} from '@material-ui/core'
+import React, { useState } from 'react';
+import {
+  Button,
+  ThemeProvider,
+  createMuiTheme
+} from '@material-ui/core'
+import red from '@material-ui/core/colors/red';
+import yellow from '@material-ui/core/colors/yellow';
+import grey from '@material-ui/core/colors/grey';
 import './App.css';
 import NewEventModal from './components/dialog_windows/newEventModal'
+import ShareScheduleDialogWindow from './components/dialog_windows/ShareScheduleDialogWindow';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: red[600]
+    },
+    secondary: {
+      main: yellow[700]
+    },
+    type: 'dark',
+    background: {
+      paper: grey[800],
+      default: grey[900]
+    },
+  },
+  typography: {
+    fontFamily: 'Roboto'
+  }
+});
 
 function App() {
-  const [showAddBaseModal, toggleModal] = useState(false);
+  const [showShareScheduleDialog, setShowShareScheduleDialog] = useState<boolean>(false);
+  const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider
+      theme={theme}
+    >
+      <div style={{
+        display: 'flex',
+        backgroundColor: 'black',
+        height: window.innerHeight,
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <ShareScheduleDialogWindow
+          onClose={() => setShowShareScheduleDialog(false)}
+          visible={showShareScheduleDialog}
+        />
+        <NewEventModal visible = {showNewEventDialog} user = {'111'} onClose = {() => {setNewEventDialog(false)}}/>
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={() => setShowShareScheduleDialog(true)}
         >
-          Learn React
-        </a>
-        <NewEventModal visible = {showAddBaseModal} user = {'111'} onClose = {() => {toggleModal(false)}}/>
-        <Button onClick = {() => {
+          Share
+        </Button>
+
+        <Button color='primary' variant='contained' onClick = {() => {
           try{
             fetch('http://localhost:8080/getEvents', {
               method: 'POST',
@@ -43,9 +78,9 @@ function App() {
           }
         }}>Click here to display this user's events</Button>
 
-        <Button onClick = {() => {toggleModal(true)}}>Click here to display the Modal</Button>
-      </header>
+        <Button color='primary' variant='contained' onClick = {() => {setNewEventDialog(true)}}>Create a New Event</Button>
     </div>
+    </ThemeProvider>
   );
 }
 
