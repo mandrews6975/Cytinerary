@@ -60,7 +60,7 @@ function App() {
 
         <Button color='primary' variant='contained' onClick = {() => {
           try{
-            fetch('http://localhost:8080/getEvents', {
+            fetch('/getEvents', {
               method: 'POST',
                 headers: {
                   Accept: 'application/json',

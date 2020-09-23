@@ -66,7 +66,7 @@ function ShareScheduleDialogWindow(props: Props) {
 
   function getUsers() {
     try {
-      fetch('http://localhost:8080/getUsers', {
+      fetch('/getUsers', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -91,7 +91,7 @@ function ShareScheduleDialogWindow(props: Props) {
 
   function getSharedUsers(sharerId: string) {
     try {
-      fetch('http://localhost:8080/getSharedUsers', {
+      fetch('/getSharedUsers', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -170,7 +170,7 @@ function ShareScheduleDialogWindow(props: Props) {
                       color='red'
                       onClick={() => {
                         try {
-                          fetch('http://localhost:8080/addSharedUser', {
+                          fetch('/addSharedUser', {
                             method: 'POST',
                             headers: {
                               Accept: 'application/json',
@@ -217,7 +217,7 @@ function ShareScheduleDialogWindow(props: Props) {
                     color='red'
                     onRemove={() => {
                       try {
-                        fetch('http://localhost:8080/deleteSharedUser', {
+                        fetch('/deleteSharedUser', {
                           method: 'POST',
                           headers: {
                             Accept: 'application/json',

@@ -54,7 +54,7 @@ class NewEventModal extends React.Component<IProps, IState> {
     else {
       let eventId: string = uuidv4();
       try {
-        fetch('http://localhost:8080/createEvent', {
+        fetch('/createEvent', {
           method: 'POST',
             headers: {
               Accept: 'application/json',
@@ -72,7 +72,7 @@ class NewEventModal extends React.Component<IProps, IState> {
           for(let userId of this.state.participants) {
             console.log(userId);
             try {
-              fetch('http://localhost:8080/addParticipant', {
+              fetch('/addParticipant', {
                 method: 'POST',
                   headers: {
                     Accept: 'application/json',
@@ -122,7 +122,7 @@ class NewEventModal extends React.Component<IProps, IState> {
       })
     }
     else {
-      fetch('http://localhost:8080/userExists', {
+      fetch('/userExists', {
         method: 'POST',
           headers: {
             Accept: 'application/json',
