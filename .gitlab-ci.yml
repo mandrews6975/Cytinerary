@@ -8,7 +8,7 @@ stages:
 maven-build:
     stage: mavenbuild
     tags:
-      - shell
+      - BACKEND
     script:
       - cd Backend/cytinerary-backend
       - mvn package -B
@@ -28,7 +28,7 @@ maven-build:
 autoDeploy:
   stage: autodeploy
   tags:
-    - shell
+    - BACKEND
   only: # Will only run if these conditions are met, check documentation for more!
     refs:
       - master
