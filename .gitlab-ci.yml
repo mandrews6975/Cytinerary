@@ -1,0 +1,66 @@
+stages:
+  - mavenbuild
+  # - maventest
+  - autodeploy
+  # - androidbuild
+  # - androidtest
+
+maven-build:
+    stage: mavenbuild
+    tags:
+      - shell
+    script:
+      - cd Backend/cytinerary-backend
+      - mvn package -B
+
+#maven-test:
+#    stage: maventest
+#    tags:
+#      - shell
+#    script:
+#      - cd Backend/cytinerary-backend
+#      - mvn test
+#      - mvn package -B
+#    artifacts:
+#      paths:
+#        - Backend/cytinerary-backend/target/*.jar
+
+autoDeploy:
+  stage: autodeploy
+  tags:
+    - shell
+  only: # Will only run if these conditions are met, check documentation for more!
+    refs:
+      - master
+  script:
+    - cd Backend/cytinerary-backend
+    - mvn test
+    - mvn package -B
+    - sudo mv target/*.war /var/lib/tomcat/cytinerary/cytinerary.war
+
+# android-build:
+  #  image: javiersantos/android-ci:latest
+  #  stage: androidbuild
+  #  before_script:
+  #      - export GRADLE_USER_HOME='pwd'/.gradle
+  #      - chmod +x ./Frontend/ExercyzeFrontend/gradlew
+  #  tags:
+  #      - android_tag
+  #  script:
+  #      - cd Frontend/ExercyzeFrontend/
+  #      - ./gradlew assemble
+  #  artifacts:
+  #      paths:
+  #          - Frontend/ExercyzeFrontend/app/build/outputs/
+
+# unitTests:
+  #  image: javiersantos/android-ci:latest
+  #  stage: androidtest
+  #  before_script:
+  #      - export GRADLE_USER_HOME='pwd'/.gradle
+  #      - chmod +x ./Frontend/ExercyzeFrontend/gradlew
+  #  tags:
+  #      - android_tag
+  #  script:
+  #      - cd Frontend/ExercyzeFrontend/
+  #      - ./gradlew assemble
