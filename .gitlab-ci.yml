@@ -9,6 +9,9 @@ maven-build:
     stage: mavenbuild
     tags:
       - BACKEND
+    only: # Will only run if these conditions are met, check documentation for more!
+      refs:
+        - master
     script:
       - cd Backend/cytinerary-backend
       - mvn package -B
