@@ -10,6 +10,7 @@ import grey from '@material-ui/core/colors/grey';
 import './App.css';
 import NewEventModal from './components/dialog_windows/newEventModal'
 import ShareScheduleDialogWindow from './components/dialog_windows/ShareScheduleDialogWindow';
+import ScheduleGrid from './components/schedular/ScheduleGrid'
 
 const theme = createMuiTheme({
   palette: {
@@ -38,48 +39,65 @@ function App() {
     <ThemeProvider
       theme={theme}
     >
+
       <div style={{
         display: 'flex',
+        flexDirection: 'column',
         backgroundColor: 'black',
         height: window.innerHeight,
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <ShareScheduleDialogWindow
-          onClose={() => setShowShareScheduleDialog(false)}
-          visible={showShareScheduleDialog}
-        />
-        <NewEventModal visible = {showNewEventDialog} user = {'111'} onClose = {() => {setNewEventDialog(false)}}/>
-        <Button
-          color='primary'
-          variant='contained'
-          onClick={() => setShowShareScheduleDialog(true)}
-        >
-          Share
-        </Button>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row'
+          //alignItems: 'center',
+          //justifyContent: 'center'
+        }}>
+          <ShareScheduleDialogWindow
+            onClose={() => setShowShareScheduleDialog(false)}
+            visible={showShareScheduleDialog}
+          />
+          <NewEventModal visible={showNewEventDialog} user={'111'} onClose={() => { setNewEventDialog(false) }} />
+          <Button
+            color='primary'
+            variant='contained'
+            onClick={() => setShowShareScheduleDialog(true)}
+          >
+            Share
+          </Button>
 
-        <Button color='primary' variant='contained' onClick = {() => {
-          try{
-            fetch('/getEvents', {
-              method: 'POST',
+          <Button color='primary' variant='contained' onClick={() => {
+            try {
+              fetch('/getEvents', {
+                method: 'POST',
                 headers: {
                   Accept: 'application/json',
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  creator : "111"
+                  creator: "111"
                 }),
-            }).then((response) => response.json())
-            .then((json) => {
-              alert(JSON.stringify(json))
-            });
-          }catch(err){
-            console.log(err);
-          }
-        }}>Click here to display this User's events</Button>
+              }).then((response) => response.json())
+                .then((json) => {
+                  alert(JSON.stringify(json))
+                });
+            } catch (err) {
+              console.log(err);
+            }
+          }}>Click here to display this User's events</Button>
 
-        <Button color='primary' variant='contained' onClick = {() => {setNewEventDialog(true)}}>Create a New Event</Button>
-    </div>
+          <Button color='primary' variant='contained' onClick={() => { setNewEventDialog(true) }}>Create a New Event</Button>
+        </div>
+        <div style={{
+          display: 'flex',
+          marginTop: '10px'
+          //alignItems: 'center',
+          //justifyContent: 'center'
+        }}>
+          <ScheduleGrid/>
+        </div>
+      </div>
     </ThemeProvider>
   );
 }
