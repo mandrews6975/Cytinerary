@@ -1,20 +1,19 @@
 stages:
-  - mavenbuild
+  - npmbuild
   # - maventest
   - autodeploy
-  # - androidbuild
-  # - androidtest
 
-maven-build:
-    stage: mavenbuild
-    tags:
-      - BACKEND
-    only: # Will only run if these conditions are met, check documentation for more!
-      refs:
-        - master
-    script:
-      - cd Backend/cytinerary-backend
-      - mvn package -B
+
+#maven-build:
+#    stage: mavenbuild
+#    tags:
+#      - BACKEND
+#    only: # Will only run if these conditions are met, check documentation for more!
+#      refs:
+#        - master
+#    script:
+#      - cd Backend/cytinerary-backend
+#      - mvn package -B
 
 #maven-test:
 #    stage: maventest
@@ -27,6 +26,19 @@ maven-build:
 #    artifacts:
 #      paths:
 #        - Backend/cytinerary-backend/target/*.jar
+
+npmBuild:
+  stage: npmbuild
+  tags:
+    - FRONTEND
+  only: # Will only run if these conditions are met, check documentation for more!
+    refs:
+      - master
+  script:
+    - cd Frontend/my-app
+    - npm install
+    - npm run build
+    - sudo mv build/* ../../Backend/cytinerary-backend/src/main/resources/static/
 
 autoDeploy:
   stage: autodeploy
