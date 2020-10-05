@@ -76,7 +76,7 @@ function App() {
           }catch(err){
             console.log(err);
           }
-        }}>Click here to display this User's events</Button>
+        }}>View this User's events</Button>
 
         <Button color='primary' variant='contained' onClick = {() => {setNewEventDialog(true)}}>Create a New Event</Button>
     </div>
