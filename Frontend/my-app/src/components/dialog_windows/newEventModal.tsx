@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { Dialog, DialogTitle, DialogContent, Button, TextField, NativeSelect } from '@material-ui/core/';
-import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DateFnsUtils from '@date-io/date-fns';
 import EventParticipantDialogWindow from './EventParticipantDialogWindow'
 import { v4 as uuidv4 } from 'uuid';
+import { KeyboardDatePicker, KeyboardDateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 
 interface IProps {
   //onSubmit: string,
@@ -15,8 +16,8 @@ interface IState {
   name: string,
   description: string,
   label: string,
-  fromDate: Date,
-  toDate: Date,
+  fromDate: MaterialUiPickersDate,
+  toDate: MaterialUiPickersDate,
   emptyFieldMessageVisible: boolean,
   participantsDialogVisible: boolean,
   participantsError: boolean,
@@ -27,6 +28,7 @@ interface IState {
 }
 
 class NewEventModal extends React.Component<IProps, IState> {
+  
   constructor(props: IProps) {
     super(props);
     this.state = {
@@ -163,9 +165,15 @@ class NewEventModal extends React.Component<IProps, IState> {
         }
       });
     }
+  }selectedDate
+
+  handleDateChange()
+  {
+    
   }
 
   render() {
+    
     return(
       <div>
         <Dialog maxWidth = {'md'} open = {this.props.visible} onBackdropClick = {() => {this.closeModal()}}>
@@ -176,6 +184,13 @@ class NewEventModal extends React.Component<IProps, IState> {
                   <div style = {{display: 'flex'}}> <TextField error = {this.state.emptyFieldMessageVisible && (this.state.name === '')} id = "nameInput" label = "Name" onChange = {(e) => {this.setState({name: e.target.value})}} variant="outlined"/> </div>
                   <div style = {{display: 'flex'}}> <TextField error = {this.state.emptyFieldMessageVisible && (this.state.description === '')} id = "descriptionInput" label = "Description" onChange={(e) => {this.setState({description: e.target.value})}} variant="outlined"/> </div>
                   <div id = "time-selector">
+                    {/*MySQL date time format YYYY-MM-DD hh:mm:ss*/}
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                      <text>Starting:</text>
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.fromDate} onChange={newDate => this.setState({fromDate: newDate})}/>  
+                      <text>Ending:</text>
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.toDate} onChange={newDate => this.setState({toDate: newDate})}/>
+                    </MuiPickersUtilsProvider>              
                   </div>
                   <div style = {{display: 'flex'}}>
                     <TextField id = "descriptionInput" onChange={(e) => {this.setState({label: e.target.value})}} label = "Label" variant="outlined"/>
