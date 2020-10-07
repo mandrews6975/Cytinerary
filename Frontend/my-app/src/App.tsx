@@ -40,7 +40,7 @@ function App() {
     >
       <div style={{
         display: 'flex',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         height: window.innerHeight,
         alignItems: 'center',
         justifyContent: 'center'
