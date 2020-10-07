@@ -38,7 +38,7 @@ npmBuild:
     - cd Frontend/my-app
     - npm install
     - npm run build
-    - sudo rm ../../Backend/cytinerary-backend/src/main/resources/static/*
+    - sudo rm -r ../../Backend/cytinerary-backend/src/main/resources/static/*
     - sudo mv build/* ../../Backend/cytinerary-backend/src/main/resources/static/
 
 autoDeploy:
