@@ -16,8 +16,8 @@ interface IState {
   name: string,
   description: string,
   label: string,
-  fromDate: Date,
-  toDate: Date,
+  fromDate: string,
+  toDate: string,
   emptyFieldMessageVisible: boolean,
   participantsDialogVisible: boolean,
   participantsError: boolean,
@@ -35,8 +35,8 @@ class NewEventModal extends React.Component<IProps, IState> {
       name: '',
       description: '',
       label: '',
-      fromDate: new Date(Date.now()),
-      toDate: new Date(Date.now()),
+      fromDate: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      toDate: new Date().toISOString().slice(0, 19).replace('T', ' '),
       emptyFieldMessageVisible: false,
       participantsDialogVisible: false,
       participantsError: false,
@@ -67,8 +67,8 @@ class NewEventModal extends React.Component<IProps, IState> {
               creator: this.props.user,
               name: this.state.name,
               description: this.state.description,
-              startTime: "2020-10-10 01:01:01",
-              endTime: "2020-10-10 01:01:01",
+              startTime: this.state.fromDate, /*There is an inconsistency with the naming scheme here (startTime and fromDate)*/
+              endTime: this.state.toDate,
               label: this.state.label,
             }),
         }).then((response) => {
@@ -191,9 +191,13 @@ class NewEventModal extends React.Component<IProps, IState> {
                     {/*In the onChange part of the KeyboardDateTimePicker component, the ! might cause problems down the line. The ! ignores the fact that it could be null.*/}
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <text>Starting:</text>
-                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.fromDate} onChange={newDate => this.setState({fromDate: new Date(newDate!.toDateString())})}/>  
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.fromDate} onChange={(e) => {
+                        this.setState({fromDate: e!.toISOString().slice(0, 19).replace('T', ' ')});
+                      }}/>  
                       <text>Ending:</text>
-                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.toDate} onChange={newDate => this.setState({toDate: new Date(newDate!.toDateString())})}/>
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.toDate} onChange={(e) => {
+                        this.setState({toDate: e!.toISOString().slice(0, 19).replace('T', ' ')});
+                      }}/>
                     </MuiPickersUtilsProvider>              
                   </div>
                   <div style = {{display: 'flex'}}>
