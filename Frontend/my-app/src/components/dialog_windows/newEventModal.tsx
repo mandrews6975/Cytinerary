@@ -16,8 +16,8 @@ interface IState {
   name: string,
   description: string,
   label: string,
-  fromDate: MaterialUiPickersDate,
-  toDate: MaterialUiPickersDate,
+  fromDate: Date,
+  toDate: Date,
   emptyFieldMessageVisible: boolean,
   participantsDialogVisible: boolean,
   participantsError: boolean,
@@ -35,8 +35,8 @@ class NewEventModal extends React.Component<IProps, IState> {
       name: '',
       description: '',
       label: '',
-      fromDate: new Date(),
-      toDate: new Date(),
+      fromDate: new Date(Date.now()),
+      toDate: new Date(Date.now()),
       emptyFieldMessageVisible: false,
       participantsDialogVisible: false,
       participantsError: false,
@@ -67,6 +67,8 @@ class NewEventModal extends React.Component<IProps, IState> {
               creator: this.props.user,
               name: this.state.name,
               description: this.state.description,
+              startTime: this.state.fromDate!.toString(),
+              endTime: this.state.toDate!.toString(),
               label: this.state.label,
             }),
         }).then((response) => {
@@ -184,12 +186,14 @@ class NewEventModal extends React.Component<IProps, IState> {
                   <div style = {{display: 'flex'}}> <TextField error = {this.state.emptyFieldMessageVisible && (this.state.name === '')} id = "nameInput" label = "Name" onChange = {(e) => {this.setState({name: e.target.value})}} variant="outlined"/> </div>
                   <div style = {{display: 'flex'}}> <TextField error = {this.state.emptyFieldMessageVisible && (this.state.description === '')} id = "descriptionInput" label = "Description" onChange={(e) => {this.setState({description: e.target.value})}} variant="outlined"/> </div>
                   <div id = "time-selector">
+                    {/*TODO: Check if the to and from dates make sense, you don't want the to date to be before the from date*/}
                     {/*MySQL date time format YYYY-MM-DD hh:mm:ss*/}
+                    {/*In the onChange part of the KeyboardDateTimePicker component, the ! might cause problems down the line. The ! ignores the fact that it could be null.*/}
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <text>Starting:</text>
-                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.fromDate} onChange={newDate => this.setState({fromDate: newDate})}/>  
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.fromDate} onChange={newDate => this.setState({fromDate: new Date(newDate!.toDateString())})}/>  
                       <text>Ending:</text>
-                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.toDate} onChange={newDate => this.setState({toDate: newDate})}/>
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.toDate} onChange={newDate => this.setState({toDate: new Date(newDate!.toDateString())})}/>
                     </MuiPickersUtilsProvider>              
                   </div>
                   <div style = {{display: 'flex'}}>
