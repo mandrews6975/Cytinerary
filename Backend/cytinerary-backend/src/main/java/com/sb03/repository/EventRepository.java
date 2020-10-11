@@ -1,6 +1,8 @@
 package com.sb03.repository;
 
 import org.springframework.stereotype.Repository;
+
+import java.sql.Timestamp;
 import java.util.Collection;
 import com.sb03.modal.Event; // replace w/ event entity
 
@@ -23,5 +25,5 @@ public interface EventRepository extends CrudRepository<Event, Long>{
 
   @Modifying
   @Query(value="insert into events(eventId, creator, name, description, starttime, endtime, label) values(?1, ?2, ?3, ?4, ?5, ?6, ?7)", nativeQuery = true)
-  void createEvent(String eventId, String creator, String name, String description, String starTtime, String endTime, String label);
+  void createEvent(String eventId, String creator, String name, String description, Timestamp startTime, Timestamp endTime, String label);
 }

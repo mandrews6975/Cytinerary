@@ -67,8 +67,8 @@ class NewEventModal extends React.Component<IProps, IState> {
               creator: this.props.user,
               name: this.state.name,
               description: this.state.description,
-              startTime: this.state.fromDate!.toString(),
-              endTime: this.state.toDate!.toString(),
+              startTime: "2020-10-10 01:01:01",
+              endTime: "2020-10-10 01:01:01",
               label: this.state.label,
             }),
         }).then((response) => {
