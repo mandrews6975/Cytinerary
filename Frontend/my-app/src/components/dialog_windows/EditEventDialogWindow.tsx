@@ -16,16 +16,17 @@ import {
   DialogActions,
   DialogTitle,
   Button,
-  InputAdornment,
   Divider,
   List,
-  Popper,
-  Paper
+  IconButton,
+  Typography
 } from '@material-ui/core';
 import {
-
+  Edit
 } from '@material-ui/icons';
-import ShareDialogSharedListItem from '../list_items/ShareDialogSharedListItem';
+import ShareDialogListItem from '../list_items/ShareDialogListItem';
+
+var dateFormat = require('dateformat');
 
 interface Event {
   eventId: string,
@@ -68,7 +69,11 @@ const sharerId = '111';
 function EditEventDialogWindow(props: Props) {
 
   const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
-  const [input, setInput] = useState<string>('');
+  const [titleInput, setTitleInput] = useState<string>('');
+  const [startTime, setStartTime] = useState<Date>(new Date());
+  const [endTime, setEndTime] = useState<Date>(new Date());
+  const [locationInput, setLocationInput] = useState<string>('');
+  const [descriptionInput, setDescriptionInput] = useState<string>('');
 
   // useEffect(() => getSharedUsers(sharerId), []);
 
@@ -128,6 +133,23 @@ function EditEventDialogWindow(props: Props) {
                 width: '30%'
               }}
             />
+            <Button
+              variant='outlined'
+              color='inherit'
+              onClick={() => { }}
+            >
+              {dateFormat(startTime, 'mm/dd/yy hh:MM TT')}
+            </Button>
+            <Typography variant='subtitle1'>
+              to
+            </Typography>
+            <Button
+              variant='outlined'
+              color='inherit'
+              onClick={() => { }}
+            >
+              {dateFormat(endTime, 'mm/dd/yy hh:MM TT')}
+            </Button>
             <TextField
               variant='standard'
               label='Location'
@@ -138,6 +160,7 @@ function EditEventDialogWindow(props: Props) {
           </div>
           <Divider
             style={{
+              marginTop: '10px',
               marginBottom: '10px',
             }}
           />
@@ -155,7 +178,7 @@ function EditEventDialogWindow(props: Props) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 flex: 7,
-                marginBottom: '10px',
+                height: window.innerHeight * 0.3075,
                 marginRight: '10px'
               }}
             >
@@ -163,7 +186,7 @@ function EditEventDialogWindow(props: Props) {
                 variant='filled'
                 label='Description'
                 style={{
-                  width: '100%'
+                  width: '100%',
                 }}
                 multiline
                 rows={13}
@@ -177,31 +200,53 @@ function EditEventDialogWindow(props: Props) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 flex: 3,
+                height: window.innerHeight * 0.3075,
               }}
             >
               <div
                 style={{
                   display: 'flex',
-                  flexDirection: 'column',
+                  flexDirection: 'row',
                   alignItems: 'center',
-                  justifyContent: 'flex-end',
-                  backgroundColor: 'blue',
-                  flex: 1
+                  justifyContent: 'space-between',
+                  flex: 1,
+                  width: '100%'
                 }}
               >
-                <Button
-                  variant='contained'
-                  color='primary'
-                  onClick={() => { }}
-                >
-                  Share
-              </Button>
+                <Typography variant='subtitle1'>
+                  Participants
+                </Typography>
+                <IconButton>
+                  <Edit />
+                </IconButton>
+              </div>
+              <div
+                style={{
+                  overflowY: 'scroll',
+                  height: window.innerHeight * 0.25,
+                  width: '100%'
+                }}
+              >
+                <List>
+                  {currentlyShared.map((
+                    person: { userId: string, name: string, email: string },
+                    index: number,
+                    array: { userId: string, name: string, email: string }[]
+                  ) => (
+                      <ShareDialogListItem
+                        name={person.name}
+                        email={person.email}
+                        color='red'
+                        key={`${person.name}-${person.email}-${index}-shared`}
+                      />
+                    ))}
+                </List>
               </div>
             </div>
           </div>
           <Divider
             style={{
-              marginBottom: '10px',
+              marginTop: '10px'
             }}
           />
         </DialogContent>
