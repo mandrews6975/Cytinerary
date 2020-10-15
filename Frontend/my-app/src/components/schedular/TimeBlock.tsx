@@ -1,5 +1,4 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable';
 
 interface IProps {
@@ -38,8 +37,8 @@ class TimeBlock extends React.Component<IProps, IState> {
   render() {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     return(
-      <Draggable disabled= {true} defaultPosition = {{x: 0, y : this.props.yinit}} bounds= "body" grid={[72, 10]} {...dragHandlers}>
-          <div className="box" style = {{backgroundColor:'white'}}>I am an event</div>
+      <Draggable disabled= {true} defaultPosition = {{x: 0, y : this.props.yinit}} bounds= ".GridBody" grid={[123, 60]} {...dragHandlers}>
+          <div className="box" style = {{minHeight: "60px", maxHeight: "60px", marginLeft: "5px", marginRight: "5px", backgroundColor:'red'}}>I am an event</div>
       </Draggable>
     );
   }

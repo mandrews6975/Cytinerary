@@ -1,0 +1,41 @@
+
+.HeaderCell {
+  text-align: center;
+  border-left: solid;
+  border-color: black;
+  background-color: white;
+  flex: 1;
+}
+
+.BodyCell {
+  height: 58px;
+  max-Height:58px;
+  border-bottom: dotted;
+  border-color: black;
+  background-color: white;
+  flex: 1;
+}
+.TimeCell {
+  height: 58px;
+  max-Height:58px;
+  border-bottom: solid;
+  border-color:white;
+  flex: 1;
+}
+.TimeColumn {
+  margin-top: 45px;
+  text-align: center;
+  border-color: black;
+  background-color: white;
+  flex: 1;
+}
+.GridBody {
+  
+}
+
+.BodyColumn {
+  border-left: solid;
+  border-color: black;
+  background-color: white;
+  flex: 1;
+}
