@@ -10,6 +10,7 @@ import grey from '@material-ui/core/colors/grey';
 import './App.css';
 import NewEventModal from './components/dialog_windows/newEventModal'
 import ShareScheduleDialogWindow from './components/dialog_windows/ShareScheduleDialogWindow';
+import LabelDialogWindow from './components/dialog_windows/LabelDialogWindow';
 
 const theme = createMuiTheme({
   palette: {
@@ -33,6 +34,7 @@ const theme = createMuiTheme({
 function App() {
   const [showShareScheduleDialog, setShowShareScheduleDialog] = useState<boolean>(false);
   const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
+  const [showLabelDialog, setLabelDialog] = useState<boolean>(false);
 
   return (
     <ThemeProvider
@@ -45,6 +47,17 @@ function App() {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
+        <LabelDialogWindow
+          onClose={() => setLabelDialog(false)}
+          visible={showLabelDialog}
+        />
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={() => setLabelDialog(true)}
+        >
+          Labels
+        </Button>
         <ShareScheduleDialogWindow
           onClose={() => setShowShareScheduleDialog(false)}
           visible={showShareScheduleDialog}
@@ -77,6 +90,26 @@ function App() {
             console.log(err);
           }
         }}>Click here to display this User's events</Button>
+
+        <Button color='primary' variant='contained' onClick = {() => {
+          try{
+            fetch('/getLabels', {
+              method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  userId: 'proth'
+                }),
+            }).then((response) => response.json())
+            .then((json) => {
+              alert(JSON.stringify(json))
+            });
+          }catch(err){
+            console.log(err);
+          }
+        }}>Label List</Button>
 
         <Button color='primary' variant='contained' onClick = {() => {setNewEventDialog(true)}}>Create a New Event</Button>
     </div>
