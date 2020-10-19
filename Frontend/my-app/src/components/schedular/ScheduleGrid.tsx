@@ -27,6 +27,32 @@ class ScheduleGrid extends React.Component<IProps, IState> {
 
   componentDidMount() {
     //Include code for fetching the events based on the current week
+    this.getWeeklyEvents();
+  }
+
+  getWeeklyCreatorEvents() {
+
+  }
+
+  getWeeklyParticipantEvents() {
+
+  }
+
+  getWeeklyEvents() {
+    //Determine the first day and last day of the current week
+    let d = new Date();
+    // new Date().toISOString().slice(0, 19).replace('T', ' ');
+    var days = ((d.getDay() + 7) - 1) % 7;
+    d.setDate(d.getDate() - days);
+
+    var curr = new Date; // get current date
+    var first = curr.getDate() - curr.getDay() + 1; // First day is the day of the month - the day of the week
+    var last = first + 6; // last day is the first day + 6
+
+    var firstday = new Date(curr.setDate(first)).toUTCString();
+    var lastday = new Date(curr.setDate(last)).toUTCString();
+    console.log(firstday.toString());
+    console.log(lastday.toString());
   }
 
 
@@ -61,7 +87,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           </div>
         </div>
         <div style={{ display: 'flex', overflowY: 'scroll' }}>
-          <div className='GridBody' style={{ display: 'flex', minHeight: '1440px', maxHeight: '1440px', flexDirection: 'row', flex: '5' }}>
+          <div className='GridBody' style={{ display: 'flex', minHeight: '1440px', maxHeight: '1440px', maxWidth:'790px', flexDirection: 'row', flex: '5' }}>
             <div className={'TimeColumn'}>
               {
                 times.map((time, index) => (
@@ -75,7 +101,8 @@ class ScheduleGrid extends React.Component<IProps, IState> {
 
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
-                  <TimeBlock yinit={600} />
+                  <TimeBlock xinit = {388} yinit={600} />
+                  <TimeBlock xinit = {0} yinit={630} />
                 </div>
                 {
                   times.map((time, index) => (
@@ -86,7 +113,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               </div>
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
-                  <TimeBlock yinit={0} />
+                  <TimeBlock xinit = {0} yinit={630} />
                 </div>
                 {
                   times.map((time, index) => (
@@ -97,7 +124,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               </div>
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
-                  <TimeBlock yinit={0} />
+                  <TimeBlock xinit = {0} yinit={630} />
                 </div>
                 {
                   times.map((time, index) => (
@@ -108,7 +135,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               </div>
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
-                  <TimeBlock yinit={0} />
+                  <TimeBlock xinit = {0} yinit={630} />
                 </div>
                 {
                   times.map((time, index) => (
@@ -119,7 +146,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               </div>
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
-                  <TimeBlock yinit={0} />
+                  <TimeBlock xinit = {0} yinit={630} />
                 </div>
                 {
                   times.map((time, index) => (
@@ -130,7 +157,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               </div>
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
-                  <TimeBlock yinit={0} />
+                  <TimeBlock xinit = {0} yinit={630} />
                 </div>
                 {
                   times.map((time, index) => (
@@ -141,7 +168,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               </div>
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
-                  <TimeBlock yinit={0} />
+                  <TimeBlock xinit = {0} yinit={630} />
                 </div>
                 {
                   times.map((time, index) => (

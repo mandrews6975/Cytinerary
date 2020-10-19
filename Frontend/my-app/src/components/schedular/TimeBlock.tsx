@@ -7,6 +7,7 @@ interface IProps {
   // onClose: () => void,
   // user: string,
   yinit: number,
+  xinit: number,
 }
 interface IState {
   activeDrags: number,
@@ -37,8 +38,8 @@ class TimeBlock extends React.Component<IProps, IState> {
   render() {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     return(
-      <Draggable disabled= {true} defaultPosition = {{x: 0, y : this.props.yinit}} bounds= ".GridBody" grid={[123, 60]} {...dragHandlers}>
-          <div className="box" style = {{minHeight: "60px", maxHeight: "60px", marginLeft: "5px", marginRight: "5px", backgroundColor:'red'}}>I am an event</div>
+      <Draggable disabled= {false} defaultPosition = {{x: this.props.xinit, y : this.props.yinit}} bounds= "body" grid={[96, 30]} {...dragHandlers}>
+          <div className="box" style = {{borderColor: 'black', border:'solid', borderWidth: '1px', position: "absolute", minHeight: "58px", maxWidth: '83px', maxHeight: "58px", marginLeft: "5px", marginRight: "5px", backgroundColor:'red'}}>I am an event</div>
       </Draggable>
     );
   }
