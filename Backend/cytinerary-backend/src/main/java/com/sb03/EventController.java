@@ -40,7 +40,7 @@ public class EventController {
 
   @PostMapping("/getEvent")
   public @ResponseBody Collection<Event> getEvent(@RequestBody Map<String, Object> payload) {
-    return eventRepository.getEvent((String) payload.get("eventId"));
+    return eventRepository.getEvent((String) payload.get("creatorId"), (String) payload.get("eventId"));
   }
 
   @Transactional
