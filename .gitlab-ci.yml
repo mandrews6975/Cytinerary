@@ -47,8 +47,8 @@ autoDeploy:
     refs:
       - master
   script:
-    - sudo rm -r ../../Backend/cytinerary-backend/src/main/resources/static/*
-    - sudo mv build/* ../../Backend/cytinerary-backend/src/main/resources/static/
+    - sudo rm -r ./Backend/cytinerary-backend/src/main/resources/static/*
+    - sudo mv ./Frontend/my-app/build/* ./Backend/cytinerary-backend/src/main/resources/static/
     - cd Backend/cytinerary-backend
     - mvn test
     - mvn package -B
