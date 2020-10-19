@@ -43,9 +43,13 @@ public class ParticipantController {
     return ((String) payload.get("participant") + "deleted from" + (String) payload.get("eventId"));
   }
 
-  @Transactional
   @PostMapping("/getParticipants")
   public @ResponseBody Collection<Participant> getParticipants(@RequestBody Map<String, Object> payload) {
     return participantRepository.getParticipants((String) payload.get("eventId"));
+  }
+  
+  @PostMapping("/getParticipantsSecure")
+  public @ResponseBody Collection<Object> getParticipantsSecure(@RequestBody Map<String, Object> payload) {
+    return participantRepository.getParticipantsSecure((String) payload.get("eventId"));
   }
 }

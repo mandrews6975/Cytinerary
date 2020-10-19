@@ -16,8 +16,8 @@ public interface EventRepository extends CrudRepository<Event, Long>{
   @Query(value="select * from events where creator = ?1", nativeQuery = true)
   Collection<Event> getEvents(String creator);
 
-  @Query(value="select * from events where eventId = ?1", nativeQuery = true)
-  Collection<Event> getEvent(String eventId);
+  @Query(value="select * from events where creator = ?1 and eventId = ?2", nativeQuery = true)
+  Collection<Event> getEvent(String creator, String eventId);
 
   @Modifying
   @Query(value="delete from events where eventId = ?1", nativeQuery = true)

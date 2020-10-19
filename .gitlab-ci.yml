@@ -1,5 +1,5 @@
 stages:
-  # - npmbuild
+  #- npmbuild
   # - maventest
   - autodeploy
 
@@ -27,7 +27,7 @@ stages:
 #      paths:
 #        - Backend/cytinerary-backend/target/*.jar
 
-# npmBuild:
+#npmBuild:
 #  stage: npmbuild
 #  tags:
 #    - FRONTEND
@@ -35,10 +35,7 @@ stages:
 #    refs:
 #      - master
 #  script:
-#    - cd Frontend/my-app
-#    - npm install
-#    - npm run build
-#    - sudo mv build/* ../../Backend/cytinerary-backend/src/main/resources/static/
+
 
 autoDeploy:
   stage: autodeploy
@@ -48,6 +45,13 @@ autoDeploy:
     refs:
       - master
   script:
+    - cd Frontend/my-app
+    - npm install
+    - npm run build
+    - cd ..
+    - cd ..
+    - sudo rm -r ./Backend/cytinerary-backend/src/main/resources/static/*
+    - sudo mv ./Frontend/my-app/build/* ./Backend/cytinerary-backend/src/main/resources/static/
     - cd Backend/cytinerary-backend
     - mvn test
     - mvn package -B

@@ -38,10 +38,10 @@ public class EventController {
 		return ((String) payload.get("eventId") + "deleted");
 	}
 
-	@PostMapping("/getEvent")
-	public @ResponseBody Collection<Event> getEvent(@RequestBody Map<String, Object> payload) {
-		return eventRepository.getEvent((String) payload.get("eventId"));
-	}
+  @PostMapping("/getEvent")
+  public @ResponseBody Collection<Event> getEvent(@RequestBody Map<String, Object> payload) {
+    return eventRepository.getEvent((String) payload.get("creatorId"), (String) payload.get("eventId"));
+  }
 
 	@Transactional
 	@PostMapping("/createEvent")
