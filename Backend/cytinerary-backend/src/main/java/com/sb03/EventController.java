@@ -30,6 +30,12 @@ public class EventController {
   public @ResponseBody Collection<Event> getEvents(@RequestBody Map<String, Object> payload) {
     return eventRepository.getEvents((String) payload.get("creator"));
   }
+  
+  @Transactional
+  @PostMapping("/getCreatorEvents")
+  public @ResponseBody Collection<Event> getCreatorEvents(@RequestBody Map<String, Object> payload) {
+	    return eventRepository.getCreatorEvents((String) payload.get("creator"), (String) payload.get("startDate"), (String) payload.get("endDate"));
+  }
 
   @Transactional
   @PostMapping("/deleteEvent")
