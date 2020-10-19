@@ -1,6 +1,8 @@
 package com.sb03.modal;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,10 +32,10 @@ public class Event {
 	 private String location;
 
 	@Column(name = "starttime")
-	 private Date startTime;
+	 private Timestamp startTime;
 
 	@Column(name = "endtime")
-	 private Date endTime;
+	 private Timestamp endTime;
 
 	@Column(name = "label")
 	 private String label;
@@ -55,10 +57,10 @@ public class Event {
 	public String getLocation() {
 		return location;
 	}
-	public Date getStartTime() {
+	public Timestamp getStartTime() {
 		return startTime;
 	}
-	public Date getEndTime() {
+	public Timestamp getEndTime() {
 		return endTime;
 	}
 	public String getLabel() {
@@ -85,12 +87,12 @@ public class Event {
 		this.location = location;
 	}
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	public void setStartTime(String startTime) {
+		this.startTime = Timestamp.valueOf(startTime);
 	}
 
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+	public void setEndTime(String endTime) {
+		this.endTime = Timestamp.valueOf(endTime);
 	}
 
 	public void setLabel(String label) {
