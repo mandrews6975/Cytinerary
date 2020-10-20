@@ -105,39 +105,26 @@ class ScheduleGrid extends React.Component<IProps, IState> {
 
     var startDate = new Date(curr.setDate(first)).toISOString().split('T')[0];
     var endDate = new Date(curr.setDate(last)).toISOString().split('T')[0];
-    console.log(startDate)
-    console.log(endDate)
     this.setState({startDate, endDate})
-
     // console.log(firstday);
     // console.log(lastday);
     this.getWeeklyCreatorEvents(startDate, endDate);
   }
 
   setNextWeek() {
-    console.log(this.state.selectedDate.toString())
-    let nextDate = new Date();
+    let nextDate = new Date(this.state.selectedDate.getFullYear(), this.state.selectedDate.getMonth(), this.state.selectedDate.getDate() + 7);
     nextDate.setHours(0, 0, 0, 0);
-    nextDate.setDate(this.state.selectedDate.getDate() + 7)
-    nextDate.setHours(0, 0, 0, 0);
-    console.log(nextDate.toString())
     this.setState({
       selectedDate: new Date(nextDate),
-    });
-    this.getWeeklyEvents();
+    }, () => {this.getWeeklyEvents();});
   }
 
   setPreviousWeek() {
-    console.log(this.state.selectedDate.toString())
-    let previousDate = new Date(this.state.selectedDate.getTime() - 604800000);
+    let previousDate = new Date(this.state.selectedDate.getFullYear(), this.state.selectedDate.getMonth(), this.state.selectedDate.getDate() -7);
     previousDate.setHours(0, 0, 0, 0);
-    //previousDate.setHours(0, 0, 0, 0);
-    //previousDate.setDate(this.state.selectedDate.getTime() - 604800000)
-    console.log(previousDate.toString())
     this.setState({
       selectedDate: new Date(previousDate),
-    });
-    this.getWeeklyEvents();
+    }, () => {this.getWeeklyEvents();});
   }
 
   render() {
@@ -148,7 +135,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           <div style={{ flex: '1' }}>
           <IconButton
             edge='end'
-            onClick={() => {console.log("Clicked"); this.setPreviousWeek(); }}
+            onClick={() => {this.setPreviousWeek(); }}
           >
             <ArrowBack style = {{color: 'black'}}/>
           </IconButton>
