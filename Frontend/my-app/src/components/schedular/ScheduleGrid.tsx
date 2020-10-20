@@ -59,7 +59,6 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           }),
         }).then((response) => response.json())
           .then((json) => {
-            console.log("Sent Request")
             let creatorEvents: {eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date} [] = [];
             json.forEach((event) => {
               var splitStartTime = event.startTime.replace("T", ":").split(/[- :]/);
@@ -85,7 +84,6 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               creatorEvents.push(eventObject);
             })
             this.setState({creatorEvents});
-            console.log(this.state.creatorEvents.toString())
           });
       } catch (err) {
         console.log(err);

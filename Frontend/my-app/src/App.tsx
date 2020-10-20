@@ -43,7 +43,7 @@ function App() {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         height: window.innerHeight,
         alignItems: 'center',
         justifyContent: 'center'
@@ -78,14 +78,14 @@ function App() {
                 body: JSON.stringify({
                   creator: "111"
                 }),
-              }).then((response) => response.json())
-                .then((json) => {
-                  alert(JSON.stringify(json))
-                });
-            } catch (err) {
-              console.log(err);
-            }
-          }}>Click here to display this User's events</Button>
+            }).then((response) => response.json())
+            .then((json) => {
+              alert(JSON.stringify(json))
+            });
+          }catch(err){
+            console.log(err);
+          }
+        }}>View this User's events</Button>
 
           <Button color='primary' variant='contained' onClick={() => { setNewEventDialog(true) }}>Create a New Event</Button>
         </div>
