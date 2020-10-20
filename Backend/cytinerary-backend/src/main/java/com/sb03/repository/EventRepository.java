@@ -25,6 +25,15 @@ public interface EventRepository extends CrudRepository<Event, Long>{
   		"(select userId from users where userId = ?1) and startTime >= ?2 and endTime < ?3", nativeQuery = true)
   Collection<Event> getCreatorEvents(String creator, String startTime, String endTime);
   
+  
+  
+  @Query(value="select *\r\n" + 
+  		"from events\r\n" + 
+  		"	inner join participants\r\n" + 
+  		"    on participants.eventId = events.eventId\r\n" + 
+  		"    where participants.participant = ?1 and events.startTime >= ?2 and events.endTime < ?3", nativeQuery = true)
+	  Collection<Event> getParticipantEvents(String participant, String startTime, String endTime);
+  
   @Modifying
   @Query(value="delete from events where eventId = ?1", nativeQuery = true)
   void deleteEvent(String eventId);
