@@ -34,6 +34,7 @@ const theme = createMuiTheme({
 function App() {
   const [showShareScheduleDialog, setShowShareScheduleDialog] = useState<boolean>(false);
   const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
+  const [persistantState, forceUpdate] = useState<number>(0);
 
   return (
     <ThemeProvider
@@ -58,7 +59,7 @@ function App() {
             onClose={() => setShowShareScheduleDialog(false)}
             visible={showShareScheduleDialog}
           />
-          <NewEventModal visible={showNewEventDialog} user={'111'} onClose={() => { setNewEventDialog(false) }} />
+          <NewEventModal visible={showNewEventDialog} user={'111'} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
           <Button
             color='primary'
             variant='contained'
