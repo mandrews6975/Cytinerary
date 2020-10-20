@@ -128,6 +128,15 @@ class ScheduleGrid extends React.Component<IProps, IState> {
   }
 
   render() {
+    let referenceDate = new Date(this.state.startDate);
+    let monday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 1);
+    let tuesday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 2);
+    let wednesday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 3);
+    let thursday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 4);
+    let friday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 5);
+    let saturday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 6);
+    let sunday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 7);
+
     const times: String[] = ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM']
     return (
       <div style={{ display: 'flex', flexDirection: 'column', flex: '1', minHeight: '400px', maxHeight: '400px', minWidth: '600px', marginTop: '10 px', borderColor: 'red', borderStyle: 'solid', borderWidth: '2px', backgroundColor: 'white' }} >
@@ -149,25 +158,31 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           </div>
           <div className='HeaderCell'>
             <p style = {{marginTop: '-2px', marginBottom:'1px'}}>Monday</p>
-            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{this.state.startDate}</p>
+            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{monday.toLocaleDateString()}</p>
           </div>
           <div className='HeaderCell'>
-            Tuesday
+            <p style = {{marginTop: '-2px', marginBottom:'1px'}}>Tueday</p>
+            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{tuesday.toLocaleDateString()}</p>
           </div>
           <div className='HeaderCell'>
-            Wednesday
+            <p style = {{marginTop: '-2px', marginBottom:'1px'}}>Wednesday</p>
+            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{wednesday.toLocaleDateString()}</p>
           </div>
           <div className='HeaderCell'>
-            Thursday
+            <p style = {{marginTop: '-2px', marginBottom:'1px'}}>Thursday</p>
+            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{thursday.toLocaleDateString()}</p>
           </div>
           <div className='HeaderCell'>
-            Friday
+            <p style = {{marginTop: '-2px', marginBottom:'1px'}}>Friday</p>
+            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{friday.toLocaleDateString()}</p>
           </div>
           <div className='HeaderCell'>
-            Saturday
+            <p style = {{marginTop: '-2px', marginBottom:'1px'}}>Saturday</p>
+            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{saturday.toLocaleDateString()}</p>
           </div>
           <div className='HeaderCell'>
-            Sunday
+            <p style = {{marginTop: '-2px', marginBottom:'1px'}}>Sunday</p>
+            <p style = {{marginTop: '3px', marginBottom:'-10px'}}>{sunday.toLocaleDateString()}</p>
           </div>
         </div>
         <div style={{ display: 'flex', overflowY: 'scroll' }}>
@@ -187,7 +202,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
                 <div className={'BodyCell'}>
                 {
                 this.state.creatorEvents.map((event, index) => (
-                  <TimeBlock name = {event.name} key = {uuidv4()} height = {event.minutes} xinit = {97*event.dateIndex} yinit={event.startMinute} />
+                  <TimeBlock name = {event.name} eventId = {event.eventId} onClick = {(eventId) => alert(eventId)} key = {uuidv4()} height = {event.minutes} xinit = {97*event.dateIndex} yinit={event.startMinute} />
                 ))
                 }
 
