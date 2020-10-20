@@ -25,11 +25,17 @@ public class EventController {
 	@Autowired
 	private EventRepository eventRepository;
 
-	@Transactional
-	@PostMapping("/getEvents")
-	public @ResponseBody Collection<Event> getEvents(@RequestBody Map<String, Object> payload) {
-		return eventRepository.getEvents((String) payload.get("creator"));
-	}
+  @Transactional
+  @PostMapping("/getEvents")
+  public @ResponseBody Collection<Event> getEvents(@RequestBody Map<String, Object> payload) {
+    return eventRepository.getEvents((String) payload.get("creator"));
+  }
+
+  @Transactional
+  @PostMapping("/getCreatorEvents")
+  public @ResponseBody Collection<Event> getCreatorEvents(@RequestBody Map<String, Object> payload) {
+	    return eventRepository.getCreatorEvents((String) payload.get("creator"), (String) payload.get("startDate"), (String) payload.get("endDate"));
+  }
 
 	@Transactional
 	@PostMapping("/deleteEvent")
@@ -47,9 +53,9 @@ public class EventController {
 	@PostMapping("/createEvent")
 	public @ResponseBody String createEvent(@RequestBody Map<String, Object> payload) {
 		eventRepository.createEvent(
-				(String) payload.get("eventId"), 
+				(String) payload.get("eventId"),
 				(String) payload.get("creator"),
-				(String) payload.get("name"), 
+				(String) payload.get("name"),
 				(String) payload.get("description"),
 				Timestamp.valueOf((String) payload.get("startTime")),
 				Timestamp.valueOf((String) payload.get("endTime")),

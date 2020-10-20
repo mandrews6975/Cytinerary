@@ -11,6 +11,7 @@ interface IProps {
   visible: boolean,
   onClose: () => void,
   user: string,
+  onSuccessfulSubmit: Function,
 }
 interface IState {
   name: string,
@@ -28,7 +29,7 @@ interface IState {
 }
 
 class NewEventModal extends React.Component<IProps, IState> {
-  
+
   constructor(props: IProps) {
     super(props);
     this.state = {
@@ -72,6 +73,7 @@ class NewEventModal extends React.Component<IProps, IState> {
               label: this.state.label,
             }),
         }).then((response) => {
+          this.props.onSuccessfulSubmit();
           //Add each participant once the event has been created
           for(let userId of this.state.participants) {
             console.log(userId);
@@ -86,7 +88,7 @@ class NewEventModal extends React.Component<IProps, IState> {
                     eventId: eventId,
                     participant: userId,
                   }),
-              }).then((response) => response)
+              }).then((response) => {this.props.onSuccessfulSubmit();})
             }
             catch(err) {
               console.log(err)
@@ -167,15 +169,15 @@ class NewEventModal extends React.Component<IProps, IState> {
         }
       });
     }
-  }selectedDate
+  }
 
   handleDateChange()
   {
-    
+
   }
 
   render() {
-    
+
     return(
       <div>
         <Dialog maxWidth = {'md'} open = {this.props.visible} onBackdropClick = {() => {this.closeModal()}}>
@@ -193,12 +195,12 @@ class NewEventModal extends React.Component<IProps, IState> {
                       <text>Starting:</text>
                       <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.fromDate} onChange={(e) => {
                         this.setState({fromDate: e!.toISOString().slice(0, 19).replace('T', ' ')});
-                      }}/>  
+                      }}/>
                       <text>Ending:</text>
                       <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.toDate} onChange={(e) => {
                         this.setState({toDate: e!.toISOString().slice(0, 19).replace('T', ' ')});
                       }}/>
-                    </MuiPickersUtilsProvider>              
+                    </MuiPickersUtilsProvider>
                   </div>
                   <div style = {{display: 'flex'}}>
                     <TextField id = "descriptionInput" onChange={(e) => {this.setState({label: e.target.value})}} label = "Label" variant="outlined"/>

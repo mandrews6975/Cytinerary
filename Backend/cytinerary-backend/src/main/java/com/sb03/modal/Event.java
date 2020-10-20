@@ -98,4 +98,14 @@ public class Event {
 	public void setLabel(String label) {
 		this.label = label;
 	}
+
+	public Event() {
+	}
+
+	public Event(String eventId, String name, Timestamp startTime, Timestamp endTime) {
+		this.eventId = eventId;
+		this.name = name;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
 }
