@@ -95,7 +95,7 @@ function App() {
           //alignItems: 'center',
           //justifyContent: 'center'
         }}>
-          <ScheduleGrid/>
+          <ScheduleGrid user = "111"/>
         </div>
       </div>
     </ThemeProvider>

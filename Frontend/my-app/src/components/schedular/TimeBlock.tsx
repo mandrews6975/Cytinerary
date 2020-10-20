@@ -2,12 +2,12 @@ import * as React from 'react'
 import Draggable from 'react-draggable';
 
 interface IProps {
-  //onSubmit: string,
-  // visible: boolean,
-  // onClose: () => void,
-  // user: string,
   yinit: number,
   xinit: number,
+  height: number,
+  name?: string,
+  description?: string,
+  label?: string
 }
 interface IState {
   activeDrags: number,
@@ -25,7 +25,7 @@ class TimeBlock extends React.Component<IProps, IState> {
       deltaPosition: {
         x: 0,
         y: 0,
-      }
+      },
     }
   }
 
@@ -36,10 +36,11 @@ class TimeBlock extends React.Component<IProps, IState> {
   };
 
   render() {
+    //{left: 0, top:0, right:200, bottom: 400}
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     return(
-      <Draggable disabled= {false} defaultPosition = {{x: this.props.xinit, y : this.props.yinit}} bounds= "body" grid={[96, 30]} {...dragHandlers}>
-          <div className="box" style = {{borderColor: 'black', border:'solid', borderWidth: '1px', position: "absolute", minHeight: "58px", maxWidth: '83px', maxHeight: "58px", marginLeft: "5px", marginRight: "5px", backgroundColor:'red'}}>I am an event</div>
+      <Draggable disabled= {true} defaultPosition = {{x: this.props.xinit, y : this.props.yinit}} bounds= {'body'} grid={[96, 30]} {...dragHandlers}>
+          <div className="box" style = {{textAlign: 'center', borderColor: 'black', border:'solid', borderWidth: '1px', position: "absolute", minHeight: this.props.height-2, maxWidth: '83px', maxHeight: this.props.height-2, marginLeft: "5px", marginRight: "5px", backgroundColor:'red'}}>{this.props.name}</div>
       </Draggable>
     );
   }
