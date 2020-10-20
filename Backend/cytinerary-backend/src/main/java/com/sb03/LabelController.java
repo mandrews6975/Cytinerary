@@ -28,6 +28,11 @@ public class LabelController {
 		return labelRepository.getLabels((String) payload.get("userId"));
 	}
 
+	@PostMapping("/getLabel")
+	public @ResponseBody Collection<Label> getLabel(@RequestBody Map<String, Object> payload) {
+		return labelRepository.getLabel((String) payload.get("label"));
+	}
+
 	@Transactional
 	@PostMapping("/deleteLabel")
 	public @ResponseBody String deleteLabel(@RequestBody Map<String, Object> payload) {
@@ -38,7 +43,7 @@ public class LabelController {
 	@Transactional
 	@PostMapping("/addLabel")
 	public @ResponseBody String addLabel(@RequestBody Map<String, Object> payload) {
-		labelRepository.addLabel((String) payload.get("label"), (String) payload.get("color"), (String) payload.get("userId"));
+		labelRepository.addLabel((String) payload.get("userId"), (String) payload.get("label"), (String) payload.get("color"));
 		return ("Label " + ((String) payload.get("label")) + " Added");
 	}
 

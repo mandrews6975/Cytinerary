@@ -14,6 +14,9 @@ public interface LabelRepository extends CrudRepository<Label, Long> {
 	@Query(value = "select * from labels where userId = ?1", nativeQuery = true)
 	Collection<Label> getLabels(String userId);
 
+	@Query(value = "select * from labels where label = ?1", nativeQuery = true)
+	Collection<Label> getLabel(String label);
+
 	@Modifying
 	@Query(value = "delete from labels where label = ?1", nativeQuery = true)
 	void deleteLabel(String label);

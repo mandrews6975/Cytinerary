@@ -6,7 +6,6 @@ import {
   ThemeProvider,
   createMuiTheme
 } from '@material-ui/core/styles';
-import ColorPicker from 'material-ui-color-picker'
 import red from '@material-ui/core/colors/red';
 import yellow from '@material-ui/core/colors/yellow';
 import grey from '@material-ui/core/colors/grey';
@@ -19,7 +18,7 @@ import {
   Button,
   Divider,
   List,
-  Popper
+  Fab
 } from '@material-ui/core';
 
 import LabelDialogListItem from '../list_items/LabelDialogListItem';
@@ -48,7 +47,7 @@ const theme = createMuiTheme({
   }
 });
 
-const userId = 'proth';
+const concrete_userId = '111';
 
 function LabelDialogWindow(props: IProps) {
 
@@ -58,7 +57,9 @@ function LabelDialogWindow(props: IProps) {
 
   const [colorChoice, setColorChoice]= useState<string>('');
 
-  useEffect(() => getLabels(userId), []);
+  const [colorPicker, setColorPicker] = useState(false);
+
+  useEffect(() => getLabels(concrete_userId), []);
 
   function getLabels(userId: string) {
     try {
@@ -73,6 +74,7 @@ function LabelDialogWindow(props: IProps) {
         }),
       }).then((response) => response.json())
         .then((json) => {
+          console.log(json)
           let instanceLabel: { userId: string, label: string, color: string }[] = [];
           json.forEach((label: { userId: string, label: string, color: string} ) => {
             instanceLabel.push({
@@ -113,12 +115,70 @@ function LabelDialogWindow(props: IProps) {
             }}
             key='input'
           />
-          <ColorPicker
-            name='color'
-            defaultValue='#000000'
-            value = {colorChoice}
-            onChange={color => setColorChoice(color)}
-          />
+          <Dialog open={colorPicker} onClose={() => setColorPicker(false)}>
+            <DialogTitle>Choose Color</DialogTitle>
+            <DialogContent>
+              {/* Red */}
+              <Fab
+                style={{
+                backgroundColor: '#d32f2f'
+                }}
+                name='color'
+                value={colorChoice}
+                onClick={() => {setColorChoice('d32f2f'), setColorPicker(false)}}
+              >
+              </Fab>
+              {/* Blue */}
+              <Fab
+                style={{
+                backgroundColor: '#1976d2'
+                }}
+                name='color'
+                value={colorChoice}
+                onClick={() => {setColorChoice('1976d2'), setColorPicker(false)}}
+              >
+              </Fab>
+              {/* Green */}
+              <Fab
+                style={{
+                backgroundColor: '#388e3c'
+                }}
+                name='color'
+                value={colorChoice}
+                onClick={() => {setColorChoice('388e3c'), setColorPicker(false)}}
+              >
+              </Fab>
+              {/* Orange */}
+              <Fab
+                style={{
+                backgroundColor: '#e64a19'
+                }}
+                name='color'
+                value={colorChoice}
+                onClick={() => {setColorChoice('e64a19'), setColorPicker(false)}}
+              >
+              </Fab>
+              {/* Purple */}
+              <Fab
+                style={{
+                backgroundColor: '#512da8'
+                }}
+                name='color'
+                value={colorChoice}
+                onClick={() => {setColorChoice('512da8'), setColorPicker(false)}}
+              >
+              </Fab>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setColorPicker(false)}>
+                Back
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <Button
+            onClick={() => setColorPicker(true)}>
+            Color Picker
+          </Button>
           <Button
             onClick={() => {
               try {
@@ -129,28 +189,20 @@ function LabelDialogWindow(props: IProps) {
                     'Content-Type': 'application/json',
                   },
                   body: JSON.stringify({
-                    userId: userId,
+                    userId: concrete_userId,
                     label: labelInput,
                     color: colorChoice
                   }),
-                }).then(() => getLabels(userId));
+                }).then(() => getLabels(concrete_userId));
               } catch (err) {
                 console.log(err);
               }
-              getLabels(userId);
+              getLabels(concrete_userId);
               setLabelInput('');
             }}
             >
             Add
           </Button>
-          <Popper
-            open={labelInput !== ''}
-            placement='bottom-start'
-            style={{
-              zIndex: 2
-            }}
-          >
-          </Popper>
           <Divider
             style={{
               marginTop: '10px',

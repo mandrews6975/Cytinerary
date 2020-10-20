@@ -6,7 +6,8 @@ import {
   Fab,
   ListItemText,
   ListItemSecondaryAction,
-  IconButton
+  IconButton,
+  Typography
 } from '@material-ui/core';
 import {
   Close
@@ -22,15 +23,25 @@ function LabelDialogListItem(props: Props) {
 
   return (
     <ListItem>
+      {/*
       <Fab
         style={{
           backgroundColor: '#' + props.color
         }}
         >
       </Fab>
+      */}
       <ListItemText
-        primary={props.label}
-        secondary={props.color}
+        primary={
+          <Typography style={{ paddingLeft: '10px', color: "#" + props.color}}>
+            {props.label}
+          </Typography>
+        }
+        secondary={
+          <Typography style={{ paddingLeft: '10px'}}>
+            HEX: #{props.color}
+          </Typography>
+        }
       />
       <ListItemSecondaryAction>
         <IconButton
