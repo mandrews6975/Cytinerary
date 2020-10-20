@@ -5,9 +5,11 @@ interface IProps {
   yinit: number,
   xinit: number,
   height: number,
+  eventId: string,
   name?: string,
   description?: string,
   label?: string
+  onClick: Function
 }
 interface IState {
   activeDrags: number,
@@ -29,6 +31,7 @@ class TimeBlock extends React.Component<IProps, IState> {
     }
   }
 
+
   onStart = () => {
   };
 
@@ -40,7 +43,7 @@ class TimeBlock extends React.Component<IProps, IState> {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     return(
       <Draggable disabled= {true} defaultPosition = {{x: this.props.xinit, y : this.props.yinit}} bounds= {'body'} grid={[96, 30]} {...dragHandlers}>
-          <div className="box" style = {{textAlign: 'center', borderColor: 'black', border:'solid', borderWidth: '1px', position: "absolute", minHeight: this.props.height-2, maxWidth: '83px', maxHeight: this.props.height-2, marginLeft: "5px", marginRight: "5px", backgroundColor:'red'}}>{this.props.name}</div>
+          <div className="box" onClick = {() => {this.props.onClick(this.props.eventId)}} style = {{textAlign: 'center', borderColor: 'black', border:'solid', borderWidth: '1px', position: "absolute", minHeight: this.props.height-2, maxWidth: '83px', maxHeight: this.props.height-2, marginLeft: "5px", marginRight: "5px", backgroundColor:'red'}}>{this.props.name}</div>
       </Draggable>
     );
   }
