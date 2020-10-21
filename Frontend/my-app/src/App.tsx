@@ -11,6 +11,7 @@ import './App.css';
 import NewEventModal from './components/dialog_windows/newEventModal'
 import ShareScheduleDialogWindow from './components/dialog_windows/ShareScheduleDialogWindow';
 import ScheduleGrid from './components/schedular/ScheduleGrid'
+import LabelDialogWindow from './components/dialog_windows/LabelDialogWindow';
 
 const theme = createMuiTheme({
   palette: {
@@ -35,6 +36,7 @@ function App() {
   const [showShareScheduleDialog, setShowShareScheduleDialog] = useState<boolean>(false);
   const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
   const [persistantState, forceUpdate] = useState<number>(0);
+  const [showLabelDialog, setLabelDialog] = useState<boolean>(false);
 
   return (
     <ThemeProvider
@@ -67,6 +69,17 @@ function App() {
           >
             Share
           </Button>
+        <LabelDialogWindow
+          onClose={() => setLabelDialog(false)}
+          visible={showLabelDialog}
+        />
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={() => setLabelDialog(true)}
+        >
+          Labels
+        </Button>
 
           <Button color='primary' variant='contained' onClick={() => {
             try {
