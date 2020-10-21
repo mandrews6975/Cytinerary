@@ -175,31 +175,47 @@ function LabelDialogWindow(props: IProps) {
               </Button>
             </DialogActions>
           </Dialog>
-          <Button
-            onClick={() => setColorPicker(true)}>
-            Color Picker
-          </Button>
-          <Button
-            onClick={() => {
-              try {
-                fetch('/addLabel', {
-                  method: 'POST',
-                  headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    userId: concrete_userId,
-                    label: labelInput,
-                    color: colorChoice
-                  }),
-                }).then(() => getLabels(concrete_userId));
-              } catch (err) {
-                console.log(err);
-              }
-              getLabels(concrete_userId);
-              setLabelInput('');
+          <Button variant="outlined"
+            style={{
+              marginLeft: '30px',
+              position: 'fixed',
+              color: '#' + colorChoice
             }}
+            onClick={() => setColorPicker(true)}>
+            Color
+          </Button>
+          <Button variant="outlined"
+            style={{
+              marginLeft: '190px',
+              position: 'fixed'
+            }}
+            onClick={() => {
+              if(labelInput == '')
+              {
+                alert("Cannot have empty label")
+              }
+              else
+              {
+                try {
+                  fetch('/addLabel', {
+                    method: 'POST',
+                    headers: {
+                      Accept: 'application/json',
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      userId: concrete_userId,
+                      label: labelInput,
+                      color: colorChoice
+                    }),
+                  }).then(() => getLabels(concrete_userId));
+                } catch (err) {
+                  console.log(err);
+                }
+                getLabels(concrete_userId);
+                setLabelInput('');
+              }}
+            }
             >
             Add
           </Button>

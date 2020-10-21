@@ -23,23 +23,16 @@ function LabelDialogListItem(props: Props) {
 
   return (
     <ListItem>
-      {/*
       <Fab
         style={{
           backgroundColor: '#' + props.color
         }}
         >
       </Fab>
-      */}
       <ListItemText
         primary={
           <Typography style={{ paddingLeft: '10px', color: "#" + props.color}}>
             {props.label}
-          </Typography>
-        }
-        secondary={
-          <Typography style={{ paddingLeft: '10px'}}>
-            HEX: #{props.color}
           </Typography>
         }
       />

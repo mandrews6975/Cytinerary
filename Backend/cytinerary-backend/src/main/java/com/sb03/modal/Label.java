@@ -5,16 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
+@IdClass(LabelCompKey.class)
 @Table(name = "labels")
-public class Label {
+public class Label implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "userid")
 	private String userId;
 
+	@Id
 	@Column(name = "label")
 	private String label;
 
@@ -36,7 +40,7 @@ public class Label {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
+
 	public void setLabel(String label) {
 		this.label = label;
 	}
