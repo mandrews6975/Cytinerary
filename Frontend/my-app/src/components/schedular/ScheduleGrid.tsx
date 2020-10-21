@@ -18,6 +18,7 @@ interface IProps {
 }
 interface IState {
   creatorEvents: {eventId: string, name: string, startMinute: number, minutes: number, dateIndex:number, startTime: Date, endTime: Date} [],
+  participantEvents: {eventId: string, name: string, startMinute: number, minutes: number, dateIndex:number, startTime: Date, endTime: Date} [],
   selectedDate: Date,
   startDate: string,
   endDate: string
@@ -28,6 +29,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     super(props);
     this.state = {
      creatorEvents: [],
+     participantEvents: [],
      selectedDate: new Date(),
      startDate: '',
      endDate: ''
@@ -90,8 +92,50 @@ class ScheduleGrid extends React.Component<IProps, IState> {
       }
   }
 
-  getWeeklyParticipantEvents() {
-
+  getWeeklyParticipantEvents(startDate: string, endDate: string) {
+    try {
+      fetch('/getParticipantEvents', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          participant: this.props.user,
+          startDate: startDate,
+          endDate: endDate,
+        }),
+      }).then((response) => response.json())
+        .then((json) => {
+          let participantEvents: {eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date} [] = [];
+          json.forEach((event) => {
+            var splitStartTime = event.startTime.replace("T", ":").split(/[- :]/);
+            var splitEndTime = event.endTime.replace("T", ":").split(/[- :]/);
+            var startTime = new Date(Date.UTC(splitStartTime[0], splitStartTime[1]-1, splitStartTime[2], splitStartTime[3], splitStartTime[4]));
+            var endTime = new Date(Date.UTC(splitEndTime[0], splitEndTime[1]-1, splitEndTime[2], splitEndTime[3], splitEndTime[4]));
+            //console.log(startTime.toString());
+            //console.log(endTime.toString());
+      // Apply each element to the Date function
+            var dateIndex = (startTime.getDay() === 0 ? 6:startTime.getDay() - 1);
+            var startMinute = (startTime.getHours() * 60) + (startTime.getMinutes());
+            //console.log(dateIndex);
+            var minutes = Math.floor((endTime.getTime() - startTime.getTime()) / 60000);
+            let eventObject = {
+              eventId: event.eventId,
+              name: event.name,
+              startMinute: startMinute,
+              dateIndex: dateIndex,
+              minutes: minutes,
+              startTime: startTime,
+              endTime: endTime,
+            }
+            participantEvents.push(eventObject);
+          })
+          this.setState({participantEvents});
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   getWeeklyEvents() {
@@ -107,6 +151,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     // console.log(firstday);
     // console.log(lastday);
     this.getWeeklyCreatorEvents(startDate, endDate);
+    this.getWeeklyParticipantEvents(startDate, endDate);
   }
 
   setNextWeek() {
@@ -199,9 +244,14 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               <div className={'BodyColumn'}>
                 <div className={'BodyCell'}>
                 {
-                this.state.creatorEvents.map((event, index) => (
-                  <TimeBlock name = {event.name} eventId = {event.eventId} onClick = {(eventId) => alert(eventId)} key = {uuidv4()} height = {event.minutes} xinit = {97*event.dateIndex} yinit={event.startMinute} />
-                ))
+                  this.state.creatorEvents.map((event, index) => (
+                    <TimeBlock name = {event.name} eventId = {event.eventId} color = {"red"} onClick = {(eventId) => alert(eventId)} key = {uuidv4()} height = {event.minutes} xinit = {97*event.dateIndex} yinit={event.startMinute} />
+                  ))
+                }
+                {
+                  this.state.participantEvents.map((event, index) => (
+                    <TimeBlock name = {event.name} eventId = {event.eventId} color = {"blue"} onClick = {(eventId) => alert(eventId)} key = {uuidv4()} height = {event.minutes} xinit = {97*event.dateIndex} yinit={event.startMinute} />
+                  ))
                 }
 
                 </div>
