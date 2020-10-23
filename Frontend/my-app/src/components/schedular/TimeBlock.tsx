@@ -41,10 +41,10 @@ class TimeBlock extends React.Component<IProps, IState> {
 
   render() {
     //{left: 0, top:0, right:200, bottom: 400}
-    const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
-    return(
-      <Draggable disabled= {true} defaultPosition = {{x: this.props.xinit, y : this.props.yinit}} bounds= {'body'} grid={[96, 30]} {...dragHandlers}>
-          <div className="box" onClick = {() => {this.props.onClick(this.props.eventId)}} style = {{textAlign: 'center', opacity: '.7', border:'1px solid #000000', position: "absolute", minHeight: this.props.height-2, minWidth: '83px', maxWidth: '83px', maxHeight: this.props.height-2, marginLeft: "5px", marginRight: "10px", fontSize:'12px', color:'white', backgroundColor:this.props.color}}>{this.props.name}</div>
+    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
+    return (
+      <Draggable disabled={true} defaultPosition={{ x: this.props.xinit, y: this.props.yinit }} bounds={'body'} grid={[96, 30]} {...dragHandlers}>
+        <div className="box" onClick={() => { this.props.onClick(this.props.eventId) }} style={{ textAlign: 'center', opacity: '.7', border: '1px solid #000000', position: "absolute", minHeight: this.props.height - 2, minWidth: '83px', maxWidth: '83px', maxHeight: this.props.height - 2, marginLeft: "5px", marginRight: "10px", fontSize: '12px', color: 'white', backgroundColor: this.props.color, cursor: 'grab' }}>{this.props.name}</div>
       </Draggable>
     );
   }

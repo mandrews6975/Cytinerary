@@ -3,13 +3,6 @@ import React, {
   useEffect
 } from 'react';
 import {
-  ThemeProvider,
-  createMuiTheme
-} from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
-import yellow from '@material-ui/core/colors/yellow';
-import grey from '@material-ui/core/colors/grey';
-import {
   TextField,
   Dialog,
   DialogContent,
@@ -42,35 +35,16 @@ interface Event {
 interface Props {
   visible: boolean,
   onClose: Function,
-  eventId: string
+  onUpdate: Function,
+  eventId: string,
+  creatorId: string
 }
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: red[600]
-    },
-    secondary: {
-      main: yellow[700]
-    },
-    type: 'dark',
-    background: {
-      paper: grey[800],
-      default: grey[900]
-    },
-  },
-  typography: {
-    fontFamily: 'Roboto'
-  }
-});
-
-const creatorId = '111';
 
 function EditEventDialogWindow(props: Props) {
 
   const [originalEvent, setOriginalEvent] = useState<Event>({
     eventId: props.eventId,
-    creator: creatorId,
+    creator: props.creatorId,
     name: '',
     description: '',
     location: '',
@@ -85,69 +59,99 @@ function EditEventDialogWindow(props: Props) {
   const [locationInput, setLocationInput] = useState<string>('');
   const [descriptionInput, setDescriptionInput] = useState<string>('');
 
-  useEffect(() => getEvent(creatorId, props.eventId), []);
-  useEffect(() => getParticipants(props.eventId), []);
+  useEffect(() => getEvent(props.creatorId, props.eventId));
+  useEffect(() => getParticipants(props.eventId));
 
   function getEvent(creatorId: string, eventId: string) {
-    try {
-      fetch('/getEvent', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          creatorId: creatorId,
-          eventId: eventId
-        }),
-      }).then((response) => response.json())
-        .then((json) => {
-          setTitleInput(json[0].name);
-          setStartTime(json[0].startTime);
-          setEndTime(json[0].endTime);
-          setLocationInput(json[0].location);
-          setDescriptionInput(json[0].description);
-          setOriginalEvent({
-            eventId: props.eventId,
+    if (eventId !== '') {
+      try {
+        fetch('/getEvent', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            creatorId: creatorId,
+            eventId: eventId
+          }),
+        }).then((response) => response.json())
+          .then((json) => {
+            setTitleInput(json[0].name);
+            setStartTime(json[0].startTime);
+            setEndTime(json[0].endTime);
+            setLocationInput(json[0].location);
+            setDescriptionInput(json[0].description);
+            setOriginalEvent({
+              eventId: props.eventId,
+              creator: creatorId,
+              name: json[0].name,
+              description: json[0].description,
+              location: json[0].location,
+              startTime: json[0].startTime,
+              endTime: json[0].endTime,
+              label: ''
+            })
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+
+  function updateEvent(creatorId: string, eventId: string) {
+    if (eventId !== '') {
+      try {
+        fetch('/updateEvent', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            eventId: eventId,
             creator: creatorId,
-            name: json[0].name,
-            description: json[0].description,
-            location: json[0].location,
-            startTime: json[0].startTime,
-            endTime: json[0].endTime,
+            name: titleInput,
+            description: descriptionInput,
+            startTime: startTime,
+            endTime: endTime,
+            location: locationInput,
             label: ''
-          })
-        });
-    } catch (err) {
-      console.log(err);
+          }),
+        }).then(() => getEvent(props.creatorId, props.eventId));
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
   function getParticipants(eventId: string) {
-    try {
-      fetch('/getParticipantsSecure', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          eventId: eventId
-        }),
-      }).then((response) => response.json())
-        .then((json) => {
-          let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
-          json.forEach((sharee: string[]) => {
-            newCurrentlyShared.push({
-              userId: sharee[0],
-              name: sharee[3] + ' ' + sharee[2],
-              email: sharee[1] + '@iastate.edu'
+    if (eventId !== '') {
+      try {
+        fetch('/getParticipantsSecure', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            eventId: eventId
+          }),
+        }).then((response) => response.json())
+          .then((json) => {
+            let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
+            json.forEach((sharee: string[]) => {
+              newCurrentlyShared.push({
+                userId: sharee[0],
+                name: sharee[3] + ' ' + sharee[2],
+                email: sharee[1] + '@iastate.edu'
+              });
             });
+            setCurrentlyShared(newCurrentlyShared);
           });
-          setCurrentlyShared(newCurrentlyShared);
-        });
-    } catch (err) {
-      console.log(err);
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
@@ -321,7 +325,10 @@ function EditEventDialogWindow(props: Props) {
         <Button
           variant='contained'
           color='primary'
-          onClick={() => props.onClose()}
+          onClick={() => {
+            updateEvent(props.creatorId, props.eventId);
+            props.onUpdate();
+          }}
           disabled={!(
             originalEvent.name !== titleInput ||
             originalEvent.startTime !== startTime ||

@@ -164,7 +164,7 @@ function ShareScheduleDialogWindow(props: Props) {
                   index: number,
                   array: { name: string, email: string, userId: string }[]
                 ) => (
-                    ((user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && user.userId != sharerId && !currentlyShared.some((sharedUser) => sharedUser.userId === user.userId)) && <ShareDialogSearchListItem
+                    ((user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && user.userId !== sharerId && !currentlyShared.some((sharedUser) => sharedUser.userId === user.userId)) && <ShareDialogSearchListItem
                       name={user.name}
                       email={user.email}
                       color='red'
