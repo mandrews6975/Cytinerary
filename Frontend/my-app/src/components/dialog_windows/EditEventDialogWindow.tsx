@@ -24,6 +24,7 @@ import {
 } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import ShareDialogListItem from '../list_items/ShareDialogListItem';
+import ShareEventDialogWindow from './ShareEventDialogWindow';
 
 var dateFormat = require('dateformat');
 
@@ -64,6 +65,7 @@ function EditEventDialogWindow(props: Props) {
   const [endTime, setEndTime] = useState<Date>(new Date());
   const [locationInput, setLocationInput] = useState<string>('');
   const [descriptionInput, setDescriptionInput] = useState<string>('');
+  const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
 
   useEffect(() => getEvent(props.creatorId, props.eventId), []);
   useEffect(() => getParticipants(props.eventId), []);
@@ -175,7 +177,13 @@ function EditEventDialogWindow(props: Props) {
         zIndex: 1
       }}
     >
-      <DialogTitle>Event Details</DialogTitle>
+      <ShareEventDialogWindow
+        visible={showShareEventDialogWindow}
+        onClose={() => setShowShareEventDialogWindow(false)}
+        eventId={props.eventId}
+        creatorId={props.creatorId}
+      />
+      <DialogTitle> Event Details</DialogTitle>
       <DialogContent>
         <div
           style={{
@@ -293,7 +301,9 @@ function EditEventDialogWindow(props: Props) {
               <Typography variant='subtitle1'>
                 Participants
                 </Typography>
-              <IconButton>
+              <IconButton
+                onClick={() => setShowShareEventDialogWindow(true)}
+              >
                 <Edit />
               </IconButton>
             </div>
