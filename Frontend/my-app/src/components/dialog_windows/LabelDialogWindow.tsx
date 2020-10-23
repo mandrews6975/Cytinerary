@@ -125,7 +125,7 @@ function LabelDialogWindow(props: IProps) {
                 }}
                 name='color'
                 value={colorChoice}
-                onClick={() => {setColorChoice('d32f2f'), setColorPicker(false)}}
+                onClick={() => {setColorChoice('d32f2f'); setColorPicker(false)}}
               >
               </Fab>
               {/* Blue */}
