@@ -17,6 +17,12 @@ import {
 import {
   Edit
 } from '@material-ui/icons';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  DateTimePicker,
+  MuiPickersUtilsProvider
+} from '@material-ui/pickers';
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import ShareDialogListItem from '../list_items/ShareDialogListItem';
 
 var dateFormat = require('dateformat');
@@ -59,8 +65,8 @@ function EditEventDialogWindow(props: Props) {
   const [locationInput, setLocationInput] = useState<string>('');
   const [descriptionInput, setDescriptionInput] = useState<string>('');
 
-  useEffect(() => getEvent(props.creatorId, props.eventId));
-  useEffect(() => getParticipants(props.eventId));
+  useEffect(() => getEvent(props.creatorId, props.eventId), []);
+  useEffect(() => getParticipants(props.eventId), []);
 
   function getEvent(creatorId: string, eventId: string) {
     if (eventId !== '') {
@@ -113,8 +119,8 @@ function EditEventDialogWindow(props: Props) {
             creator: creatorId,
             name: titleInput,
             description: descriptionInput,
-            startTime: startTime,
-            endTime: endTime,
+            startTime: dateFormat(startTime, 'yyyy-mm-dd HH:MM:ss'),
+            endTime: dateFormat(endTime, 'yyyy-mm-dd HH:MM:ss'),
             location: locationInput,
             label: ''
           }),
@@ -155,6 +161,10 @@ function EditEventDialogWindow(props: Props) {
     }
   }
 
+  if (props.eventId !== originalEvent.eventId) {
+    getEvent(props.creatorId, props.eventId);
+  }
+
   return (
     <Dialog
       open={props.visible}
@@ -187,23 +197,26 @@ function EditEventDialogWindow(props: Props) {
             })}
             key='titleInput'
           />
-          <Button
-            variant='outlined'
-            color='inherit'
-            onClick={() => { }}
-          >
-            {dateFormat(startTime, 'mm/dd/yy hh:MM TT')}
-          </Button>
-          <Typography variant='subtitle1'>
-            to
-            </Typography>
-          <Button
-            variant='outlined'
-            color='inherit'
-            onClick={() => { }}
-          >
-            {dateFormat(endTime, 'mm/dd/yy hh:MM TT')}
-          </Button>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <DateTimePicker
+              label='Start'
+              value={startTime}
+              onChange={(date: MaterialUiPickersDate) => {
+                if (date !== null) {
+                  setStartTime(date);
+                }
+              }}
+            />
+            <DateTimePicker
+              label='End'
+              value={endTime}
+              onChange={(date: MaterialUiPickersDate) => {
+                if (date !== null) {
+                  setEndTime(date);
+                }
+              }}
+            />
+          </MuiPickersUtilsProvider>
           <TextField
             variant='standard'
             label='Location'
