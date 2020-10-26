@@ -25,6 +25,11 @@ public interface EventRepository extends CrudRepository<Event, Long>{
   		"(select userId from users where userId = ?1) and startTime >= ?2 and endTime < ?3", nativeQuery = true)
   Collection<Event> getCreatorEvents(String creator, String startTime, String endTime);
   
+  @Modifying
+  @Query(value="Update events\r\n" + 
+  		"set startTime = ?3, endTime = ?4\r\n" + 
+  		"where eventId = ?2 and creator = ?1", nativeQuery = true)
+  void updateCreatorEventTime(String userId, String eventId, String startTime, String endTime);
   
   
   @Query(value="select *\r\n" + 

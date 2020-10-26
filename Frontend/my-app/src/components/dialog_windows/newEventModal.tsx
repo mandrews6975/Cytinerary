@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { Dialog, DialogTitle, DialogContent, Button, TextField, NativeSelect } from '@material-ui/core/';
-import EventParticipantDialogWindow from './EventParticipantDialogWindow'
+import { Dialog, DialogTitle, DialogContent, Button, TextField } from '@material-ui/core/';
 import { v4 as uuidv4 } from 'uuid';
-import { KeyboardDatePicker, KeyboardDateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { KeyboardDateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+
 
 interface IProps {
   //onSubmit: string,
@@ -36,8 +35,8 @@ class NewEventModal extends React.Component<IProps, IState> {
       name: '',
       description: '',
       label: '',
-      fromDate: new Date().toISOString().slice(0, 19).replace('T', ' '),
-      toDate: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      fromDate: this.getLocalTimeStampString( new Date()),
+      toDate: this.getLocalTimeStampString( new Date()),
       emptyFieldMessageVisible: false,
       participantsDialogVisible: false,
       participantsError: false,
@@ -119,6 +118,11 @@ class NewEventModal extends React.Component<IProps, IState> {
     this.props.onClose();
   }
 
+  getLocalTimeStampString(date: Date) : string {
+    var isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0, 19).replace('T', ' ');
+    return isoDateTime;
+  }
+
   addParticipant() {
     //Check if user trys to add themselves
     if(this.state.participantValue === this.props.user) {
@@ -171,9 +175,22 @@ class NewEventModal extends React.Component<IProps, IState> {
     }
   }
 
-  handleDateChange()
-  {
+  handleFromDateChange(e) {
+    try {
+      this.setState({fromDate: this.getLocalTimeStampString(e)});
+    }
+    catch(err) {
 
+    }
+  }
+
+  handleToDateChange(e) {
+    try {
+      this.setState({toDate: this.getLocalTimeStampString(e)});
+    }
+    catch(err) {
+
+    }
   }
 
   render() {
@@ -193,12 +210,12 @@ class NewEventModal extends React.Component<IProps, IState> {
                     {/*In the onChange part of the KeyboardDateTimePicker component, the ! might cause problems down the line. The ! ignores the fact that it could be null.*/}
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <text>Starting:</text>
-                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.fromDate} onChange={(e) => {
-                        this.setState({fromDate: e!.toISOString().slice(0, 19).replace('T', ' ')});
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss a" margin="normal" value={this.state.fromDate} onChange={(e) => {
+                        this.handleFromDateChange(e);
                       }}/>
                       <text>Ending:</text>
-                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss" margin="normal" value={this.state.toDate} onChange={(e) => {
-                        this.setState({toDate: e!.toISOString().slice(0, 19).replace('T', ' ')});
+                      <KeyboardDateTimePicker fullWidth format="yyyy-MM-dd hh:mm:ss a" margin="normal" value={this.state.toDate} onChange={(e) => {
+                        this.handleToDateChange(e);
                       }}/>
                     </MuiPickersUtilsProvider>
                   </div>

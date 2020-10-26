@@ -41,15 +41,13 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }
   }
 
+  //This will execute when the component is first initialized
   componentDidMount() {
-    //Include code for fetching the events based on the current week
     this.getWeeklyEvents();
     let curr = new Date(this.state.selectedDate);
     curr.setHours(0, 0, 0, 0);
     this.setState({ selectedDate: new Date(curr.getTime()) })
-
   }
-
 
   getWeeklyCreatorEvents(startDate: string, endDate: string) {
     try {
@@ -175,6 +173,39 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }, () => { this.getWeeklyEvents(); });
   }
 
+  getLocalTimeStampString(date: Date): string {
+    var isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0, 19).replace('T', ' ');
+    return isoDateTime;
+  }
+
+  handleEventDragEnd(e) {
+    let referenceDate = new Date(this.state.startDate);
+    let currentDayIndex = (e.x / 97) + 1;
+    let startTimeHours = e.y / 60;
+    let startTimeMinutes = e.y % 60;
+    let startTimeDate = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + currentDayIndex, startTimeHours, startTimeMinutes);
+    let endTimeDate = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + currentDayIndex, startTimeDate.getHours(), startTimeDate.getMinutes() + e.minutes);
+    let startTimeString = this.getLocalTimeStampString(startTimeDate)
+    let endTimeString = this.getLocalTimeStampString(endTimeDate)
+    try {
+      fetch('/updateCreatorEventTime', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: this.props.user,
+          eventId: e.eventId,
+          startTime: startTimeString,
+          endTime: endTimeString,
+        }),
+      }).then((response) => { console.log("drag success") });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   render() {
     let referenceDate = new Date(this.state.startDate);
     let monday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 1);
@@ -257,19 +288,12 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock name={event.name} eventId={event.eventId} color={"red"} onClick={(eventId) => {
-                      this.setState({
-                        showEditEventDialogWindow: true,
-                        selectedEvent: eventId
-                      });
-                    }} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => { this.handleEventDragEnd(e) }} eventId={event.eventId} color={"red"} onClick={(eventId) => alert(eventId)} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock name={event.name} eventId={event.eventId} color={"blue"} onClick={(eventId) => {
-
-                    }} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={(eventId) => alert(eventId)} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
 

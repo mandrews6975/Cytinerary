@@ -49,6 +49,13 @@ public class EventController {
 		eventRepository.deleteEvent((String) payload.get("eventId"));
 		return ((String) payload.get("eventId") + "deleted");
 	}
+	
+	@Transactional
+	@PostMapping("/updateCreatorEventTime")
+	public @ResponseBody String updateCreatorEventTime(@RequestBody Map<String, Object> payload) {
+		eventRepository.updateCreatorEventTime((String) payload.get("userId"),(String) payload.get("eventId"),(String) payload.get("startTime"),(String) payload.get("endTime"));
+    	return "Event updated";
+    }
 
   @PostMapping("/getEvent")
   public @ResponseBody Collection<Event> getEvent(@RequestBody Map<String, Object> payload) {
