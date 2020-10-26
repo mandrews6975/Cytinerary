@@ -129,7 +129,10 @@ function EditEventDialogWindow(props: Props) {
             location: locationInput,
             label: ''
           }),
-        }).then(() => getEvent(props.creatorId, props.eventId));
+        }).then(() => {
+          getEvent(props.creatorId, props.eventId)
+          props.onUpdate();
+        });
       } catch (err) {
         console.log(err);
       }
@@ -380,10 +383,7 @@ function EditEventDialogWindow(props: Props) {
         <Button
           variant='contained'
           color='primary'
-          onClick={() => {
-            updateEvent(props.creatorId, props.eventId);
-            props.onUpdate();
-          }}
+          onClick={() => updateEvent(props.creatorId, props.eventId)}
           disabled={
             (originalEvent.name === titleInput &&
               originalEvent.startTime === startTime &&
