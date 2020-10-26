@@ -48,8 +48,8 @@ public class ParticipantController {
     return participantRepository.getParticipants((String) payload.get("eventId"));
   }
   
-  @PostMapping("/getParticipantsSecure")
+  @PostMapping("/getEventParticipants")
   public @ResponseBody Collection<Object> getParticipantsSecure(@RequestBody Map<String, Object> payload) {
-    return participantRepository.getParticipantsSecure((String) payload.get("eventId"));
+    return participantRepository.getEventParticipants((String) payload.get("eventId"));
   }
 }
