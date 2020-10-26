@@ -74,7 +74,6 @@ function LabelDialogWindow(props: IProps) {
         }),
       }).then((response) => response.json())
         .then((json) => {
-          console.log(json)
           let instanceLabel: { userId: string, label: string, color: string }[] = [];
           json.forEach((label: { userId: string, label: string, color: string} ) => {
             instanceLabel.push({
@@ -125,7 +124,7 @@ function LabelDialogWindow(props: IProps) {
                 }}
                 name='color'
                 value={colorChoice}
-                onClick={() => {setColorChoice('d32f2f'), setColorPicker(false)}}
+                onClick={() => {setColorChoice('d32f2f'); setColorPicker(false)}}
               >
               </Fab>
               {/* Blue */}
@@ -135,7 +134,7 @@ function LabelDialogWindow(props: IProps) {
                 }}
                 name='color'
                 value={colorChoice}
-                onClick={() => {setColorChoice('1976d2'), setColorPicker(false)}}
+                onClick={() => {setColorChoice('1976d2'); setColorPicker(false)}}
               >
               </Fab>
               {/* Green */}
@@ -145,7 +144,7 @@ function LabelDialogWindow(props: IProps) {
                 }}
                 name='color'
                 value={colorChoice}
-                onClick={() => {setColorChoice('388e3c'), setColorPicker(false)}}
+                onClick={() => {setColorChoice('388e3c'); setColorPicker(false)}}
               >
               </Fab>
               {/* Orange */}
@@ -155,7 +154,7 @@ function LabelDialogWindow(props: IProps) {
                 }}
                 name='color'
                 value={colorChoice}
-                onClick={() => {setColorChoice('e64a19'), setColorPicker(false)}}
+                onClick={() => {setColorChoice('e64a19'); setColorPicker(false)}}
               >
               </Fab>
               {/* Purple */}
@@ -165,7 +164,7 @@ function LabelDialogWindow(props: IProps) {
                 }}
                 name='color'
                 value={colorChoice}
-                onClick={() => {setColorChoice('512da8'), setColorPicker(false)}}
+                onClick={() => {setColorChoice('512da8'); setColorPicker(false)}}
               >
               </Fab>
             </DialogContent>

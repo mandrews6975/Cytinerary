@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { Dialog, DialogTitle, DialogContent, Button, TextField, NativeSelect } from '@material-ui/core/';
+import { Dialog, DialogTitle, DialogContent, Button, TextField, NativeSelect, List } from '@material-ui/core/';
 import EventParticipantDialogWindow from './EventParticipantDialogWindow'
 import { v4 as uuidv4 } from 'uuid';
 import { KeyboardDatePicker, KeyboardDateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+import LabelDialogEventListItem from '../list_items/LabelDialogEventListItem';
 
 interface IProps {
   //onSubmit: string,
@@ -17,8 +18,10 @@ interface IState {
   name: string,
   description: string,
   label: string,
+  allLabels: {userId: string, label: string, color: string}[];
   fromDate: string,
   toDate: string,
+  labelDialog: boolean,
   emptyFieldMessageVisible: boolean,
   participantsDialogVisible: boolean,
   participantsError: boolean,
@@ -30,14 +33,18 @@ interface IState {
 
 class NewEventModal extends React.Component<IProps, IState> {
 
+  componentDidMount() { this.getEventLabels('111') }
+
   constructor(props: IProps) {
     super(props);
     this.state = {
       name: '',
       description: '',
       label: '',
+      allLabels: [],
       fromDate: new Date().toISOString().slice(0, 19).replace('T', ' '),
       toDate: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      labelDialog: false,
       emptyFieldMessageVisible: false,
       participantsDialogVisible: false,
       participantsError: false,
@@ -106,6 +113,8 @@ class NewEventModal extends React.Component<IProps, IState> {
   closeModal() {
     //Ensure that all fields are reset
     this.setState({
+      allLabels: [],
+      labelDialog:false,
       participants: [],
       participantsNetIds: '',
       emptyFieldMessageVisible: false,
@@ -171,13 +180,44 @@ class NewEventModal extends React.Component<IProps, IState> {
     }
   }
 
+  getEventLabels(userId: string)
+  {
+    try {
+      fetch('/getLabels', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: userId
+        }),
+      }).then((response) => response.json())
+        .then((json) => {
+          let instanceLabel: { userId: string, label: string, color: string }[] = [];
+          json.forEach((label: { userId: string, label: string, color: string} ) => {
+            instanceLabel.push({
+              userId: label.userId,
+              label: label.label,
+              color: label.color
+            });
+          });
+          this.setState({
+            allLabels: instanceLabel
+          });
+          console.log(this.state.allLabels)
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   handleDateChange()
   {
 
   }
 
   render() {
-
     return(
       <div>
         <Dialog maxWidth = {'md'} open = {this.props.visible} onBackdropClick = {() => {this.closeModal()}}>
@@ -203,8 +243,41 @@ class NewEventModal extends React.Component<IProps, IState> {
                     </MuiPickersUtilsProvider>
                   </div>
                   <div style = {{display: 'flex'}}>
-                    <TextField id = "descriptionInput" onChange={(e) => {this.setState({label: e.target.value})}} label = "Label" variant="outlined"/>
-                    {/*Will Need to add color block for color selection*/}
+                    <Button variant="outlined" onClick = {() => {this.getEventLabels('111'); this.setState({labelDialog:true})}}>
+                      Label
+                    </Button>
+                  </div>
+                  <div>
+                    <Dialog open={this.state.labelDialog} onClose={() => this.setState({labelDialog:false})}>
+                      <DialogTitle>Choose existing label</DialogTitle>
+                      <DialogContent>
+                      <div
+                        style={{
+                          overflowY: 'scroll',
+                          height: window.innerHeight * 0.26,
+                          flex: 1
+                        }}
+                      >
+                          <List>
+                            {this.state.allLabels.map((
+                              person: {userId:string, label:string, color:string}
+                            ) => (
+                                <LabelDialogEventListItem
+                                  label={person.label}
+                                  color={person.color}
+                                  onClick={() => {
+                                    this.setState({label:person.label});
+                                    this.setState({labelDialog:false})
+                                  }}
+                                />
+                            ))}
+                          </List>
+                        </div>
+                        <Button onClick={() => { console.log(this.state.allLabels); this.setState({labelDialog:false})}}>
+                          Back
+                        </Button>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                   <div>
                     <text>Participants: {this.state.participantsNetIds}</text>
@@ -215,12 +288,11 @@ class NewEventModal extends React.Component<IProps, IState> {
                   <Button onClick = {() => {this.closeModal()}} style = {{color:'black'}}>Cancel</Button>
                   <Button onClick = {() => {this.submit()}} style = {{color:'black'}}>Create</Button>
                   </div>
-                </div>
-              </DialogContent>
+              </div>
+            </DialogContent>
         </Dialog>
       </div>
     );
   }
 }
-
 export default NewEventModal;
