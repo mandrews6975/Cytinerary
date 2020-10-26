@@ -24,7 +24,8 @@ interface IState {
   startDate: string,
   endDate: string,
   showEditEventDialogWindow: boolean,
-  selectedEvent: string
+  selectedEvent: string,
+  updateEventDialogWindow: boolean
 }
 
 class ScheduleGrid extends React.Component<IProps, IState> {
@@ -37,7 +38,8 @@ class ScheduleGrid extends React.Component<IProps, IState> {
       startDate: '',
       endDate: '',
       showEditEventDialogWindow: false,
-      selectedEvent: ''
+      selectedEvent: '',
+      updateEventDialogWindow: false
     }
   }
 
@@ -49,7 +51,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     this.setState({ selectedDate: new Date(curr.getTime()) })
   }
 
-  getWeeklyCreatorEvents(startDate: string, endDate: string) {
+  getWeeklyCreatorEvents(startDate: string, endDate: string, callback?: Function) {
     try {
       fetch('/getCreatorEvents', {
         method: 'POST',
@@ -89,6 +91,10 @@ class ScheduleGrid extends React.Component<IProps, IState> {
             creatorEvents.push(eventObject);
           })
           this.setState({ creatorEvents });
+        }).then(() => {
+          if (callback) {
+            callback();
+          }
         });
     } catch (err) {
       console.log(err);
@@ -141,7 +147,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }
   }
 
-  getWeeklyEvents() {
+  getWeeklyEvents(callback?: Function) {
     let curr = new Date(this.state.selectedDate);
     curr.setHours(0, 0, 0, 0);
     var first = curr.getDate() - curr.getDay() + (curr.getDay() === 0 ? -6 : 1); // First day is the day of the month - the day of the week
@@ -153,7 +159,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     this.setState({ startDate, endDate })
     // console.log(firstday);
     // console.log(lastday);
-    this.getWeeklyCreatorEvents(startDate, endDate);
+    this.getWeeklyCreatorEvents(startDate, endDate, callback);
     this.getWeeklyParticipantEvents(startDate, endDate);
   }
 
@@ -178,7 +184,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     return isoDateTime;
   }
 
-  handleEventDragEnd(e) {
+  handleEventDragEnd(e, callback: Function) {
     let referenceDate = new Date(this.state.startDate);
     let currentDayIndex = (e.x / 97) + 1;
     let startTimeHours = e.y / 60;
@@ -200,7 +206,9 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           startTime: startTimeString,
           endTime: endTimeString,
         }),
-      }).then((response) => { console.log("drag success") });
+      }).then((response) => {
+        this.getWeeklyEvents(callback);
+      });
     } catch (err) {
       console.log(err);
     }
@@ -225,6 +233,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           onUpdate={() => this.getWeeklyEvents()}
           eventId={this.state.selectedEvent}
           creatorId={this.props.user}
+          update={this.state.updateEventDialogWindow}
         />
         <div style={{ display: 'flex', marginRight: "20px", borderBottom: 'solid', borderColor: 'black', flexDirection: 'row', }}>
           <div style={{ flex: '1' }}>
@@ -288,9 +297,9 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => { this.handleEventDragEnd(e) }} eventId={event.eventId} color={"red"} onClick={(eventId) => {
-                      this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId })
-                    }} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => {
+                      this.handleEventDragEnd(e, () => this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow }));
+                    }} onClick={() => { }} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {

@@ -44,7 +44,8 @@ interface Props {
   onClose: Function,
   onUpdate: Function,
   eventId: string,
-  creatorId: string
+  creatorId: string,
+  update: boolean
 }
 
 function EditEventDialogWindow(props: Props) {
@@ -66,9 +67,11 @@ function EditEventDialogWindow(props: Props) {
   const [locationInput, setLocationInput] = useState<string>('');
   const [descriptionInput, setDescriptionInput] = useState<string>('');
   const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
+  const [update, setUpdate] = useState<boolean>(false);
 
   useEffect(() => getEvent(props.creatorId, props.eventId), []);
   useEffect(() => getEventParticipants(props.eventId), []);
+  useEffect(() => setUpdate(props.update), []);
 
   function getEvent(creatorId: string, eventId: string) {
     if (eventId !== '') {
@@ -148,13 +151,15 @@ function EditEventDialogWindow(props: Props) {
         }).then((response) => response.json())
           .then((json) => {
             let newEventParticipants: { userId: string, name: string, email: string }[] = [];
-            json.forEach((sharee: string[]) => {
-              newEventParticipants.push({
-                userId: sharee[0],
-                name: sharee[3] + ' ' + sharee[2],
-                email: sharee[1] + '@iastate.edu'
+            if (json.length > 0) {
+              json.forEach((sharee: string[]) => {
+                newEventParticipants.push({
+                  userId: sharee[0],
+                  name: sharee[3] + ' ' + sharee[2],
+                  email: sharee[1] + '@iastate.edu'
+                });
               });
-            });
+            }
             setCurrentEventParticipants(newEventParticipants);
           });
       } catch (err) {
@@ -166,6 +171,10 @@ function EditEventDialogWindow(props: Props) {
   if (props.eventId !== originalEvent.eventId) {
     getEvent(props.creatorId, props.eventId);
     getEventParticipants(props.eventId);
+  } else if (props.update !== update) {
+    getEvent(props.creatorId, props.eventId);
+    getEventParticipants(props.eventId);
+    setUpdate(props.update);
   }
 
   return (
@@ -266,7 +275,6 @@ function EditEventDialogWindow(props: Props) {
               alignItems: 'center',
               justifyContent: 'center',
               flex: 7,
-              height: window.innerHeight * 0.3075,
               marginRight: '10px'
             }}
           >
@@ -293,7 +301,6 @@ function EditEventDialogWindow(props: Props) {
               alignItems: 'center',
               justifyContent: 'center',
               flex: 3,
-              height: window.innerHeight * 0.3075,
             }}
           >
             <div
@@ -318,7 +325,8 @@ function EditEventDialogWindow(props: Props) {
             <div
               style={{
                 overflowY: 'scroll',
-                height: window.innerHeight * 0.25,
+                minHeight: '231px',
+                maxHeight: window.innerHeight >= 926 ? window.innerHeight * 0.25 : '231px',
                 width: '100%'
               }}
             >

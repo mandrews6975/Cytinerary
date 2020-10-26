@@ -75,13 +75,15 @@ function ShareEventDialogWindow(props: Props) {
       }).then((response) => response.json())
         .then((json) => {
           let newDiscoveredUsers: { userId: string, name: string, email: string }[] = [];
-          json.forEach((user: { userId: string, firstName: string, lastName: string, netId: string }) => {
-            newDiscoveredUsers.push({
-              userId: user.userId,
-              name: user.firstName + ' ' + user.lastName,
-              email: user.netId + '@iastate.edu'
+          if (json.length > 0) {
+            json.forEach((user: { userId: string, firstName: string, lastName: string, netId: string }) => {
+              newDiscoveredUsers.push({
+                userId: user.userId,
+                name: user.firstName + ' ' + user.lastName,
+                email: user.netId + '@iastate.edu'
+              });
             });
-          });
+          }
           setDiscoveredUsers(newDiscoveredUsers);
         });
     } catch (err) {
@@ -103,13 +105,15 @@ function ShareEventDialogWindow(props: Props) {
       }).then((response) => response.json())
         .then((json) => {
           let newEventParticipants: { userId: string, name: string, email: string }[] = [];
-          json.forEach((sharee: string[]) => {
-            newEventParticipants.push({
-              userId: sharee[0],
-              name: sharee[3] + ' ' + sharee[2],
-              email: sharee[1] + '@iastate.edu'
+          if (json.length > 0) {
+            json.forEach((sharee: string[]) => {
+              newEventParticipants.push({
+                userId: sharee[0],
+                name: sharee[3] + ' ' + sharee[2],
+                email: sharee[1] + '@iastate.edu'
+              });
             });
-          });
+          }
           setCurrentEventParticipants(newEventParticipants);
         });
     } catch (err) {
