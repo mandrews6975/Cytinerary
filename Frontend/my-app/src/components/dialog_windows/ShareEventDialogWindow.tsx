@@ -30,7 +30,9 @@ import ShareDialogSearchListItem from '../list_items/ShareDialogSearchListItem';
 
 interface Props {
   visible: boolean,
-  onClose: Function
+  onClose: Function,
+  eventId: string,
+  creatorId: string
 }
 
 const theme = createMuiTheme({
@@ -52,17 +54,15 @@ const theme = createMuiTheme({
   }
 });
 
-const sharerId = '111';
+function ShareEventDialogWindow(props: Props) {
 
-function ShareScheduleDialogWindow(props: Props) {
-
-  const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
+  const [currentEventParticipants, setCurrentEventParticipants] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [discoveredUsers, setDiscoveredUsers] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [autocompleteAnchor, setAutocompleteAnchor] = useState<HTMLElement | null>(null);
   const [input, setInput] = useState<string>('');
 
   useEffect(getUsers, []);
-  useEffect(() => getSharedUsers(sharerId), []);
+  useEffect(() => getEventParticipants(props.eventId), []);
 
   function getUsers() {
     try {
@@ -75,13 +75,15 @@ function ShareScheduleDialogWindow(props: Props) {
       }).then((response) => response.json())
         .then((json) => {
           let newDiscoveredUsers: { userId: string, name: string, email: string }[] = [];
-          json.forEach((user: { userId: string, firstName: string, lastName: string, netId: string }) => {
-            newDiscoveredUsers.push({
-              userId: user.userId,
-              name: user.firstName + ' ' + user.lastName,
-              email: user.netId + '@iastate.edu'
+          if (json.length > 0) {
+            json.forEach((user: { userId: string, firstName: string, lastName: string, netId: string }) => {
+              newDiscoveredUsers.push({
+                userId: user.userId,
+                name: user.firstName + ' ' + user.lastName,
+                email: user.netId + '@iastate.edu'
+              });
             });
-          });
+          }
           setDiscoveredUsers(newDiscoveredUsers);
         });
     } catch (err) {
@@ -89,28 +91,30 @@ function ShareScheduleDialogWindow(props: Props) {
     }
   }
 
-  function getSharedUsers(sharerId: string) {
+  function getEventParticipants(eventId: string) {
     try {
-      fetch('/getSharedUsers', {
+      fetch('/getEventParticipants', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          sharerId: sharerId
+          eventId: eventId
         }),
       }).then((response) => response.json())
         .then((json) => {
-          let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
-          json.forEach((sharee: string[]) => {
-            newCurrentlyShared.push({
-              userId: sharee[0],
-              name: sharee[3] + ' ' + sharee[2],
-              email: sharee[1] + '@iastate.edu'
+          let newEventParticipants: { userId: string, name: string, email: string }[] = [];
+          if (json.length > 0) {
+            json.forEach((sharee: string[]) => {
+              newEventParticipants.push({
+                userId: sharee[0],
+                name: sharee[3] + ' ' + sharee[2],
+                email: sharee[1] + '@iastate.edu'
+              });
             });
-          });
-          setCurrentlyShared(newCurrentlyShared);
+          }
+          setCurrentEventParticipants(newEventParticipants);
         });
     } catch (err) {
       console.log(err);
@@ -128,7 +132,7 @@ function ShareScheduleDialogWindow(props: Props) {
       }}
     >
       <ThemeProvider theme={theme}>
-        <DialogTitle>Share Schedule</DialogTitle>
+        <DialogTitle>Share Event</DialogTitle>
         <DialogContent>
           <TextField
             variant='filled'
@@ -164,27 +168,27 @@ function ShareScheduleDialogWindow(props: Props) {
                   index: number,
                   array: { name: string, email: string, userId: string }[]
                 ) => (
-                    ((user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && user.userId !== sharerId && !currentlyShared.some((sharedUser) => sharedUser.userId === user.userId)) && <ShareDialogSearchListItem
+                    ((user.name.toUpperCase().includes(input.toUpperCase()) || user.email.toUpperCase().includes(input.toUpperCase())) && user.userId !== props.creatorId && !currentEventParticipants.some((sharedUser) => sharedUser.userId === user.userId)) && <ShareDialogSearchListItem
                       name={user.name}
                       email={user.email}
                       color='red'
                       onClick={() => {
                         try {
-                          fetch('/addSharedUser', {
+                          fetch('/addParticipant', {
                             method: 'POST',
                             headers: {
                               Accept: 'application/json',
                               'Content-Type': 'application/json',
                             },
                             body: JSON.stringify({
-                              sharerId: sharerId,
-                              shareeId: user.userId
+                              eventId: props.eventId,
+                              participant: user.userId
                             }),
-                          }).then(() => getSharedUsers(sharerId));
+                          }).then(() => getEventParticipants(props.eventId));
                         } catch (err) {
                           console.log(err);
                         }
-                        getSharedUsers(sharerId);
+                        getEventParticipants(props.eventId);
                         setInput('');
                       }}
                       key={`${user.name}-${user.email}-${index}-search`}
@@ -206,7 +210,7 @@ function ShareScheduleDialogWindow(props: Props) {
             }}
           >
             <List>
-              {currentlyShared.map((
+              {currentEventParticipants.map((
                 person: { userId: string, name: string, email: string },
                 index: number,
                 array: { userId: string, name: string, email: string }[]
@@ -217,17 +221,17 @@ function ShareScheduleDialogWindow(props: Props) {
                     color='red'
                     onRemove={() => {
                       try {
-                        fetch('/deleteSharedUser', {
+                        fetch('/removeParticipant', {
                           method: 'POST',
                           headers: {
                             Accept: 'application/json',
                             'Content-Type': 'application/json',
                           },
                           body: JSON.stringify({
-                            sharerId: sharerId,
-                            shareeId: person.userId
+                            eventId: props.eventId,
+                            participant: person.userId
                           }),
-                        }).then(() => getSharedUsers(sharerId));
+                        }).then(() => getEventParticipants(props.eventId));
                       } catch (err) {
                         console.log(err);
                       }
@@ -258,4 +262,4 @@ function ShareScheduleDialogWindow(props: Props) {
 
 }
 
-export default ShareScheduleDialogWindow;
+export default ShareEventDialogWindow;

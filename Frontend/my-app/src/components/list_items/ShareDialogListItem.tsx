@@ -15,11 +15,7 @@ interface Props {
 function ShareDialogSearchListItem(props: Props) {
 
   return (
-    <ListItem
-      style={{
-        cursor: 'grab'
-      }}
-    >
+    <ListItem>
       <ListItemAvatar>
         <Avatar
           style={{

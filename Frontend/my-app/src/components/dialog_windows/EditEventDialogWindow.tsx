@@ -3,13 +3,6 @@ import React, {
   useEffect
 } from 'react';
 import {
-  ThemeProvider,
-  createMuiTheme
-} from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
-import yellow from '@material-ui/core/colors/yellow';
-import grey from '@material-ui/core/colors/grey';
-import {
   TextField,
   Dialog,
   DialogContent,
@@ -24,7 +17,14 @@ import {
 import {
   Edit
 } from '@material-ui/icons';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  DateTimePicker,
+  MuiPickersUtilsProvider
+} from '@material-ui/pickers';
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import ShareDialogListItem from '../list_items/ShareDialogListItem';
+import ShareEventDialogWindow from './ShareEventDialogWindow';
 
 var dateFormat = require('dateformat');
 
@@ -42,35 +42,17 @@ interface Event {
 interface Props {
   visible: boolean,
   onClose: Function,
-  eventId: string
+  onUpdate: Function,
+  eventId: string,
+  creatorId: string,
+  update: boolean
 }
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: red[600]
-    },
-    secondary: {
-      main: yellow[700]
-    },
-    type: 'dark',
-    background: {
-      paper: grey[800],
-      default: grey[900]
-    },
-  },
-  typography: {
-    fontFamily: 'Roboto'
-  }
-});
-
-const creatorId = '111';
 
 function EditEventDialogWindow(props: Props) {
 
   const [originalEvent, setOriginalEvent] = useState<Event>({
     eventId: props.eventId,
-    creator: creatorId,
+    creator: props.creatorId,
     name: '',
     description: '',
     location: '',
@@ -78,77 +60,124 @@ function EditEventDialogWindow(props: Props) {
     endTime: new Date(),
     label: ''
   });
-  const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
+  const [currentEventParticipants, setCurrentEventParticipants] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [titleInput, setTitleInput] = useState<string>('');
   const [startTime, setStartTime] = useState<Date>(new Date());
   const [endTime, setEndTime] = useState<Date>(new Date());
   const [locationInput, setLocationInput] = useState<string>('');
   const [descriptionInput, setDescriptionInput] = useState<string>('');
+  const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
+  const [update, setUpdate] = useState<boolean>(false);
 
-  useEffect(() => getEvent(creatorId, props.eventId), []);
-  useEffect(() => getParticipants(props.eventId), []);
+  useEffect(() => getEvent(props.creatorId, props.eventId), []);
+  useEffect(() => getEventParticipants(props.eventId), []);
+  useEffect(() => setUpdate(props.update), []);
 
   function getEvent(creatorId: string, eventId: string) {
-    try {
-      fetch('/getEvent', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          creatorId: creatorId,
-          eventId: eventId
-        }),
-      }).then((response) => response.json())
-        .then((json) => {
-          setTitleInput(json[0].name);
-          setStartTime(json[0].startTime);
-          setEndTime(json[0].endTime);
-          setLocationInput(json[0].location);
-          setDescriptionInput(json[0].description);
-          setOriginalEvent({
-            eventId: props.eventId,
-            creator: creatorId,
-            name: json[0].name,
-            description: json[0].description,
-            location: json[0].location,
-            startTime: json[0].startTime,
-            endTime: json[0].endTime,
-            label: ''
-          })
-        });
-    } catch (err) {
-      console.log(err);
+    if (eventId !== '') {
+      try {
+        fetch('/getEvent', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            creatorId: creatorId,
+            eventId: eventId
+          }),
+        }).then((response) => response.json())
+          .then((json) => {
+            setTitleInput(json[0].name);
+            setStartTime(json[0].startTime);
+            setEndTime(json[0].endTime);
+            setLocationInput(json[0].location);
+            setDescriptionInput(json[0].description);
+            setOriginalEvent({
+              eventId: props.eventId,
+              creator: creatorId,
+              name: json[0].name,
+              description: json[0].description,
+              location: json[0].location,
+              startTime: json[0].startTime,
+              endTime: json[0].endTime,
+              label: ''
+            })
+          });
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 
-  function getParticipants(eventId: string) {
-    try {
-      fetch('/getParticipantsSecure', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          eventId: eventId
-        }),
-      }).then((response) => response.json())
-        .then((json) => {
-          let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
-          json.forEach((sharee: string[]) => {
-            newCurrentlyShared.push({
-              userId: sharee[0],
-              name: sharee[3] + ' ' + sharee[2],
-              email: sharee[1] + '@iastate.edu'
-            });
-          });
-          setCurrentlyShared(newCurrentlyShared);
+  function updateEvent(creatorId: string, eventId: string) {
+    if (eventId !== '') {
+      try {
+        fetch('/updateEvent', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            eventId: eventId,
+            creator: creatorId,
+            name: titleInput,
+            description: descriptionInput,
+            startTime: dateFormat(startTime, 'yyyy-mm-dd HH:MM:ss'),
+            endTime: dateFormat(endTime, 'yyyy-mm-dd HH:MM:ss'),
+            location: locationInput,
+            label: ''
+          }),
+        }).then(() => {
+          getEvent(props.creatorId, props.eventId)
+          props.onUpdate();
         });
-    } catch (err) {
-      console.log(err);
+      } catch (err) {
+        console.log(err);
+      }
     }
+  }
+
+  function getEventParticipants(eventId: string) {
+    if (eventId !== '') {
+      try {
+        fetch('/getEventParticipants', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            eventId: eventId
+          }),
+        }).then((response) => response.json())
+          .then((json) => {
+            let newEventParticipants: { userId: string, name: string, email: string }[] = [];
+            if (json.length > 0) {
+              json.forEach((sharee: string[]) => {
+                newEventParticipants.push({
+                  userId: sharee[0],
+                  name: sharee[3] + ' ' + sharee[2],
+                  email: sharee[1] + '@iastate.edu'
+                });
+              });
+            }
+            setCurrentEventParticipants(newEventParticipants);
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+
+  if (props.eventId !== originalEvent.eventId) {
+    getEvent(props.creatorId, props.eventId);
+    getEventParticipants(props.eventId);
+  } else if (props.update !== update) {
+    getEvent(props.creatorId, props.eventId);
+    getEventParticipants(props.eventId);
+    setUpdate(props.update);
   }
 
   return (
@@ -161,7 +190,16 @@ function EditEventDialogWindow(props: Props) {
         zIndex: 1
       }}
     >
-      <DialogTitle>Event Details</DialogTitle>
+      <ShareEventDialogWindow
+        visible={showShareEventDialogWindow}
+        onClose={() => {
+          setShowShareEventDialogWindow(false);
+          getEventParticipants(props.eventId);
+        }}
+        eventId={props.eventId}
+        creatorId={props.creatorId}
+      />
+      <DialogTitle> Event Details</DialogTitle>
       <DialogContent>
         <div
           style={{
@@ -183,23 +221,30 @@ function EditEventDialogWindow(props: Props) {
             })}
             key='titleInput'
           />
-          <Button
-            variant='outlined'
-            color='inherit'
-            onClick={() => { }}
-          >
-            {dateFormat(startTime, 'mm/dd/yy hh:MM TT')}
-          </Button>
-          <Typography variant='subtitle1'>
-            to
-            </Typography>
-          <Button
-            variant='outlined'
-            color='inherit'
-            onClick={() => { }}
-          >
-            {dateFormat(endTime, 'mm/dd/yy hh:MM TT')}
-          </Button>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <DateTimePicker
+              label='Start'
+              value={startTime}
+              onChange={(date: MaterialUiPickersDate) => {
+                if (date !== null) {
+                  setStartTime(date);
+                }
+              }}
+            />
+            <DateTimePicker
+              label='End'
+              value={endTime}
+              minDate={startTime}
+              minDateMessage=''
+              maxDate={startTime}
+              maxDateMessage=''
+              onChange={(date: MaterialUiPickersDate) => {
+                if (date !== null) {
+                  setEndTime(date);
+                }
+              }}
+            />
+          </MuiPickersUtilsProvider>
           <TextField
             variant='standard'
             label='Location'
@@ -233,7 +278,6 @@ function EditEventDialogWindow(props: Props) {
               alignItems: 'center',
               justifyContent: 'center',
               flex: 7,
-              height: window.innerHeight * 0.3075,
               marginRight: '10px'
             }}
           >
@@ -260,7 +304,6 @@ function EditEventDialogWindow(props: Props) {
               alignItems: 'center',
               justifyContent: 'center',
               flex: 3,
-              height: window.innerHeight * 0.3075,
             }}
           >
             <div
@@ -276,19 +319,22 @@ function EditEventDialogWindow(props: Props) {
               <Typography variant='subtitle1'>
                 Participants
                 </Typography>
-              <IconButton>
+              <IconButton
+                onClick={() => setShowShareEventDialogWindow(true)}
+              >
                 <Edit />
               </IconButton>
             </div>
             <div
               style={{
                 overflowY: 'scroll',
-                height: window.innerHeight * 0.25,
+                minHeight: '231px',
+                maxHeight: window.innerHeight >= 926 ? window.innerHeight * 0.25 : '231px',
                 width: '100%'
               }}
             >
               <List>
-                {currentlyShared.map((
+                {currentEventParticipants.map((
                   person: { userId: string, name: string, email: string },
                   index: number,
                   array: { userId: string, name: string, email: string }[]
@@ -311,24 +357,41 @@ function EditEventDialogWindow(props: Props) {
         />
       </DialogContent>
       <DialogActions>
+        {new Date(startTime).getTime() >= new Date(endTime).getTime() && (
+          <Typography
+            variant='subtitle1'
+            color='error'
+          >
+            End time must be after start time.
+            </Typography>
+        )}
         <Button
           variant='contained'
           color='primary'
           onClick={() => props.onClose()}
         >
-          Cancel
-          </Button>
+          {
+            ((
+              originalEvent.name !== titleInput ||
+              originalEvent.startTime !== startTime ||
+              originalEvent.endTime !== endTime ||
+              originalEvent.location !== locationInput ||
+              originalEvent.description !== descriptionInput
+            ) ? 'Cancel' : 'Close')
+          }
+        </Button>
         <Button
           variant='contained'
           color='primary'
-          onClick={() => props.onClose()}
-          disabled={!(
-            originalEvent.name !== titleInput ||
-            originalEvent.startTime !== startTime ||
-            originalEvent.endTime !== endTime ||
-            originalEvent.location !== locationInput ||
-            originalEvent.description !== descriptionInput
-          )}
+          onClick={() => updateEvent(props.creatorId, props.eventId)}
+          disabled={
+            (originalEvent.name === titleInput &&
+              originalEvent.startTime === startTime &&
+              originalEvent.endTime === endTime &&
+              originalEvent.location === locationInput &&
+              originalEvent.description === descriptionInput) ||
+            new Date(startTime).getTime() >= new Date(endTime).getTime()
+          }
         >
           Update
         </Button>

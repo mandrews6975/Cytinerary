@@ -49,6 +49,13 @@ public class EventController {
 		eventRepository.deleteEvent((String) payload.get("eventId"));
 		return ((String) payload.get("eventId") + "deleted");
 	}
+	
+	@Transactional
+	@PostMapping("/updateCreatorEventTime")
+	public @ResponseBody String updateCreatorEventTime(@RequestBody Map<String, Object> payload) {
+		eventRepository.updateCreatorEventTime((String) payload.get("userId"),(String) payload.get("eventId"),(String) payload.get("startTime"),(String) payload.get("endTime"));
+    	return "Event updated";
+    }
 
   @PostMapping("/getEvent")
   public @ResponseBody Collection<Event> getEvent(@RequestBody Map<String, Object> payload) {
@@ -66,6 +73,21 @@ public class EventController {
 				Timestamp.valueOf((String) payload.get("startTime")),
 				Timestamp.valueOf((String) payload.get("endTime")),
 				(String) payload.get("label"));
-		return ("Event " + ((String) payload.get("name")) + " Created");
+		return ("Event " + ((String) payload.get("name")) + " created");
+	}
+	
+	@Transactional
+	@PostMapping("updateEvent")
+	public @ResponseBody String updateEvent(@RequestBody Map<String, Object> payload) {
+		eventRepository.updateEvent(
+				(String) payload.get("eventId"),
+				(String) payload.get("creator"),
+				(String) payload.get("name"),
+				(String) payload.get("description"),
+				Timestamp.valueOf((String) payload.get("startTime")),
+				Timestamp.valueOf((String) payload.get("endTime")),
+				(String) payload.get("location"),
+				(String) payload.get("label"));
+		return ("Event " + ((String) payload.get("name")) + " updated");
 	}
 }

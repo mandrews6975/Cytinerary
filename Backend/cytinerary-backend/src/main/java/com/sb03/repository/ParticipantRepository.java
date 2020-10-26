@@ -22,6 +22,6 @@ public interface ParticipantRepository extends CrudRepository<Participant, Long>
   Collection<Participant> getParticipants(String eventId);
 
   @Query(value="select user.userId, user.netId, user.lastName, user.firstName from users user inner join participants on user.userId = participants.participant where participants.eventId = ?1", nativeQuery = true)
-  Collection<Object> getParticipantsSecure(String sharerId);
+  Collection<Object> getEventParticipants(String eventId);
   
 }
