@@ -91,7 +91,7 @@ function ShareEventDialogWindow(props: Props) {
 
   function getEventParticipants(eventId: string) {
     try {
-      fetch('/getParticipants', {
+      fetch('/getEventParticipants', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

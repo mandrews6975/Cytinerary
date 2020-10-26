@@ -59,7 +59,7 @@ function EditEventDialogWindow(props: Props) {
     endTime: new Date(),
     label: ''
   });
-  const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
+  const [currentEventParticipants, setCurrentEventParticipants] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [titleInput, setTitleInput] = useState<string>('');
   const [startTime, setStartTime] = useState<Date>(new Date());
   const [endTime, setEndTime] = useState<Date>(new Date());
@@ -68,7 +68,7 @@ function EditEventDialogWindow(props: Props) {
   const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
 
   useEffect(() => getEvent(props.creatorId, props.eventId), []);
-  useEffect(() => getParticipants(props.eventId), []);
+  useEffect(() => getEventParticipants(props.eventId), []);
 
   function getEvent(creatorId: string, eventId: string) {
     if (eventId !== '') {
@@ -133,10 +133,10 @@ function EditEventDialogWindow(props: Props) {
     }
   }
 
-  function getParticipants(eventId: string) {
+  function getEventParticipants(eventId: string) {
     if (eventId !== '') {
       try {
-        fetch('/getParticipantsSecure', {
+        fetch('/getEventParticipants', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -147,15 +147,15 @@ function EditEventDialogWindow(props: Props) {
           }),
         }).then((response) => response.json())
           .then((json) => {
-            let newCurrentlyShared: { userId: string, name: string, email: string }[] = [];
+            let newEventParticipants: { userId: string, name: string, email: string }[] = [];
             json.forEach((sharee: string[]) => {
-              newCurrentlyShared.push({
+              newEventParticipants.push({
                 userId: sharee[0],
                 name: sharee[3] + ' ' + sharee[2],
                 email: sharee[1] + '@iastate.edu'
               });
             });
-            setCurrentlyShared(newCurrentlyShared);
+            setCurrentEventParticipants(newEventParticipants);
           });
       } catch (err) {
         console.log(err);
@@ -165,6 +165,7 @@ function EditEventDialogWindow(props: Props) {
 
   if (props.eventId !== originalEvent.eventId) {
     getEvent(props.creatorId, props.eventId);
+    getEventParticipants(props.eventId);
   }
 
   return (
@@ -179,7 +180,10 @@ function EditEventDialogWindow(props: Props) {
     >
       <ShareEventDialogWindow
         visible={showShareEventDialogWindow}
-        onClose={() => setShowShareEventDialogWindow(false)}
+        onClose={() => {
+          setShowShareEventDialogWindow(false);
+          getEventParticipants(props.eventId);
+        }}
         eventId={props.eventId}
         creatorId={props.creatorId}
       />
@@ -218,6 +222,10 @@ function EditEventDialogWindow(props: Props) {
             <DateTimePicker
               label='End'
               value={endTime}
+              minDate={startTime}
+              minDateMessage=''
+              maxDate={startTime}
+              maxDateMessage=''
               onChange={(date: MaterialUiPickersDate) => {
                 if (date !== null) {
                   setEndTime(date);
@@ -315,7 +323,7 @@ function EditEventDialogWindow(props: Props) {
               }}
             >
               <List>
-                {currentlyShared.map((
+                {currentEventParticipants.map((
                   person: { userId: string, name: string, email: string },
                   index: number,
                   array: { userId: string, name: string, email: string }[]
@@ -338,13 +346,29 @@ function EditEventDialogWindow(props: Props) {
         />
       </DialogContent>
       <DialogActions>
+        {new Date(startTime).getTime() >= new Date(endTime).getTime() && (
+          <Typography
+            variant='subtitle1'
+            color='error'
+          >
+            End time must be after start time.
+            </Typography>
+        )}
         <Button
           variant='contained'
           color='primary'
           onClick={() => props.onClose()}
         >
-          Cancel
-          </Button>
+          {
+            ((
+              originalEvent.name !== titleInput ||
+              originalEvent.startTime !== startTime ||
+              originalEvent.endTime !== endTime ||
+              originalEvent.location !== locationInput ||
+              originalEvent.description !== descriptionInput
+            ) ? 'Cancel' : 'Close')
+          }
+        </Button>
         <Button
           variant='contained'
           color='primary'
@@ -352,13 +376,14 @@ function EditEventDialogWindow(props: Props) {
             updateEvent(props.creatorId, props.eventId);
             props.onUpdate();
           }}
-          disabled={!(
-            originalEvent.name !== titleInput ||
-            originalEvent.startTime !== startTime ||
-            originalEvent.endTime !== endTime ||
-            originalEvent.location !== locationInput ||
-            originalEvent.description !== descriptionInput
-          )}
+          disabled={
+            (originalEvent.name === titleInput &&
+              originalEvent.startTime === startTime &&
+              originalEvent.endTime === endTime &&
+              originalEvent.location === locationInput &&
+              originalEvent.description === descriptionInput) ||
+            new Date(startTime).getTime() >= new Date(endTime).getTime()
+          }
         >
           Update
         </Button>
