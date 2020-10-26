@@ -288,7 +288,9 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => { this.handleEventDragEnd(e) }} eventId={event.eventId} color={"red"} onClick={(eventId) => alert(eventId)} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => { this.handleEventDragEnd(e) }} eventId={event.eventId} color={"red"} onClick={(eventId) => {
+                      this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId })
+                    }} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
