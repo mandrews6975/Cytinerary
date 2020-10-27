@@ -261,7 +261,7 @@ class NewEventModal extends React.Component<IProps, IState> {
                   </div>
                   <div style = {{display: 'flex'}}>
                     <Button variant="outlined" onClick = {() => {this.getEventLabels('111'); this.setState({labelDialog:true})}}>
-                      Label
+                      Label: {this.state.label}
                     </Button>
                   </div>
                   <div>
