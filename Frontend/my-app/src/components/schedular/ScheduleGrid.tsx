@@ -9,6 +9,7 @@ import {
   ArrowForward,
   ArrowBack
 } from '@material-ui/icons';
+import EditEventDialogWindow from '../dialog_windows/EditEventDialogWindow';
 
 interface IProps {
   //onSubmit: string,
@@ -21,7 +22,10 @@ interface IState {
   participantEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
   selectedDate: Date,
   startDate: string,
-  endDate: string
+  endDate: string,
+  showEditEventDialogWindow: boolean,
+  selectedEvent: string,
+  updateEventDialogWindow: boolean
 }
 
 class ScheduleGrid extends React.Component<IProps, IState> {
@@ -32,7 +36,10 @@ class ScheduleGrid extends React.Component<IProps, IState> {
       participantEvents: [],
       selectedDate: new Date(),
       startDate: '',
-      endDate: ''
+      endDate: '',
+      showEditEventDialogWindow: false,
+      selectedEvent: '',
+      updateEventDialogWindow: false
     }
   }
 
@@ -44,7 +51,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     this.setState({ selectedDate: new Date(curr.getTime()) })
   }
 
-  getWeeklyCreatorEvents(startDate: string, endDate: string) {
+  getWeeklyCreatorEvents(startDate: string, endDate: string, callback?: Function) {
     try {
       fetch('/getCreatorEvents', {
         method: 'POST',
@@ -84,6 +91,10 @@ class ScheduleGrid extends React.Component<IProps, IState> {
             creatorEvents.push(eventObject);
           })
           this.setState({ creatorEvents });
+        }).then(() => {
+          if (callback) {
+            callback();
+          }
         });
     } catch (err) {
       console.log(err);
@@ -136,7 +147,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }
   }
 
-  getWeeklyEvents() {
+  getWeeklyEvents(callback?: Function) {
     let curr = new Date(this.state.selectedDate);
     curr.setHours(0, 0, 0, 0);
     var first = curr.getDate() - curr.getDay() + (curr.getDay() === 0 ? -6 : 1); // First day is the day of the month - the day of the week
@@ -148,7 +159,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     this.setState({ startDate, endDate })
     // console.log(firstday);
     // console.log(lastday);
-    this.getWeeklyCreatorEvents(startDate, endDate);
+    this.getWeeklyCreatorEvents(startDate, endDate, callback);
     this.getWeeklyParticipantEvents(startDate, endDate);
   }
 
@@ -173,7 +184,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     return isoDateTime;
   }
 
-  handleEventDragEnd(e) {
+  handleEventDragEnd(e, callback: Function) {
     let referenceDate = new Date(this.state.startDate);
     let currentDayIndex = (e.x / 97) + 1;
     let startTimeHours = e.y / 60;
@@ -195,7 +206,9 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           startTime: startTimeString,
           endTime: endTimeString,
         }),
-      }).then((response) => { console.log("drag success") });
+      }).then((response) => {
+        this.getWeeklyEvents(callback);
+      });
     } catch (err) {
       console.log(err);
     }
@@ -214,6 +227,14 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     const times: String[] = ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM']
     return (
       <div style={{ display: 'flex', flexDirection: 'column', flex: '1', minHeight: '400px', maxHeight: '400px', minWidth: '600px', marginTop: '10 px', borderColor: 'red', borderStyle: 'solid', borderWidth: '2px', backgroundColor: 'white' }} >
+        <EditEventDialogWindow
+          visible={this.state.showEditEventDialogWindow}
+          onClose={() => this.setState({ showEditEventDialogWindow: false })}
+          onUpdate={() => this.getWeeklyEvents()}
+          eventId={this.state.selectedEvent}
+          creatorId={this.props.user}
+          update={this.state.updateEventDialogWindow}
+        />
         <div style={{ display: 'flex', marginRight: "20px", borderBottom: 'solid', borderColor: 'black', flexDirection: 'row', }}>
           <div style={{ flex: '1' }}>
             <IconButton
@@ -276,7 +297,9 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => { this.handleEventDragEnd(e) }} eventId={event.eventId} color={"red"} onClick={(eventId) => alert(eventId)} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => {
+                      this.handleEventDragEnd(e, () => this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow }));
+                    }} onClick={() => { }} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
