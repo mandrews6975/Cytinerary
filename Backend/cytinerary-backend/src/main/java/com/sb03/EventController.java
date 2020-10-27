@@ -46,7 +46,7 @@ public class EventController {
 	@Transactional
 	@PostMapping("/deleteEvent")
 	public @ResponseBody String delete(@RequestBody Map<String, Object> payload) {
-		eventRepository.deleteEvent((String) payload.get("eventId"));
+		eventRepository.deleteEvent((String) payload.get("creator"), (String) payload.get("eventId"));
 		return ((String) payload.get("eventId") + "deleted");
 	}
 	
