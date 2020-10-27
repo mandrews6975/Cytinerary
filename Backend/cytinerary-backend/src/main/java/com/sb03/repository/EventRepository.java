@@ -40,8 +40,8 @@ public interface EventRepository extends CrudRepository<Event, Long>{
 	  Collection<Event> getParticipantEvents(String participant, String startTime, String endTime);
   
   @Modifying
-  @Query(value="delete from events where eventId = ?1", nativeQuery = true)
-  void deleteEvent(String eventId);
+  @Query(value="delete from events where creator=?1 and eventId = ?2", nativeQuery = true)
+  void deleteEvent(String creator, String eventId);
 
   @Modifying
   @Query(value="insert into events(eventId, creator, name, description, starttime, endtime, label) values(?1, ?2, ?3, ?4, ?5, ?6, ?7)", nativeQuery = true)

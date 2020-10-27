@@ -231,6 +231,10 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           visible={this.state.showEditEventDialogWindow}
           onClose={() => this.setState({ showEditEventDialogWindow: false })}
           onUpdate={() => this.getWeeklyEvents()}
+          onDelete={() => {
+            this.setState({ showEditEventDialogWindow: false, selectedEvent: '' });
+            this.getWeeklyEvents();
+          }}
           eventId={this.state.selectedEvent}
           creatorId={this.props.user}
           update={this.state.updateEventDialogWindow}
