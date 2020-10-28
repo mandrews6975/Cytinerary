@@ -10,6 +10,7 @@ import {
   ArrowBack
 } from '@material-ui/icons';
 import EditEventDialogWindow from '../dialog_windows/EditEventDialogWindow';
+import ViewParticipantEventDialogWindow from '../dialog_windows/ViewParticipantEventDialogWindow';
 
 interface IProps {
   //onSubmit: string,
@@ -25,7 +26,8 @@ interface IState {
   endDate: string,
   showEditEventDialogWindow: boolean,
   selectedEvent: string,
-  updateEventDialogWindow: boolean
+  updateEventDialogWindow: boolean,
+  showViewParticipantEventDialogWindow: boolean
 }
 
 class ScheduleGrid extends React.Component<IProps, IState> {
@@ -39,7 +41,8 @@ class ScheduleGrid extends React.Component<IProps, IState> {
       endDate: '',
       showEditEventDialogWindow: false,
       selectedEvent: '',
-      updateEventDialogWindow: false
+      updateEventDialogWindow: false,
+      showViewParticipantEventDialogWindow: false
     }
   }
 
@@ -239,6 +242,12 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           creatorId={this.props.user}
           update={this.state.updateEventDialogWindow}
         />
+        <ViewParticipantEventDialogWindow 
+        visible={this.state.showViewParticipantEventDialogWindow} 
+        onClose={()=> this.setState({showViewParticipantEventDialogWindow: false})}
+        eventId={this.state.selectedEvent}
+        creatorId={this.props.user}
+        />
         <div style={{ display: 'flex', marginRight: "20px", borderBottom: 'solid', borderColor: 'black', flexDirection: 'row', }}>
           <div style={{ flex: '1' }}>
             <IconButton
@@ -308,10 +317,9 @@ class ScheduleGrid extends React.Component<IProps, IState> {
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={(eventId) => alert(eventId)} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
-
               </div>
               {
                 times.map((time, index) => (
