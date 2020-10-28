@@ -74,7 +74,6 @@ function LabelDialogWindow(props: IProps) {
         }),
       }).then((response) => response.json())
         .then((json) => {
-          console.log(json)
           let instanceLabel: { userId: string, label: string, color: string }[] = [];
           json.forEach((label: { userId: string, label: string, color: string} ) => {
             instanceLabel.push({

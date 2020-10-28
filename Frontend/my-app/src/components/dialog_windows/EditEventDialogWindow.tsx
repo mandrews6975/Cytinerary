@@ -43,9 +43,10 @@ interface Props {
   visible: boolean,
   onClose: Function,
   onUpdate: Function,
+  onDelete: Function,
   eventId: string,
   creatorId: string,
-  update: boolean
+  update: boolean,
 }
 
 function EditEventDialogWindow(props: Props) {
@@ -67,6 +68,7 @@ function EditEventDialogWindow(props: Props) {
   const [locationInput, setLocationInput] = useState<string>('');
   const [descriptionInput, setDescriptionInput] = useState<string>('');
   const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
+  const [showDeleteEventDialog, setShowDeleteEventDialog] = useState<boolean>(false);
   const [update, setUpdate] = useState<boolean>(false);
 
   function getEvent(creatorId: string, eventId: string) {
@@ -137,6 +139,28 @@ function EditEventDialogWindow(props: Props) {
     }
   }
 
+  function deleteEvent(creatorId: string, eventId: string) {
+    if (eventId !== '') {
+      try {
+        fetch('/deleteEvent', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            eventId: eventId,
+            creator: creatorId
+          }),
+        }).then(() => {
+          props.onDelete();
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+
   function getEventParticipants(eventId: string) {
     if (eventId !== '' && props.visible) {
       try {
@@ -197,7 +221,33 @@ function EditEventDialogWindow(props: Props) {
         eventId={props.eventId}
         creatorId={props.creatorId}
       />
-      <DialogTitle> Event Details</DialogTitle>
+      <Dialog
+        open={showDeleteEventDialog}
+        onClose={() => setShowDeleteEventDialog(false)}
+      >
+        <DialogTitle>Delete Event</DialogTitle>
+        <DialogContent>Are you sure you want to delete this event?</DialogContent>
+        <DialogActions>
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={() => setShowDeleteEventDialog(false)}
+          >
+            Cancel
+        </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={() => {
+              deleteEvent(props.creatorId, props.eventId);
+              setShowDeleteEventDialog(false);
+            }}
+          >
+            Delete Event
+      </Button>
+        </DialogActions>
+      </Dialog>
+      <DialogTitle>Event Details</DialogTitle>
       <DialogContent>
         <div
           style={{
@@ -355,44 +405,65 @@ function EditEventDialogWindow(props: Props) {
         />
       </DialogContent>
       <DialogActions>
-        {new Date(startTime).getTime() >= new Date(endTime).getTime() && (
-          <Typography
-            variant='subtitle1'
-            color='error'
-          >
-            End time must be after start time.
-            </Typography>
-        )}
-        <Button
-          variant='contained'
-          color='primary'
-          onClick={() => props.onClose()}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flex: 3,
+          }}
         >
-          {
-            ((
-              originalEvent.name !== titleInput ||
-              originalEvent.startTime !== startTime ||
-              originalEvent.endTime !== endTime ||
-              originalEvent.location !== locationInput ||
-              originalEvent.description !== descriptionInput
-            ) ? 'Cancel' : 'Close')
-          }
-        </Button>
-        <Button
-          variant='contained'
-          color='primary'
-          onClick={() => updateEvent(props.creatorId, props.eventId)}
-          disabled={
-            (originalEvent.name === titleInput &&
-              originalEvent.startTime === startTime &&
-              originalEvent.endTime === endTime &&
-              originalEvent.location === locationInput &&
-              originalEvent.description === descriptionInput) ||
-            new Date(startTime).getTime() >= new Date(endTime).getTime()
-          }
-        >
-          Update
-        </Button>
+          <div>
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={() => setShowDeleteEventDialog(true)}
+            >
+              Delete Event
+          </Button>
+          </div>
+          <div>
+            {new Date(startTime).getTime() >= new Date(endTime).getTime() && (
+              <Typography
+                variant='subtitle1'
+                color='error'
+              >
+                End time must be after start time.
+              </Typography>
+            )}
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={() => props.onClose()}
+            >
+              {
+                ((
+                  originalEvent.name !== titleInput ||
+                  originalEvent.startTime !== startTime ||
+                  originalEvent.endTime !== endTime ||
+                  originalEvent.location !== locationInput ||
+                  originalEvent.description !== descriptionInput
+                ) ? 'Cancel' : 'Close')
+              }
+            </Button>
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={() => updateEvent(props.creatorId, props.eventId)}
+              disabled={
+                (originalEvent.name === titleInput &&
+                  originalEvent.startTime === startTime &&
+                  originalEvent.endTime === endTime &&
+                  originalEvent.location === locationInput &&
+                  originalEvent.description === descriptionInput) ||
+                new Date(startTime).getTime() >= new Date(endTime).getTime()
+              }
+            >
+              Update
+          </Button>
+          </div>
+        </div>
       </DialogActions>
     </Dialog>
   );
