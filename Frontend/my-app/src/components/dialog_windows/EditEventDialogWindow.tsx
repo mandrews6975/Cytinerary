@@ -69,12 +69,8 @@ function EditEventDialogWindow(props: Props) {
   const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
   const [update, setUpdate] = useState<boolean>(false);
 
-  useEffect(() => getEvent(props.creatorId, props.eventId), []);
-  useEffect(() => getEventParticipants(props.eventId), []);
-  useEffect(() => setUpdate(props.update), []);
-
   function getEvent(creatorId: string, eventId: string) {
-    if (eventId !== '') {
+    if (eventId !== '' && props.visible) {
       try {
         fetch('/getEvent', {
           method: 'POST',
@@ -88,6 +84,7 @@ function EditEventDialogWindow(props: Props) {
           }),
         }).then((response) => response.json())
           .then((json) => {
+            if(json.length > 0){
             setTitleInput(json[0].name);
             setStartTime(json[0].startTime);
             setEndTime(json[0].endTime);
@@ -103,6 +100,7 @@ function EditEventDialogWindow(props: Props) {
               endTime: json[0].endTime,
               label: ''
             })
+          }
           });
       } catch (err) {
         console.log(err);
@@ -111,7 +109,7 @@ function EditEventDialogWindow(props: Props) {
   }
 
   function updateEvent(creatorId: string, eventId: string) {
-    if (eventId !== '') {
+    if (eventId !== '' && props.visible) {
       try {
         fetch('/updateEvent', {
           method: 'POST',
@@ -140,7 +138,7 @@ function EditEventDialogWindow(props: Props) {
   }
 
   function getEventParticipants(eventId: string) {
-    if (eventId !== '') {
+    if (eventId !== '' && props.visible) {
       try {
         fetch('/getEventParticipants', {
           method: 'POST',

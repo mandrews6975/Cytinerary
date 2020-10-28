@@ -313,10 +313,9 @@ class ScheduleGrid extends React.Component<IProps, IState> {
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
-
               </div>
               {
                 times.map((time, index) => (
