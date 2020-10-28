@@ -61,6 +61,11 @@ public class EventController {
   public @ResponseBody Collection<Event> getEvent(@RequestBody Map<String, Object> payload) {
     return eventRepository.getEvent((String) payload.get("creatorId"), (String) payload.get("eventId"));
   }
+  
+  @PostMapping("/getEventWithId")
+  public @ResponseBody Collection<Event> getEventWithId(@RequestBody Map<String, Object> payload) {
+    return eventRepository.getEventWithId((String) payload.get("eventId"));
+  }
 
 	@Transactional
 	@PostMapping("/createEvent")
@@ -89,5 +94,12 @@ public class EventController {
 				(String) payload.get("location"),
 				(String) payload.get("label"));
 		return ("Event " + ((String) payload.get("name")) + " updated");
+	}
+	
+	@Transactional
+	@PostMapping("/deleteParticipantFromEvent")
+	public @ResponseBody String deleteParticipantFromEvent(@RequestBody Map<String, Object> payload){
+		eventRepository.deleteParticipantFromEvent((String) payload.get("eventId"), (String) payload.get("participant"));
+		return ("Participant " + (String) payload.get("participant") + " removed from the event " + (String) payload.get("name"));
 	}
 }
