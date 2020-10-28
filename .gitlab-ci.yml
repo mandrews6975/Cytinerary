@@ -48,6 +48,7 @@ autoDeploy:
     - cd Frontend/my-app
     - npm install
     - npm run build
+    - npm run test
     - cd ..
     - cd ..
     - sudo rm -r ./Backend/cytinerary-backend/src/main/resources/static/*

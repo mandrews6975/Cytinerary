@@ -242,8 +242,8 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           creatorId={this.props.user}
           update={this.state.updateEventDialogWindow}
         />
-        <ViewParticipantEventDialogWindow 
-        visible={this.state.showViewParticipantEventDialogWindow} 
+        <ViewParticipantEventDialogWindow
+        visible={this.state.showViewParticipantEventDialogWindow}
         onClose={()=> this.setState({showViewParticipantEventDialogWindow: false})}
         eventId={this.state.selectedEvent}
         creatorId={this.props.user}
@@ -310,14 +310,14 @@ class ScheduleGrid extends React.Component<IProps, IState> {
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock name={event.name} draggable={true} onDragEnd={(e) => {
+                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={true} onDragEnd={(e) => {
                       this.handleEventDragEnd(e, () => this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow }));
                     }} onClick={() => { }} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
               </div>

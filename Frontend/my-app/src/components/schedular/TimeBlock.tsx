@@ -13,6 +13,7 @@ interface IProps {
   color: string,
   onDragEnd: Function,
   draggable: boolean,
+  id: string,
 }
 interface IState {
   deltaPosition: {
@@ -66,7 +67,7 @@ class TimeBlock extends React.Component<IProps, IState> {
     return (
       //- 1 for the bounds at the bottom to prevent changes times to 0:00:00 the next day
       <Draggable disabled={!this.props.draggable} onDrag={(e, ui) => { this.handleDrag(e, ui) }} defaultPosition={{ x: this.props.xinit, y: this.props.yinit }} bounds={{ left: 0, top: 0, right: 582, bottom: (1440 - this.props.height - 1) }} grid={[97, 15]} {...dragHandlers}>
-        <div className="box" onClick={() => { this.props.onClick(this.props.eventId) }} style={{ textAlign: 'center', opacity: '.7', border: '1px solid #000000', position: "absolute", minHeight: this.props.height - 2, minWidth: '84px', maxWidth: '84px', maxHeight: this.props.height - 2, marginLeft: "5px", marginRight: "10px", fontSize: '12px', color: 'white', backgroundColor: this.props.color, cursor: 'grab' }}>{this.props.name}</div>
+        <div id = {this.props.id} className="box" onClick={() => { this.props.onClick(this.props.eventId) }} style={{ textAlign: 'center', opacity: '.7', border: '1px solid #000000', position: "absolute", minHeight: this.props.height - 2, minWidth: '84px', maxWidth: '84px', maxHeight: this.props.height - 2, marginLeft: "5px", marginRight: "10px", fontSize: '12px', color: 'white', backgroundColor: this.props.color, cursor: 'grab' }}>{this.props.name}</div>
       </Draggable>
     );
   }
