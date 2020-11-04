@@ -16,7 +16,7 @@ interface IProps {
   //onSubmit: string,
   // visible: boolean,
   // onClose: () => void,
-  user: string,
+  userId: string,
 }
 interface IState {
   creatorEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
@@ -63,7 +63,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          creator: this.props.user,
+          creator: this.props.userId,
           startDate: startDate,
           endDate: endDate,
         }),
@@ -113,7 +113,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          participant: this.props.user,
+          participant: this.props.userId,
           startDate: startDate,
           endDate: endDate,
         }),
@@ -204,7 +204,7 @@ class ScheduleGrid extends React.Component<IProps, IState> {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userId: this.props.user,
+          userId: this.props.userId,
           eventId: e.eventId,
           startTime: startTimeString,
           endTime: endTimeString,
@@ -239,14 +239,14 @@ class ScheduleGrid extends React.Component<IProps, IState> {
             this.getWeeklyEvents();
           }}
           eventId={this.state.selectedEvent}
-          creatorId={this.props.user}
+          creatorId={this.props.userId}
           update={this.state.updateEventDialogWindow}
         />
         <ViewParticipantEventDialogWindow
         visible={this.state.showViewParticipantEventDialogWindow}
         onClose={()=> this.setState({showViewParticipantEventDialogWindow: false})}
         eventId={this.state.selectedEvent}
-        creatorId={this.props.user}
+        creatorId={this.props.userId}
         />
         <div style={{ display: 'flex', marginRight: "20px", borderBottom: 'solid', borderColor: 'black', flexDirection: 'row', }}>
           <div style={{ flex: '1' }}>

@@ -30,7 +30,8 @@ import ShareDialogSearchListItem from '../list_items/ShareDialogSearchListItem';
 
 interface Props {
   visible: boolean,
-  onClose: Function
+  onClose: Function,
+  userId: string
 }
 
 const theme = createMuiTheme({
@@ -52,14 +53,13 @@ const theme = createMuiTheme({
   }
 });
 
-const sharerId = '111';
-
 function ShareScheduleDialogWindow(props: Props) {
 
   const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [discoveredUsers, setDiscoveredUsers] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [autocompleteAnchor, setAutocompleteAnchor] = useState<HTMLElement | null>(null);
   const [input, setInput] = useState<string>('');
+  const sharerId = props.userId;
 
   useEffect(getUsers, []);
   useEffect(() => getSharedUsers(sharerId), []);

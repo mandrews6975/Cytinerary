@@ -10,7 +10,7 @@ interface IProps {
   //onSubmit: string,
   visible: boolean,
   onClose: () => void,
-  user: string,
+  userId: string,
   onSuccessfulSubmit: Function,
 }
 interface IState {
@@ -32,7 +32,7 @@ interface IState {
 
 class NewEventModal extends React.Component<IProps, IState> {
 
-  componentDidMount() { this.getEventLabels('111') }
+  componentDidMount() { this.getEventLabels(this.props.userId) }
 
   constructor(props: IProps) {
     super(props);
@@ -71,7 +71,7 @@ class NewEventModal extends React.Component<IProps, IState> {
             },
             body: JSON.stringify({
               eventId: eventId,
-              creator: this.props.user,
+              creator: this.props.userId,
               name: this.state.name,
               description: this.state.description,
               startTime: this.state.fromDate, /*There is an inconsistency with the naming scheme here (startTime and fromDate)*/
@@ -134,7 +134,7 @@ class NewEventModal extends React.Component<IProps, IState> {
 
   addParticipant() {
     //Check if user trys to add themselves
-    if(this.state.participantValue === this.props.user) {
+    if(this.state.participantValue === this.props.userId) {
       this.setState({
         participantsError:true,
         participantsErrorLabel: 'You cannot be the participant of the event',
@@ -260,7 +260,7 @@ class NewEventModal extends React.Component<IProps, IState> {
                     </MuiPickersUtilsProvider>
                   </div>
                   <div style = {{display: 'flex'}}>
-                    <Button variant="outlined" onClick = {() => {this.getEventLabels('111'); this.setState({labelDialog:true})}}>
+                    <Button variant="outlined" onClick = {() => {this.getEventLabels(this.props.userId); this.setState({labelDialog:true})}}>
                       Label: {this.state.label}
                     </Button>
                   </div>

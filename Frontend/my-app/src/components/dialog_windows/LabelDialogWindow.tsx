@@ -25,7 +25,8 @@ import LabelDialogListItem from '../list_items/LabelDialogListItem';
 
 interface IProps {
   visible: boolean,
-  onClose: Function
+  onClose: Function,
+  userId: string,
 }
 
 const theme = createMuiTheme({
@@ -47,9 +48,9 @@ const theme = createMuiTheme({
   }
 });
 
-const concrete_userId = '111';
-
 function LabelDialogWindow(props: IProps) {
+
+  const concrete_userId = props.userId;
 
   const [allLabels, setAllLabels]= useState<{ userId: string, label: string, color: string }[]>([]);
 

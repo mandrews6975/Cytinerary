@@ -46,7 +46,7 @@ function MyScheduleScreen(props: Props) {
   const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
   const [persistantState, forceUpdate] = useState<number>(0);
   const [showLabelDialog, setLabelDialog] = useState<boolean>(false);
-
+  const userId = props.redux_authentication.userId;
   return (
     <ThemeProvider
       theme={theme}
@@ -69,8 +69,9 @@ function MyScheduleScreen(props: Props) {
           <ShareScheduleDialogWindow
             onClose={() => setShowShareScheduleDialog(false)}
             visible={showShareScheduleDialog}
+            userId={userId}
           />
-          <NewEventModal visible={showNewEventDialog} user={'111'} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
+          <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
 
           <Button variant={'contained'} onClick = {() => {props.ACTION_userLogout(); localStorage.removeItem('userId')}}>
           Logout
@@ -86,6 +87,7 @@ function MyScheduleScreen(props: Props) {
         <LabelDialogWindow
           onClose={() => setLabelDialog(false)}
           visible={showLabelDialog}
+          userId = {userId}
         />
         <Button
           color='primary'
@@ -104,7 +106,7 @@ function MyScheduleScreen(props: Props) {
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  creator: "111"
+                  creator: userId
                 }),
             }).then((response) => response.json())
             .then((json) => {
@@ -123,7 +125,7 @@ function MyScheduleScreen(props: Props) {
           //alignItems: 'center',
           //justifyContent: 'center'
         }}>
-          <ScheduleGrid user = "111"/>
+          <ScheduleGrid userId = {userId}/>
         </div>
       </div>
     </ThemeProvider>
