@@ -102,4 +102,4 @@ describe("The SchedularGrid Component", () => {
 
 
   });
-})
+});
