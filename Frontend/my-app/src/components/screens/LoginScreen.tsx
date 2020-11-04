@@ -4,19 +4,28 @@ import red from '@material-ui/core/colors/red';
 import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
 
-import {TextField, Button, Typography} from '@material-ui/core'
+import { TextField, Button, Typography } from '@material-ui/core'
 
 import {
   Person,
   Lock
 } from '@material-ui/icons'
 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import {
+  ACTION_userLogin
+} from "../../state/reducers/AuthenticationReducer"
+
 interface IState {
   username: string,
   password: string,
 }
 
-interface IProps {}
+interface IProps {
+  ACTION_userLogin: Function,
+  redux_authentication: any
+}
 
 const colors = ({
   palette: {
@@ -35,9 +44,9 @@ const colors = ({
   }
 });
 
-class App extends React.Component<IProps, IState>{
+class LoginScreen extends React.Component<IProps, IState>{
 
-  constructor(props: IProps){
+  constructor(props: IProps) {
     super(props);
     this.state = {
       username: '',
@@ -56,14 +65,16 @@ class App extends React.Component<IProps, IState>{
         netId: this.state.username,
         password: this.state.password
       }),
-  }).then((response) => response.text())
-  .then((text) => {
-    alert(text)
-  });
+    }).then((response) => response.text())
+      .then((text) => {
+        if (text) {
+          localStorage.setItem('userId', text);
+          this.props.ACTION_userLogin(text);
+        }
+      });
   }
 
   render() {
-
     return (
       <div style={{
         height: window.innerHeight,
@@ -83,12 +94,12 @@ class App extends React.Component<IProps, IState>{
           borderLeft: '1px solid black',
           borderRight: '1px solid black'
         }}>
-          <Typography variant='h2' style={{marginBottom: '100px', marginTop: '50px'}}>
+          <Typography variant='h2' style={{ marginBottom: '100px', marginTop: '50px' }}>
             Cytinerary
           </Typography>
-          <TextField onChange = {(event) => this.setState({username: event.target.value})} label = {"netId"} style={{marginBottom: '20px'}}/>
-          <TextField onChange = {(event) => this.setState({password: event.target.value})} label = {"Password"} style={{marginBottom: '20px'}} inputProps={{type: 'password'}}/>
-          <Button onClick = {() => {this.sendRequest()}}>
+          <TextField onChange={(event) => this.setState({ username: event.target.value })} label={"netId"} style={{ marginBottom: '20px' }} />
+          <TextField onChange={(event) => this.setState({ password: event.target.value })} label={"Password"} style={{ marginBottom: '20px' }} inputProps={{ type: 'password' }} />
+          <Button onClick={() => { this.sendRequest() }}>
             Login
           </Button>
         </div>
@@ -97,4 +108,15 @@ class App extends React.Component<IProps, IState>{
   }
 }
 
-export default App;
+const mapStateToProps = (state: any) => {
+  const { authentication } = state;
+  return { redux_authentication: authentication };
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+  return bindActionCreators({
+    ACTION_userLogin
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
