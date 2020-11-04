@@ -11,6 +11,11 @@ import NewEventModal from '../dialog_windows/newEventModal'
 import ShareScheduleDialogWindow from '../dialog_windows/ShareScheduleDialogWindow';
 import ScheduleGrid from '../schedular/ScheduleGrid'
 import LabelDialogWindow from '../dialog_windows/LabelDialogWindow';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {
+  ACTION_userLogout
+} from "../../state/reducers/AuthenticationReducer"
 
 const theme = createMuiTheme({
   palette: {
@@ -31,7 +36,12 @@ const theme = createMuiTheme({
   }
 });
 
-function MyScheduleScreen() {
+interface Props {
+  redux_authentication: any,
+  ACTION_userLogout: Function
+}
+
+function MyScheduleScreen(props: Props) {
   const [showShareScheduleDialog, setShowShareScheduleDialog] = useState<boolean>(false);
   const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
   const [persistantState, forceUpdate] = useState<number>(0);
@@ -61,6 +71,11 @@ function MyScheduleScreen() {
             visible={showShareScheduleDialog}
           />
           <NewEventModal visible={showNewEventDialog} user={'111'} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
+
+          <Button variant={'contained'} onClick = {() => {props.ACTION_userLogout(); localStorage.removeItem('userId')}}>
+          Logout
+          </Button>
+
           <Button
             color='primary'
             variant='contained'
@@ -115,4 +130,15 @@ function MyScheduleScreen() {
   );
 }
 
-export default MyScheduleScreen;
+const mapStateToProps = (state: any) => {
+  const { authentication } = state;
+  return { redux_authentication: authentication };
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+  return bindActionCreators({
+    ACTION_userLogout
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyScheduleScreen);
