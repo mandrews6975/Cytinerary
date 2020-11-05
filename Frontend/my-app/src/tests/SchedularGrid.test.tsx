@@ -54,7 +54,7 @@ describe("The SchedularGrid Component", () => {
 
     // Use the asynchronous version of act to apply resolved promises
     await act(async () => {
-      render(<ScheduleGrid user="111" />, container);
+      render(<ScheduleGrid userId="111" />, container);
     });
   });
 

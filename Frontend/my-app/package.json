@@ -29,13 +29,15 @@
     "react-scripts": "^3.4.4",
     "react-widgets": "^5.0.0-beta.21",
     "redux": "^4.0.5",
+    "typedoc": "^0.19.2",
     "uuid": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "doc": "typedoc --out ./docs/documentation ./src --mode file --tsconfig ./tsconfig.json"
   },
   "eslintConfig": {
     "extends": "react-app"
