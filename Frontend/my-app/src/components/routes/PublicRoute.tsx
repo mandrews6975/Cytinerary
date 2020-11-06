@@ -9,7 +9,6 @@ interface Props {
   redux_authentication: any,
   children: any,
   path: string,
-  notLoggedInPath: string
 }
 
 function PublicRoute(props: Props) {

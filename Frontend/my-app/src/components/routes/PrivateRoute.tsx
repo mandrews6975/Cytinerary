@@ -3,7 +3,6 @@ import {
   Route,
   Redirect,
   Switch,
-  useRouteMatch
 } from "react-router-dom";
 import { connect } from 'react-redux';
 import SideBarNavigator from './SideBarNavigator'
@@ -11,12 +10,11 @@ import MyScheduleScreen from '../screens/MyScheduleScreen'
 
 interface Props {
   redux_authentication: any,
-  children: any,
   path: string,
 }
 
 function PrivateRoute(props: Props) {
-  let { path, url } = useRouteMatch();
+  //let  path  = useRouteMatch();
   return (
     <Route path={props.path}
       render={() =>
@@ -25,13 +23,13 @@ function PrivateRoute(props: Props) {
             <SideBarNavigator/>
             <div>
               <Switch>
-                <Route exact path={path}>
+                <Route exact path={props.path}>
                   <MyScheduleScreen />
                 </Route>
                 <Route path={`/home`}>
                   <MyScheduleScreen />
                 </Route>
-                <Route path={`/topics`}>
+                <Route path={`/sharedschedules`}>
                   <div style = {{display: 'flex', justifyContent: 'center', alignItems: 'center', color:'black'}}>
                     Hello
                   </div>

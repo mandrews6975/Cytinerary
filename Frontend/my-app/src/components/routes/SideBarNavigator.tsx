@@ -36,7 +36,7 @@ function SideBarNavigator(props: Props) {
           <NavBarItem linkTo = {'/home'} title = {'Home'}>
             <Event style={iconStyle} />
           </NavBarItem>
-          <NavBarItem linkTo = {'/topics'} title = {'Shared Schedules'}>
+          <NavBarItem linkTo = {'/sharedschedules'} title = {'Shared Schedules'}>
             <PermContactCalendar style={iconStyle} />
           </NavBarItem>
       </div>

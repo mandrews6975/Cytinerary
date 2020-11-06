@@ -1,15 +1,9 @@
 import React from 'react';
 
 import red from '@material-ui/core/colors/red';
-import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
 
 import { TextField, Button, Typography } from '@material-ui/core'
-
-import {
-  Person,
-  Lock
-} from '@material-ui/icons'
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -27,22 +21,6 @@ interface IProps {
   redux_authentication: any
 }
 
-const colors = ({
-  palette: {
-    primary: {
-      default: yellow[50]
-    },
-    secondary: {
-      default: grey[900]
-    },
-    tertiary: {
-      default: grey[50]
-    },
-    background: {
-      default: red[100]
-    }
-  }
-});
 
 class LoginScreen extends React.Component<IProps, IState>{
 
