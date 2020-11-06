@@ -32,7 +32,9 @@ function PrivateRoute(props: Props) {
                   <MyScheduleScreen />
                 </Route>
                 <Route path={`/topics`}>
-                  <p style = {{display: 'flex', justifyContent: 'center', alignItems: 'center', color:'black'}}>Hello</p>
+                  <div style = {{display: 'flex', justifyContent: 'center', alignItems: 'center', color:'black'}}>
+                    Hello
+                  </div>
                 </Route>
               </Switch>
             </div>
