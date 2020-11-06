@@ -73,10 +73,6 @@ function MyScheduleScreen(props: Props) {
           />
           <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
 
-          <Button variant={'contained'} onClick = {() => {props.ACTION_userLogout(); localStorage.removeItem('userId')}}>
-          Logout
-          </Button>
-
           <Button
             color='primary'
             variant='contained'
