@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 import SideBarNavigator from './SideBarNavigator'
 import MyScheduleScreen from '../screens/MyScheduleScreen'
+import ScheduleOverlapScreen from '../screens/ScheduleOverlapScreen'
 
 interface Props {
   redux_authentication: any,
@@ -30,9 +31,7 @@ function PrivateRoute(props: Props) {
                   <MyScheduleScreen />
                 </Route>
                 <Route path={`/sharedschedules`}>
-                  <div style = {{display: 'flex', justifyContent: 'center', alignItems: 'center', color:'black'}}>
-                    Hello
-                  </div>
+                  <ScheduleOverlapScreen />
                 </Route>
               </Switch>
             </div>

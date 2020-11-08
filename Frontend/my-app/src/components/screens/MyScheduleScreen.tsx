@@ -12,10 +12,6 @@ import ShareScheduleDialogWindow from '../dialog_windows/ShareScheduleDialogWind
 import ScheduleGrid from '../schedular/ScheduleGrid'
 import LabelDialogWindow from '../dialog_windows/LabelDialogWindow';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {
-  ACTION_userLogout
-} from "../../state/reducers/AuthenticationReducer"
 
 const theme = createMuiTheme({
   palette: {
@@ -38,7 +34,6 @@ const theme = createMuiTheme({
 
 interface Props {
   redux_authentication: any,
-  ACTION_userLogout: Function
 }
 
 function MyScheduleScreen(props: Props) {
@@ -133,10 +128,5 @@ const mapStateToProps = (state: any) => {
   return { redux_authentication: authentication };
 }
 
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({
-    ACTION_userLogout
-  }, dispatch);
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyScheduleScreen);
+export default connect(mapStateToProps)(MyScheduleScreen);
