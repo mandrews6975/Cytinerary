@@ -33,6 +33,11 @@ public class SharedUserController {
   public @ResponseBody Collection<Object> getSharedUsers(@RequestBody Map<String, Object> payload) {
 	return sharedUserRepository.getSharedUsers((String) payload.get("sharerId"));
   }
+  
+  @PostMapping("/getSharerUsers")
+  public @ResponseBody Collection<Object> getSharerUsers(@RequestBody Map<String, Object> payload) {
+	return sharedUserRepository.getSharerUsers((String) payload.get("shareeId"));
+  }
 
   @Transactional
   @PostMapping("/addSharedUser")
