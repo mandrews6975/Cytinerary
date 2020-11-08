@@ -1,0 +1,3933 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentation/globals.html
+Subject: Cytinerary
+Date: Sun, 8 Nov 2020 22:40:10 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--idnru5miDssN33avlmN2q0mYNrLn4SR6AOV8qTwBJM----"
+
+
+------MultipartBoundary--idnru5miDssN33avlmN2q0mYNrLn4SR6AOV8qTwBJM----
+Content-Type: text/html
+Content-ID: <frame-81037CE5625AF2632B203DA13198F18F@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentation/globals.html
+
+<!DOCTYPE html><html class=3D"default no-js not-mobile toggle-visibilitypri=
+vate toggle-public toggle-inherited"><head><meta http-equiv=3D"Content-Type=
+" content=3D"text/html; charset=3DUTF-8">
+=09
+	<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+	<title>Cytinerary</title>
+	<meta name=3D"description" content=3D"Documentation for Cytinerary">
+	<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1=
+">
+	<link rel=3D"stylesheet" href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-a=
+pp/docs/documentation/assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class=3D"tsd-page-toolbar">
+		<div class=3D"container">
+			<div class=3D"table-wrap">
+				<div class=3D"table-cell" id=3D"tsd-search" data-index=3D"assets/js/sea=
+rch.json" data-base=3D"." data-has-instance=3D"true">
+					<div class=3D"field">
+						<label for=3D"tsd-search-field" class=3D"tsd-widget search no-caption=
+">Search</label>
+						<input id=3D"tsd-search-field" type=3D"text">
+					</div>
+					<ul class=3D"results">
+						<li class=3D"state loading">Preparing search index...</li>
+						<li class=3D"state failure">The search index is not available</li>
+					</ul>
+					<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentat=
+ion/index.html" class=3D"title">Cytinerary</a>
+				</div>
+				<div class=3D"table-cell" id=3D"tsd-widgets">
+					<div id=3D"tsd-filter" data-has-instance=3D"true">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#" class=3D"tsd-widget options no-caption" data-toggle=3D"=
+options" data-has-instance=3D"true">Options</a>
+						<div class=3D"tsd-filter-group">
+							<div class=3D"tsd-select" id=3D"tsd-filter-visibility">
+								<span class=3D"tsd-select-label">Public</span>
+								<ul class=3D"tsd-select-list">
+									<li data-value=3D"public" class=3D"selected">Public</li>
+									<li data-value=3D"protected">Public/Protected</li>
+									<li data-value=3D"private" class=3D"">All</li>
+								</ul>
+							</div>
+							<input type=3D"checkbox" id=3D"tsd-filter-inherited" checked=3D"">
+							<label class=3D"tsd-widget" for=3D"tsd-filter-inherited">Inherited</=
+label>
+							<input type=3D"checkbox" id=3D"tsd-filter-externals" checked=3D"">
+							<label class=3D"tsd-widget" for=3D"tsd-filter-externals">Externals</=
+label>
+							<input type=3D"checkbox" id=3D"tsd-filter-only-exported">
+							<label class=3D"tsd-widget" for=3D"tsd-filter-only-exported">Only ex=
+ported</label>
+						</div>
+					</div>
+					<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentat=
+ion/globals.html#" class=3D"tsd-widget menu no-caption" data-toggle=3D"menu=
+" data-has-instance=3D"true">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class=3D"tsd-page-title">
+		<div class=3D"container">
+			<ul class=3D"tsd-breadcrumb">
+				<li>
+					<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentat=
+ion/globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>Cytinerary</h1>
+		</div>
+	</div>
+</header>
+<div class=3D"container container-main">
+	<div class=3D"row">
+		<div class=3D"col-8 col-content">
+			<section class=3D"tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class=3D"tsd-panel tsd-index-panel">
+					<div class=3D"tsd-index-content">
+						<section class=3D"tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class=3D"tsd-index-list">
+								<li class=3D"tsd-kind-class"><a href=3D"file:///C:/Users/lsten/sb_3=
+/Frontend/my-app/docs/documentation/classes/loginscreen.html" class=3D"tsd-=
+kind-icon">Login<wbr>Screen</a></li>
+								<li class=3D"tsd-kind-class"><a href=3D"file:///C:/Users/lsten/sb_3=
+/Frontend/my-app/docs/documentation/classes/neweventmodal.html" class=3D"ts=
+d-kind-icon">New<wbr>Event<wbr>Modal</a></li>
+								<li class=3D"tsd-kind-class"><a href=3D"file:///C:/Users/lsten/sb_3=
+/Frontend/my-app/docs/documentation/classes/schedulegrid.html" class=3D"tsd=
+-kind-icon">Schedule<wbr>Grid</a></li>
+								<li class=3D"tsd-kind-class"><a href=3D"file:///C:/Users/lsten/sb_3=
+/Frontend/my-app/docs/documentation/classes/timeblock.html" class=3D"tsd-ki=
+nd-icon">Time<wbr>Block</a></li>
+							</ul>
+						</section>
+						<section class=3D"tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class=3D"tsd-index-list">
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/event.html" class=3D"tsd=
+-kind-icon">Event</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/iprops.html" class=3D"ts=
+d-kind-icon">IProps</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/istate.html" class=3D"ts=
+d-kind-icon">IState</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/loginprops.html" class=
+=3D"tsd-kind-icon">Login<wbr>Props</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/loginstate.html" class=
+=3D"tsd-kind-icon">Login<wbr>State</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/myschedulescreenprops.ht=
+ml" class=3D"tsd-kind-icon">My<wbr>Schedule<wbr>Screen<wbr>Props</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/props.html" class=3D"tsd=
+-kind-icon">Props</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/schedulargridprops.html"=
+ class=3D"tsd-kind-icon">Schedular<wbr>Grid<wbr>Props</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/schedulargridstate.html"=
+ class=3D"tsd-kind-icon">Schedular<wbr>Grid<wbr>State</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/sharedialoglistitemprops=
+.html" class=3D"tsd-kind-icon">Share<wbr>Dialog<wbr>List<wbr>Item<wbr>Props=
+</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/sharedialogsearchlistite=
+mprops.html" class=3D"tsd-kind-icon">Share<wbr>Dialog<wbr>Search<wbr>List<w=
+br>Item<wbr>Props</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/sharedialogsharelistitem=
+props.html" class=3D"tsd-kind-icon">Share<wbr>Dialog<wbr>Share<wbr>List<wbr=
+>Item<wbr>Props</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/timeblockprops.html" cla=
+ss=3D"tsd-kind-icon">Time<wbr>Block<wbr>Props</a></li>
+								<li class=3D"tsd-kind-interface"><a href=3D"file:///C:/Users/lsten/=
+sb_3/Frontend/my-app/docs/documentation/interfaces/timeblockstate.html" cla=
+ss=3D"tsd-kind-icon">Time<wbr>Block<wbr>State</a></li>
+							</ul>
+						</section>
+						<section class=3D"tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class=3D"tsd-index-list">
+								<li class=3D"tsd-kind-type-alias"><a href=3D"file:///C:/Users/lsten=
+/sb_3/Frontend/my-app/docs/documentation/globals.html#config" class=3D"tsd-=
+kind-icon">Config</a></li>
+							</ul>
+						</section>
+						<section class=3D"tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class=3D"tsd-index-list">
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#user_login" class=3D"ts=
+d-kind-icon">USER_<wbr>LOGIN</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#user_logout" class=3D"t=
+sd-kind-icon">USER_<wbr>LOGOUT</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#colors" class=3D"tsd-ki=
+nd-icon">colors</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#container" class=3D"tsd=
+-kind-icon">container</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#dateformat" class=3D"ts=
+d-kind-icon">date<wbr>Format</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#fakeevents" class=3D"ts=
+d-kind-icon">fake<wbr>Events</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#globalany" class=3D"tsd=
+-kind-icon">global<wbr>Any</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#islocalhost" class=3D"t=
+sd-kind-icon">is<wbr>Localhost</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#store" class=3D"tsd-kin=
+d-icon">store</a></li>
+								<li class=3D"tsd-kind-variable"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#theme" class=3D"tsd-kin=
+d-icon">theme</a></li>
+							</ul>
+						</section>
+						<section class=3D"tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class=3D"tsd-index-list">
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#action_userlogin" class=
+=3D"tsd-kind-icon">ACTION_<wbr>user<wbr>Login</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#action_userlogout" clas=
+s=3D"tsd-kind-icon">ACTION_<wbr>user<wbr>Logout</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#app" class=3D"tsd-kind-=
+icon">App</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#authenticationreducer" =
+class=3D"tsd-kind-icon">Authentication<wbr>Reducer</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#editeventdialogwindow" =
+class=3D"tsd-kind-icon">Edit<wbr>Event<wbr>Dialog<wbr>Window</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#labeldialogeventlistite=
+m" class=3D"tsd-kind-icon">Label<wbr>Dialog<wbr>Event<wbr>List<wbr>Item</a>=
+</li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#labeldialoglistitem" cl=
+ass=3D"tsd-kind-icon">Label<wbr>Dialog<wbr>List<wbr>Item</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#labeldialogwindow" clas=
+s=3D"tsd-kind-icon">Label<wbr>Dialog<wbr>Window</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#myschedulescreen" class=
+=3D"tsd-kind-icon">My<wbr>Schedule<wbr>Screen</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#privateroute" class=3D"=
+tsd-kind-icon">Private<wbr>Route</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#publicroute" class=3D"t=
+sd-kind-icon">Public<wbr>Route</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#sharedialogsearchlistit=
+em" class=3D"tsd-kind-icon">Share<wbr>Dialog<wbr>Search<wbr>List<wbr>Item</=
+a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#sharedialogsharedlistit=
+em" class=3D"tsd-kind-icon">Share<wbr>Dialog<wbr>Shared<wbr>List<wbr>Item</=
+a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#shareeventdialogwindow"=
+ class=3D"tsd-kind-icon">Share<wbr>Event<wbr>Dialog<wbr>Window</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#sharescheduledialogwind=
+ow" class=3D"tsd-kind-icon">Share<wbr>Schedule<wbr>Dialog<wbr>Window</a></l=
+i>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#urlrouter" class=3D"tsd=
+-kind-icon">URLRouter</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#viewparticipanteventdia=
+logwindow" class=3D"tsd-kind-icon">View<wbr>Participant<wbr>Event<wbr>Dialo=
+g<wbr>Window</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#checkvalidserviceworker=
+" class=3D"tsd-kind-icon">check<wbr>Valid<wbr>Service<wbr>Worker</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#mapdispatchtoprops" cla=
+ss=3D"tsd-kind-icon">map<wbr>Dispatch<wbr>ToProps</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#mapstatetoprops" class=
+=3D"tsd-kind-icon">map<wbr>State<wbr>ToProps</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#register" class=3D"tsd-=
+kind-icon">register</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#registervalidsw" class=
+=3D"tsd-kind-icon">register<wbr>ValidSW</a></li>
+								<li class=3D"tsd-kind-function"><a href=3D"file:///C:/Users/lsten/s=
+b_3/Frontend/my-app/docs/documentation/globals.html#unregister" class=3D"ts=
+d-kind-icon">unregister</a></li>
+							</ul>
+						</section>
+						<section class=3D"tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class=3D"tsd-index-list">
+								<li class=3D"tsd-kind-object-literal"><a href=3D"file:///C:/Users/l=
+sten/sb_3/Frontend/my-app/docs/documentation/globals.html#initial_state" cl=
+ass=3D"tsd-kind-icon">INITIAL_<wbr>STATE</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class=3D"tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class=3D"tsd-panel tsd-member tsd-kind-type-alias">
+					<a name=3D"config" class=3D"tsd-anchor"></a>
+					<h3>Config</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">Config<span class=3D"tsd-si=
+gnature-symbol">:</span> <span class=3D"tsd-signature-symbol">{ </span>onSu=
+ccess<span class=3D"tsd-signature-symbol">?: </span><span class=3D"tsd-sign=
+ature-type">undefined</span><span class=3D"tsd-signature-symbol"> | </span>=
+<span class=3D"tsd-signature-symbol">(</span><span class=3D"tsd-signature-s=
+ymbol">(</span>registration<span class=3D"tsd-signature-symbol">: </span><s=
+pan class=3D"tsd-signature-type">ServiceWorkerRegistration</span><span clas=
+s=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol"> =
+=3D&gt; </span><span class=3D"tsd-signature-type">void</span><span class=3D=
+"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">; </spa=
+n>onUpdate<span class=3D"tsd-signature-symbol">?: </span><span class=3D"tsd=
+-signature-type">undefined</span><span class=3D"tsd-signature-symbol"> | </=
+span><span class=3D"tsd-signature-symbol">(</span><span class=3D"tsd-signat=
+ure-symbol">(</span>registration<span class=3D"tsd-signature-symbol">: </sp=
+an><span class=3D"tsd-signature-type">ServiceWorkerRegistration</span><span=
+ class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol=
+"> =3D&gt; </span><span class=3D"tsd-signature-type">void</span><span class=
+=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol"> }</=
+span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/serviceWorker.ts:23</li>
+						</ul>
+					</aside>
+					<div class=3D"tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class=3D"tsd-parameters">
+							<li class=3D"tsd-parameter">
+								<h5><span class=3D"tsd-flag ts-flagOptional">Optional</span> on<wbr=
+>Success<span class=3D"tsd-signature-symbol">?: </span><span class=3D"tsd-s=
+ignature-type">undefined</span><span class=3D"tsd-signature-symbol"> | </sp=
+an><span class=3D"tsd-signature-symbol">(</span><span class=3D"tsd-signatur=
+e-symbol">(</span>registration<span class=3D"tsd-signature-symbol">: </span=
+><span class=3D"tsd-signature-type">ServiceWorkerRegistration</span><span c=
+lass=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">=
+ =3D&gt; </span><span class=3D"tsd-signature-type">void</span><span class=
+=3D"tsd-signature-symbol">)</span></h5>
+							</li>
+							<li class=3D"tsd-parameter">
+								<h5><span class=3D"tsd-flag ts-flagOptional">Optional</span> on<wbr=
+>Update<span class=3D"tsd-signature-symbol">?: </span><span class=3D"tsd-si=
+gnature-type">undefined</span><span class=3D"tsd-signature-symbol"> | </spa=
+n><span class=3D"tsd-signature-symbol">(</span><span class=3D"tsd-signature=
+-symbol">(</span>registration<span class=3D"tsd-signature-symbol">: </span>=
+<span class=3D"tsd-signature-type">ServiceWorkerRegistration</span><span cl=
+ass=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol"> =
+=3D&gt; </span><span class=3D"tsd-signature-type">void</span><span class=3D=
+"tsd-signature-symbol">)</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class=3D"tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"user_login" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> USER_<wbr>LOGIN=
+</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">USER_<wbr>LOGIN<span class=
+=3D"tsd-signature-symbol">:</span> <span class=3D"tsd-signature-type">"USER=
+_LOGIN"</span><span class=3D"tsd-signature-symbol"> =3D "USER_LOGIN"</span>=
+</div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/state/ActionTypes.ts:1</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"user_logout" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> USER_<wbr>LOGOU=
+T</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">USER_<wbr>LOGOUT<span class=
+=3D"tsd-signature-symbol">:</span> <span class=3D"tsd-signature-type">"USER=
+_LOGOUT"</span><span class=3D"tsd-signature-symbol"> =3D "USER_LOGOUT"</spa=
+n></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/state/ActionTypes.ts:2</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"colors" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> colors</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">colors<span class=3D"tsd-si=
+gnature-symbol">:</span> <span class=3D"tsd-signature-symbol">{ </span>pale=
+tte<span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signatu=
+re-type">object</span><span class=3D"tsd-signature-symbol"> }</span><span c=
+lass=3D"tsd-signature-symbol"> =3D ({palette: {primary: {default: yellow[50=
+]},secondary: {default: grey[900]},tertiary: {default: grey[50]},background=
+: {default: red[100]}}})</span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/components/screens/LoginScreen.tsx:51</li>
+						</ul>
+					</aside>
+					<div class=3D"tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class=3D"tsd-parameters">
+							<li class=3D"tsd-parameter">
+								<h5>palette<span class=3D"tsd-signature-symbol">: </span><span clas=
+s=3D"tsd-signature-type">object</span></h5>
+								<ul class=3D"tsd-parameters">
+									<li class=3D"tsd-parameter">
+										<h5>background<span class=3D"tsd-signature-symbol">: </span><span=
+ class=3D"tsd-signature-type">object</span></h5>
+										<ul class=3D"tsd-parameters">
+											<li class=3D"tsd-parameter">
+												<h5>default<span class=3D"tsd-signature-symbol">: </span><span =
+class=3D"tsd-signature-type">"#ffcdd2"</span></h5>
+											</li>
+										</ul>
+									</li>
+									<li class=3D"tsd-parameter">
+										<h5>primary<span class=3D"tsd-signature-symbol">: </span><span cl=
+ass=3D"tsd-signature-type">object</span></h5>
+										<ul class=3D"tsd-parameters">
+											<li class=3D"tsd-parameter">
+												<h5>default<span class=3D"tsd-signature-symbol">: </span><span =
+class=3D"tsd-signature-type">"#fffde7"</span></h5>
+											</li>
+										</ul>
+									</li>
+									<li class=3D"tsd-parameter">
+										<h5>secondary<span class=3D"tsd-signature-symbol">: </span><span =
+class=3D"tsd-signature-type">object</span></h5>
+										<ul class=3D"tsd-parameters">
+											<li class=3D"tsd-parameter">
+												<h5>default<span class=3D"tsd-signature-symbol">: </span><span =
+class=3D"tsd-signature-type">"#212121"</span></h5>
+											</li>
+										</ul>
+									</li>
+									<li class=3D"tsd-parameter">
+										<h5>tertiary<span class=3D"tsd-signature-symbol">: </span><span c=
+lass=3D"tsd-signature-type">object</span></h5>
+										<ul class=3D"tsd-parameters">
+											<li class=3D"tsd-parameter">
+												<h5>default<span class=3D"tsd-signature-symbol">: </span><span =
+class=3D"tsd-signature-type">"#fafafa"</span></h5>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"container" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagLet">Let</span> container</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">container<span class=3D"tsd=
+-signature-symbol">:</span> <span class=3D"tsd-signature-type">HTMLDivEleme=
+nt</span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/tests/SchedularGrid.test.tsx:31</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"dateformat" class=3D"tsd-anchor"></a>
+					<h3>date<wbr>Format</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">date<wbr>Format<span class=
+=3D"tsd-signature-symbol">:</span> <span class=3D"tsd-signature-type">any</=
+span><span class=3D"tsd-signature-symbol"> =3D require('dateformat')</span>=
+</div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/components/dialog_windows/EditEventDialogWindow.t=
+sx:29</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"fakeevents" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> fake<wbr>Events=
+</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">fake<wbr>Events<span class=
+=3D"tsd-signature-symbol">:</span> <span class=3D"tsd-signature-symbol">{ <=
+/span>age<span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-s=
+ignature-type">string</span><span class=3D"tsd-signature-symbol">; </span>e=
+ndTime<span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-sign=
+ature-type">string</span><span class=3D"tsd-signature-symbol">; </span>even=
+tId<span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signatu=
+re-type">string</span><span class=3D"tsd-signature-symbol">; </span>label<s=
+pan class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-ty=
+pe">string</span><span class=3D"tsd-signature-symbol">; </span>name<span cl=
+ass=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">st=
+ring</span><span class=3D"tsd-signature-symbol">; </span>startMinute<span c=
+lass=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">s=
+tring</span><span class=3D"tsd-signature-symbol">; </span>startTime<span cl=
+ass=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">st=
+ring</span><span class=3D"tsd-signature-symbol"> }</span><span class=3D"tsd=
+-signature-symbol">[]</span><span class=3D"tsd-signature-symbol"> =3D [{eve=
+ntId: "123",name: "MockEventName",startMinute: "startMinute",startTime: "20=
+20-10-25 08:00:00",endTime: "2020-10-25 09:30:00",age: "32",label: "Basketb=
+all"}]</span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/tests/SchedularGrid.test.tsx:33</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"globalany" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> global<wbr>Any<=
+/h3>
+					<div class=3D"tsd-signature tsd-kind-icon">global<wbr>Any<span class=
+=3D"tsd-signature-symbol">:</span> <span class=3D"tsd-signature-type">any</=
+span><span class=3D"tsd-signature-symbol"> =3D global</span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/tests/SchedularGrid.test.tsx:30</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"islocalhost" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> is<wbr>Localhos=
+t</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">is<wbr>Localhost<span class=
+=3D"tsd-signature-symbol">:</span> <span class=3D"tsd-signature-type">boole=
+an</span><span class=3D"tsd-signature-symbol"> =3D Boolean(window.location.=
+hostname =3D=3D=3D 'localhost' ||// [::1] is the IPv6 localhost address.win=
+dow.location.hostname =3D=3D=3D '[::1]' ||// 127.0.0.0/8 are considered loc=
+alhost for IPv4.window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][=
+0-9]|[01]?[0-9][0-9]?)){3}$/))</span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/serviceWorker.ts:13</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"store" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> store</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">store<span class=3D"tsd-sig=
+nature-symbol">:</span> <span class=3D"tsd-signature-type">Store</span><spa=
+n class=3D"tsd-signature-symbol">&lt;</span><span class=3D"tsd-signature-ty=
+pe">CombinedState</span><span class=3D"tsd-signature-symbol">&lt;</span><sp=
+an class=3D"tsd-signature-symbol">{}</span><span class=3D"tsd-signature-sym=
+bol">&gt;</span><span class=3D"tsd-signature-symbol">, </span><span class=
+=3D"tsd-signature-type">any</span><span class=3D"tsd-signature-symbol">&gt;=
+</span><span class=3D"tsd-signature-symbol"> =3D createStore(RootReducer)</=
+span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/App.tsx:7</li>
+						</ul>
+					</aside>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-variable">
+					<a name=3D"theme" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> theme</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">theme<span class=3D"tsd-sig=
+nature-symbol">:</span> <span class=3D"tsd-signature-type">Theme</span><spa=
+n class=3D"tsd-signature-symbol"> =3D createMuiTheme({palette: {primary: {m=
+ain: red[600]},secondary: {main: yellow[700]},type: 'dark',background: {pap=
+er: grey[800],default: grey[900]},},typography: {fontFamily: 'Roboto'}})</s=
+pan></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/components/dialog_windows/ShareScheduleDialogWind=
+ow.tsx:37</li>
+							<li>Defined in src/components/dialog_windows/ShareEventDialogWindow.=
+tsx:38</li>
+							<li>Defined in src/components/dialog_windows/LabelDialogWindow.tsx:3=
+2</li>
+							<li>Defined in src/components/screens/MyScheduleScreen.tsx:25</li>
+						</ul>
+					</aside>
+					<div class=3D"tsd-comment tsd-typography">
+						<div class=3D"lead">
+							<p>This is the object used to store the base material ui theme for t=
+his component</p>
+						</div>
+						<dl class=3D"tsd-comment-tags">
+							<dt>author</dt>
+							<dd><p>Lewis Sheaffer <a href=3D"mailto:lewiss@iastate.edu">lewiss@i=
+astate.edu</a></p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class=3D"tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"action_userlogin" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> ACTION_<wbr>use=
+r<wbr>Login</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">ACTION_<wbr>user<wbr>Login<=
+span class=3D"tsd-signature-symbol">(</span>userId<span class=3D"tsd-signat=
+ure-symbol">: </span><span class=3D"tsd-signature-type">string</span><span =
+class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol"=
+>: </span><span class=3D"tsd-signature-symbol">{ </span>payload<span class=
+=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">strin=
+g</span><span class=3D"tsd-signature-symbol">; </span>type<span class=3D"ts=
+d-signature-symbol">: </span><span class=3D"tsd-signature-type">string</spa=
+n><span class=3D"tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/state/reducers/AuthenticationReducer.ts:23</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>userId: <span class=3D"tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>payload<span class=3D"tsd-signature-symbol">: </span><spa=
+n class=3D"tsd-signature-type">string</span><span class=3D"tsd-signature-sy=
+mbol">; </span>type<span class=3D"tsd-signature-symbol">: </span><span clas=
+s=3D"tsd-signature-type">string</span><span class=3D"tsd-signature-symbol">=
+ }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>payload<span class=3D"tsd-signature-symbol">: </span><span cla=
+ss=3D"tsd-signature-type">string</span></h5>
+								</li>
+								<li class=3D"tsd-parameter">
+									<h5>type<span class=3D"tsd-signature-symbol">: </span><span class=
+=3D"tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"action_userlogout" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> ACTION_<wbr>use=
+r<wbr>Logout</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">ACTION_<wbr>user<wbr>Logout=
+<span class=3D"tsd-signature-symbol">(</span><span class=3D"tsd-signature-s=
+ymbol">)</span><span class=3D"tsd-signature-symbol">: </span><span class=3D=
+"tsd-signature-symbol">{ </span>type<span class=3D"tsd-signature-symbol">: =
+</span><span class=3D"tsd-signature-type">string</span><span class=3D"tsd-s=
+ignature-symbol"> }</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/state/reducers/AuthenticationReducer.ts:30</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>type<span class=3D"tsd-signature-symbol">: </span><span c=
+lass=3D"tsd-signature-type">string</span><span class=3D"tsd-signature-symbo=
+l"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>type<span class=3D"tsd-signature-symbol">: </span><span class=
+=3D"tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"app" class=3D"tsd-anchor"></a>
+					<h3>App</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">App<span class=3D"tsd-signa=
+ture-symbol">(</span><span class=3D"tsd-signature-symbol">)</span><span cla=
+ss=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">Ele=
+ment</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/App.tsx:9</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"authenticationreducer" class=3D"tsd-anchor"></a>
+					<h3>Authentication<wbr>Reducer</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Authentication<wbr>Reducer<=
+span class=3D"tsd-signature-symbol">(</span>state<span class=3D"tsd-signatu=
+re-symbol">?: </span><span class=3D"tsd-signature-symbol">{ </span>userId<s=
+pan class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-ty=
+pe">string</span><span class=3D"tsd-signature-symbol"> | </span><span class=
+=3D"tsd-signature-type">null</span><span class=3D"tsd-signature-symbol"> }<=
+/span>, action<span class=3D"tsd-signature-symbol">: </span><span class=3D"=
+tsd-signature-type">any</span><span class=3D"tsd-signature-symbol">)</span>=
+<span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-=
+symbol">{ </span>userId<span class=3D"tsd-signature-symbol">: </span><span =
+class=3D"tsd-signature-type">any</span><span class=3D"tsd-signature-symbol"=
+> }</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/state/reducers/AuthenticationReducer.ts:12</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5><span class=3D"tsd-flag ts-flagDefault value">Default value</s=
+pan> state: <span class=3D"tsd-signature-symbol">{ </span>userId<span class=
+=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">strin=
+g</span><span class=3D"tsd-signature-symbol"> | </span><span class=3D"tsd-s=
+ignature-type">null</span><span class=3D"tsd-signature-symbol"> }</span><sp=
+an class=3D"tsd-signature-symbol"> =3D INITIAL_STATE</span></h5>
+									<ul class=3D"tsd-parameters">
+										<li class=3D"tsd-parameter">
+											<h5>user<wbr>Id<span class=3D"tsd-signature-symbol">: </span><sp=
+an class=3D"tsd-signature-type">string</span><span class=3D"tsd-signature-s=
+ymbol"> | </span><span class=3D"tsd-signature-type">null</span></h5>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>action: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>userId<span class=3D"tsd-signature-symbol">: </span><span=
+ class=3D"tsd-signature-type">any</span><span class=3D"tsd-signature-symbol=
+"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>user<wbr>Id<span class=3D"tsd-signature-symbol">: </span><span=
+ class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"editeventdialogwindow" class=3D"tsd-anchor"></a>
+					<h3>Edit<wbr>Event<wbr>Dialog<wbr>Window</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Edit<wbr>Event<wbr>Dialog<w=
+br>Window<span class=3D"tsd-signature-symbol">(</span>props<span class=3D"t=
+sd-signature-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb_3/Fronte=
+nd/my-app/docs/documentation/interfaces/props.html" class=3D"tsd-signature-=
+type">Props</a><span class=3D"tsd-signature-symbol">)</span><span class=3D"=
+tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">Element</=
+span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/dialog_windows/EditEventDialogWindow=
+.tsx:52</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"labeldialogeventlistitem" class=3D"tsd-anchor"></a>
+					<h3>Label<wbr>Dialog<wbr>Event<wbr>List<wbr>Item</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Label<wbr>Dialog<wbr>Event<=
+wbr>List<wbr>Item<span class=3D"tsd-signature-symbol">(</span>props<span cl=
+ass=3D"tsd-signature-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb_=
+3/Frontend/my-app/docs/documentation/interfaces/props.html" class=3D"tsd-si=
+gnature-type">Props</a><span class=3D"tsd-signature-symbol">)</span><span c=
+lass=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">E=
+lement</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/list_items/LabelDialogEventListItem.=
+tsx:14</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"labeldialoglistitem" class=3D"tsd-anchor"></a>
+					<h3>Label<wbr>Dialog<wbr>List<wbr>Item</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Label<wbr>Dialog<wbr>List<w=
+br>Item<span class=3D"tsd-signature-symbol">(</span>props<span class=3D"tsd=
+-signature-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb_3/Frontend=
+/my-app/docs/documentation/interfaces/props.html" class=3D"tsd-signature-ty=
+pe">Props</a><span class=3D"tsd-signature-symbol">)</span><span class=3D"ts=
+d-signature-symbol">: </span><span class=3D"tsd-signature-type">Element</sp=
+an></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/list_items/LabelDialogListItem.tsx:2=
+2</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"labeldialogwindow" class=3D"tsd-anchor"></a>
+					<h3>Label<wbr>Dialog<wbr>Window</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Label<wbr>Dialog<wbr>Window=
+<span class=3D"tsd-signature-symbol">(</span>props<span class=3D"tsd-signat=
+ure-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app=
+/docs/documentation/interfaces/iprops.html" class=3D"tsd-signature-type">IP=
+rops</a><span class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-sig=
+nature-symbol">: </span><span class=3D"tsd-signature-type">Element</span></=
+li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/dialog_windows/LabelDialogWindow.tsx=
+:51</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/iprops.html" class=3D"tsd-signature-type">IPr=
+ops</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"myschedulescreen" class=3D"tsd-anchor"></a>
+					<h3>My<wbr>Schedule<wbr>Screen</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">My<wbr>Schedule<wbr>Screen<=
+span class=3D"tsd-signature-symbol">(</span>props<span class=3D"tsd-signatu=
+re-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/myschedulescreenprops.html" class=3D"tsd-sign=
+ature-type">MyScheduleScreenProps</a><span class=3D"tsd-signature-symbol">)=
+</span><span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-sig=
+nature-type">Element</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/screens/MyScheduleScreen.tsx:67</li>
+								</ul>
+							</aside>
+							<div class=3D"tsd-comment tsd-typography">
+								<div class=3D"lead">
+									<p>MyScheduleScreen - This is the jsx component for the screen tha=
+t displays the users schedule and various components</p>
+								</div>
+								<dl class=3D"tsd-comment-tags">
+									<dt>author</dt>
+									<dd><p>Lewis Sheaffer <a href=3D"mailto:lewiss@iastate.edu">lewiss=
+@iastate.edu</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/myschedulescreenprops.html" class=3D"tsd-sign=
+ature-type">MyScheduleScreenProps</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+							<p>This function returns the entire MyScheduleScreen jsx component</=
+p>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"privateroute" class=3D"tsd-anchor"></a>
+					<h3>Private<wbr>Route</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Private<wbr>Route<span clas=
+s=3D"tsd-signature-symbol">(</span>props<span class=3D"tsd-signature-symbol=
+">: </span><a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/docu=
+mentation/interfaces/props.html" class=3D"tsd-signature-type">Props</a><spa=
+n class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbo=
+l">: </span><span class=3D"tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/routes/PrivateRoute.tsx:38</li>
+								</ul>
+							</aside>
+							<div class=3D"tsd-comment tsd-typography">
+								<div class=3D"lead">
+									<p>PrivateRoute - This function returns the private route componen=
+t that will only route when the user is logged in</p>
+								</div>
+								<dl class=3D"tsd-comment-tags">
+									<dt>author</dt>
+									<dd><p>Lewis Sheaffer <a href=3D"mailto:lewiss@iastate.edu">lewiss=
+@iastate.edu</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+							<p>This component returns routes specific to this PrivateRoute</p>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"publicroute" class=3D"tsd-anchor"></a>
+					<h3>Public<wbr>Route</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Public<wbr>Route<span class=
+=3D"tsd-signature-symbol">(</span>props<span class=3D"tsd-signature-symbol"=
+>: </span><a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/docum=
+entation/interfaces/props.html" class=3D"tsd-signature-type">Props</a><span=
+ class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol=
+">: </span><span class=3D"tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/routes/PublicRoute.tsx:35</li>
+								</ul>
+							</aside>
+							<div class=3D"tsd-comment tsd-typography">
+								<div class=3D"lead">
+									<p>PublicRoute - This function returns the public route component =
+that will only route to the login screen when the user is bit logged in</p>
+								</div>
+								<dl class=3D"tsd-comment-tags">
+									<dt>author</dt>
+									<dd><p>Lewis Sheaffer <a href=3D"mailto:lewiss@iastate.edu">lewiss=
+@iastate.edu</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+							<p>This component returns routes specific to this PublicRoute</p>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"sharedialogsearchlistitem" class=3D"tsd-anchor"></a>
+					<h3>Share<wbr>Dialog<wbr>Search<wbr>List<wbr>Item</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Share<wbr>Dialog<wbr>Search=
+<wbr>List<wbr>Item<span class=3D"tsd-signature-symbol">(</span>props<span c=
+lass=3D"tsd-signature-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb=
+_3/Frontend/my-app/docs/documentation/interfaces/sharedialogsearchlistitemp=
+rops.html" class=3D"tsd-signature-type">ShareDialogSearchListItemProps</a><=
+span class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-sy=
+mbol">: </span><span class=3D"tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/list_items/ShareDialogSearchListItem=
+.tsx:40</li>
+								</ul>
+							</aside>
+							<div class=3D"tsd-comment tsd-typography">
+								<div class=3D"lead">
+									<p>ShareDialogSearchListItem - These is the listitem component dis=
+played as a search result when searching for users to share with</p>
+								</div>
+								<dl class=3D"tsd-comment-tags">
+									<dt>author</dt>
+									<dd><p>Lewis Sheaffer <a href=3D"mailto:lewiss@iastate.edu">lewiss=
+@iastate.edu</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/sharedialogsearchlistitemprops.html" class=3D=
+"tsd-signature-type">ShareDialogSearchListItemProps</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+							<p>Returns the jsx component for this listItem</p>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"sharedialogsharedlistitem" class=3D"tsd-anchor"></a>
+					<h3>Share<wbr>Dialog<wbr>Shared<wbr>List<wbr>Item</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Share<wbr>Dialog<wbr>Shared=
+<wbr>List<wbr>Item<span class=3D"tsd-signature-symbol">(</span>props<span c=
+lass=3D"tsd-signature-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb=
+_3/Frontend/my-app/docs/documentation/interfaces/sharedialogsharelistitempr=
+ops.html" class=3D"tsd-signature-type">ShareDialogShareListItemProps</a><sp=
+an class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symb=
+ol">: </span><span class=3D"tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/list_items/ShareDialogSharedListItem=
+.tsx:46</li>
+								</ul>
+							</aside>
+							<div class=3D"tsd-comment tsd-typography">
+								<div class=3D"lead">
+									<p>ShareDialogSharedListItem - This is a list item component that =
+will reprsent a user this user has shared their schedule with</p>
+								</div>
+								<dl class=3D"tsd-comment-tags">
+									<dt>author</dt>
+									<dd><p>Lewis Sheaffer <a href=3D"mailto:lewiss@iastate.edu">lewiss=
+@iastate.edu</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/sharedialogsharelistitemprops.html" class=3D"=
+tsd-signature-type">ShareDialogShareListItemProps</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+							<p>Returns the jsx component for this list item</p>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"shareeventdialogwindow" class=3D"tsd-anchor"></a>
+					<h3>Share<wbr>Event<wbr>Dialog<wbr>Window</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Share<wbr>Event<wbr>Dialog<=
+wbr>Window<span class=3D"tsd-signature-symbol">(</span>props<span class=3D"=
+tsd-signature-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb_3/Front=
+end/my-app/docs/documentation/interfaces/props.html" class=3D"tsd-signature=
+-type">Props</a><span class=3D"tsd-signature-symbol">)</span><span class=3D=
+"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">Element<=
+/span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/dialog_windows/ShareEventDialogWindo=
+w.tsx:57</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"sharescheduledialogwindow" class=3D"tsd-anchor"></a>
+					<h3>Share<wbr>Schedule<wbr>Dialog<wbr>Window</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">Share<wbr>Schedule<wbr>Dial=
+og<wbr>Window<span class=3D"tsd-signature-symbol">(</span>props<span class=
+=3D"tsd-signature-symbol">: </span><a href=3D"file:///C:/Users/lsten/sb_3/F=
+rontend/my-app/docs/documentation/interfaces/props.html" class=3D"tsd-signa=
+ture-type">Props</a><span class=3D"tsd-signature-symbol">)</span><span clas=
+s=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">Elem=
+ent</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/dialog_windows/ShareScheduleDialogWi=
+ndow.tsx:56</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"urlrouter" class=3D"tsd-anchor"></a>
+					<h3>URLRouter</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">URLRouter<span class=3D"tsd=
+-signature-symbol">(</span>props<span class=3D"tsd-signature-symbol">: </sp=
+an><a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentatio=
+n/interfaces/props.html" class=3D"tsd-signature-type">Props</a><span class=
+=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-type">Element</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/routes/URLRouter.tsx:46</li>
+								</ul>
+							</aside>
+							<div class=3D"tsd-comment tsd-typography">
+								<div class=3D"lead">
+									<p>URLRouter - This is the base router for this application, it ha=
+ndles the base routing required for loggin in a user</p>
+								</div>
+								<dl class=3D"tsd-comment-tags">
+									<dt>author</dt>
+									<dd><p>Lewis Sheaffer <a href=3D"mailto:lewiss@iastate.edu">lewiss=
+@iastate.edu</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+							<p>Returns the React Router switch and routes for this application</=
+p>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"viewparticipanteventdialogwindow" class=3D"tsd-anchor"></a>
+					<h3>View<wbr>Participant<wbr>Event<wbr>Dialog<wbr>Window</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">View<wbr>Participant<wbr>Ev=
+ent<wbr>Dialog<wbr>Window<span class=3D"tsd-signature-symbol">(</span>props=
+<span class=3D"tsd-signature-symbol">: </span><a href=3D"file:///C:/Users/l=
+sten/sb_3/Frontend/my-app/docs/documentation/interfaces/props.html" class=
+=3D"tsd-signature-type">Props</a><span class=3D"tsd-signature-symbol">)</sp=
+an><span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signatu=
+re-type">Element</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/dialog_windows/ViewParticipantEventD=
+ialogWindow.tsx:47</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>props: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/=
+docs/documentation/interfaces/props.html" class=3D"tsd-signature-type">Prop=
+s</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">Element</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"checkvalidserviceworker" class=3D"tsd-anchor"></a>
+					<h3>check<wbr>Valid<wbr>Service<wbr>Worker</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">check<wbr>Valid<wbr>Service=
+<wbr>Worker<span class=3D"tsd-signature-symbol">(</span>swUrl<span class=3D=
+"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">string</=
+span>, config<span class=3D"tsd-signature-symbol">?: </span><a href=3D"file=
+:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentation/globals.html#con=
+fig" class=3D"tsd-signature-type">Config</a><span class=3D"tsd-signature-sy=
+mbol">)</span><span class=3D"tsd-signature-symbol">: </span><span class=3D"=
+tsd-signature-type">void</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/serviceWorker.ts:109</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>swUrl: <span class=3D"tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class=3D"tsd-flag ts-flagOptional">Optional</span> confi=
+g: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentatio=
+n/globals.html#config" class=3D"tsd-signature-type">Config</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"mapdispatchtoprops" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> map<wbr>Dispatc=
+h<wbr>ToProps</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function active" data-has-instanc=
+e=3D"true">
+						<li class=3D"tsd-signature tsd-kind-icon current">map<wbr>Dispatch<wb=
+r>ToProps<span class=3D"tsd-signature-symbol">(</span>dispatch<span class=
+=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type">any</=
+span><span class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signat=
+ure-symbol">: </span><span class=3D"tsd-signature-symbol">{ </span>ACTION_u=
+serLogout<span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-s=
+ignature-type">ACTION_userLogout</span><span class=3D"tsd-signature-symbol"=
+> }</span></li>
+						<li class=3D"tsd-signature tsd-kind-icon">map<wbr>Dispatch<wbr>ToProp=
+s<span class=3D"tsd-signature-symbol">(</span>dispatch<span class=3D"tsd-si=
+gnature-symbol">: </span><span class=3D"tsd-signature-type">any</span><span=
+ class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol=
+">: </span><span class=3D"tsd-signature-symbol">{ </span>ACTION_userLogin<s=
+pan class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-ty=
+pe">ACTION_userLogin</span><span class=3D"tsd-signature-symbol"> }</span></=
+li>
+						<li class=3D"tsd-signature tsd-kind-icon">map<wbr>Dispatch<wbr>ToProp=
+s<span class=3D"tsd-signature-symbol">(</span>dispatch<span class=3D"tsd-si=
+gnature-symbol">: </span><span class=3D"tsd-signature-type">any</span><span=
+ class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol=
+">: </span><span class=3D"tsd-signature-symbol">{ </span>ACTION_userLogin<s=
+pan class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-ty=
+pe">ACTION_userLogin</span><span class=3D"tsd-signature-symbol"> }</span></=
+li>
+					</ul>
+					<ul class=3D"tsd-descriptions active">
+						<li class=3D"tsd-description current">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/screens/MyScheduleScreen.tsx:178</li=
+>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>dispatch: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>ACTION_userLogout<span class=3D"tsd-signature-symbol">: <=
+/span><span class=3D"tsd-signature-type">ACTION_userLogout</span><span clas=
+s=3D"tsd-signature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>ACTION_<wbr>user<wbr>Logout<span class=3D"tsd-signature-symbol=
+">: </span><span class=3D"tsd-signature-type">ACTION_userLogout</span></h5>
+								</li>
+							</ul>
+						</li>
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/screens/LoginScreen.tsx:158</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>dispatch: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>ACTION_userLogin<span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-type">ACTION_userLogin</span><span class=
+=3D"tsd-signature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>ACTION_<wbr>user<wbr>Login<span class=3D"tsd-signature-symbol"=
+>: </span><span class=3D"tsd-signature-type">ACTION_userLogin</span></h5>
+								</li>
+							</ul>
+						</li>
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/routes/URLRouter.tsx:77</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>dispatch: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>ACTION_userLogin<span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-type">ACTION_userLogin</span><span class=
+=3D"tsd-signature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>ACTION_<wbr>user<wbr>Login<span class=3D"tsd-signature-symbol"=
+>: </span><span class=3D"tsd-signature-type">ACTION_userLogin</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"mapstatetoprops" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> map<wbr>State<w=
+br>ToProps</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function active" data-has-instanc=
+e=3D"true">
+						<li class=3D"tsd-signature tsd-kind-icon current">map<wbr>State<wbr>T=
+oProps<span class=3D"tsd-signature-symbol">(</span>state<span class=3D"tsd-=
+signature-symbol">: </span><span class=3D"tsd-signature-type">any</span><sp=
+an class=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symb=
+ol">: </span><span class=3D"tsd-signature-symbol">{ </span>redux_authentica=
+tion<span class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signat=
+ure-type">any</span><span class=3D"tsd-signature-symbol"> }</span></li>
+						<li class=3D"tsd-signature tsd-kind-icon">map<wbr>State<wbr>ToProps<s=
+pan class=3D"tsd-signature-symbol">(</span>state<span class=3D"tsd-signatur=
+e-symbol">: </span><span class=3D"tsd-signature-type">any</span><span class=
+=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-symbol">{ </span>redux_authentication<spa=
+n class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type=
+">any</span><span class=3D"tsd-signature-symbol"> }</span></li>
+						<li class=3D"tsd-signature tsd-kind-icon">map<wbr>State<wbr>ToProps<s=
+pan class=3D"tsd-signature-symbol">(</span>state<span class=3D"tsd-signatur=
+e-symbol">: </span><span class=3D"tsd-signature-type">any</span><span class=
+=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-symbol">{ </span>redux_authentication<spa=
+n class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type=
+">any</span><span class=3D"tsd-signature-symbol"> }</span></li>
+						<li class=3D"tsd-signature tsd-kind-icon">map<wbr>State<wbr>ToProps<s=
+pan class=3D"tsd-signature-symbol">(</span>state<span class=3D"tsd-signatur=
+e-symbol">: </span><span class=3D"tsd-signature-type">any</span><span class=
+=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-symbol">{ </span>redux_authentication<spa=
+n class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type=
+">any</span><span class=3D"tsd-signature-symbol"> }</span></li>
+						<li class=3D"tsd-signature tsd-kind-icon">map<wbr>State<wbr>ToProps<s=
+pan class=3D"tsd-signature-symbol">(</span>state<span class=3D"tsd-signatur=
+e-symbol">: </span><span class=3D"tsd-signature-type">any</span><span class=
+=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-symbol">{ </span>redux_authentication<spa=
+n class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type=
+">any</span><span class=3D"tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions active">
+						<li class=3D"tsd-description current">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/screens/MyScheduleScreen.tsx:173</li=
+>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>state: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>redux_authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span><span class=3D"tsd-si=
+gnature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>redux_<wbr>authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+						</li>
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/screens/LoginScreen.tsx:153</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>state: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>redux_authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span><span class=3D"tsd-si=
+gnature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>redux_<wbr>authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+						</li>
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/routes/PrivateRoute.tsx:52</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>state: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>redux_authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span><span class=3D"tsd-si=
+gnature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>redux_<wbr>authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+						</li>
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/routes/PublicRoute.tsx:49</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>state: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>redux_authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span><span class=3D"tsd-si=
+gnature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>redux_<wbr>authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+						</li>
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/components/routes/URLRouter.tsx:72</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>state: <span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-symbol">{ </span>redux_authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span><span class=3D"tsd-si=
+gnature-symbol"> }</span></h4>
+							<ul class=3D"tsd-parameters">
+								<li class=3D"tsd-parameter">
+									<h5>redux_<wbr>authentication<span class=3D"tsd-signature-symbol">=
+: </span><span class=3D"tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"register" class=3D"tsd-anchor"></a>
+					<h3>register</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">register<span class=3D"tsd-=
+signature-symbol">(</span>config<span class=3D"tsd-signature-symbol">?: </s=
+pan><a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentati=
+on/globals.html#config" class=3D"tsd-signature-type">Config</a><span class=
+=3D"tsd-signature-symbol">)</span><span class=3D"tsd-signature-symbol">: </=
+span><span class=3D"tsd-signature-type">void</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/serviceWorker.ts:28</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5><span class=3D"tsd-flag ts-flagOptional">Optional</span> confi=
+g: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentatio=
+n/globals.html#config" class=3D"tsd-signature-type">Config</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"registervalidsw" class=3D"tsd-anchor"></a>
+					<h3>register<wbr>ValidSW</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">register<wbr>ValidSW<span c=
+lass=3D"tsd-signature-symbol">(</span>swUrl<span class=3D"tsd-signature-sym=
+bol">: </span><span class=3D"tsd-signature-type">string</span>, config<span=
+ class=3D"tsd-signature-symbol">?: </span><a href=3D"file:///C:/Users/lsten=
+/sb_3/Frontend/my-app/docs/documentation/globals.html#config" class=3D"tsd-=
+signature-type">Config</a><span class=3D"tsd-signature-symbol">)</span><spa=
+n class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-type=
+">void</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/serviceWorker.ts:65</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-parameters-title">Parameters</h4>
+							<ul class=3D"tsd-parameters">
+								<li>
+									<h5>swUrl: <span class=3D"tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class=3D"tsd-flag ts-flagOptional">Optional</span> confi=
+g: <a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentatio=
+n/globals.html#config" class=3D"tsd-signature-type">Config</a></h5>
+								</li>
+							</ul>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class=3D"tsd-panel tsd-member tsd-kind-function">
+					<a name=3D"unregister" class=3D"tsd-anchor"></a>
+					<h3>unregister</h3>
+					<ul class=3D"tsd-signatures tsd-kind-function" data-has-instance=3D"tr=
+ue">
+						<li class=3D"tsd-signature tsd-kind-icon">unregister<span class=3D"ts=
+d-signature-symbol">(</span><span class=3D"tsd-signature-symbol">)</span><s=
+pan class=3D"tsd-signature-symbol">: </span><span class=3D"tsd-signature-ty=
+pe">void</span></li>
+					</ul>
+					<ul class=3D"tsd-descriptions">
+						<li class=3D"tsd-description">
+							<aside class=3D"tsd-sources">
+								<ul>
+									<li>Defined in src/serviceWorker.ts:139</li>
+								</ul>
+							</aside>
+							<h4 class=3D"tsd-returns-title">Returns <span class=3D"tsd-signature=
+-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class=3D"tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class=3D"tsd-panel tsd-member tsd-kind-object-literal">
+					<a name=3D"initial_state" class=3D"tsd-anchor"></a>
+					<h3><span class=3D"tsd-flag ts-flagConst">Const</span> INITIAL_<wbr>ST=
+ATE</h3>
+					<div class=3D"tsd-signature tsd-kind-icon">INITIAL_<wbr>STATE<span cla=
+ss=3D"tsd-signature-symbol">:</span> <span class=3D"tsd-signature-type">obj=
+ect</span></div>
+					<aside class=3D"tsd-sources">
+						<ul>
+							<li>Defined in src/state/reducers/AuthenticationReducer.ts:6</li>
+						</ul>
+					</aside>
+					<section class=3D"tsd-panel tsd-member tsd-kind-variable tsd-parent-ki=
+nd-object-literal">
+						<a name=3D"initial_state.userid" class=3D"tsd-anchor"></a>
+						<h3>user<wbr>Id</h3>
+						<div class=3D"tsd-signature tsd-kind-icon">user<wbr>Id<span class=3D"=
+tsd-signature-symbol">:</span> <span class=3D"tsd-signature-type">null</spa=
+n><span class=3D"tsd-signature-symbol"> =3D null</span></div>
+						<aside class=3D"tsd-sources">
+							<ul>
+								<li>Defined in src/state/reducers/AuthenticationReducer.ts:9</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div class=3D"col-4 col-menu menu-sticky-wrap menu-highlight" data-has-in=
+stance=3D"true">
+			<nav class=3D"tsd-navigation primary">
+				<ul>
+					<li class=3D"globals current ">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class=3D"tsd-navigation secondary menu-sticky">
+				<ul class=3D"before-current">
+					<li class=3D" tsd-kind-class">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/classes/loginscreen.html" class=3D"tsd-kind-icon">Login<wbr>Screen</a>
+					</li>
+					<li class=3D" tsd-kind-class">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/classes/neweventmodal.html" class=3D"tsd-kind-icon">New<wbr>Event<wbr>=
+Modal</a>
+					</li>
+					<li class=3D" tsd-kind-class">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/classes/schedulegrid.html" class=3D"tsd-kind-icon">Schedule<wbr>Grid</=
+a>
+					</li>
+					<li class=3D" tsd-kind-class">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/classes/timeblock.html" class=3D"tsd-kind-icon">Time<wbr>Block</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/event.html" class=3D"tsd-kind-icon">Event</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/iprops.html" class=3D"tsd-kind-icon">IProps</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/istate.html" class=3D"tsd-kind-icon">IState</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/loginprops.html" class=3D"tsd-kind-icon">Login<wbr>Props</a=
+>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/loginstate.html" class=3D"tsd-kind-icon">Login<wbr>State</a=
+>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/myschedulescreenprops.html" class=3D"tsd-kind-icon">My<wbr>=
+Schedule<wbr>Screen<wbr>Props</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/props.html" class=3D"tsd-kind-icon">Props</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/schedulargridprops.html" class=3D"tsd-kind-icon">Schedular<=
+wbr>Grid<wbr>Props</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/schedulargridstate.html" class=3D"tsd-kind-icon">Schedular<=
+wbr>Grid<wbr>State</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/sharedialoglistitemprops.html" class=3D"tsd-kind-icon">Shar=
+e<wbr>Dialog<wbr>List<wbr>Item<wbr>Props</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/sharedialogsearchlistitemprops.html" class=3D"tsd-kind-icon=
+">Share<wbr>Dialog<wbr>Search<wbr>List<wbr>Item<wbr>Props</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/sharedialogsharelistitemprops.html" class=3D"tsd-kind-icon"=
+>Share<wbr>Dialog<wbr>Share<wbr>List<wbr>Item<wbr>Props</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/timeblockprops.html" class=3D"tsd-kind-icon">Time<wbr>Block=
+<wbr>Props</a>
+					</li>
+					<li class=3D" tsd-kind-interface">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/interfaces/timeblockstate.html" class=3D"tsd-kind-icon">Time<wbr>Block=
+<wbr>State</a>
+					</li>
+					<li class=3D" tsd-kind-type-alias">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#config" class=3D"tsd-kind-icon">Config</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#user_login" class=3D"tsd-kind-icon">USER_<wbr>LOGIN</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#user_logout" class=3D"tsd-kind-icon">USER_<wbr>LOGOUT</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#colors" class=3D"tsd-kind-icon">colors</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#container" class=3D"tsd-kind-icon">container</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#dateformat" class=3D"tsd-kind-icon">date<wbr>Format</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#fakeevents" class=3D"tsd-kind-icon">fake<wbr>Events</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#globalany" class=3D"tsd-kind-icon">global<wbr>Any</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#islocalhost" class=3D"tsd-kind-icon">is<wbr>Localhost</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#store" class=3D"tsd-kind-icon">store</a>
+					</li>
+					<li class=3D" tsd-kind-variable">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#theme" class=3D"tsd-kind-icon">theme</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#action_userlogin" class=3D"tsd-kind-icon">ACTION_<wbr>use=
+r<wbr>Login</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#action_userlogout" class=3D"tsd-kind-icon">ACTION_<wbr>us=
+er<wbr>Logout</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#app" class=3D"tsd-kind-icon">App</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#authenticationreducer" class=3D"tsd-kind-icon">Authentica=
+tion<wbr>Reducer</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#editeventdialogwindow" class=3D"tsd-kind-icon">Edit<wbr>E=
+vent<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#labeldialogeventlistitem" class=3D"tsd-kind-icon">Label<w=
+br>Dialog<wbr>Event<wbr>List<wbr>Item</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#labeldialoglistitem" class=3D"tsd-kind-icon">Label<wbr>Di=
+alog<wbr>List<wbr>Item</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#labeldialogwindow" class=3D"tsd-kind-icon">Label<wbr>Dial=
+og<wbr>Window</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#myschedulescreen" class=3D"tsd-kind-icon">My<wbr>Schedule=
+<wbr>Screen</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#privateroute" class=3D"tsd-kind-icon">Private<wbr>Route</=
+a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#publicroute" class=3D"tsd-kind-icon">Public<wbr>Route</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#sharedialogsearchlistitem" class=3D"tsd-kind-icon">Share<=
+wbr>Dialog<wbr>Search<wbr>List<wbr>Item</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#sharedialogsharedlistitem" class=3D"tsd-kind-icon">Share<=
+wbr>Dialog<wbr>Shared<wbr>List<wbr>Item</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#shareeventdialogwindow" class=3D"tsd-kind-icon">Share<wbr=
+>Event<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#sharescheduledialogwindow" class=3D"tsd-kind-icon">Share<=
+wbr>Schedule<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#urlrouter" class=3D"tsd-kind-icon">URLRouter</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#viewparticipanteventdialogwindow" class=3D"tsd-kind-icon"=
+>View<wbr>Participant<wbr>Event<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#checkvalidserviceworker" class=3D"tsd-kind-icon">check<wb=
+r>Valid<wbr>Service<wbr>Worker</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#mapdispatchtoprops" class=3D"tsd-kind-icon">map<wbr>Dispa=
+tch<wbr>ToProps</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#mapstatetoprops" class=3D"tsd-kind-icon">map<wbr>State<wb=
+r>ToProps</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#register" class=3D"tsd-kind-icon">register</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#registervalidsw" class=3D"tsd-kind-icon">register<wbr>Val=
+idSW</a>
+					</li>
+					<li class=3D" tsd-kind-function">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#unregister" class=3D"tsd-kind-icon">unregister</a>
+					</li>
+					<li class=3D" tsd-kind-object-literal">
+						<a href=3D"file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documenta=
+tion/globals.html#initial_state" class=3D"tsd-kind-icon">INITIAL_<wbr>STATE=
+</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class=3D"with-border-bottom">
+	<div class=3D"container">
+		<h2>Legend</h2>
+		<div class=3D"tsd-legend-group">
+			<ul class=3D"tsd-legend">
+				<li class=3D"tsd-kind-constructor tsd-parent-kind-class"><span class=3D=
+"tsd-kind-icon">Constructor</span></li>
+				<li class=3D"tsd-kind-method tsd-parent-kind-class"><span class=3D"tsd-=
+kind-icon">Method</span></li>
+			</ul>
+			<ul class=3D"tsd-legend">
+				<li class=3D"tsd-kind-property tsd-parent-kind-class tsd-is-inherited">=
+<span class=3D"tsd-kind-icon">Inherited property</span></li>
+				<li class=3D"tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><s=
+pan class=3D"tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class=3D"tsd-legend">
+				<li class=3D"tsd-kind-property tsd-parent-kind-interface"><span class=
+=3D"tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class=3D"container tsd-generator">
+	<p>Generated using <a href=3D"https://typedoc.org/" target=3D"_blank">Type=
+Doc</a></p>
+</div>
+<div class=3D"overlay"></div>
+
+
+</body></html>
+------MultipartBoundary--idnru5miDssN33avlmN2q0mYNrLn4SR6AOV8qTwBJM----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentation/assets/css/main.css
+
+@charset "utf-8";
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, =
+nav, section, summary { display: block; }
+
+audio, canvas, video { display: inline-block; }
+
+audio:not([controls]) { display: none; height: 0px; }
+
+[hidden] { display: none; }
+
+html { font-size: 100%; text-size-adjust: 100%; font-family: sans-serif; }
+
+button, input, select, textarea { font-family: sans-serif; }
+
+body { margin: 0px; }
+
+a:focus { outline: dotted thin; }
+
+a:active, a:hover { outline: 0px; }
+
+h1 { font-size: 2em; margin: 0.67em 0px; }
+
+h2 { font-size: 1.5em; margin: 0.83em 0px; }
+
+h3 { font-size: 1.17em; margin: 1em 0px; }
+
+h4, .tsd-index-panel h3 { font-size: 1em; margin: 1.33em 0px; }
+
+h5 { font-size: 0.83em; margin: 1.67em 0px; }
+
+h6 { font-size: 0.67em; margin: 2.33em 0px; }
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { box-sizing: content-box; height: 0px; }
+
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+
+p, pre { margin: 1em 0px; }
+
+code, kbd, pre, samp { font-family: monospace, serif; font-size: 1em; }
+
+pre { white-space: pre-wrap; overflow-wrap: break-word; }
+
+q { quotes: none; }
+
+q::before, q::after { content: none; }
+
+small { font-size: 80%; }
+
+sub { font-size: 75%; line-height: 0; position: relative; vertical-align: b=
+aseline; }
+
+sup { font-size: 75%; line-height: 0; position: relative; vertical-align: b=
+aseline; top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+dl, menu, ol, ul { margin: 1em 0px; }
+
+dd { margin: 0px 0px 0px 40px; }
+
+menu, ol, ul { padding: 0px 0px 0px 40px; }
+
+nav ul, nav ol { list-style: none none; }
+
+img { border: 0px; }
+
+svg:not(:root) { overflow: hidden; }
+
+figure, form { margin: 0px; }
+
+fieldset { border: 1px solid silver; margin: 0px 2px; padding: 0.35em 0.625=
+em 0.75em; }
+
+legend { border: 0px; padding: 0px; white-space: normal; }
+
+button, input, select, textarea { font-size: 100%; margin: 0px; vertical-al=
+ign: baseline; }
+
+button, input { line-height: normal; }
+
+button, select { text-transform: none; }
+
+button, html input[type=3D"button"] { appearance: button; cursor: pointer; =
+}
+
+input[type=3D"reset"], input[type=3D"submit"] { appearance: button; cursor:=
+ pointer; }
+
+button[disabled], html input[disabled] { cursor: default; }
+
+input[type=3D"checkbox"], input[type=3D"radio"] { box-sizing: border-box; p=
+adding: 0px; }
+
+input[type=3D"search"] { appearance: textfield; box-sizing: content-box; }
+
+input[type=3D"search"]::-webkit-search-cancel-button, input[type=3D"search"=
+]::-webkit-search-decoration { appearance: none; }
+
+textarea { overflow: auto; vertical-align: top; }
+
+table { border-collapse: collapse; border-spacing: 0px; }
+
+.hljs { display: inline-block; padding: 0.5em; background: rgb(255, 255, 25=
+5); color: rgb(0, 0, 0); }
+
+.hljs-comment, .hljs-annotation, .hljs-template_comment, .diff .hljs-header=
+, .hljs-chunk, .apache .hljs-cbracket { color: green; }
+
+.hljs-keyword, .hljs-id, .hljs-built_in, .css .smalltalk .hljs-class, .hljs=
+-winutils, .bash .hljs-variable, .tex .hljs-command, .hljs-request, .hljs-s=
+tatus, .nginx .hljs-title { color: blue; }
+
+.xml .hljs-tag { color: blue; }
+
+.xml .hljs-tag .hljs-value { color: blue; }
+
+.hljs-string, .hljs-title, .hljs-parent, .hljs-tag .hljs-value, .hljs-rules=
+ .hljs-value { color: rgb(163, 21, 21); }
+
+.ruby .hljs-symbol { color: rgb(163, 21, 21); }
+
+.ruby .hljs-symbol .hljs-string { color: rgb(163, 21, 21); }
+
+.hljs-template_tag, .django .hljs-variable, .hljs-addition, .hljs-flow, .hl=
+js-stream, .apache .hljs-tag, .hljs-date, .tex .hljs-formula, .coffeescript=
+ .hljs-attribute { color: rgb(163, 21, 21); }
+
+.ruby .hljs-string, .hljs-decorator, .hljs-filter .hljs-argument, .hljs-loc=
+alvars, .hljs-array, .hljs-attr_selector, .hljs-pseudo, .hljs-pi, .hljs-doc=
+type, .hljs-deletion, .hljs-envvar, .hljs-shebang, .hljs-preprocessor, .hlj=
+s-pragma, .userType, .apache .hljs-sqbracket, .nginx .hljs-built_in, .tex .=
+hljs-special, .hljs-prompt { color: rgb(43, 145, 175); }
+
+.hljs-phpdoc, .hljs-javadoc, .hljs-xmlDocTag { color: gray; }
+
+.vhdl .hljs-typename { font-weight: bold; }
+
+.vhdl .hljs-string { color: rgb(102, 102, 102); }
+
+.vhdl .hljs-literal { color: rgb(163, 21, 21); }
+
+.vhdl .hljs-attribute { color: rgb(0, 176, 232); }
+
+.xml .hljs-attribute { color: red; }
+
+ul.tsd-descriptions > li > :first-child, .tsd-panel > :first-child, .col > =
+:first-child, .col-11 > :first-child, .col-10 > :first-child, .col-9 > :fir=
+st-child, .col-8 > :first-child, .col-7 > :first-child, .col-6 > :first-chi=
+ld, .col-5 > :first-child, .col-4 > :first-child, .col-3 > :first-child, .c=
+ol-2 > :first-child, .col-1 > :first-child, ul.tsd-descriptions > li > :fir=
+st-child > :first-child, .tsd-panel > :first-child > :first-child, .col > :=
+first-child > :first-child, .col-11 > :first-child > :first-child, .col-10 =
+> :first-child > :first-child, .col-9 > :first-child > :first-child, .col-8=
+ > :first-child > :first-child, .col-7 > :first-child > :first-child, .col-=
+6 > :first-child > :first-child, .col-5 > :first-child > :first-child, .col=
+-4 > :first-child > :first-child, .col-3 > :first-child > :first-child, .co=
+l-2 > :first-child > :first-child, .col-1 > :first-child > :first-child, ul=
+.tsd-descriptions > li > :first-child > :first-child > :first-child, .tsd-p=
+anel > :first-child > :first-child > :first-child, .col > :first-child > :f=
+irst-child > :first-child, .col-11 > :first-child > :first-child > :first-c=
+hild, .col-10 > :first-child > :first-child > :first-child, .col-9 > :first=
+-child > :first-child > :first-child, .col-8 > :first-child > :first-child =
+> :first-child, .col-7 > :first-child > :first-child > :first-child, .col-6=
+ > :first-child > :first-child > :first-child, .col-5 > :first-child > :fir=
+st-child > :first-child, .col-4 > :first-child > :first-child > :first-chil=
+d, .col-3 > :first-child > :first-child > :first-child, .col-2 > :first-chi=
+ld > :first-child > :first-child, .col-1 > :first-child > :first-child > :f=
+irst-child { margin-top: 0px; }
+
+ul.tsd-descriptions > li > :last-child, .tsd-panel > :last-child, .col > :l=
+ast-child, .col-11 > :last-child, .col-10 > :last-child, .col-9 > :last-chi=
+ld, .col-8 > :last-child, .col-7 > :last-child, .col-6 > :last-child, .col-=
+5 > :last-child, .col-4 > :last-child, .col-3 > :last-child, .col-2 > :last=
+-child, .col-1 > :last-child, ul.tsd-descriptions > li > :last-child > :las=
+t-child, .tsd-panel > :last-child > :last-child, .col > :last-child > :last=
+-child, .col-11 > :last-child > :last-child, .col-10 > :last-child > :last-=
+child, .col-9 > :last-child > :last-child, .col-8 > :last-child > :last-chi=
+ld, .col-7 > :last-child > :last-child, .col-6 > :last-child > :last-child,=
+ .col-5 > :last-child > :last-child, .col-4 > :last-child > :last-child, .c=
+ol-3 > :last-child > :last-child, .col-2 > :last-child > :last-child, .col-=
+1 > :last-child > :last-child, ul.tsd-descriptions > li > :last-child > :la=
+st-child > :last-child, .tsd-panel > :last-child > :last-child > :last-chil=
+d, .col > :last-child > :last-child > :last-child, .col-11 > :last-child > =
+:last-child > :last-child, .col-10 > :last-child > :last-child > :last-chil=
+d, .col-9 > :last-child > :last-child > :last-child, .col-8 > :last-child >=
+ :last-child > :last-child, .col-7 > :last-child > :last-child > :last-chil=
+d, .col-6 > :last-child > :last-child > :last-child, .col-5 > :last-child >=
+ :last-child > :last-child, .col-4 > :last-child > :last-child > :last-chil=
+d, .col-3 > :last-child > :last-child > :last-child, .col-2 > :last-child >=
+ :last-child > :last-child, .col-1 > :last-child > :last-child > :last-chil=
+d { margin-bottom: 0px; }
+
+.container { max-width: 1200px; margin: 0px auto; padding: 0px 40px; }
+
+@media (max-width: 640px) {
+  .container { padding: 0px 20px; }
+}
+
+.container-main { padding-bottom: 200px; }
+
+.row { display: flex; position: relative; margin: 0px -10px; }
+
+.row::after { visibility: hidden; display: block; content: ""; clear: both;=
+ height: 0px; }
+
+.col, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .co=
+l-3, .col-2, .col-1 { box-sizing: border-box; float: left; padding: 0px 10p=
+x; }
+
+.col-1 { width: 8.33333%; }
+
+.offset-1 { margin-left: 8.33333%; }
+
+.col-2 { width: 16.6667%; }
+
+.offset-2 { margin-left: 16.6667%; }
+
+.col-3 { width: 25%; }
+
+.offset-3 { margin-left: 25%; }
+
+.col-4 { width: 33.3333%; }
+
+.offset-4 { margin-left: 33.3333%; }
+
+.col-5 { width: 41.6667%; }
+
+.offset-5 { margin-left: 41.6667%; }
+
+.col-6 { width: 50%; }
+
+.offset-6 { margin-left: 50%; }
+
+.col-7 { width: 58.3333%; }
+
+.offset-7 { margin-left: 58.3333%; }
+
+.col-8 { width: 66.6667%; }
+
+.offset-8 { margin-left: 66.6667%; }
+
+.col-9 { width: 75%; }
+
+.offset-9 { margin-left: 75%; }
+
+.col-10 { width: 83.3333%; }
+
+.offset-10 { margin-left: 83.3333%; }
+
+.col-11 { width: 91.6667%; }
+
+.offset-11 { margin-left: 91.6667%; }
+
+.tsd-kind-icon { display: block; position: relative; padding-left: 20px; te=
+xt-indent: -20px; }
+
+.tsd-kind-icon::before { content: ""; display: inline-block; vertical-align=
+: middle; width: 17px; height: 17px; margin: 0px 3px 2px 0px; background-im=
+age: url("../images/icons.png"); }
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .tsd-kind-icon::before { background-image: url("../images/icons@2x.png");=
+ background-size: 238px 204px; }
+}
+
+.tsd-signature.tsd-kind-icon::before { background-position: 0px -153px; }
+
+.tsd-kind-object-literal > .tsd-kind-icon::before { background-position: 0p=
+x -17px; }
+
+.tsd-kind-object-literal.tsd-is-protected > .tsd-kind-icon::before { backgr=
+ound-position: -17px -17px; }
+
+.tsd-kind-object-literal.tsd-is-private > .tsd-kind-icon::before { backgrou=
+nd-position: -34px -17px; }
+
+.tsd-kind-class > .tsd-kind-icon::before { background-position: 0px -34px; =
+}
+
+.tsd-kind-class.tsd-is-protected > .tsd-kind-icon::before { background-posi=
+tion: -17px -34px; }
+
+.tsd-kind-class.tsd-is-private > .tsd-kind-icon::before { background-positi=
+on: -34px -34px; }
+
+.tsd-kind-class.tsd-has-type-parameter > .tsd-kind-icon::before { backgroun=
+d-position: 0px -51px; }
+
+.tsd-kind-class.tsd-has-type-parameter.tsd-is-protected > .tsd-kind-icon::b=
+efore { background-position: -17px -51px; }
+
+.tsd-kind-class.tsd-has-type-parameter.tsd-is-private > .tsd-kind-icon::bef=
+ore { background-position: -34px -51px; }
+
+.tsd-kind-interface > .tsd-kind-icon::before { background-position: 0px -68=
+px; }
+
+.tsd-kind-interface.tsd-is-protected > .tsd-kind-icon::before { background-=
+position: -17px -68px; }
+
+.tsd-kind-interface.tsd-is-private > .tsd-kind-icon::before { background-po=
+sition: -34px -68px; }
+
+.tsd-kind-interface.tsd-has-type-parameter > .tsd-kind-icon::before { backg=
+round-position: 0px -85px; }
+
+.tsd-kind-interface.tsd-has-type-parameter.tsd-is-protected > .tsd-kind-ico=
+n::before { background-position: -17px -85px; }
+
+.tsd-kind-interface.tsd-has-type-parameter.tsd-is-private > .tsd-kind-icon:=
+:before { background-position: -34px -85px; }
+
+.tsd-kind-namespace > .tsd-kind-icon::before { background-position: 0px -10=
+2px; }
+
+.tsd-kind-namespace.tsd-is-protected > .tsd-kind-icon::before { background-=
+position: -17px -102px; }
+
+.tsd-kind-namespace.tsd-is-private > .tsd-kind-icon::before { background-po=
+sition: -34px -102px; }
+
+.tsd-kind-module > .tsd-kind-icon::before { background-position: 0px -102px=
+; }
+
+.tsd-kind-module.tsd-is-protected > .tsd-kind-icon::before { background-pos=
+ition: -17px -102px; }
+
+.tsd-kind-module.tsd-is-private > .tsd-kind-icon::before { background-posit=
+ion: -34px -102px; }
+
+.tsd-kind-enum > .tsd-kind-icon::before { background-position: 0px -119px; =
+}
+
+.tsd-kind-enum.tsd-is-protected > .tsd-kind-icon::before { background-posit=
+ion: -17px -119px; }
+
+.tsd-kind-enum.tsd-is-private > .tsd-kind-icon::before { background-positio=
+n: -34px -119px; }
+
+.tsd-kind-enum-member > .tsd-kind-icon::before { background-position: 0px -=
+136px; }
+
+.tsd-kind-enum-member.tsd-is-protected > .tsd-kind-icon::before { backgroun=
+d-position: -17px -136px; }
+
+.tsd-kind-enum-member.tsd-is-private > .tsd-kind-icon::before { background-=
+position: -34px -136px; }
+
+.tsd-kind-signature > .tsd-kind-icon::before { background-position: 0px -15=
+3px; }
+
+.tsd-kind-signature.tsd-is-protected > .tsd-kind-icon::before { background-=
+position: -17px -153px; }
+
+.tsd-kind-signature.tsd-is-private > .tsd-kind-icon::before { background-po=
+sition: -34px -153px; }
+
+.tsd-kind-type-alias > .tsd-kind-icon::before { background-position: 0px -1=
+70px; }
+
+.tsd-kind-type-alias.tsd-is-protected > .tsd-kind-icon::before { background=
+-position: -17px -170px; }
+
+.tsd-kind-type-alias.tsd-is-private > .tsd-kind-icon::before { background-p=
+osition: -34px -170px; }
+
+.tsd-kind-type-alias.tsd-has-type-parameter > .tsd-kind-icon::before { back=
+ground-position: 0px -187px; }
+
+.tsd-kind-type-alias.tsd-has-type-parameter.tsd-is-protected > .tsd-kind-ic=
+on::before { background-position: -17px -187px; }
+
+.tsd-kind-type-alias.tsd-has-type-parameter.tsd-is-private > .tsd-kind-icon=
+::before { background-position: -34px -187px; }
+
+.tsd-kind-variable > .tsd-kind-icon::before { background-position: -136px 0=
+px; }
+
+.tsd-kind-variable.tsd-is-protected > .tsd-kind-icon::before { background-p=
+osition: -153px 0px; }
+
+.tsd-kind-variable.tsd-is-private > .tsd-kind-icon::before { background-pos=
+ition: -119px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-class > .tsd-kind-icon::before { backgro=
+und-position: -51px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon:=
+:before { background-position: -68px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-icon:=
+:before { background-position: -85px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherited =
+> .tsd-kind-icon::before { background-position: -102px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon::b=
+efore { background-position: -119px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-enum > .tsd-kind-icon::before { backgrou=
+nd-position: -170px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon::=
+before { background-position: -187px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon::be=
+fore { background-position: -119px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-interface > .tsd-kind-icon::before { bac=
+kground-position: -204px 0px; }
+
+.tsd-kind-variable.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-i=
+con::before { background-position: -221px 0px; }
+
+.tsd-kind-property > .tsd-kind-icon::before { background-position: -136px 0=
+px; }
+
+.tsd-kind-property.tsd-is-protected > .tsd-kind-icon::before { background-p=
+osition: -153px 0px; }
+
+.tsd-kind-property.tsd-is-private > .tsd-kind-icon::before { background-pos=
+ition: -119px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-class > .tsd-kind-icon::before { backgro=
+und-position: -51px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon:=
+:before { background-position: -68px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-icon:=
+:before { background-position: -85px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherited =
+> .tsd-kind-icon::before { background-position: -102px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon::b=
+efore { background-position: -119px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-enum > .tsd-kind-icon::before { backgrou=
+nd-position: -170px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon::=
+before { background-position: -187px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon::be=
+fore { background-position: -119px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-interface > .tsd-kind-icon::before { bac=
+kground-position: -204px 0px; }
+
+.tsd-kind-property.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-i=
+con::before { background-position: -221px 0px; }
+
+.tsd-kind-get-signature > .tsd-kind-icon::before { background-position: -13=
+6px -17px; }
+
+.tsd-kind-get-signature.tsd-is-protected > .tsd-kind-icon::before { backgro=
+und-position: -153px -17px; }
+
+.tsd-kind-get-signature.tsd-is-private > .tsd-kind-icon::before { backgroun=
+d-position: -119px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-class > .tsd-kind-icon::before { ba=
+ckground-position: -51px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-=
+icon::before { background-position: -68px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-=
+icon::before { background-position: -85px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-class.tsd-is-protected.tsd-is-inher=
+ited > .tsd-kind-icon::before { background-position: -102px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-class.tsd-is-private > .tsd-kind-ic=
+on::before { background-position: -119px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-enum > .tsd-kind-icon::before { bac=
+kground-position: -170px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-i=
+con::before { background-position: -187px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-ico=
+n::before { background-position: -119px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-interface > .tsd-kind-icon::before =
+{ background-position: -204px -17px; }
+
+.tsd-kind-get-signature.tsd-parent-kind-interface.tsd-is-inherited > .tsd-k=
+ind-icon::before { background-position: -221px -17px; }
+
+.tsd-kind-set-signature > .tsd-kind-icon::before { background-position: -13=
+6px -34px; }
+
+.tsd-kind-set-signature.tsd-is-protected > .tsd-kind-icon::before { backgro=
+und-position: -153px -34px; }
+
+.tsd-kind-set-signature.tsd-is-private > .tsd-kind-icon::before { backgroun=
+d-position: -119px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-class > .tsd-kind-icon::before { ba=
+ckground-position: -51px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-=
+icon::before { background-position: -68px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-=
+icon::before { background-position: -85px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-class.tsd-is-protected.tsd-is-inher=
+ited > .tsd-kind-icon::before { background-position: -102px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-class.tsd-is-private > .tsd-kind-ic=
+on::before { background-position: -119px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-enum > .tsd-kind-icon::before { bac=
+kground-position: -170px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-i=
+con::before { background-position: -187px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-ico=
+n::before { background-position: -119px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-interface > .tsd-kind-icon::before =
+{ background-position: -204px -34px; }
+
+.tsd-kind-set-signature.tsd-parent-kind-interface.tsd-is-inherited > .tsd-k=
+ind-icon::before { background-position: -221px -34px; }
+
+.tsd-kind-accessor > .tsd-kind-icon::before { background-position: -136px -=
+51px; }
+
+.tsd-kind-accessor.tsd-is-protected > .tsd-kind-icon::before { background-p=
+osition: -153px -51px; }
+
+.tsd-kind-accessor.tsd-is-private > .tsd-kind-icon::before { background-pos=
+ition: -119px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-class > .tsd-kind-icon::before { backgro=
+und-position: -51px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon:=
+:before { background-position: -68px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-icon:=
+:before { background-position: -85px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherited =
+> .tsd-kind-icon::before { background-position: -102px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon::b=
+efore { background-position: -119px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-enum > .tsd-kind-icon::before { backgrou=
+nd-position: -170px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon::=
+before { background-position: -187px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon::be=
+fore { background-position: -119px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-interface > .tsd-kind-icon::before { bac=
+kground-position: -204px -51px; }
+
+.tsd-kind-accessor.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-i=
+con::before { background-position: -221px -51px; }
+
+.tsd-kind-function > .tsd-kind-icon::before { background-position: -136px -=
+68px; }
+
+.tsd-kind-function.tsd-is-protected > .tsd-kind-icon::before { background-p=
+osition: -153px -68px; }
+
+.tsd-kind-function.tsd-is-private > .tsd-kind-icon::before { background-pos=
+ition: -119px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-class > .tsd-kind-icon::before { backgro=
+und-position: -51px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon:=
+:before { background-position: -68px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-icon:=
+:before { background-position: -85px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherited =
+> .tsd-kind-icon::before { background-position: -102px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon::b=
+efore { background-position: -119px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-enum > .tsd-kind-icon::before { backgrou=
+nd-position: -170px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon::=
+before { background-position: -187px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon::be=
+fore { background-position: -119px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-interface > .tsd-kind-icon::before { bac=
+kground-position: -204px -68px; }
+
+.tsd-kind-function.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-i=
+con::before { background-position: -221px -68px; }
+
+.tsd-kind-method > .tsd-kind-icon::before { background-position: -136px -68=
+px; }
+
+.tsd-kind-method.tsd-is-protected > .tsd-kind-icon::before { background-pos=
+ition: -153px -68px; }
+
+.tsd-kind-method.tsd-is-private > .tsd-kind-icon::before { background-posit=
+ion: -119px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-class > .tsd-kind-icon::before { backgroun=
+d-position: -51px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon::b=
+efore { background-position: -68px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-icon::b=
+efore { background-position: -85px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherited > =
+.tsd-kind-icon::before { background-position: -102px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon::bef=
+ore { background-position: -119px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-enum > .tsd-kind-icon::before { background=
+-position: -170px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon::be=
+fore { background-position: -187px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon::befo=
+re { background-position: -119px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-interface > .tsd-kind-icon::before { backg=
+round-position: -204px -68px; }
+
+.tsd-kind-method.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-ico=
+n::before { background-position: -221px -68px; }
+
+.tsd-kind-call-signature > .tsd-kind-icon::before { background-position: -1=
+36px -68px; }
+
+.tsd-kind-call-signature.tsd-is-protected > .tsd-kind-icon::before { backgr=
+ound-position: -153px -68px; }
+
+.tsd-kind-call-signature.tsd-is-private > .tsd-kind-icon::before { backgrou=
+nd-position: -119px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-class > .tsd-kind-icon::before { b=
+ackground-position: -51px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind=
+-icon::before { background-position: -68px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-protected > .tsd-kind=
+-icon::before { background-position: -85px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-protected.tsd-is-inhe=
+rited > .tsd-kind-icon::before { background-position: -102px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-private > .tsd-kind-i=
+con::before { background-position: -119px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-enum > .tsd-kind-icon::before { ba=
+ckground-position: -170px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-=
+icon::before { background-position: -187px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-ic=
+on::before { background-position: -119px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-interface > .tsd-kind-icon::before=
+ { background-position: -204px -68px; }
+
+.tsd-kind-call-signature.tsd-parent-kind-interface.tsd-is-inherited > .tsd-=
+kind-icon::before { background-position: -221px -68px; }
+
+.tsd-kind-function.tsd-has-type-parameter > .tsd-kind-icon::before { backgr=
+ound-position: -136px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-is-protected > .tsd-kind-icon=
+::before { background-position: -153px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-is-private > .tsd-kind-icon::=
+before { background-position: -119px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-class > .tsd-kind=
+-icon::before { background-position: -51px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-inhe=
+rited > .tsd-kind-icon::before { background-position: -68px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-prot=
+ected > .tsd-kind-icon::before { background-position: -85px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-prot=
+ected.tsd-is-inherited > .tsd-kind-icon::before { background-position: -102=
+px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-priv=
+ate > .tsd-kind-icon::before { background-position: -119px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-enum > .tsd-kind-=
+icon::before { background-position: -170px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-enum.tsd-is-prote=
+cted > .tsd-kind-icon::before { background-position: -187px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-enum.tsd-is-priva=
+te > .tsd-kind-icon::before { background-position: -119px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-interface > .tsd-=
+kind-icon::before { background-position: -204px -85px; }
+
+.tsd-kind-function.tsd-has-type-parameter.tsd-parent-kind-interface.tsd-is-=
+inherited > .tsd-kind-icon::before { background-position: -221px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter > .tsd-kind-icon::before { backgrou=
+nd-position: -136px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-is-protected > .tsd-kind-icon::=
+before { background-position: -153px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-is-private > .tsd-kind-icon::be=
+fore { background-position: -119px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-class > .tsd-kind-i=
+con::before { background-position: -51px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-inheri=
+ted > .tsd-kind-icon::before { background-position: -68px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-protec=
+ted > .tsd-kind-icon::before { background-position: -85px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-protec=
+ted.tsd-is-inherited > .tsd-kind-icon::before { background-position: -102px=
+ -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-class.tsd-is-privat=
+e > .tsd-kind-icon::before { background-position: -119px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-enum > .tsd-kind-ic=
+on::before { background-position: -170px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-enum.tsd-is-protect=
+ed > .tsd-kind-icon::before { background-position: -187px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-enum.tsd-is-private=
+ > .tsd-kind-icon::before { background-position: -119px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-interface > .tsd-ki=
+nd-icon::before { background-position: -204px -85px; }
+
+.tsd-kind-method.tsd-has-type-parameter.tsd-parent-kind-interface.tsd-is-in=
+herited > .tsd-kind-icon::before { background-position: -221px -85px; }
+
+.tsd-kind-constructor > .tsd-kind-icon::before { background-position: -136p=
+x -102px; }
+
+.tsd-kind-constructor.tsd-is-protected > .tsd-kind-icon::before { backgroun=
+d-position: -153px -102px; }
+
+.tsd-kind-constructor.tsd-is-private > .tsd-kind-icon::before { background-=
+position: -119px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-class > .tsd-kind-icon::before { back=
+ground-position: -51px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-ic=
+on::before { background-position: -68px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-ic=
+on::before { background-position: -85px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherit=
+ed > .tsd-kind-icon::before { background-position: -102px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon=
+::before { background-position: -119px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-enum > .tsd-kind-icon::before { backg=
+round-position: -170px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-ico=
+n::before { background-position: -187px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon:=
+:before { background-position: -119px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-interface > .tsd-kind-icon::before { =
+background-position: -204px -102px; }
+
+.tsd-kind-constructor.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kin=
+d-icon::before { background-position: -221px -102px; }
+
+.tsd-kind-constructor-signature > .tsd-kind-icon::before { background-posit=
+ion: -136px -102px; }
+
+.tsd-kind-constructor-signature.tsd-is-protected > .tsd-kind-icon::before {=
+ background-position: -153px -102px; }
+
+.tsd-kind-constructor-signature.tsd-is-private > .tsd-kind-icon::before { b=
+ackground-position: -119px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-class > .tsd-kind-icon::bef=
+ore { background-position: -51px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-class.tsd-is-inherited > .t=
+sd-kind-icon::before { background-position: -68px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-class.tsd-is-protected > .t=
+sd-kind-icon::before { background-position: -85px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-class.tsd-is-protected.tsd-=
+is-inherited > .tsd-kind-icon::before { background-position: -102px -102px;=
+ }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-class.tsd-is-private > .tsd=
+-kind-icon::before { background-position: -119px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-enum > .tsd-kind-icon::befo=
+re { background-position: -170px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-enum.tsd-is-protected > .ts=
+d-kind-icon::before { background-position: -187px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-enum.tsd-is-private > .tsd-=
+kind-icon::before { background-position: -119px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-interface > .tsd-kind-icon:=
+:before { background-position: -204px -102px; }
+
+.tsd-kind-constructor-signature.tsd-parent-kind-interface.tsd-is-inherited =
+> .tsd-kind-icon::before { background-position: -221px -102px; }
+
+.tsd-kind-index-signature > .tsd-kind-icon::before { background-position: -=
+136px -119px; }
+
+.tsd-kind-index-signature.tsd-is-protected > .tsd-kind-icon::before { backg=
+round-position: -153px -119px; }
+
+.tsd-kind-index-signature.tsd-is-private > .tsd-kind-icon::before { backgro=
+und-position: -119px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-class > .tsd-kind-icon::before { =
+background-position: -51px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-class.tsd-is-inherited > .tsd-kin=
+d-icon::before { background-position: -68px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-class.tsd-is-protected > .tsd-kin=
+d-icon::before { background-position: -85px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-class.tsd-is-protected.tsd-is-inh=
+erited > .tsd-kind-icon::before { background-position: -102px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-class.tsd-is-private > .tsd-kind-=
+icon::before { background-position: -119px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-enum > .tsd-kind-icon::before { b=
+ackground-position: -170px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind=
+-icon::before { background-position: -187px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-i=
+con::before { background-position: -119px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-interface > .tsd-kind-icon::befor=
+e { background-position: -204px -119px; }
+
+.tsd-kind-index-signature.tsd-parent-kind-interface.tsd-is-inherited > .tsd=
+-kind-icon::before { background-position: -221px -119px; }
+
+.tsd-kind-event > .tsd-kind-icon::before { background-position: -136px -136=
+px; }
+
+.tsd-kind-event.tsd-is-protected > .tsd-kind-icon::before { background-posi=
+tion: -153px -136px; }
+
+.tsd-kind-event.tsd-is-private > .tsd-kind-icon::before { background-positi=
+on: -119px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-class > .tsd-kind-icon::before { background=
+-position: -51px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon::be=
+fore { background-position: -68px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-icon::be=
+fore { background-position: -85px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherited > .=
+tsd-kind-icon::before { background-position: -102px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon::befo=
+re { background-position: -119px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-enum > .tsd-kind-icon::before { background-=
+position: -170px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon::bef=
+ore { background-position: -187px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon::befor=
+e { background-position: -119px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-interface > .tsd-kind-icon::before { backgr=
+ound-position: -204px -136px; }
+
+.tsd-kind-event.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-icon=
+::before { background-position: -221px -136px; }
+
+.tsd-is-static > .tsd-kind-icon::before { background-position: -136px -153p=
+x; }
+
+.tsd-is-static.tsd-is-protected > .tsd-kind-icon::before { background-posit=
+ion: -153px -153px; }
+
+.tsd-is-static.tsd-is-private > .tsd-kind-icon::before { background-positio=
+n: -119px -153px; }
+
+.tsd-is-static.tsd-parent-kind-class > .tsd-kind-icon::before { background-=
+position: -51px -153px; }
+
+.tsd-is-static.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon::bef=
+ore { background-position: -68px -153px; }
+
+.tsd-is-static.tsd-parent-kind-class.tsd-is-protected > .tsd-kind-icon::bef=
+ore { background-position: -85px -153px; }
+
+.tsd-is-static.tsd-parent-kind-class.tsd-is-protected.tsd-is-inherited > .t=
+sd-kind-icon::before { background-position: -102px -153px; }
+
+.tsd-is-static.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon::befor=
+e { background-position: -119px -153px; }
+
+.tsd-is-static.tsd-parent-kind-enum > .tsd-kind-icon::before { background-p=
+osition: -170px -153px; }
+
+.tsd-is-static.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon::befo=
+re { background-position: -187px -153px; }
+
+.tsd-is-static.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon::before=
+ { background-position: -119px -153px; }
+
+.tsd-is-static.tsd-parent-kind-interface > .tsd-kind-icon::before { backgro=
+und-position: -204px -153px; }
+
+.tsd-is-static.tsd-parent-kind-interface.tsd-is-inherited > .tsd-kind-icon:=
+:before { background-position: -221px -153px; }
+
+.tsd-is-static.tsd-kind-function > .tsd-kind-icon::before { background-posi=
+tion: -136px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-is-protected > .tsd-kind-icon::before =
+{ background-position: -153px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-is-private > .tsd-kind-icon::before { =
+background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-class > .tsd-kind-icon::be=
+fore { background-position: -51px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-class.tsd-is-inherited > .=
+tsd-kind-icon::before { background-position: -68px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-class.tsd-is-protected > .=
+tsd-kind-icon::before { background-position: -85px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-class.tsd-is-protected.tsd=
+-is-inherited > .tsd-kind-icon::before { background-position: -102px -170px=
+; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-class.tsd-is-private > .ts=
+d-kind-icon::before { background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-enum > .tsd-kind-icon::bef=
+ore { background-position: -170px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-enum.tsd-is-protected > .t=
+sd-kind-icon::before { background-position: -187px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-enum.tsd-is-private > .tsd=
+-kind-icon::before { background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-interface > .tsd-kind-icon=
+::before { background-position: -204px -170px; }
+
+.tsd-is-static.tsd-kind-function.tsd-parent-kind-interface.tsd-is-inherited=
+ > .tsd-kind-icon::before { background-position: -221px -170px; }
+
+.tsd-is-static.tsd-kind-method > .tsd-kind-icon::before { background-positi=
+on: -136px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-is-protected > .tsd-kind-icon::before { =
+background-position: -153px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-is-private > .tsd-kind-icon::before { ba=
+ckground-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-class > .tsd-kind-icon::befo=
+re { background-position: -51px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-class.tsd-is-inherited > .ts=
+d-kind-icon::before { background-position: -68px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-class.tsd-is-protected > .ts=
+d-kind-icon::before { background-position: -85px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-class.tsd-is-protected.tsd-i=
+s-inherited > .tsd-kind-icon::before { background-position: -102px -170px; =
+}
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-class.tsd-is-private > .tsd-=
+kind-icon::before { background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-enum > .tsd-kind-icon::befor=
+e { background-position: -170px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-enum.tsd-is-protected > .tsd=
+-kind-icon::before { background-position: -187px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-enum.tsd-is-private > .tsd-k=
+ind-icon::before { background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-interface > .tsd-kind-icon::=
+before { background-position: -204px -170px; }
+
+.tsd-is-static.tsd-kind-method.tsd-parent-kind-interface.tsd-is-inherited >=
+ .tsd-kind-icon::before { background-position: -221px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature > .tsd-kind-icon::before { backgroun=
+d-position: -136px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-is-protected > .tsd-kind-icon::b=
+efore { background-position: -153px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-is-private > .tsd-kind-icon::bef=
+ore { background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-class > .tsd-kind-ic=
+on::before { background-position: -51px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-inherit=
+ed > .tsd-kind-icon::before { background-position: -68px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-protect=
+ed > .tsd-kind-icon::before { background-position: -85px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-protect=
+ed.tsd-is-inherited > .tsd-kind-icon::before { background-position: -102px =
+-170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-class.tsd-is-private=
+ > .tsd-kind-icon::before { background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-enum > .tsd-kind-ico=
+n::before { background-position: -170px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-enum.tsd-is-protecte=
+d > .tsd-kind-icon::before { background-position: -187px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-enum.tsd-is-private =
+> .tsd-kind-icon::before { background-position: -119px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-interface > .tsd-kin=
+d-icon::before { background-position: -204px -170px; }
+
+.tsd-is-static.tsd-kind-call-signature.tsd-parent-kind-interface.tsd-is-inh=
+erited > .tsd-kind-icon::before { background-position: -221px -170px; }
+
+.tsd-is-static.tsd-kind-event > .tsd-kind-icon::before { background-positio=
+n: -136px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-is-protected > .tsd-kind-icon::before { b=
+ackground-position: -153px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-is-private > .tsd-kind-icon::before { bac=
+kground-position: -119px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-class > .tsd-kind-icon::befor=
+e { background-position: -51px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-class.tsd-is-inherited > .tsd=
+-kind-icon::before { background-position: -68px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-class.tsd-is-protected > .tsd=
+-kind-icon::before { background-position: -85px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-class.tsd-is-protected.tsd-is=
+-inherited > .tsd-kind-icon::before { background-position: -102px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-class.tsd-is-private > .tsd-k=
+ind-icon::before { background-position: -119px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-enum > .tsd-kind-icon::before=
+ { background-position: -170px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-enum.tsd-is-protected > .tsd-=
+kind-icon::before { background-position: -187px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-enum.tsd-is-private > .tsd-ki=
+nd-icon::before { background-position: -119px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-interface > .tsd-kind-icon::b=
+efore { background-position: -204px -187px; }
+
+.tsd-is-static.tsd-kind-event.tsd-parent-kind-interface.tsd-is-inherited > =
+.tsd-kind-icon::before { background-position: -221px -187px; }
+
+@keyframes fade-in {=20
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {=20
+  0% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; }
+}
+
+@keyframes fade-in-delayed {=20
+  0% { opacity: 0; }
+  33% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out-delayed {=20
+  0% { opacity: 1; visibility: visible; }
+  66% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes shift-to-left {=20
+  0% { transform: translate(0px, 0px); }
+  100% { transform: translate(-25%, 0px); }
+}
+
+@keyframes unshift-to-left {=20
+  0% { transform: translate(-25%, 0px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes pop-in-from-right {=20
+  0% { transform: translate(100%, 0px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes pop-out-to-right {=20
+  0% { transform: translate(0px, 0px); visibility: visible; }
+  100% { transform: translate(100%, 0px); }
+}
+
+body { background: rgb(253, 253, 253); font-family: "Segoe UI", sans-serif;=
+ font-size: 16px; color: rgb(34, 34, 34); }
+
+a { color: rgb(77, 166, 255); text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+
+code, pre { font-family: Menlo, Monaco, Consolas, "Courier New", monospace;=
+ padding: 0.2em; margin: 0px; font-size: 14px; background-color: rgba(0, 0,=
+ 0, 0.04); }
+
+pre { padding: 10px; }
+
+pre code { padding: 0px; font-size: 100%; background-color: transparent; }
+
+.tsd-typography { line-height: 1.333em; }
+
+.tsd-typography ul { list-style: square; padding: 0px 0px 0px 20px; margin:=
+ 0px; }
+
+.tsd-typography h4, .tsd-typography .tsd-index-panel h3, .tsd-index-panel .=
+tsd-typography h3, .tsd-typography h5, .tsd-typography h6 { font-size: 1em;=
+ margin: 0px; }
+
+.tsd-typography h5, .tsd-typography h6 { font-weight: normal; }
+
+.tsd-typography p, .tsd-typography ul, .tsd-typography ol { margin: 1em 0px=
+; }
+
+@media (max-width: 1024px) and (min-width: 901px) {
+  html.default .col-content { width: 72%; }
+  html.default .col-menu { width: 28%; }
+  html.default .tsd-navigation { padding-left: 10px; }
+}
+
+@media (max-width: 900px) {
+  html.default .col-content { float: none; width: 100%; }
+  html.default .col-menu { overflow: auto; z-index: 1024; width: 100%; padd=
+ing: 20px 20px 0px 0px; max-width: 450px; visibility: hidden; background-co=
+lor: rgb(255, 255, 255); transform: translate(100%, 0px); position: fixed !=
+important; top: 0px !important; bottom: 0px !important; left: auto !importa=
+nt; right: 0px !important; }
+  html.default .col-menu > :last-child { padding-bottom: 20px; }
+  html.default .overlay { content: ""; display: block; position: fixed; z-i=
+ndex: 1023; top: 0px; left: 0px; right: 0px; bottom: 0px; background-color:=
+ rgba(0, 0, 0, 0.75); visibility: hidden; }
+  html.default.to-has-menu .overlay { animation: 0.4s ease 0s 1 normal none=
+ running fade-in; }
+  html.default.to-has-menu header, html.default.to-has-menu footer, html.de=
+fault.to-has-menu .col-content { animation: 0.4s ease 0s 1 normal none runn=
+ing shift-to-left; }
+  html.default.to-has-menu .col-menu { animation: 0.4s ease 0s 1 normal non=
+e running pop-in-from-right; }
+  html.default.from-has-menu .overlay { animation: 0.4s ease 0s 1 normal no=
+ne running fade-out; }
+  html.default.from-has-menu header, html.default.from-has-menu footer, htm=
+l.default.from-has-menu .col-content { animation: 0.4s ease 0s 1 normal non=
+e running unshift-to-left; }
+  html.default.from-has-menu .col-menu { animation: 0.4s ease 0s 1 normal n=
+one running pop-out-to-right; }
+  html.default.has-menu body { overflow: hidden; }
+  html.default.has-menu .overlay { visibility: visible; }
+  html.default.has-menu header, html.default.has-menu footer, html.default.=
+has-menu .col-content { transform: translate(-25%, 0px); }
+  html.default.has-menu .col-menu { visibility: visible; transform: transla=
+te(0px, 0px); }
+}
+
+.tsd-page-title { padding: 70px 0px 20px; margin: 0px 0px 40px; background:=
+ rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 5px; }
+
+.tsd-page-title h1 { margin: 0px; }
+
+.tsd-breadcrumb { margin: 0px; padding: 0px; color: rgb(112, 112, 112); }
+
+.tsd-breadcrumb a { color: rgb(112, 112, 112); text-decoration: none; }
+
+.tsd-breadcrumb a:hover { text-decoration: underline; }
+
+.tsd-breadcrumb li { display: inline; }
+
+.tsd-breadcrumb li::after { content: " / "; }
+
+html.minimal .container { margin: 0px; }
+
+html.minimal .container-main { padding-top: 50px; padding-bottom: 0px; }
+
+html.minimal .content-wrap { padding-left: 300px; }
+
+html.minimal .tsd-navigation { overflow: auto; box-sizing: border-box; z-in=
+dex: 1; left: 0px; top: 40px; bottom: 0px; width: 300px; padding: 20px; mar=
+gin: 0px; position: fixed !important; }
+
+html.minimal .tsd-member .tsd-member { margin-left: 0px; }
+
+html.minimal .tsd-page-toolbar { position: fixed; z-index: 2; }
+
+html.minimal #tsd-filter .tsd-filter-group { right: 0px; transform: none; }
+
+html.minimal footer { background-color: transparent; }
+
+html.minimal footer .container { padding: 0px; }
+
+html.minimal .tsd-generator { padding: 0px; }
+
+@media (max-width: 900px) {
+  html.minimal .tsd-navigation { display: none; }
+  html.minimal .content-wrap { padding-left: 0px; }
+}
+
+dl.tsd-comment-tags { overflow: hidden; }
+
+dl.tsd-comment-tags dt { float: left; padding: 1px 5px; margin: 0px 10px 0p=
+x 0px; border-radius: 4px; border: 1px solid rgb(112, 112, 112); color: rgb=
+(112, 112, 112); font-size: 0.8em; font-weight: normal; }
+
+dl.tsd-comment-tags dd { margin: 0px 0px 10px; }
+
+dl.tsd-comment-tags dd::before, dl.tsd-comment-tags dd::after { display: ta=
+ble; content: " "; }
+
+dl.tsd-comment-tags dd pre, dl.tsd-comment-tags dd::after { clear: both; }
+
+dl.tsd-comment-tags p { margin: 0px; }
+
+.tsd-panel.tsd-comment .lead { font-size: 1.1em; line-height: 1.333em; marg=
+in-bottom: 2em; }
+
+.tsd-panel.tsd-comment .lead:last-child { margin-bottom: 0px; }
+
+.toggle-protected .tsd-is-private { display: none; }
+
+.toggle-public .tsd-is-private, .toggle-public .tsd-is-protected, .toggle-p=
+ublic .tsd-is-private-protected { display: none; }
+
+.toggle-inherited .tsd-is-inherited { display: none; }
+
+.toggle-only-exported .tsd-is-not-exported { display: none; }
+
+.toggle-externals .tsd-is-external { display: none; }
+
+#tsd-filter { position: relative; display: inline-block; height: 40px; vert=
+ical-align: bottom; }
+
+.no-filter #tsd-filter { display: none; }
+
+#tsd-filter .tsd-filter-group { display: inline-block; height: 40px; vertic=
+al-align: bottom; white-space: nowrap; }
+
+#tsd-filter input { display: none; }
+
+@media (max-width: 900px) {
+  #tsd-filter .tsd-filter-group { display: block; position: absolute; top: =
+40px; right: 20px; height: auto; background-color: rgb(255, 255, 255); visi=
+bility: hidden; transform: translate(50%, 0px); box-shadow: rgba(0, 0, 0, 0=
+.25) 0px 0px 4px; }
+  .has-options #tsd-filter .tsd-filter-group { visibility: visible; }
+  .to-has-options #tsd-filter .tsd-filter-group { animation: 0.2s ease 0s 1=
+ normal none running fade-in; }
+  .from-has-options #tsd-filter .tsd-filter-group { animation: 0.2s ease 0s=
+ 1 normal none running fade-out; }
+  #tsd-filter label, #tsd-filter .tsd-select { display: block; padding-righ=
+t: 20px; }
+}
+
+footer { border-top: 1px solid rgb(238, 238, 238); background-color: rgb(25=
+5, 255, 255); }
+
+footer.with-border-bottom { border-bottom: 1px solid rgb(238, 238, 238); }
+
+footer .tsd-legend-group { font-size: 0px; }
+
+footer .tsd-legend { display: inline-block; width: 25%; padding: 0px; font-=
+size: 16px; list-style: none; line-height: 1.333em; vertical-align: top; }
+
+@media (max-width: 900px) {
+  footer .tsd-legend { width: 50%; }
+}
+
+.tsd-hierarchy { list-style: square; padding: 0px 0px 0px 20px; margin: 0px=
+; }
+
+.tsd-hierarchy .target { font-weight: bold; }
+
+.tsd-index-panel .tsd-index-content { margin-bottom: -30px !important; }
+
+.tsd-index-panel .tsd-index-section { margin-bottom: 30px !important; }
+
+.tsd-index-panel h3 { margin: 0px -20px 10px; padding: 0px 20px 10px; borde=
+r-bottom: 1px solid rgb(238, 238, 238); }
+
+.tsd-index-panel ul.tsd-index-list { column-count: 3; column-gap: 20px; pad=
+ding: 0px; list-style: none; line-height: 1.333em; }
+
+@media (max-width: 900px) {
+  .tsd-index-panel ul.tsd-index-list { column-count: 1; }
+}
+
+@media (max-width: 1024px) and (min-width: 901px) {
+  .tsd-index-panel ul.tsd-index-list { column-count: 2; }
+}
+
+.tsd-index-panel ul.tsd-index-list li { break-inside: avoid; }
+
+.tsd-index-panel a, .tsd-index-panel .tsd-parent-kind-module a { color: rgb=
+(150, 0, 255); }
+
+.tsd-index-panel .tsd-parent-kind-interface a { color: rgb(100, 127, 27); }
+
+.tsd-index-panel .tsd-parent-kind-enum a { color: rgb(147, 114, 16); }
+
+.tsd-index-panel .tsd-parent-kind-class a { color: rgb(6, 114, 222); }
+
+.tsd-index-panel .tsd-kind-module a { color: rgb(150, 0, 255); }
+
+.tsd-index-panel .tsd-kind-interface a { color: rgb(100, 127, 27); }
+
+.tsd-index-panel .tsd-kind-enum a { color: rgb(147, 114, 16); }
+
+.tsd-index-panel .tsd-kind-class a { color: rgb(6, 114, 222); }
+
+.tsd-index-panel .tsd-is-private a { color: rgb(112, 112, 112); }
+
+.tsd-flag { display: inline-block; padding: 1px 5px; border-radius: 4px; co=
+lor: rgb(255, 255, 255); background-color: rgb(112, 112, 112); text-indent:=
+ 0px; font-size: 14px; font-weight: normal; }
+
+.tsd-anchor { position: absolute; top: -100px; }
+
+.tsd-member { position: relative; }
+
+.tsd-member .tsd-anchor + h3 { margin-top: 0px; margin-bottom: 0px; border-=
+bottom: none; }
+
+.tsd-navigation { margin: 0px 0px 0px 40px; }
+
+.tsd-navigation a { display: block; padding-top: 2px; padding-bottom: 2px; =
+border-left: 2px solid transparent; color: rgb(34, 34, 34); text-decoration=
+: none; transition: border-left-color 0.1s ease 0s; }
+
+.tsd-navigation a:hover { text-decoration: underline; }
+
+.tsd-navigation ul { margin: 0px; padding: 0px; list-style: none; }
+
+.tsd-navigation li { padding: 0px; }
+
+.tsd-navigation.primary { padding-bottom: 40px; }
+
+.tsd-navigation.primary a { display: block; padding-top: 6px; padding-botto=
+m: 6px; }
+
+.tsd-navigation.primary ul li a { padding-left: 5px; }
+
+.tsd-navigation.primary ul li li a { padding-left: 25px; }
+
+.tsd-navigation.primary ul li li li a { padding-left: 45px; }
+
+.tsd-navigation.primary ul li li li li a { padding-left: 65px; }
+
+.tsd-navigation.primary ul li li li li li a { padding-left: 85px; }
+
+.tsd-navigation.primary ul li li li li li li a { padding-left: 105px; }
+
+.tsd-navigation.primary > ul { border-bottom: 1px solid rgb(238, 238, 238);=
+ }
+
+.tsd-navigation.primary li { border-top: 1px solid rgb(238, 238, 238); }
+
+.tsd-navigation.primary li.current > a { font-weight: bold; }
+
+.tsd-navigation.primary li.label span { display: block; padding: 20px 0px 6=
+px 5px; color: rgb(112, 112, 112); }
+
+.tsd-navigation.primary li.globals + li > span, .tsd-navigation.primary li.=
+globals + li > a { padding-top: 20px; }
+
+.tsd-navigation.secondary { max-height: calc((100vh - 1rem) - 40px); overfl=
+ow: auto; position: sticky; top: calc(0.5rem + 40px); transition: all 0.3s =
+ease 0s; }
+
+.tsd-navigation.secondary.tsd-navigation--toolbar-hide { max-height: calc(1=
+00vh - 1rem); top: 0.5rem; }
+
+.tsd-navigation.secondary ul { transition: opacity 0.2s ease 0s; }
+
+.tsd-navigation.secondary ul li a { padding-left: 25px; }
+
+.tsd-navigation.secondary ul li li a { padding-left: 45px; }
+
+.tsd-navigation.secondary ul li li li a { padding-left: 65px; }
+
+.tsd-navigation.secondary ul li li li li a { padding-left: 85px; }
+
+.tsd-navigation.secondary ul li li li li li a { padding-left: 105px; }
+
+.tsd-navigation.secondary ul li li li li li li a { padding-left: 125px; }
+
+.tsd-navigation.secondary ul.current a { border-left-color: rgb(238, 238, 2=
+38); }
+
+.tsd-navigation.secondary li.focus > a, .tsd-navigation.secondary ul.curren=
+t li.focus > a { border-left-color: rgb(0, 0, 0); }
+
+.tsd-navigation.secondary li.current { margin-top: 20px; margin-bottom: 20p=
+x; border-left-color: rgb(238, 238, 238); }
+
+.tsd-navigation.secondary li.current > a { font-weight: bold; }
+
+@media (min-width: 901px) {
+  .menu-sticky-wrap { position: static; }
+}
+
+.tsd-panel { margin: 20px 0px; padding: 20px; background-color: rgb(255, 25=
+5, 255); box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 4px; }
+
+.tsd-panel:empty { display: none; }
+
+.tsd-panel > h1, .tsd-panel > h2, .tsd-panel > h3 { margin: 1.5em -20px 10p=
+x; padding: 0px 20px 10px; border-bottom: 1px solid rgb(238, 238, 238); }
+
+.tsd-panel > h1.tsd-before-signature, .tsd-panel > h2.tsd-before-signature,=
+ .tsd-panel > h3.tsd-before-signature { margin-bottom: 0px; border-bottom: =
+0px; }
+
+.tsd-panel table { display: block; width: 100%; overflow: auto; margin-top:=
+ 10px; word-break: keep-all; }
+
+.tsd-panel table th { font-weight: bold; }
+
+.tsd-panel table th, .tsd-panel table td { padding: 6px 13px; border: 1px s=
+olid rgb(221, 221, 221); }
+
+.tsd-panel table tr { background-color: rgb(255, 255, 255); border-top: 1px=
+ solid rgb(204, 204, 204); }
+
+.tsd-panel table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+
+.tsd-panel-group { margin: 60px 0px; }
+
+.tsd-panel-group > h1, .tsd-panel-group > h2, .tsd-panel-group > h3 { paddi=
+ng-left: 20px; padding-right: 20px; }
+
+#tsd-search { transition: background-color 0.2s ease 0s; }
+
+#tsd-search .title { position: relative; z-index: 2; }
+
+#tsd-search .field { position: absolute; left: 0px; top: 0px; right: 40px; =
+height: 40px; }
+
+#tsd-search .field input { box-sizing: border-box; position: relative; top:=
+ -50px; z-index: 1; width: 100%; padding: 0px 10px; opacity: 0; outline: 0p=
+x; border: 0px; background: transparent; color: rgb(34, 34, 34); }
+
+#tsd-search .field label { position: absolute; overflow: hidden; right: -40=
+px; }
+
+#tsd-search .field input, #tsd-search .title { transition: opacity 0.2s eas=
+e 0s; }
+
+#tsd-search .results { position: absolute; visibility: hidden; top: 40px; w=
+idth: 100%; margin: 0px; padding: 0px; list-style: none; box-shadow: rgba(0=
+, 0, 0, 0.25) 0px 0px 4px; }
+
+#tsd-search .results li { padding: 0px 10px; background-color: rgb(253, 253=
+, 253); }
+
+#tsd-search .results li:nth-child(2n) { background-color: rgb(255, 255, 255=
+); }
+
+#tsd-search .results li.state { display: none; }
+
+#tsd-search .results li.current, #tsd-search .results li:hover { background=
+-color: rgb(238, 238, 238); }
+
+#tsd-search .results a { display: block; }
+
+#tsd-search .results a::before { top: 10px; }
+
+#tsd-search .results span.parent { color: rgb(112, 112, 112); font-weight: =
+normal; }
+
+#tsd-search.has-focus { background-color: rgb(238, 238, 238); }
+
+#tsd-search.has-focus .field input { top: 0px; opacity: 1; }
+
+#tsd-search.has-focus .title { z-index: 0; opacity: 0; }
+
+#tsd-search.has-focus .results { visibility: visible; }
+
+#tsd-search.loading .results li.state.loading { display: block; }
+
+#tsd-search.failure .results li.state.failure { display: block; }
+
+.tsd-signature { margin: 0px 0px 1em; padding: 10px; border: 1px solid rgb(=
+238, 238, 238); font-family: Menlo, Monaco, Consolas, "Courier New", monosp=
+ace; font-size: 14px; overflow-x: auto; }
+
+.tsd-signature.tsd-kind-icon { padding-left: 30px; }
+
+.tsd-signature.tsd-kind-icon::before { top: 10px; left: 10px; }
+
+.tsd-panel > .tsd-signature { margin-left: -20px; margin-right: -20px; bord=
+er-width: 1px 0px; }
+
+.tsd-panel > .tsd-signature.tsd-kind-icon { padding-left: 40px; }
+
+.tsd-panel > .tsd-signature.tsd-kind-icon::before { left: 20px; }
+
+.tsd-signature-symbol { color: rgb(112, 112, 112); font-weight: normal; }
+
+.tsd-signature-type { font-style: italic; font-weight: normal; }
+
+.tsd-signatures { padding: 0px; margin: 0px 0px 1em; border: 1px solid rgb(=
+238, 238, 238); }
+
+.tsd-signatures .tsd-signature { margin: 0px; border-width: 1px 0px 0px; tr=
+ansition: background-color 0.1s ease 0s; }
+
+.tsd-signatures .tsd-signature:first-child { border-top-width: 0px; }
+
+.tsd-signatures .tsd-signature.current { background-color: rgb(238, 238, 23=
+8); }
+
+.tsd-signatures.active > .tsd-signature { cursor: pointer; }
+
+.tsd-panel > .tsd-signatures { margin-left: -20px; margin-right: -20px; bor=
+der-width: 1px 0px; }
+
+.tsd-panel > .tsd-signatures .tsd-signature.tsd-kind-icon { padding-left: 4=
+0px; }
+
+.tsd-panel > .tsd-signatures .tsd-signature.tsd-kind-icon::before { left: 2=
+0px; }
+
+.tsd-panel > a.anchor + .tsd-signatures { border-top-width: 0px; margin-top=
+: -20px; }
+
+ul.tsd-descriptions { position: relative; overflow: hidden; padding: 0px; l=
+ist-style: none; }
+
+ul.tsd-descriptions.active > .tsd-description { display: none; }
+
+ul.tsd-descriptions.active > .tsd-description.current { display: block; }
+
+ul.tsd-descriptions.active > .tsd-description.fade-in { animation: 0.3s eas=
+e 0s 1 normal none running fade-in-delayed; }
+
+ul.tsd-descriptions.active > .tsd-description.fade-out { animation: 0.3s ea=
+se 0s 1 normal none running fade-out-delayed; position: absolute; display: =
+block; top: 0px; left: 0px; right: 0px; opacity: 0; visibility: hidden; }
+
+ul.tsd-descriptions h4, ul.tsd-descriptions .tsd-index-panel h3, .tsd-index=
+-panel ul.tsd-descriptions h3 { font-size: 16px; margin: 1em 0px 0.5em; }
+
+ul.tsd-parameters, ul.tsd-type-parameters { list-style: square; margin: 0px=
+; padding-left: 20px; }
+
+ul.tsd-parameters > li.tsd-parameter-signature, ul.tsd-type-parameters > li=
+.tsd-parameter-signature { list-style: none; margin-left: -20px; }
+
+ul.tsd-parameters h5, ul.tsd-type-parameters h5 { font-size: 16px; margin: =
+1em 0px 0.5em; }
+
+ul.tsd-parameters .tsd-comment, ul.tsd-type-parameters .tsd-comment { margi=
+n-top: -0.5em; }
+
+.tsd-sources { font-size: 14px; color: rgb(112, 112, 112); margin: 0px 0px =
+1em; }
+
+.tsd-sources a { color: rgb(112, 112, 112); text-decoration: underline; }
+
+.tsd-sources ul, .tsd-sources p { margin: 0px !important; }
+
+.tsd-sources ul { list-style: none; padding: 0px; }
+
+.tsd-page-toolbar { position: fixed; z-index: 1; top: 0px; left: 0px; width=
+: 100%; height: 40px; color: rgb(51, 51, 51); background: rgb(255, 255, 255=
+); border-bottom: 1px solid rgb(238, 238, 238); transition: transform 0.3s =
+linear 0s; }
+
+.tsd-page-toolbar a { color: rgb(51, 51, 51); text-decoration: none; }
+
+.tsd-page-toolbar a.title { font-weight: bold; }
+
+.tsd-page-toolbar a.title:hover { text-decoration: underline; }
+
+.tsd-page-toolbar .table-wrap { display: table; width: 100%; height: 40px; =
+}
+
+.tsd-page-toolbar .table-cell { display: table-cell; position: relative; wh=
+ite-space: nowrap; line-height: 40px; }
+
+.tsd-page-toolbar .table-cell:first-child { width: 100%; }
+
+.tsd-page-toolbar--hide { transform: translateY(-100%); }
+
+.tsd-select .tsd-select-list li::before, .tsd-select .tsd-select-label::bef=
+ore, .tsd-widget::before { content: ""; display: inline-block; width: 40px;=
+ height: 40px; margin: 0px -8px 0px 0px; background-image: url("../images/w=
+idgets.png"); background-repeat: no-repeat; text-indent: -1024px; vertical-=
+align: bottom; }
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .tsd-select .tsd-select-list li::before, .tsd-select .tsd-select-label::b=
+efore, .tsd-widget::before { background-image: url("../images/widgets@2x.pn=
+g"); background-size: 320px 40px; }
+}
+
+.tsd-widget { display: inline-block; overflow: hidden; opacity: 0.6; height=
+: 40px; transition: opacity 0.1s ease 0s, background-color 0.2s ease 0s; ve=
+rtical-align: bottom; cursor: pointer; }
+
+.tsd-widget:hover { opacity: 0.8; }
+
+.tsd-widget.active { opacity: 1; background-color: rgb(238, 238, 238); }
+
+.tsd-widget.no-caption { width: 40px; }
+
+.tsd-widget.no-caption::before { margin: 0px; }
+
+.tsd-widget.search::before { background-position: 0px 0px; }
+
+.tsd-widget.menu::before { background-position: -40px 0px; }
+
+.tsd-widget.options::before { background-position: -80px 0px; }
+
+.tsd-widget.options, .tsd-widget.menu { display: none; }
+
+@media (max-width: 900px) {
+  .tsd-widget.options, .tsd-widget.menu { display: inline-block; }
+}
+
+input[type=3D"checkbox"] + .tsd-widget::before { background-position: -120p=
+x 0px; }
+
+input[type=3D"checkbox"]:checked + .tsd-widget::before { background-positio=
+n: -160px 0px; }
+
+.tsd-select { position: relative; display: inline-block; height: 40px; tran=
+sition: opacity 0.1s ease 0s, background-color 0.2s ease 0s; vertical-align=
+: bottom; cursor: pointer; }
+
+.tsd-select .tsd-select-label { opacity: 0.6; transition: opacity 0.2s ease=
+ 0s; }
+
+.tsd-select .tsd-select-label::before { background-position: -240px 0px; }
+
+.tsd-select.active .tsd-select-label { opacity: 0.8; }
+
+.tsd-select.active .tsd-select-list { visibility: visible; opacity: 1; tran=
+sition-delay: 0s; }
+
+.tsd-select .tsd-select-list { position: absolute; visibility: hidden; top:=
+ 40px; left: 0px; margin: 0px; padding: 0px; opacity: 0; list-style: none; =
+box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 4px; transition: visibility 0s ease=
+ 0.2s, opacity 0.2s ease 0s; }
+
+.tsd-select .tsd-select-list li { padding: 0px 20px 0px 0px; background-col=
+or: rgb(253, 253, 253); }
+
+.tsd-select .tsd-select-list li::before { background-position: 40px 0px; }
+
+.tsd-select .tsd-select-list li:nth-child(2n) { background-color: rgb(255, =
+255, 255); }
+
+.tsd-select .tsd-select-list li:hover { background-color: rgb(238, 238, 238=
+); }
+
+.tsd-select .tsd-select-list li.selected::before { background-position: -20=
+0px 0px; }
+
+@media (max-width: 900px) {
+  .tsd-select .tsd-select-list { top: 0px; left: auto; right: 100%; margin-=
+right: -5px; }
+  .tsd-select .tsd-select-label::before { background-position: -280px 0px; =
+}
+}
+
+img { max-width: 100%; }
+------MultipartBoundary--idnru5miDssN33avlmN2q0mYNrLn4SR6AOV8qTwBJM----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentation/assets/images/icons.png
+
+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
+
+------MultipartBoundary--idnru5miDssN33avlmN2q0mYNrLn4SR6AOV8qTwBJM----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/Users/lsten/sb_3/Frontend/my-app/docs/documentation/assets/images/widgets.png
+
+iVBORw0KGgoAAAANSUhEUgAAAUAAAAAoCAQAAAAlSeuiAAABp0lEQVR4Ae3aUa3jQAyF4QNhIBTC
+QiiEQlgIhRAGhTAQBkIgBEIgDITZZGXNjZTePiSWYqn/54dGfbAq+SiTutWXAgAAAAAAAAAAAAA8
+NCz1UFSD2lKDS5d3NVzZj/BVNasaLoRZRUmj2lLrVVHWMUntQ13Wj/i1pWa9lprX6xMRnH4dx6Rj
+sn26+v+12ms+EcB37P0r+qH+DNQGXgMFcHzbregQ78B8eQCTJk0e979ZW7PdA2O49ceDsYexKgUN
+oI3EKYDWL3D8miaPh/uXtl6BHqEHFQvgXau/FsCiIWAAbST2fpQRT0sl70j3z5ZiBdD7CG5WZX8k
+xwmgjbiP5GQA9/3O2XaxnnHi53AEE0AbRh+JQwC3/fzC4hcb6xPvS4i3QaMdwX+0utsRPEY6gm2w
+NhKHAG77eUi7SIcK4G4NY4GMIan2u2Cxqzncl5DUn7Q8ArjvZ8JFOsl/Ed0jyBom+BomQKSto+9P
+cblHMM4iuu4X0QQw5hrGQY/gUxFkjZuf4m4alXVU+1De/VhEn5CvDSB/RsBzqWgAAAAAAAAAAAAA
+AACAfyyYJ5nhVuwIAAAAAElFTkSuQmCC
+
+------MultipartBoundary--idnru5miDssN33avlmN2q0mYNrLn4SR6AOV8qTwBJM------
