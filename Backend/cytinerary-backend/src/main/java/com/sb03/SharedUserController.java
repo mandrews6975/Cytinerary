@@ -22,6 +22,10 @@ import com.sb03.modal.SharedUser;
 import com.sb03.modal.User;
 import com.sb03.repository.SharedUserRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(value = "SharedUserController", description = "Controller for handling HTTP requests related to users sharing their schedules with other users")
 @RestController
 @CrossOrigin(origins = "*")
 public class SharedUserController {
@@ -29,11 +33,13 @@ public class SharedUserController {
   @Autowired
   private SharedUserRepository sharedUserRepository;
 
+  @ApiOperation(value = "Get users that a specific user is sharing his or her schedule with")
   @PostMapping("/getSharedUsers")
   public @ResponseBody Collection<Object> getSharedUsers(@RequestBody Map<String, Object> payload) {
 	return sharedUserRepository.getSharedUsers((String) payload.get("sharerId"));
   }
 
+  @ApiOperation(value = "Share a specific user's schedule with another user")
   @Transactional
   @PostMapping("/addSharedUser")
   public @ResponseBody String addSharedUser(@RequestBody Map<String, Object> payload) {
@@ -41,6 +47,7 @@ public class SharedUserController {
     return ((String) payload.get("shareeId") + "added");
   }
 
+  @ApiOperation(value = "Remove a user from the list of users that a specific user is sharing his or her schedule with")
   @Transactional
   @PostMapping("/deleteSharedUser")
   public @ResponseBody String deleteSharedUser(@RequestBody Map<String, Object> payload) {
