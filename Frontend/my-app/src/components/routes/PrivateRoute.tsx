@@ -1,9 +1,13 @@
 import React from "react"
 import {
   Route,
-  Redirect
+  Redirect,
+  Switch,
 } from "react-router-dom";
 import { connect } from 'react-redux';
+import SideBarNavigator from './SideBarNavigator'
+import MyScheduleScreen from '../screens/MyScheduleScreen'
+import ScheduleOverlapScreen from '../screens/ScheduleOverlapScreen'
 
 
 /**
@@ -15,12 +19,6 @@ interface Props {
    *   This is the redux state variable that contains any stored user credentials for this user
    */
   redux_authentication: any,
-
-  /**
-   * This props represents the children JSX components that this component may wrap around
-   */
-  children: any,
-
   /**
    * This is the route path that this PrivateRoute will represent
    */
@@ -36,11 +34,27 @@ interface Props {
  * @author Lewis Sheaffer lewiss@iastate.edu
  */
 function PrivateRoute(props: Props) {
+  //let  path  = useRouteMatch();
   return (
     <Route path={props.path}
       render={() =>
         props.redux_authentication.userId !== null ? (
-          props.children
+          <div>
+            <SideBarNavigator/>
+            <div>
+              <Switch>
+                <Route exact path={props.path}>
+                  <MyScheduleScreen />
+                </Route>
+                <Route path={`/home`}>
+                  <MyScheduleScreen />
+                </Route>
+                <Route path={`/sharedschedules`}>
+                  <ScheduleOverlapScreen />
+                </Route>
+              </Switch>
+            </div>
+          </div>
         ) : (
             <Redirect to={{ pathname: "/login" }} />
           )

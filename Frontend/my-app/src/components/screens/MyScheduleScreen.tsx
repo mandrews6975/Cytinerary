@@ -12,10 +12,6 @@ import ShareScheduleDialogWindow from '../dialog_windows/ShareScheduleDialogWind
 import ScheduleGrid from '../schedular/ScheduleGrid'
 import LabelDialogWindow from '../dialog_windows/LabelDialogWindow';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {
-  ACTION_userLogout
-} from "../../state/reducers/AuthenticationReducer"
 
 
 /**
@@ -50,10 +46,6 @@ interface MyScheduleScreenProps {
    * This is the prop containing the redux state variable for the logged in user credentials
    */
   redux_authentication: any,
-  /**
-   * This is the redux state action type used to remove the users logged in credential when logging out
-   */
-  ACTION_userLogout: Function
 }
 
 
@@ -110,10 +102,6 @@ function MyScheduleScreen(props: MyScheduleScreenProps) {
             userId={userId}
           />
           <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
-
-          <Button variant={'contained'} onClick = {() => {props.ACTION_userLogout(); localStorage.removeItem('userId')}}>
-          Logout
-          </Button>
 
           <Button
             color='primary'
@@ -175,10 +163,5 @@ const mapStateToProps = (state: any) => {
   return { redux_authentication: authentication };
 }
 
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators({
-    ACTION_userLogout
-  }, dispatch);
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyScheduleScreen);
+export default connect(mapStateToProps)(MyScheduleScreen);

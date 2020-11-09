@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import MyScheduleScreen from '../screens/MyScheduleScreen'
+
 import LoginScreen from '../screens/LoginScreen'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
@@ -9,7 +9,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
 } from "react-router-dom";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -58,9 +57,7 @@ function URLRouter(props: Props) {
         <PublicRoute path="/login">
           <LoginScreen />
         </PublicRoute>
-        <PrivateRoute path="/">
-          <MyScheduleScreen />
-        </PrivateRoute>
+        <PrivateRoute path="/"/>
         <Route path="/">
           <LoginScreen />
         </Route>
