@@ -8,6 +8,7 @@ import red from '@material-ui/core/colors/red';
 import yellow from '@material-ui/core/colors/yellow';
 import grey from '@material-ui/core/colors/grey';
 import NewEventModal from '../dialog_windows/newEventModal'
+import SharedWithMeDropDown from '../dropdowns/SharedWithMeDropDown'
 import ScheduleGrid from '../schedular/ScheduleGrid'
 import { connect } from 'react-redux';
 
@@ -31,13 +32,24 @@ const theme = createMuiTheme({
   }
 });
 
-interface Props {
+
+/**
+ * This interface defines the props for the ScheduleOverlapScreen component
+ */
+interface ScheduleOverlapScreenProps {
   redux_authentication: any,
 }
 
-function ScheduleOverlapScreen(props: Props) {;
+
+/**
+ * ScheduleOverlapScreen - This is the screen component that allows the user to view and compare schedule of others
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ * @param  props: ScheduleOverlapScreenProps This is the props object for this ScheduleOverlapScreen component
+ * @return The jsx contents of the ScheduleOverlapScreen component
+ */
+function ScheduleOverlapScreen(props: ScheduleOverlapScreenProps) {;
   const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
-  const [persistantState, forceUpdate] = useState<number>(0);
+  const [selectedUserIdsArray, updateSelectedArray] = useState<string[]>([]);
   const userId = props.redux_authentication.userId;
   return (
     <ThemeProvider
@@ -58,8 +70,8 @@ function ScheduleOverlapScreen(props: Props) {;
           //alignItems: 'center',
           //justifyContent: 'center'
         }}>
-
-          <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
+          <SharedWithMeDropDown onUpdate = {(selectedList) => {updateSelectedArray(selectedList)}} userId = {userId}/>
+          <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit = {() => {}} onClose={() => { setNewEventDialog(false) }} />
 
           <Button color='primary' variant='contained' onClick={() => { setNewEventDialog(true) }}>Create a New Event</Button>
         </div>
