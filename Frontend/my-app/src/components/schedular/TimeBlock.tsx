@@ -193,6 +193,7 @@ class TimeBlock extends React.Component<TimeBlockProps, TimeBlockState> {
             backgroundColor: this.props.color,
             cursor: 'grab' }}>
           {this.props.name}
+            {(this.props.height > 35) &&
             <text
               style={{
                 color: '#' + this.state.chosencolor,
@@ -204,6 +205,7 @@ class TimeBlock extends React.Component<TimeBlockProps, TimeBlockState> {
             <br></br>
             {this.props.label}
             </text>
+          }
         </div>
       </Draggable>
     );
