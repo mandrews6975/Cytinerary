@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 
 import {
   Button,
+  IconButton,
+  Typography
 } from '@material-ui/core'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -11,9 +13,11 @@ import {
 import {
   Event,
   PermContactCalendar,
+  VpnKey
 } from '@material-ui/icons';
 
 import NavBarItem from '../list_items/NavBarItem'
+import ShareScheduleKeyDialogWindow from '../dialog_windows/ShareScheduleKeyDialogWindow';
 
 interface Props {
   redux_authentication: any,
@@ -27,18 +31,49 @@ let iconStyle = {
 }
 
 function SideBarNavigator(props: Props) {
+  const [showGenerateScheduleKeyDialog, setShowGenerateScheduleKeyDialog] = useState<boolean>(false);
+
   return (
-    <div style = {{}}>
-      <div style = {{display: 'flex', width: '70px', height: window.innerHeight, borderRight: 'solid 1px black', backgroundColor: 'red', position: 'absolute', flexDirection: 'column', alignItems: 'center'}}>
-          <Button variant={'contained'} style = {{maxWidth: '50px', fontSize: '10px'}} onClick = {() => {props.ACTION_userLogout(); localStorage.removeItem('userId')}}>
-            Logout
+    <div style={{}}>
+      <ShareScheduleKeyDialogWindow
+        visible={showGenerateScheduleKeyDialog}
+        onClose={() => setShowGenerateScheduleKeyDialog(false)}
+      />
+      <div style={{ display: 'flex', width: '70px', height: window.innerHeight, borderRight: 'solid 1px black', backgroundColor: 'red', position: 'absolute', flexDirection: 'column', alignItems: 'center' }}>
+        <Button variant={'contained'} style={{ maxWidth: '50px', fontSize: '10px' }} onClick={() => { props.ACTION_userLogout(); localStorage.removeItem('userId') }}>
+          Logout
           </Button>
-          <NavBarItem linkTo = {'/home'} title = {'Home'}>
-            <Event style={iconStyle} />
-          </NavBarItem>
-          <NavBarItem linkTo = {'/sharedschedules'} title = {'Shared Schedules'}>
-            <PermContactCalendar style={iconStyle} />
-          </NavBarItem>
+        <NavBarItem linkTo={'/home'} title={'Home'}>
+          <Event style={iconStyle} />
+        </NavBarItem>
+        <NavBarItem linkTo={'/sharedschedules'} title={'Shared Schedules'}>
+          <PermContactCalendar style={iconStyle} />
+        </NavBarItem>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer'
+          }}
+          onClick={() => setShowGenerateScheduleKeyDialog(true)}
+        >
+          <IconButton
+            style={iconStyle}
+          >
+            <VpnKey />
+          </IconButton>
+          <Typography
+            style={{
+              color: 'yellow',
+              fontSize: '10px'
+            }}
+            align='center'
+          >
+            Share Schedule Key
+        </Typography>
+        </div>
       </div>
     </div>
   );
