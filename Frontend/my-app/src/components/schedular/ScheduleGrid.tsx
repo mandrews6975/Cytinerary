@@ -36,7 +36,7 @@ interface SchedularGridState {
   /**
    * This state variable is an array containing objects specific to the events this user created
    */
-  creatorEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
+  creatorEvents: { eventId: string, name: string, label: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
 
   /**
    * This state variable is an array containing objects specific to the events this user is a participant of
@@ -124,7 +124,7 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
         }),
       }).then((response) => response.json())
         .then((json) => {
-          let creatorEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[] = [];
+          let creatorEvents: { eventId: string, name: string, label: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[] = [];
           json.forEach((event) => {
             var splitStartTime = event.startTime.replace("T", ":").split(/[- :]/);
             var splitEndTime = event.endTime.replace("T", ":").split(/[- :]/);
@@ -140,6 +140,7 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
             let eventObject = {
               eventId: event.eventId,
               name: event.name,
+              label: event.label,
               startMinute: startMinute,
               dateIndex: dateIndex,
               minutes: minutes,
@@ -404,7 +405,7 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={true} onDragEnd={(e) => {
+                    <TimeBlock id = "CreatorEvent" name={event.name} label={event.label} draggable={true} onDragEnd={(e) => {
                       this.handleEventDragEnd(e, () => this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow }));
                     }} onClick={() => { }} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))

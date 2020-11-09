@@ -35,9 +35,9 @@ public class LabelController {
 	}
 
   @ApiOperation(value = "Retrieve color associated to specific label")
-	@PostMapping("/getLabel")
-	public @ResponseBody Collection<Label> getLabel(@RequestBody Map<String, Object> payload) {
-		return labelRepository.getLabel((String) payload.get("label"));
+	@PostMapping("/getLabelColor")
+	public @ResponseBody Collection<Label> getLabelColor(@RequestBody Map<String, Object> payload) {
+		return labelRepository.getLabelColor((String) payload.get("label"));
 	}
 
   @ApiOperation(value = "Delete a specific label from label table")
