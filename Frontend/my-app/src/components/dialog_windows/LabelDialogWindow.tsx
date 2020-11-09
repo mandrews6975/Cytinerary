@@ -194,6 +194,10 @@ function LabelDialogWindow(props: IProps) {
               {
                 alert("Cannot have empty label")
               }
+              else if(labelInput.length >=15)
+              {
+                alert("Character limit of 15 or greater was reached")
+              }
               else
               {
                 try {

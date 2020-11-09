@@ -28,9 +28,9 @@ public class LabelController {
 		return labelRepository.getLabels((String) payload.get("userId"));
 	}
 
-	@PostMapping("/getLabel")
-	public @ResponseBody Collection<Label> getLabel(@RequestBody Map<String, Object> payload) {
-		return labelRepository.getLabel((String) payload.get("label"));
+	@PostMapping("/getLabelColor")
+	public @ResponseBody Collection<Label> getLabelColor(@RequestBody Map<String, Object> payload) {
+		return labelRepository.getLabelColor((String) payload.get("label"));
 	}
 
 	@Transactional

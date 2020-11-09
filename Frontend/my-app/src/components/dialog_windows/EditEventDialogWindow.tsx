@@ -63,6 +63,7 @@ function EditEventDialogWindow(props: Props) {
   });
   const [currentEventParticipants, setCurrentEventParticipants] = useState<{ userId: string, name: string, email: string }[]>([]);
   const [titleInput, setTitleInput] = useState<string>('');
+  const [labelInput, setLabelInput] = useState<string>('');
   const [startTime, setStartTime] = useState<Date>(new Date());
   const [endTime, setEndTime] = useState<Date>(new Date());
   const [locationInput, setLocationInput] = useState<string>('');
@@ -70,6 +71,8 @@ function EditEventDialogWindow(props: Props) {
   const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
   const [showDeleteEventDialog, setShowDeleteEventDialog] = useState<boolean>(false);
   const [update, setUpdate] = useState<boolean>(false);
+
+  const [labelColor, setLabelColor] = useState<string>('');
 
   function getEvent(creatorId: string, eventId: string) {
     if (eventId !== '' && props.visible) {
@@ -88,6 +91,8 @@ function EditEventDialogWindow(props: Props) {
           .then((json) => {
             if(json.length > 0){
             setTitleInput(json[0].name);
+            setLabelInput(json[0].label);
+            getLabelColor(json[0].label)
             setStartTime(json[0].startTime);
             setEndTime(json[0].endTime);
             setLocationInput(json[0].location);
@@ -100,7 +105,7 @@ function EditEventDialogWindow(props: Props) {
               location: json[0].location,
               startTime: json[0].startTime,
               endTime: json[0].endTime,
-              label: ''
+              label: json[0].label
             })
           }
           });
@@ -127,7 +132,7 @@ function EditEventDialogWindow(props: Props) {
             startTime: dateFormat(startTime, 'yyyy-mm-dd HH:MM:ss'),
             endTime: dateFormat(endTime, 'yyyy-mm-dd HH:MM:ss'),
             location: locationInput,
-            label: ''
+            label: labelInput
           }),
         }).then(() => {
           getEvent(props.creatorId, props.eventId)
@@ -161,6 +166,31 @@ function EditEventDialogWindow(props: Props) {
     }
   }
 
+  function getLabelColor(label: string)
+  {
+    try {
+      fetch('/getLabelColor', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          label: label
+        }),
+      }).then((response) => response.json())
+        .then((json) => {
+          let color: string;
+          json.forEach((label: { label: string, color: string} ) => {
+            color = label.color
+            setLabelColor(color);
+          });
+        });
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
   function getEventParticipants(eventId: string) {
     if (eventId !== '' && props.visible) {
       try {
@@ -248,6 +278,25 @@ function EditEventDialogWindow(props: Props) {
         </DialogActions>
       </Dialog>
       <DialogTitle>Event Details</DialogTitle>
+      <text
+        style={{
+          position: 'fixed',
+          marginTop: '25px',
+          marginLeft: '700px',
+        }}
+      >
+        Label:
+      </text>
+      <text
+        style={{
+          position: 'fixed',
+          marginTop: '25px',
+          marginLeft: '750px',
+          color: '#' + labelColor
+        }}
+      >
+        {labelInput || ''}
+      </text>
       <DialogContent>
         <div
           style={{
@@ -261,7 +310,7 @@ function EditEventDialogWindow(props: Props) {
             variant='standard'
             label='Title'
             style={{
-              width: '30%'
+              width: '20%'
             }}
             value={titleInput || ''}
             onChange={((event) => {
@@ -273,6 +322,9 @@ function EditEventDialogWindow(props: Props) {
             <DateTimePicker
               label='Start'
               value={startTime}
+              style={{
+                width: '30%'
+              }}
               onChange={(date: MaterialUiPickersDate) => {
                 if (date !== null) {
                   setStartTime(date);
@@ -286,6 +338,9 @@ function EditEventDialogWindow(props: Props) {
               minDateMessage=''
               maxDate={startTime}
               maxDateMessage=''
+              style={{
+                width: '30%'
+              }}
               onChange={(date: MaterialUiPickersDate) => {
                 if (date !== null) {
                   setEndTime(date);
@@ -440,6 +495,7 @@ function EditEventDialogWindow(props: Props) {
               {
                 ((
                   originalEvent.name !== titleInput ||
+                  originalEvent.label !== labelInput ||
                   originalEvent.startTime !== startTime ||
                   originalEvent.endTime !== endTime ||
                   originalEvent.location !== locationInput ||
@@ -453,6 +509,7 @@ function EditEventDialogWindow(props: Props) {
               onClick={() => updateEvent(props.creatorId, props.eventId)}
               disabled={
                 (originalEvent.name === titleInput &&
+                  originalEvent.label !== labelInput &&
                   originalEvent.startTime === startTime &&
                   originalEvent.endTime === endTime &&
                   originalEvent.location === locationInput &&
