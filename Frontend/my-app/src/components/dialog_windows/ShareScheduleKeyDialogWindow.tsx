@@ -62,9 +62,9 @@ interface Props {
   redux_authentication: any
 }
 /**
- * EditEventDialogWindow returns this component
+ * ShareScheduleKeyDialogWindow returns this component
  *
- * @param  props: Props These are the props for EditEventDialogWindow
+ * @param  props: Props These are the props for ShareScheduleKeyDialogWindow
  * @author Michael Andrews
  */
 function ShareScheduleKeyDialogWindow(props: Props) {
