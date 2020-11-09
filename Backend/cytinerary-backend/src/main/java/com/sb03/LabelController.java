@@ -15,6 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.sb03.modal.Label;
 import com.sb03.repository.LabelRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+
+@Api(value = "LabelController", description = "Controller for handling HTTP requests related to labels")
 @RestController
 @CrossOrigin(origins = "*")
 public class LabelController {
@@ -22,17 +27,20 @@ public class LabelController {
 	@Autowired
 	private LabelRepository labelRepository;
 
+  @ApiOperation(value = "Retrieve labels associated to specific user")
   @Transactional
 	@PostMapping("/getLabels")
 	public @ResponseBody Collection<Label> getLabels(@RequestBody Map<String, Object> payload) {
 		return labelRepository.getLabels((String) payload.get("userId"));
 	}
 
+  @ApiOperation(value = "Retrieve color associated to specific label")
 	@PostMapping("/getLabel")
 	public @ResponseBody Collection<Label> getLabel(@RequestBody Map<String, Object> payload) {
 		return labelRepository.getLabel((String) payload.get("label"));
 	}
 
+  @ApiOperation(value = "Delete a specific label from label table")
 	@Transactional
 	@PostMapping("/deleteLabel")
 	public @ResponseBody String deleteLabel(@RequestBody Map<String, Object> payload) {
@@ -40,6 +48,7 @@ public class LabelController {
 		return ((String) payload.get("label") + "deleted");
 	}
 
+  @ApiOperation(value = "Add a new label to the label table")
 	@Transactional
 	@PostMapping("/addLabel")
 	public @ResponseBody String addLabel(@RequestBody Map<String, Object> payload) {

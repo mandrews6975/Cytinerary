@@ -9,19 +9,25 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 import java.io.Serializable;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @IdClass(LabelCompKey.class)
 @Table(name = "labels")
 public class Label implements Serializable{
+
+	@ApiModelProperty(notes = "Unique identifier for a user", name = "userid", required = true)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "userid")
 	private String userId;
 
+  @ApiModelProperty(notes = "Label used to categorize specific events, associated only to the user who created it", name = "label", required = true)
 	@Id
 	@Column(name = "label")
 	private String label;
 
+  @ApiModelProperty(notes = "Color used to style the specific labels", name = "color", required = true)
 	@Column(name = "color")
 	private String color;
 
