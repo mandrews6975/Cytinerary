@@ -21,7 +21,11 @@ import org.springframework.data.jpa.repository.Query;
 import com.sb03.modal.Participant;
 import com.sb03.repository.ParticipantRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 
+@Api(value = "ParticipantController", description = "Controller for handling HTTP requests related to event participants")
 @RestController
 @CrossOrigin(origins = "*")
 public class ParticipantController {
@@ -29,6 +33,7 @@ public class ParticipantController {
   @Autowired
   private ParticipantRepository participantRepository;
 
+  @ApiOperation(value = "Add participant to event")
   @Transactional
   @PostMapping("/addParticipant")
   public @ResponseBody String addParticipant(@RequestBody Map<String, Object> payload) {
@@ -36,6 +41,7 @@ public class ParticipantController {
     return ((String) payload.get("participant") + "added to" + (String) payload.get("eventId"));
   }
 
+  @ApiOperation(value = "Remove participant from event")
   @Transactional
   @PostMapping("/removeParticipant")
   public @ResponseBody String removeParticipant(@RequestBody Map<String, Object> payload) {
@@ -43,11 +49,13 @@ public class ParticipantController {
     return ((String) payload.get("participant") + "deleted from" + (String) payload.get("eventId"));
   }
 
+  @ApiOperation(value = "Get participants of a specific event")
   @PostMapping("/getParticipants")
   public @ResponseBody Collection<Participant> getParticipants(@RequestBody Map<String, Object> payload) {
     return participantRepository.getParticipants((String) payload.get("eventId"));
   }
   
+  @ApiOperation(value = "Get participants of a specific event")
   @PostMapping("/getEventParticipants")
   public @ResponseBody Collection<Object> getParticipantsSecure(@RequestBody Map<String, Object> payload) {
     return participantRepository.getEventParticipants((String) payload.get("eventId"));

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import MyScheduleScreen from '../screens/MyScheduleScreen'
+
 import LoginScreen from '../screens/LoginScreen'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
@@ -9,7 +9,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
 } from "react-router-dom";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,11 +16,32 @@ import {
   ACTION_userLogin
 } from "../../state/reducers/AuthenticationReducer"
 
+
+/**
+ * This interface defines the props for this URLComponent
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
 interface Props {
+
+  /**
+   * This is the redux state variable that contains any stored user credentials for this user
+   */
   redux_authentication: any,
+
+  /**
+   * This is the redux state action type used to remove the users logged in credential when logging out
+   */
   ACTION_userLogin: Function
 }
 
+
+/**
+ * URLRouter - This is the base router for this application, it handles the base routing required for loggin in a user
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ *
+ * @param  props: Props These are the props specific to this URLRouter
+ * @return Returns the React Router switch and routes for this application
+ */
 function URLRouter(props: Props) {
   const userId = localStorage.getItem('userId');
   if (userId !== props.redux_authentication.userId) {
@@ -37,9 +57,7 @@ function URLRouter(props: Props) {
         <PublicRoute path="/login">
           <LoginScreen />
         </PublicRoute>
-        <PrivateRoute path="/">
-          <MyScheduleScreen />
-        </PrivateRoute>
+        <PrivateRoute path="/"/>
         <Route path="/">
           <LoginScreen />
         </Route>

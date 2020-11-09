@@ -25,6 +25,10 @@ import com.google.common.hash.Hashing;
 import com.sb03.modal.User;
 import com.sb03.repository.UserRepository;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(value = "UserController", description = "Controller for handling HTTP requests related to core user data")
 @RestController
 @CrossOrigin(origins = "*")
 public class UserController {
@@ -32,11 +36,13 @@ public class UserController {
   @Autowired
   private UserRepository userRepository;
 
-	@GetMapping("/getUsers")
+  @ApiOperation(value = "Get all users in the database")
+  @GetMapping("/getUsers")
   public @ResponseBody Collection<User> getUsers() {
   return userRepository.getUsers();
   }
 
+  @ApiOperation(value = "Add (create new) user to the database")
   @Transactional
   @PostMapping("/addUser")
   public @ResponseBody String addUser(@RequestBody Map<String, Object> payload) {
@@ -44,6 +50,7 @@ public class UserController {
     return ((String) payload.get("userId") + "added");
   }
 
+  @ApiOperation(value = "Get user token necessary for sending user-specific requests (token should be stored in local storage of browser)")
   @PostMapping("/authenticateUser")
   public @ResponseBody String authenticateUser(@RequestBody Map<String, Object> payload) throws NoSuchAlgorithmException {
     //MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -51,7 +58,6 @@ public class UserController {
     //
     final String hash = Hashing.sha256().hashString((String) payload.get("password"), StandardCharsets.UTF_8).toString();
     //String hash = org.apache.commons.codec.digest.DigestUtils.sha256Hex((String) payload.get("password"));
-    System.out.println("This is the hash: " + hash);
     Collection<User> result = userRepository.authenticateUser((String) payload.get("netId"), hash);
     if (result.isEmpty()) {
       return null;
@@ -60,6 +66,7 @@ public class UserController {
     return userId;
   }
 
+  @ApiOperation(value = "Remove user from the database")
   @Transactional
   @PostMapping("/deleteUser")
   public @ResponseBody String deleteUser(@RequestBody Map<String, Object> payload) {
@@ -67,11 +74,13 @@ public class UserController {
     return ((String) payload.get("userId") + "deleted");
   }
 
+  @ApiOperation(value = "Get core user information about a specfic user")
   @PostMapping("/getUser")
   public @ResponseBody Collection<User> getUser(@RequestBody Map<String, Object> payload) {
     return userRepository.getUser((String) payload.get("UserId"));
   }
 
+  @ApiOperation(value = "Get core user information about a specfic user (used for checking if user exists in database)")
   @PostMapping("/userExists")
   public @ResponseBody Collection<User> userExists(@RequestBody Map<String, Object> payload) {
     return userRepository.userExists((String) payload.get("netId"));

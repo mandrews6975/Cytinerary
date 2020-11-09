@@ -15,23 +15,31 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "users")
 public class User {
+	
+	@ApiModelProperty(notes = "Unique identifier for a user", name = "userid", required = true)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="userid")
 	private String userId;
 
+	@ApiModelProperty(notes = "User's ISU net-ID (used for login)", name = "netid", required = true)
 	@Column(name = "netid")
 	 private String netId;
 
+	@ApiModelProperty(notes = "User's last name", name = "lastname", required = true)
 	@Column(name = "lastname")
 	 private String lastName;
 
+	@ApiModelProperty(notes = "User's first name", name = "firstname", required = true)
 	@Column(name = "firstname")
 	 private String firstName;
 
+	@ApiModelProperty(notes = "User's password (used for login)", name = "password", required = true)
 	@Column(name = "password")
 	 private String password;
 

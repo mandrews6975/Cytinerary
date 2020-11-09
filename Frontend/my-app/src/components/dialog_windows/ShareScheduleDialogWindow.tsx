@@ -29,8 +29,20 @@ import ShareDialogSharedListItem from '../list_items/ShareDialogSharedListItem';
 import ShareDialogSearchListItem from '../list_items/ShareDialogSearchListItem';
 
 interface Props {
+  /**
+ * Flag indicating whether or not this component should be visible to the user.
+ * @author Vincent Woodward
+ */
   visible: boolean,
+  /**
+ * Function defining what should be done when the component closes
+ * @author Vincent Woodward
+ */
   onClose: Function,
+  /**
+ * userId
+ * @author Vincent Woodward
+ */
   userId: string
 }
 
@@ -53,6 +65,13 @@ const theme = createMuiTheme({
   }
 });
 
+/**
+ * ShareScheduleDialogWindow
+ * 
+ * @param props
+ * @return this component
+ * @author Vincent Woodward
+ */
 function ShareScheduleDialogWindow(props: Props) {
 
   const [currentlyShared, setCurrentlyShared] = useState<{ userId: string, name: string, email: string }[]>([]);
@@ -64,6 +83,10 @@ function ShareScheduleDialogWindow(props: Props) {
   useEffect(getUsers, []);
   useEffect(() => getSharedUsers(sharerId), []);
 
+  /**
+ * Gets the users for a particular event
+ * @author Vincent Woodward
+ */
   function getUsers() {
     try {
       fetch('/getUsers', {
@@ -89,6 +112,12 @@ function ShareScheduleDialogWindow(props: Props) {
     }
   }
 
+  /**
+ * Gets the shared users for an event
+ * 
+ * @param sharerId 
+ * @author Vincent Woodward
+ */
   function getSharedUsers(sharerId: string) {
     try {
       fetch('/getSharedUsers', {

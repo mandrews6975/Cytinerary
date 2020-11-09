@@ -14,11 +14,29 @@ import {
 } from '@material-ui/icons';
 
 interface Props {
+  /**
+ * A string representing a label
+ * @author Vincent Woodward
+ */
   label: string,
+  /**
+ * A string representing a color
+ * @author Vincent Woodward
+ */
   color: string,
+  /**
+ * A function defining what should be done when its removed
+ * @author Vincent Woodward
+ */
   onRemove: Function
 }
 
+/**
+ * LabelDialogListItem
+ * @param props
+ * @return this component
+ * @author Vincent Woodward
+ */
 function LabelDialogListItem(props: Props) {
 
   return (

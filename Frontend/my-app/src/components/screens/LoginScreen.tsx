@@ -1,15 +1,9 @@
 import React from 'react';
 
 import red from '@material-ui/core/colors/red';
-import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
 
 import { TextField, Button, Typography } from '@material-ui/core'
-
-import {
-  Person,
-  Lock
-} from '@material-ui/icons'
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -17,36 +11,52 @@ import {
   ACTION_userLogin
 } from "../../state/reducers/AuthenticationReducer"
 
-interface IState {
+
+/**
+ * This is the interface used to define the state of this LoginScreen component
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+interface LoginState {
+  /**
+   * This is the value of the username text input
+   */
   username: string,
+  /**
+   * This is the entered value of the password text input
+   */
   password: string,
 }
 
-interface IProps {
+/**
+ * This is the inteface for the props of this LoginScreen component
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+interface LoginProps {
+  /**
+   * This is the redux state actional type used to store the logged in user credential
+   */
   ACTION_userLogin: Function,
+  /**
+   * This is the redux state variable that contains the userid of the current user
+   */
   redux_authentication: any
 }
 
-const colors = ({
-  palette: {
-    primary: {
-      default: yellow[50]
-    },
-    secondary: {
-      default: grey[900]
-    },
-    tertiary: {
-      default: grey[50]
-    },
-    background: {
-      default: red[100]
-    }
-  }
-});
 
-class LoginScreen extends React.Component<IProps, IState>{
 
-  constructor(props: IProps) {
+/**
+ * This is the login screen component for this application
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+class LoginScreen extends React.Component<LoginProps, LoginState>{
+
+
+  /**
+   * constructor - This is the constructor for the LoginScreen Component, this is where the state is initialized
+   *
+   * @param props: LoginProps - This is the props interface specific to the login screen component
+   */
+  constructor(props: LoginProps) {
     super(props);
     this.state = {
       username: '',
@@ -54,6 +64,10 @@ class LoginScreen extends React.Component<IProps, IState>{
     }
   }
 
+
+  /**
+   * sendRequest - This method sends the request to the backend to authenticate the username and password. It will set the response in local storage accordinly
+   */
   sendRequest() {
     fetch('/authenticateUser', {
       method: 'POST',
@@ -74,6 +88,12 @@ class LoginScreen extends React.Component<IProps, IState>{
       });
   }
 
+
+  /**
+   * render - This is the render method for this component, it contains all of the visible frontend components for this login screen
+   *
+   * @return This method returns the displayed frontend jsx components for this login screen component
+   */
   render() {
     return (
       <div style={{

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="default no-js not-mobile toggle-visibilityprivate"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cytinerary</title>
+	<meta name="description" content="Documentation for Cytinerary">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="FrontendAPIDocumentation_files/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base="." data-has-instance="true">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text">
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/index.html" class="title">Cytinerary</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter" data-has-instance="true">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options" data-has-instance="true">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked="checked">
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked="checked">
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported">
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu" data-has-instance="true">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>Cytinerary</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
+				<a href="#available-scripts" id="available-scripts" style="color: inherit; text-decoration: none;">
+					<h2>Available Scripts</h2>
+				</a>
+				<p>In the project directory, you can run:</p>
+				<a href="#npm-start" id="npm-start" style="color: inherit; text-decoration: none;">
+					<h3><code>npm start</code></h3>
+				</a>
+				<p>Runs the app in the development mode.<br>
+				Open <a href="http://localhost:3000/">http://localhost:3000</a> to view it in the browser.</p>
+				<p>The page will reload if you make edits.<br>
+				You will also see any lint errors in the console.</p>
+				<a href="#npm-test" id="npm-test" style="color: inherit; text-decoration: none;">
+					<h3><code>npm test</code></h3>
+				</a>
+				<p>Launches the test runner in the interactive watch mode.<br>
+				See the section about <a href="https://facebook.github.io/create-react-app/docs/running-tests">running tests</a> for more information.</p>
+				<a href="#npm-run-build" id="npm-run-build" style="color: inherit; text-decoration: none;">
+					<h3><code>npm run build</code></h3>
+				</a>
+				<p>Builds the app for production to the <code>build</code> folder.<br>
+				It correctly bundles React in production mode and optimizes the build for the best performance.</p>
+				<p>The build is minified and the filenames include the hashes.<br>
+				Your app is ready to be deployed!</p>
+				<p>See the section about <a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for more information.</p>
+				<a href="#npm-run-eject" id="npm-run-eject" style="color: inherit; text-decoration: none;">
+					<h3><code>npm run eject</code></h3>
+				</a>
+				<p><strong>Note: this is a one-way operation. Once you <code>eject</code>, you can’t go back!</strong></p>
+				<p>If you aren’t satisfied with the build tool and configuration choices, you can <code>eject</code> at any time. This command will remove the single build dependency from your project.</p>
+				<p>Instead, it will copy all the configuration files and the 
+transitive dependencies (webpack, Babel, ESLint, etc) right into your 
+project so you have full control over them. All of the commands except <code>eject</code> will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.</p>
+				<p>You don’t have to ever use <code>eject</code>. The curated 
+feature set is suitable for small and middle deployments, and you 
+shouldn’t feel obligated to use this feature. However we understand that
+ this tool wouldn’t be useful if you couldn’t customize it when you are 
+ready for it.</p>
+				<a href="#learn-more" id="learn-more" style="color: inherit; text-decoration: none;">
+					<h2>Learn More</h2>
+				</a>
+				<p>You can learn more in the <a href="https://facebook.github.io/create-react-app/docs/getting-started">Create React App documentation</a>.</p>
+				<p>To learn React, check out the <a href="https://reactjs.org/">React documentation</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight" data-has-instance="true">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/classes/loginscreen.html" class="tsd-kind-icon">Login<wbr>Screen</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/classes/neweventmodal.html" class="tsd-kind-icon">New<wbr>Event<wbr>Modal</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/classes/schedulegrid.html" class="tsd-kind-icon">Schedule<wbr>Grid</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/classes/timeblock.html" class="tsd-kind-icon">Time<wbr>Block</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/event.html" class="tsd-kind-icon">Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/iprops.html" class="tsd-kind-icon">IProps</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/istate.html" class="tsd-kind-icon">IState</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/loginprops.html" class="tsd-kind-icon">Login<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/loginstate.html" class="tsd-kind-icon">Login<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/myschedulescreenprops.html" class="tsd-kind-icon">My<wbr>Schedule<wbr>Screen<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/props.html" class="tsd-kind-icon">Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/schedulargridprops.html" class="tsd-kind-icon">Schedular<wbr>Grid<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/schedulargridstate.html" class="tsd-kind-icon">Schedular<wbr>Grid<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/sharedialoglistitemprops.html" class="tsd-kind-icon">Share<wbr>Dialog<wbr>List<wbr>Item<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/sharedialogsearchlistitemprops.html" class="tsd-kind-icon">Share<wbr>Dialog<wbr>Search<wbr>List<wbr>Item<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/sharedialogsharelistitemprops.html" class="tsd-kind-icon">Share<wbr>Dialog<wbr>Share<wbr>List<wbr>Item<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/timeblockprops.html" class="tsd-kind-icon">Time<wbr>Block<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/interfaces/timeblockstate.html" class="tsd-kind-icon">Time<wbr>Block<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#config" class="tsd-kind-icon">Config</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#user_login" class="tsd-kind-icon">USER_<wbr>LOGIN</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#user_logout" class="tsd-kind-icon">USER_<wbr>LOGOUT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#colors" class="tsd-kind-icon">colors</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#container" class="tsd-kind-icon">container</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#dateformat" class="tsd-kind-icon">date<wbr>Format</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#fakeevents" class="tsd-kind-icon">fake<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#globalany" class="tsd-kind-icon">global<wbr>Any</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#islocalhost" class="tsd-kind-icon">is<wbr>Localhost</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#store" class="tsd-kind-icon">store</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#theme" class="tsd-kind-icon">theme</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#action_userlogin" class="tsd-kind-icon">ACTION_<wbr>user<wbr>Login</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#action_userlogout" class="tsd-kind-icon">ACTION_<wbr>user<wbr>Logout</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#app" class="tsd-kind-icon">App</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#authenticationreducer" class="tsd-kind-icon">Authentication<wbr>Reducer</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#editeventdialogwindow" class="tsd-kind-icon">Edit<wbr>Event<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#labeldialogeventlistitem" class="tsd-kind-icon">Label<wbr>Dialog<wbr>Event<wbr>List<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#labeldialoglistitem" class="tsd-kind-icon">Label<wbr>Dialog<wbr>List<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#labeldialogwindow" class="tsd-kind-icon">Label<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#myschedulescreen" class="tsd-kind-icon">My<wbr>Schedule<wbr>Screen</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#privateroute" class="tsd-kind-icon">Private<wbr>Route</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#publicroute" class="tsd-kind-icon">Public<wbr>Route</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#sharedialogsearchlistitem" class="tsd-kind-icon">Share<wbr>Dialog<wbr>Search<wbr>List<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#sharedialogsharedlistitem" class="tsd-kind-icon">Share<wbr>Dialog<wbr>Shared<wbr>List<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#shareeventdialogwindow" class="tsd-kind-icon">Share<wbr>Event<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#sharescheduledialogwindow" class="tsd-kind-icon">Share<wbr>Schedule<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#urlrouter" class="tsd-kind-icon">URLRouter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#viewparticipanteventdialogwindow" class="tsd-kind-icon">View<wbr>Participant<wbr>Event<wbr>Dialog<wbr>Window</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#checkvalidserviceworker" class="tsd-kind-icon">check<wbr>Valid<wbr>Service<wbr>Worker</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#mapdispatchtoprops" class="tsd-kind-icon">map<wbr>Dispatch<wbr>ToProps</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#mapstatetoprops" class="tsd-kind-icon">map<wbr>State<wbr>ToProps</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#register" class="tsd-kind-icon">register</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#registervalidsw" class="tsd-kind-icon">register<wbr>ValidSW</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#unregister" class="tsd-kind-icon">unregister</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="file:///C:/Users/vince/Documents/coms309/sb_3/Frontend/my-app/docs/documentation/globals.html#initial_state" class="tsd-kind-icon">INITIAL_<wbr>STATE</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="FrontendAPIDocumentation_files/main.js"></script>
+
+</body></html>

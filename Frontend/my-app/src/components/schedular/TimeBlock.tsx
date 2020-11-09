@@ -1,21 +1,71 @@
 import * as React from 'react'
 import Draggable from 'react-draggable';
 
-interface IProps {
+
+/**
+ * This interfae defines the props for this TimeBlock component
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+interface TimeBlockProps {
+  /**
+   * This prop variable is the initial y postition of this event on the schedular grid
+   */
   yinit: number,
+  /**
+   * This prop variable is the initial x position of this event on the schedular grid
+   */
   xinit: number,
+  /**
+   * This is the desired height in pixels of this TimeBlock
+   */
   height: number,
+  /**
+   * This is the eventId of the event this Time Block is representing
+   */
   eventId: string,
+  /**
+   * This is the name of the event this Time Block is representing
+   */
   name?: string,
+  /**
+   * This is the description the event this Time Block is representing
+   */
   description?: string,
+  /**
+   * Thie is the label of the event this Time Block is representing
+   */
   label?: string,
+  /**
+   * This function will eve executed when the timeblock is clicked
+   */
   onClick: Function,
+  /**
+   * This is the color of the event this Time Block is representing
+   */
   color: string,
+  /**
+   * This is the function will be executed when the timeblock is dragged
+   */
   onDragEnd: Function,
+  /**
+   * This prop indicated whether the timeblock can be dragged or not
+   */
   draggable: boolean,
+  /**
+   * This unique id is needed when mapping out multiple Time Blocks
+   */
   id: string,
 }
-interface IState {
+
+
+/**
+ * This interface is defined the state variables used for this TimeBlock component
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+interface TimeBlockState {
+  /**
+   * This is the relative position of this TimeBlock component
+   */
   deltaPosition: {
     x: number,
     y: number,
@@ -23,9 +73,19 @@ interface IState {
   chosencolor: string
 }
 
-class TimeBlock extends React.Component<IProps, IState> {
+
+/**
+ * This is the TimeBlock jsx component that is mapped out onto the schedular grid
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+class TimeBlock extends React.Component<TimeBlockProps, TimeBlockState> {
   componentDidMount() { this.getLabelColor(this.props.label) }
-  constructor(props: IProps) {
+  /**
+   * constructor - This is the constructor for the timeblock component
+   *
+   * @param  props: TimeBlockProps These are the props for this comonent
+   */
+  constructor(props: TimeBlockProps) {
     super(props);
     this.state = {
       deltaPosition: {
@@ -37,9 +97,15 @@ class TimeBlock extends React.Component<IProps, IState> {
   }
 
 
+  /**
+   * This method will execute when the timeblock is first dragged
+   */
   onStart = () => {
   };
 
+  /**
+   * This method updates the state of this component when this component is dragged
+   */
   handleDrag = (e, ui) => {
     const { x, y } = this.state.deltaPosition;
     //console.log(ui.deltaX + " " + ui.deltaY)
@@ -53,6 +119,10 @@ class TimeBlock extends React.Component<IProps, IState> {
     }
   }
 
+
+  /**
+   * This method executes when the component stops being dragged
+   */
   onStop = () => {
     //alert(this.state.deltaPosition.x + " " + this.state.deltaPosition.y)
     const e = {
@@ -92,6 +162,12 @@ class TimeBlock extends React.Component<IProps, IState> {
 
   }
 
+
+  /**
+   * render - This method returns the jsx elements that represent this TimeBlock component
+   *
+   * @return Returns the jsx contents for this TimeBlock component
+   */
   render() {
     //{left: 0, top:0, right:200, bottom: 400}
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
