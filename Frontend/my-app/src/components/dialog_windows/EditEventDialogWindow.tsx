@@ -29,26 +29,91 @@ import ShareEventDialogWindow from './ShareEventDialogWindow';
 var dateFormat = require('dateformat');
 
 interface Event {
+/**
+ * This is the eventId
+ * @author Vincent Woodward
+ */
   eventId: string,
+  /**
+ * This is the id for the creator for a given event
+ * @author Vincent Woodward
+ */
   creator: string,
+  /**
+ *  Name of the event
+ * @author Vincent Woodward
+ */
   name: string,
+  /**
+ * Description of an event
+ * @author Vincent Woodward
+ */
   description: string,
+  /**
+ * Location that the event will take place
+ * @author Vincent Woodward
+ */
   location: string,
+  /**
+ * This represents the starting time and date for an event
+ * @author Vincent Woodward
+ */
   startTime: Date,
+  /**
+ * This represents the ending time and date for an event.
+ * @author Vincent Woodward
+ */
   endTime: Date,
+  /**
+ * This is the label
+ * @author Vincent Woodward
+ */
   label: string
 }
 
 interface Props {
+  /**
+ * Whether or not this component should be visible to the user
+ * @author Vincent Woodward
+ */
   visible: boolean,
+  /**
+ * This function defines what should happen if the component is to be closed
+ * @author Vincent Woodward
+ */
   onClose: Function,
+  /**
+ * This function updates everything that needs to be updated that's related to an event
+ * @author Vincent Woodward
+ */
   onUpdate: Function,
+  /**
+ * This function deletes everything that needs to be deleted that's related to an event.
+ * @author Vincent Woodward
+ */
   onDelete: Function,
+  /**
+ * This is the eventId for a given event
+ * @author Vincent Woodward
+ */
   eventId: string,
+  /**
+ * This is the creatorId for a given event
+ * @author Vincent Woodward
+ */
   creatorId: string,
+  /**
+ * This boolean is a flag to indicate whether or not an event needs to be updated
+ * @author Vincent Woodward
+ */
   update: boolean,
 }
-
+/**
+ * EditEventDialogWindow returns this component
+ *
+ * @param  props: Props These are the props for EditEventDialogWindow
+ * @author Vincent Woodward
+ */
 function EditEventDialogWindow(props: Props) {
 
   const [originalEvent, setOriginalEvent] = useState<Event>({
@@ -71,6 +136,13 @@ function EditEventDialogWindow(props: Props) {
   const [showDeleteEventDialog, setShowDeleteEventDialog] = useState<boolean>(false);
   const [update, setUpdate] = useState<boolean>(false);
 
+  /**
+ *  getEvent grabs an event using an eventId and creatorId
+ *
+ * @param  creatorId
+ * @param eventId
+ * @author Vincent Woodward
+ */
   function getEvent(creatorId: string, eventId: string) {
     if (eventId !== '' && props.visible) {
       try {
@@ -110,6 +182,13 @@ function EditEventDialogWindow(props: Props) {
     }
   }
 
+  /**
+ * updateEvent updates a given event so that the changes are reflected in the backend.
+ *
+ * @param  creatorId
+ * @param eventId
+ * @author Vincent Woodward
+ */
   function updateEvent(creatorId: string, eventId: string) {
     if (eventId !== '' && props.visible) {
       try {
@@ -139,6 +218,13 @@ function EditEventDialogWindow(props: Props) {
     }
   }
 
+    /**
+ * deleteEvent gets rid of an event from a schedule
+ *
+ * @param  creatorId
+ * @param eventId
+ * @author Vincent Woodward
+ */
   function deleteEvent(creatorId: string, eventId: string) {
     if (eventId !== '') {
       try {
@@ -161,6 +247,12 @@ function EditEventDialogWindow(props: Props) {
     }
   }
 
+    /**
+ * getEventParticipants grabs the event participants for a given event
+ *
+ * @param eventId
+ * @author Vincent Woodward
+ */
   function getEventParticipants(eventId: string) {
     if (eventId !== '' && props.visible) {
       try {

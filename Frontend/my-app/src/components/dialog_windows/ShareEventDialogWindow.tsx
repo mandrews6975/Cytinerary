@@ -54,6 +54,13 @@ const theme = createMuiTheme({
   }
 });
 
+/**
+ * ShareEventDialogWindow
+ * 
+ * @param props
+ * @return the component
+ * @author Vincent Woodward
+ */
 function ShareEventDialogWindow(props: Props) {
 
   const [currentEventParticipants, setCurrentEventParticipants] = useState<{ userId: string, name: string, email: string }[]>([]);
@@ -64,6 +71,10 @@ function ShareEventDialogWindow(props: Props) {
   useEffect(getUsers, []);
   useEffect(() => getEventParticipants(props.eventId), []);
 
+  /**
+ * Gets the uesrs for a given event
+ * @author Vincent Woodward
+ */
   function getUsers() {
     try {
       fetch('/getUsers', {
@@ -91,6 +102,12 @@ function ShareEventDialogWindow(props: Props) {
     }
   }
 
+  /**
+ * Gets the participants of the event
+ * 
+ * @param eventId
+ * @author Vincent Woodward
+ */
   function getEventParticipants(eventId: string) {
     try {
       fetch('/getEventParticipants', {
