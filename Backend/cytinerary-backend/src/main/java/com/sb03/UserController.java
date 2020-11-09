@@ -58,7 +58,6 @@ public class UserController {
     //
     final String hash = Hashing.sha256().hashString((String) payload.get("password"), StandardCharsets.UTF_8).toString();
     //String hash = org.apache.commons.codec.digest.DigestUtils.sha256Hex((String) payload.get("password"));
-    System.out.println("This is the hash: " + hash);
     Collection<User> result = userRepository.authenticateUser((String) payload.get("netId"), hash);
     if (result.isEmpty()) {
       return null;
