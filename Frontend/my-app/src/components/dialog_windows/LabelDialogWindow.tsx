@@ -24,8 +24,20 @@ import {
 import LabelDialogListItem from '../list_items/LabelDialogListItem';
 
 interface IProps {
+  /**
+ * Indicates whether or not this component should be visible to the user
+ * @author Vincent Woodward
+ */
   visible: boolean,
+  /**
+ * This function defines what should happen when the component is closed
+ * @author Vincent Woodward
+ */
   onClose: Function,
+  /**
+ * This is the string that represents a userId
+ * @author Vincent Woodward
+ */
   userId: string,
 }
 
@@ -48,6 +60,13 @@ const theme = createMuiTheme({
   }
 });
 
+/**
+ * LabelDialogWindow returns this component
+ *
+ * @param props
+ * @return this component
+ * @author Vincent Woodward
+ */
 function LabelDialogWindow(props: IProps) {
 
   const concrete_userId = props.userId;
@@ -62,6 +81,12 @@ function LabelDialogWindow(props: IProps) {
 
   useEffect(() => getLabels(concrete_userId), []);
 
+/**
+ * getLabels grabs the label from the backend
+ *
+ * @param userId
+ * @author Vincent Woodward
+ */
   function getLabels(userId: string) {
     try {
       fetch('/getLabels', {

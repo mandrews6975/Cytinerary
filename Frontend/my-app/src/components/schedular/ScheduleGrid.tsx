@@ -12,26 +12,73 @@ import {
 import EditEventDialogWindow from '../dialog_windows/EditEventDialogWindow';
 import ViewParticipantEventDialogWindow from '../dialog_windows/ViewParticipantEventDialogWindow';
 
-interface IProps {
+
+/**
+ * This is interface used to define the props for this SchedularGrid component
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+interface SchedularGridProps {
   //onSubmit: string,
   // visible: boolean,
   // onClose: () => void,
+  /**
+   * This is the userId of the logged in user
+   */
   userId: string,
 }
-interface IState {
+
+
+/**
+ * This is the interface used to define the state variables for this SchedularGridComponent
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+interface SchedularGridState {
+  /**
+   * This state variable is an array containing objects specific to the events this user created
+   */
   creatorEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
+
+  /**
+   * This state variable is an array containing objects specific to the events this user is a participant of
+   */
   participantEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
+  /**
+   * This state variable is a day in the week the schedular is on
+   */
   selectedDate: Date,
+  /**
+   * This state variable is a string containing the first day of the week that is calendar is currently on
+   */
   startDate: string,
+  /**
+   * This state variable is a string containing the last day of the week that is calendar is currently on
+   */
   endDate: string,
+  /**
+   * This is the state variable used to toggle the visibility status of the creator events EditEventDialogWindow
+   */
   showEditEventDialogWindow: boolean,
+  /**
+   * This is the state variable that contains the eventId of the timeblock that was last clicked on
+   */
   selectedEvent: string,
+  /**
+   * This is the statevariable used by the editEventDialogWindow to rerender this component
+   */
   updateEventDialogWindow: boolean,
+  /**
+   * This is the state variable used to toggle the visibility status of the participant event's ParticipantEventDialogWindow
+   */
   showViewParticipantEventDialogWindow: boolean
 }
 
-class ScheduleGrid extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
+
+/**
+ * This is the schedular grid component that is displayed in the MySchduleScreen. It displays the events for a given userId.
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
+class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridState> {
+  constructor(props: SchedularGridProps) {
     super(props);
     this.state = {
       creatorEvents: [],
@@ -54,6 +101,14 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     this.setState({ selectedDate: new Date(curr.getTime()) })
   }
 
+
+  /**
+   * getWeeklyCreatorEvents - Given a startDate and endDate, this method sends a request to retrieve all creatorEvents from the backend
+   *
+   * @param  startDate: string This is dateTime string containing the date of Monday of the current week
+   * @param  endDate: string This is dateTime string containing the date of Monday of the next week
+   * @param  callback?: Function This is the optional callback function that is executed only when this method has been called
+   */
   getWeeklyCreatorEvents(startDate: string, endDate: string, callback?: Function) {
     try {
       fetch('/getCreatorEvents', {
@@ -104,6 +159,12 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }
   }
 
+  /**
+   * getWeeklyParticipantEvents - Given a startDate and endDate, this method sends a request to retrieve all participant events from the backend
+   *
+   * @param  startDate: string This is dateTime string containing the date of Monday of the current week
+   * @param  endDate: string This is dateTime string containing the date of Monday of the next week
+   */
   getWeeklyParticipantEvents(startDate: string, endDate: string) {
     try {
       fetch('/getParticipantEvents', {
@@ -150,6 +211,12 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }
   }
 
+
+  /**
+   * getWeeklyEvents - This method determines that start and end date of the current week and stores all of the user's creator and participant events in the respective state variables
+   *
+   * @param callback?: Function This is the optional callback function that is executed only when this method has been called
+   */
   getWeeklyEvents(callback?: Function) {
     let curr = new Date(this.state.selectedDate);
     curr.setHours(0, 0, 0, 0);
@@ -166,6 +233,10 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     this.getWeeklyParticipantEvents(startDate, endDate);
   }
 
+
+  /**
+   * setNextWeek - This method increments the current week of this component
+   */
   setNextWeek() {
     let nextDate = new Date(this.state.selectedDate.getFullYear(), this.state.selectedDate.getMonth(), this.state.selectedDate.getDate() + 7);
     nextDate.setHours(0, 0, 0, 0);
@@ -174,6 +245,10 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }, () => { this.getWeeklyEvents(); });
   }
 
+
+  /**
+   * setPreviousWeek - This method deincrements the current week of this component
+   */
   setPreviousWeek() {
     let previousDate = new Date(this.state.selectedDate.getFullYear(), this.state.selectedDate.getMonth(), this.state.selectedDate.getDate() - 7);
     previousDate.setHours(0, 0, 0, 0);
@@ -182,11 +257,24 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }, () => { this.getWeeklyEvents(); });
   }
 
+
+  /**
+   * This method returns the local time timestamp string given a Date object
+   * @param date This is the date for which the localTimeStampString will be generated with
+   * @return Returns a timestamp string adjusted for the local timezone
+   */
   getLocalTimeStampString(date: Date): string {
     var isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0, 19).replace('T', ' ');
     return isoDateTime;
   }
 
+
+  /**
+   * handleEventDragEnd - This method sends a request to update event info on the backend when an event is dragged
+   *
+   * @param   e                  This is the event object that contains the updated times for a particulart event
+   * @param   callback: Function Function This is the optional callback function that is executed only when this method has been called
+   */
   handleEventDragEnd(e, callback: Function) {
     let referenceDate = new Date(this.state.startDate);
     let currentDayIndex = (e.x / 97) + 1;
@@ -217,6 +305,12 @@ class ScheduleGrid extends React.Component<IProps, IState> {
     }
   }
 
+
+  /**
+   * render - This method returns the jsx content for this SchedularGrid component
+   *
+   * @return Returns the jsx content for this SchedularGrid component
+   */
   render() {
     let referenceDate = new Date(this.state.startDate);
     let monday = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + 1);

@@ -27,13 +27,45 @@ import React, {
   import ShareEventDialogWindow from './ShareEventDialogWindow';
   
   interface Event {
+/**
+ * Id for an event
+ * @author Vincent Woodward
+ */
     eventId: string,
+/**
+ * A string representing the creator of a given event
+ * @author Vincent Woodward
+ */
     creator: string,
+  /**
+ * Name of an event
+ * @author Vincent Woodward
+ */
     name: string,
+/**
+ * Description of an event
+ * @author Vincent Woodward
+ */
     description: string,
+/**
+ * Location of an event
+ * @author Vincent Woodward
+ */
     location: string,
+/**
+ * The time and date of when an event should start
+ * @author Vincent Woodward
+ */
     startTime: Date,
+/**
+ * The time and date of when an event should end
+ * @author Vincent Woodward
+ */
     endTime: Date,
+/**
+ * Label for an event
+ * @author Vincent Woodward
+ */
     label: string
   }
 
@@ -44,6 +76,13 @@ import React, {
     eventId: string
   }
 
+/**
+ * ViewParticipantEventDialogWindow
+ * 
+ * @param props
+ * @return this component
+ * @author Vincent Woodward
+ */
   function ViewParticipantEventDialogWindow(props: Props) {  
 
     const[eventId, setEventId] = useState<string>(props.eventId);
@@ -56,6 +95,12 @@ import React, {
     const[label, setLabel] = useState<string>('');
     const[closeWindow, setCloseWindow] = useState<boolean>(false);
 
+/**
+ * Gets an event with an eventId
+ * 
+ * @param eventId
+ * @author Vincent Woodward
+ */
       function getEvent(eventId: string){
         if(props.visible)
         {
@@ -89,6 +134,10 @@ import React, {
         }
       }
 
+/**
+ * Handles the leave button if a participant would like to leave a event
+ * @author Vincent Woodward
+ */
       function handleLeaveButton(){
         if(eventId !== ''){
           try{

@@ -8,25 +8,97 @@ import LabelDialogEventListItem from '../list_items/LabelDialogEventListItem';
 
 interface IProps {
   //onSubmit: string,
+  /**
+ * This represents whether or not the function should be visible to the user
+ * @author Vincent Woodward
+ */
   visible: boolean,
+  /**
+ * onClose is a function that defines what should be done when the component closes
+ * @author Vincent Woodward
+ */
   onClose: () => void,
+  /**
+ * This is the userId for a given event
+ * @author Vincent Woodward
+ */
   userId: string,
+  /**
+ * This is a function that defines what should be done on a successful submit
+ * @author Vincent Woodward
+ */
   onSuccessfulSubmit: Function,
 }
 interface IState {
+  /**
+ * Name of an event
+ * @author Vincent Woodward
+ */
   name: string,
+  /**
+ * Description of an event
+ * @author Vincent Woodward
+ */
   description: string,
+  /**
+ * Label for an event
+ * @author Vincent Woodward
+ */
   label: string,
+  /**
+ * This is an array of variables for labels
+ * @author Vincent Woodward
+ */
   allLabels: {userId: string, label: string, color: string}[];
+  /**
+ * This is a string that represents the date and time that an event starts from
+ * @author Vincent Woodward
+ */
   fromDate: string,
+  /**
+ * This is a string that represents the date and time that an event goes to
+ * @author Vincent Woodward
+ */
   toDate: string,
+    /**
+ * This is a flag that respresents whether or not the dialog window should be open for the user.
+ * @author Vincent Woodward
+ */
   labelDialog: boolean,
+    /**
+ * This is a flag that represents whether or not the emptyFieldMessage should be visible to the user.
+ * @author Vincent Woodward
+ */
   emptyFieldMessageVisible: boolean,
+      /**
+ * This is a flag that represents whether or not the participant dialog should be visible to the user.
+ * @author Vincent Woodward
+ */
   participantsDialogVisible: boolean,
+      /**
+ * This is a flag that represents whether or not to display an error
+ * @author Vincent Woodward
+ */
   participantsError: boolean,
+      /**
+ * This is an array of strings representing the participants of a given event.
+ * @author Vincent Woodward
+ */
   participants: string[],
+      /**
+ * This is a string of the participants net ids
+ * @author Vincent Woodward
+ */
   participantsNetIds: string,
+      /**
+ * This is the participants 'value'
+ * @author Vincent Woodward
+ */
   participantValue: string,
+/**
+ * This is a string for an error for the label for participants
+ * @author Vincent Woodward
+ */
   participantsErrorLabel : string,
 }
 
@@ -54,6 +126,10 @@ class NewEventModal extends React.Component<IProps, IState> {
     }
   }
 
+/**
+ * Submit, submits a new event and sends the data to the backend
+ * @author Vincent Woodward
+ */
   submit() {
     if(this.state.name === '' || this.state.description === '') {
       this.setState({
@@ -108,7 +184,10 @@ class NewEventModal extends React.Component<IProps, IState> {
       }
     }
   }
-
+  /**
+ * This resets everything for when a component is closed
+ * @author Vincent Woodward
+ */
   closeModal() {
     //Ensure that all fields are reset
     this.setState({
@@ -127,11 +206,22 @@ class NewEventModal extends React.Component<IProps, IState> {
     this.props.onClose();
   }
 
+/**
+ * Converts a date to the local time
+ * 
+ * @param date is a given date
+ * @return isoDateTime
+ * @author Vincent Woodward
+ */
   getLocalTimeStampString(date: Date) : string {
     var isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0, 19).replace('T', ' ');
     return isoDateTime;
   }
 
+/**
+ * This adds a participant to an event
+ * @author Vincent Woodward
+ */
   addParticipant() {
     //Check if user trys to add themselves
     if(this.state.participantValue === this.props.userId) {
@@ -184,6 +274,12 @@ class NewEventModal extends React.Component<IProps, IState> {
     }
   }
 
+/**
+ * This gets the event labels with a userId
+ * 
+ * @param userId
+ * @author Vincent Woodward
+ */
   getEventLabels(userId: string)
   {
     try {
@@ -216,24 +312,40 @@ class NewEventModal extends React.Component<IProps, IState> {
     }
   }
 
+/**
+ * Handles the event that a 'from' date changes 
+ * 
+ * @param e is an event 
+ * @author Vincent Woodward
+ */
   handleFromDateChange(e) {
     try {
       this.setState({fromDate: this.getLocalTimeStampString(e)});
     }
     catch(err) {
-
     }
   }
 
+/**
+ * Handles the event that a 'to' date changes 
+ * 
+ * @param e is an event 
+ * @author Vincent Woodward
+ */
   handleToDateChange(e) {
     try {
       this.setState({toDate: this.getLocalTimeStampString(e)});
     }
     catch(err) {
-
     }
   }
 
+  /**
+ * Renders the component
+ * 
+ * @return the component
+ * @author Vincent Woodward
+ */
   render() {
     return(
       <div>

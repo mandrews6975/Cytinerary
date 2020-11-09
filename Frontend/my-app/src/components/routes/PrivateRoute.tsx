@@ -9,11 +9,30 @@ import SideBarNavigator from './SideBarNavigator'
 import MyScheduleScreen from '../screens/MyScheduleScreen'
 import ScheduleOverlapScreen from '../screens/ScheduleOverlapScreen'
 
+
+/**
+ * This interface defines the props for this PrivateRouteComponent
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
 interface Props {
+  /**
+   *   This is the redux state variable that contains any stored user credentials for this user
+   */
   redux_authentication: any,
-  path: string,
+  /**
+   * This is the route path that this PrivateRoute will represent
+   */
+  path: string
 }
 
+
+/**
+ * PrivateRoute - This function returns the private route component that will only route when the user is logged in
+ *
+ * @param  props: Props These are the props for this PrivateRoute Component
+ * @return  This component returns routes specific to this PrivateRoute
+ * @author Lewis Sheaffer lewiss@iastate.edu
+ */
 function PrivateRoute(props: Props) {
   //let  path  = useRouteMatch();
   return (
