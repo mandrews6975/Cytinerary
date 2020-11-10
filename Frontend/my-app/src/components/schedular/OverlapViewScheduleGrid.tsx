@@ -24,7 +24,7 @@ interface OverlapViewSchedularGridProps {
   /**
    * This is the userId of the logged in user
    */
-  userId: string,
+  userIdArray: string[],
 }
 
 
@@ -36,12 +36,12 @@ interface OverlapViewSchedularGridState {
   /**
    * This state variable is an array containing objects specific to the events this user created
    */
-  creatorEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
+  creatorEvents: { userId: string, eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
 
   /**
    * This state variable is an array containing objects specific to the events this user is a participant of
    */
-  participantEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
+  participantEvents: { userId: string, eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[],
   /**
    * This state variable is a day in the week the schedular is on
    */
@@ -101,6 +101,12 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     this.setState({ selectedDate: new Date(curr.getTime()) })
   }
 
+  componentDidUpdate(prevProps) {
+    // Check to see if the userId array  prop was updated
+    if (this.props.userIdArray.length !== prevProps.userIdArray.length) {
+      this.getWeeklyEvents();
+    }
+  }
 
   /**
    * getWeeklyCreatorEvents - Given a startDate and endDate, this method sends a request to retrieve all creatorEvents from the backend
@@ -110,53 +116,58 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
    * @param  callback?: Function This is the optional callback function that is executed only when this method has been called
    */
   getWeeklyCreatorEvents(startDate: string, endDate: string, callback?: Function) {
-    try {
-      fetch('/getCreatorEvents', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          creator: this.props.userId,
-          startDate: startDate,
-          endDate: endDate,
-        }),
-      }).then((response) => response.json())
-        .then((json) => {
-          let creatorEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[] = [];
-          json.forEach((event) => {
-            var splitStartTime = event.startTime.replace("T", ":").split(/[- :]/);
-            var splitEndTime = event.endTime.replace("T", ":").split(/[- :]/);
-            var startTime = new Date(Date.UTC(splitStartTime[0], splitStartTime[1] - 1, splitStartTime[2], splitStartTime[3], splitStartTime[4]));
-            var endTime = new Date(Date.UTC(splitEndTime[0], splitEndTime[1] - 1, splitEndTime[2], splitEndTime[3], splitEndTime[4]));
-            //console.log(startTime.toString());
-            //console.log(endTime.toString());
-            // Apply each element to the Date function
-            var dateIndex = (startTime.getDay() === 0 ? 6 : startTime.getDay() - 1);
-            var startMinute = (startTime.getHours() * 60) + (startTime.getMinutes());
-            //console.log(dateIndex);
-            var minutes = Math.floor((endTime.getTime() - startTime.getTime()) / 60000);
-            let eventObject = {
-              eventId: event.eventId,
-              name: event.name,
-              startMinute: startMinute,
-              dateIndex: dateIndex,
-              minutes: minutes,
-              startTime: startTime,
-              endTime: endTime,
+    let creatorEvents: { userId: string, eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[] = [];
+    this.props.userIdArray.forEach((userId) => {
+      try {
+        fetch('/getCreatorEvents', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            creator: userId,
+            startDate: startDate,
+            endDate: endDate,
+          }),
+        }).then((response) => response.json())
+          .then((json) => {
+
+            json.forEach((event) => {
+              var splitStartTime = event.startTime.replace("T", ":").split(/[- :]/);
+              var splitEndTime = event.endTime.replace("T", ":").split(/[- :]/);
+              var startTime = new Date(Date.UTC(splitStartTime[0], splitStartTime[1] - 1, splitStartTime[2], splitStartTime[3], splitStartTime[4]));
+              var endTime = new Date(Date.UTC(splitEndTime[0], splitEndTime[1] - 1, splitEndTime[2], splitEndTime[3], splitEndTime[4]));
+              //console.log(startTime.toString());
+              //console.log(endTime.toString());
+              // Apply each element to the Date function
+              var dateIndex = (startTime.getDay() === 0 ? 6 : startTime.getDay() - 1);
+              var startMinute = (startTime.getHours() * 60) + (startTime.getMinutes());
+              //console.log(dateIndex);
+              var minutes = Math.floor((endTime.getTime() - startTime.getTime()) / 60000);
+              let eventObject = {
+                userId: userId,
+                eventId: event.eventId,
+                name: event.name,
+                startMinute: startMinute,
+                dateIndex: dateIndex,
+                minutes: minutes,
+                startTime: startTime,
+                endTime: endTime,
+              }
+              creatorEvents.push(eventObject);
+            })
+
+          }).then(() => {
+            if (callback) {
+              callback();
             }
-            creatorEvents.push(eventObject);
-          })
-          this.setState({ creatorEvents });
-        }).then(() => {
-          if (callback) {
-            callback();
-          }
-        });
-    } catch (err) {
-      console.log(err);
-    }
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    });
+    this.setState({ creatorEvents });
   }
 
   /**
@@ -166,49 +177,53 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
    * @param  endDate: string This is dateTime string containing the date of Monday of the next week
    */
   getWeeklyParticipantEvents(startDate: string, endDate: string) {
-    try {
-      fetch('/getParticipantEvents', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          participant: this.props.userId,
-          startDate: startDate,
-          endDate: endDate,
-        }),
-      }).then((response) => response.json())
-        .then((json) => {
-          let participantEvents: { eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[] = [];
-          json.forEach((event) => {
-            var splitStartTime = event.startTime.replace("T", ":").split(/[- :]/);
-            var splitEndTime = event.endTime.replace("T", ":").split(/[- :]/);
-            var startTime = new Date(Date.UTC(splitStartTime[0], splitStartTime[1] - 1, splitStartTime[2], splitStartTime[3], splitStartTime[4]));
-            var endTime = new Date(Date.UTC(splitEndTime[0], splitEndTime[1] - 1, splitEndTime[2], splitEndTime[3], splitEndTime[4]));
-            //console.log(startTime.toString());
-            //console.log(endTime.toString());
-            // Apply each element to the Date function
-            var dateIndex = (startTime.getDay() === 0 ? 6 : startTime.getDay() - 1);
-            var startMinute = (startTime.getHours() * 60) + (startTime.getMinutes());
-            //console.log(dateIndex);
-            var minutes = Math.floor((endTime.getTime() - startTime.getTime()) / 60000);
-            let eventObject = {
-              eventId: event.eventId,
-              name: event.name,
-              startMinute: startMinute,
-              dateIndex: dateIndex,
-              minutes: minutes,
-              startTime: startTime,
-              endTime: endTime,
-            }
-            participantEvents.push(eventObject);
-          })
-          this.setState({ participantEvents });
-        });
-    } catch (err) {
-      console.log(err);
-    }
+    let participantEvents: { userId: string, eventId: string, name: string, startMinute: number, minutes: number, dateIndex: number, startTime: Date, endTime: Date }[] = [];
+    this.props.userIdArray.forEach((userId) => {
+      try {
+        fetch('/getParticipantEvents', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            participant: userId,
+            startDate: startDate,
+            endDate: endDate,
+          }),
+        }).then((response) => response.json())
+          .then((json) => {
+
+            json.forEach((event) => {
+              var splitStartTime = event.startTime.replace("T", ":").split(/[- :]/);
+              var splitEndTime = event.endTime.replace("T", ":").split(/[- :]/);
+              var startTime = new Date(Date.UTC(splitStartTime[0], splitStartTime[1] - 1, splitStartTime[2], splitStartTime[3], splitStartTime[4]));
+              var endTime = new Date(Date.UTC(splitEndTime[0], splitEndTime[1] - 1, splitEndTime[2], splitEndTime[3], splitEndTime[4]));
+              //console.log(startTime.toString());
+              //console.log(endTime.toString());
+              // Apply each element to the Date function
+              var dateIndex = (startTime.getDay() === 0 ? 6 : startTime.getDay() - 1);
+              var startMinute = (startTime.getHours() * 60) + (startTime.getMinutes());
+              //console.log(dateIndex);
+              var minutes = Math.floor((endTime.getTime() - startTime.getTime()) / 60000);
+              let eventObject = {
+                userId: userId,
+                eventId: event.eventId,
+                name: event.name,
+                startMinute: startMinute,
+                dateIndex: dateIndex,
+                minutes: minutes,
+                startTime: startTime,
+                endTime: endTime,
+              }
+              participantEvents.push(eventObject);
+            })
+            this.setState({ participantEvents });
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    });
   }
 
 
@@ -268,44 +283,6 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     return isoDateTime;
   }
 
-
-  /**
-   * handleEventDragEnd - This method sends a request to update event info on the backend when an event is dragged
-   *
-   * @param   e                  This is the event object that contains the updated times for a particulart event
-   * @param   callback: Function Function This is the optional callback function that is executed only when this method has been called
-   */
-  handleEventDragEnd(e, callback: Function) {
-    let referenceDate = new Date(this.state.startDate);
-    let currentDayIndex = (e.x / 97) + 1;
-    let startTimeHours = e.y / 60;
-    let startTimeMinutes = e.y % 60;
-    let startTimeDate = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + currentDayIndex, startTimeHours, startTimeMinutes);
-    let endTimeDate = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate() + currentDayIndex, startTimeDate.getHours(), startTimeDate.getMinutes() + e.minutes);
-    let startTimeString = this.getLocalTimeStampString(startTimeDate)
-    let endTimeString = this.getLocalTimeStampString(endTimeDate)
-    try {
-      fetch('/updateCreatorEventTime', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: this.props.userId,
-          eventId: e.eventId,
-          startTime: startTimeString,
-          endTime: endTimeString,
-        }),
-      }).then((response) => {
-        this.getWeeklyEvents(callback);
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-
   /**
    * render - This method returns the jsx content for this OverlapViewSchedularGrid component
    *
@@ -324,24 +301,6 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     const times: String[] = ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM']
     return (
       <div style={{ display: 'flex', flexDirection: 'column', flex: '1', minHeight: '400px', maxHeight: '400px', minWidth: '600px', marginTop: '10 px', borderColor: 'red', borderStyle: 'solid', borderWidth: '2px', backgroundColor: 'white' }} >
-        <EditEventDialogWindow
-          visible={this.state.showEditEventDialogWindow}
-          onClose={() => this.setState({ showEditEventDialogWindow: false })}
-          onUpdate={() => this.getWeeklyEvents()}
-          onDelete={() => {
-            this.setState({ showEditEventDialogWindow: false, selectedEvent: '' });
-            this.getWeeklyEvents();
-          }}
-          eventId={this.state.selectedEvent}
-          creatorId={this.props.userId}
-          update={this.state.updateEventDialogWindow}
-        />
-        <ViewParticipantEventDialogWindow
-        visible={this.state.showViewParticipantEventDialogWindow}
-        onClose={()=> this.setState({showViewParticipantEventDialogWindow: false})}
-        eventId={this.state.selectedEvent}
-        creatorId={this.props.userId}
-        />
         <div style={{ display: 'flex', marginRight: "20px", borderBottom: 'solid', borderColor: 'black', flexDirection: 'row', }}>
           <div style={{ flex: '1' }}>
             <IconButton
@@ -404,14 +363,14 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={true} onDragEnd={(e) => {
-                      this.handleEventDragEnd(e, () => this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow }));
+                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={false} onDragEnd={(e) => {
+                       this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow });
                     }} onClick={() => { }} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
               </div>

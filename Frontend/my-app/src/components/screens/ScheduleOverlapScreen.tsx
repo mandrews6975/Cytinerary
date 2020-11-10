@@ -79,7 +79,7 @@ function ScheduleOverlapScreen(props: ScheduleOverlapScreenProps) {;
           display: 'flex',
           marginTop: '10px'
         }}>
-          <OverlapViewScheduleGrid userId = {userId}/>
+          <OverlapViewScheduleGrid userIdArray = {selectedUserIdsArray}/>
         </div>
       </div>
     </ThemeProvider>
