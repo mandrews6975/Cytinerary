@@ -9,7 +9,7 @@ import yellow from '@material-ui/core/colors/yellow';
 import grey from '@material-ui/core/colors/grey';
 import NewEventModal from '../dialog_windows/newEventModal'
 import SharedWithMeDropDown from '../dropdowns/SharedWithMeDropDown'
-import ScheduleGrid from '../schedular/ScheduleGrid'
+import OverlapViewScheduleGrid from '../schedular/OverlapViewScheduleGrid'
 import { connect } from 'react-redux';
 
 
@@ -79,7 +79,7 @@ function ScheduleOverlapScreen(props: ScheduleOverlapScreenProps) {;
           display: 'flex',
           marginTop: '10px'
         }}>
-          <ScheduleGrid userId = {userId}/>
+          <OverlapViewScheduleGrid userId = {userId}/>
         </div>
       </div>
     </ThemeProvider>
