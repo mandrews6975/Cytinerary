@@ -11,7 +11,8 @@ import {
 } from '@material-ui/icons';
 import EditEventDialogWindow from '../dialog_windows/EditEventDialogWindow';
 import ViewParticipantEventDialogWindow from '../dialog_windows/ViewParticipantEventDialogWindow';
-
+import SockJS from 'sockjs-client';
+import { Client, Message } from '@stomp/stompjs';
 
 /**
  * This is interface used to define the props for this SchedularGrid component
@@ -78,6 +79,9 @@ interface SchedularGridState {
  * @author Lewis Sheaffer lewiss@iastate.edu
  */
 class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridState> {
+  //use your link here
+  sock;
+  stompClient;
   constructor(props: SchedularGridProps) {
     super(props);
     this.state = {
@@ -91,6 +95,8 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
       updateEventDialogWindow: false,
       showViewParticipantEventDialogWindow: false
     }
+    this.sock = () => new SockJS('http://coms-309-sb-03.cs.iastate.edu:8080/socketEvents');
+    this.stompClient = new Client({ webSocketFactory: this.sock });
   }
 
   //This will execute when the component is first initialized
@@ -99,6 +105,17 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
     let curr = new Date(this.state.selectedDate);
     curr.setHours(0, 0, 0, 0);
     this.setState({ selectedDate: new Date(curr.getTime()) })
+
+
+    this.stompClient.onConnect = () => {
+      console.log('Connected: ');
+      this.stompClient.subscribe(`/user/${this.props.userId}/eventUpdate`, (greeting) => {
+        console.log(greeting);
+        this.getWeeklyEvents();
+        //you can execute any function here
+      });
+    }
+    this.stompClient.activate();
   }
 
 
@@ -300,6 +317,12 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
         }),
       }).then((response) => {
         this.getWeeklyEvents(callback);
+        //this.stompClient.send("/app/eventUpdated", {}, JSON.stringify({eventId: e.eventId}));
+        this.stompClient.publish(
+          {
+            destination: '/app/eventUpdated',
+            body: JSON.stringify({ eventId: e.eventId })
+          })
       });
     } catch (err) {
       console.log(err);
@@ -328,20 +351,32 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
         <EditEventDialogWindow
           visible={this.state.showEditEventDialogWindow}
           onClose={() => this.setState({ showEditEventDialogWindow: false })}
-          onUpdate={() => this.getWeeklyEvents()}
+          onUpdate={() => {
+            this.getWeeklyEvents()
+            this.stompClient.publish(
+              {
+                destination: '/app/eventUpdated',
+                body: JSON.stringify({ eventId: this.state.selectedEvent })
+              })
+          }}
           onDelete={() => {
             this.setState({ showEditEventDialogWindow: false, selectedEvent: '' });
             this.getWeeklyEvents();
+            this.stompClient.publish(
+              {
+                destination: '/app/eventUpdated',
+                body: JSON.stringify({ eventId: this.state.selectedEvent })
+              })
           }}
           eventId={this.state.selectedEvent}
           creatorId={this.props.userId}
           update={this.state.updateEventDialogWindow}
         />
         <ViewParticipantEventDialogWindow
-        visible={this.state.showViewParticipantEventDialogWindow}
-        onClose={()=> this.setState({showViewParticipantEventDialogWindow: false})}
-        eventId={this.state.selectedEvent}
-        creatorId={this.props.userId}
+          visible={this.state.showViewParticipantEventDialogWindow}
+          onClose={() => this.setState({ showViewParticipantEventDialogWindow: false })}
+          eventId={this.state.selectedEvent}
+          creatorId={this.props.userId}
         />
         <div style={{ display: 'flex', marginRight: "20px", borderBottom: 'solid', borderColor: 'black', flexDirection: 'row', }}>
           <div style={{ flex: '1' }}>
@@ -405,14 +440,14 @@ class ScheduleGrid extends React.Component<SchedularGridProps, SchedularGridStat
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock id = "CreatorEvent" name={event.name} label={event.label} draggable={true} onDragEnd={(e) => {
+                    <TimeBlock id="CreatorEvent" name={event.name} label={event.label} draggable={true} onDragEnd={(e) => {
                       this.handleEventDragEnd(e, () => this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow }));
                     }} onClick={() => { }} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock id="ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => { }} eventId={event.eventId} color={"blue"} onClick={() => { this.setState({ showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId }) }} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
               </div>
