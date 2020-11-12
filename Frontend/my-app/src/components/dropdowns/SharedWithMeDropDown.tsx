@@ -34,11 +34,13 @@ interface SharedWithMeDropdownState {
  * @authoer Lewis Sheaffer
  */
 class SharedWithMeDropDown extends React.Component<SharedWithMeDropdownProps, SharedWithMeDropdownState> {
+  numItems: number;
   constructor(props: SharedWithMeDropdownProps) {
     super(props);
     this.state = {
       selectedUsers: []
     }
+    this.numItems = 0;
   }
 
   //This will execute when the component is first initialized
@@ -54,12 +56,13 @@ class SharedWithMeDropDown extends React.Component<SharedWithMeDropdownProps, Sh
    */
   onUpdate(selectedList) {
    let userIdArray: string[] = [];
-   selectedList.forEach((user) => {
-     userIdArray.push(user.userId);
-   });
+   if(this.numItems !== 0) {
+     selectedList.forEach((user) => {
+       userIdArray.push(user.userId);
+     });
+   }
    this.props.onUpdate(userIdArray);
   }
-
 
   /**
    * fetchUsersWhoSharedWithMe - Retrieves the user info for those who have shared with this user.
@@ -103,8 +106,8 @@ class SharedWithMeDropDown extends React.Component<SharedWithMeDropdownProps, Sh
   render() {
     return (<Multiselect
       options= {this.state.selectedUsers}
-      onSelect = {(selectedList) => {this.onUpdate(selectedList)}}
-      onRemove = {(selectedList) => {this.onUpdate(selectedList)}}
+      onSelect = {(selectedList) => {++this.numItems; this.onUpdate(selectedList); }}
+      onRemove = {(selectedList) => {--this.numItems; this.onUpdate(selectedList);}}
       style = {{chips: {background: 'red'}, multiselectContainer: {width: '400px'}, inputField: {width: '400px'}}}
       selectionLimit = {5}
       showCheckbox

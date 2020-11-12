@@ -94,7 +94,7 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
   componentDidUpdate(prevProps) {
     // Check to see if the userId array  prop was updated
     if (this.props.userIdArray.length !== prevProps.userIdArray.length) {
-      this.getWeeklyEvents();
+        this.getWeeklyEvents();
     }
   }
 
@@ -233,8 +233,16 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     this.setState({ startDate, endDate })
     // console.log(firstday);
     // console.log(lastday);
-    this.getWeeklyCreatorEvents(startDate, endDate, callback);
-    this.getWeeklyParticipantEvents(startDate, endDate);
+    if(this.props.userIdArray.length !== 0) {
+      this.getWeeklyCreatorEvents(startDate, endDate, callback);
+      this.getWeeklyParticipantEvents(startDate, endDate);
+    }
+    else {
+      this.setState({
+        participantEvents: [],
+        creatorEvents: []
+      });
+    }
   }
 
   /**
