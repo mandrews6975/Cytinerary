@@ -350,12 +350,12 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} onClick={() => {this.setState({selectedEvent: event.eventId, showOverlapEventDialogWindow:true})}} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} onClick={() => {this.setState({selectedEvent: event.eventId, showOverlapEventDialogWindow:true})}} eventId={event.eventId} color={"dimGrey"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({selectedEvent: event.eventId, showOverlapEventDialogWindow:true})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} eventId={event.eventId} color={"dimGrey"} onClick={() => {this.setState({selectedEvent: event.eventId, showOverlapEventDialogWindow:true})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
               </div>
