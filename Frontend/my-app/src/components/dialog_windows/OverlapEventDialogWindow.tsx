@@ -1,144 +1,122 @@
-import React, {
-  useState,
-  useEffect
-} from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogActions,
-  DialogTitle,
-  Button,
-} from '@material-ui/core';
-
+import * as React from 'react'
+import { Dialog, DialogTitle, DialogContent, Button} from '@material-ui/core/';
 var dateFormat = require('dateformat');
 
-interface Event {
+
 /**
- * This is the eventId
+ * This interface defines the props used in this OverlapEventDialogWindow component
+ * @author Lewis Sheaffer lewiss@iastate.edu
  */
+interface IProps {
+
+  /**
+   * This prop is used to determine if the component is visible or not
+   */
+  visible: boolean,
+
+  /**
+   * This is the eventId for which the component will display information on
+   */
   eventId: string,
+
   /**
- * This is the id for the creator for a given event
- *
+   * This function will be executed when the component closes
+   */
+  onClose: () => void,
+}
+
+
+/**
+ * This interface defines the various state variable used in this OverlapEventDialogWindow component
+ * @author Lewis Sheaffer lewiss@iastate.edu
  */
-  creator: string,
+interface IState {
   /**
- *  Name of the event
- *
+ * This is the name of the displayed event
  */
   name: string,
   /**
- * Description of an event
- *
+ * This is the description of the displayed event
  */
   description: string,
+
   /**
- * Location that the event will take place
- *
- */
-  location: string,
+   * This is the netId of the user who created the displayed event
+   */
+  creatorNetId: string,
+
   /**
- * This represents the starting time and date for an event
- *
- */
-  startTime: Date,
+   * This is the first name of the user who creadted the displayed event
+   */
+  creatorFirstName: string,
+
   /**
- * This represents the ending time and date for an event.
- *
- */
-  endTime: Date,
+   * This is the last name of the user who created the displayed event
+   */
+  creatorLastName: string,
+
   /**
- * This is the label
- *
+ * This is a string that represents the date and time that an event starts from
  */
-  label: string
+  fromDate: string,
+  /**
+ * This is a string that represents the date and time that an event goes to
+ */
+  toDate: string,
 }
 
-interface Props {
 
-  visible: boolean,
-
-  onClose: Function,
-
-  onUpdate: Function,
-
-  onDelete: Function,
-
-  eventId: string,
-
-  creatorId: string,
-
-  update: boolean,
-}
 /**
- * EditEventDialogWindow returns this component
- *
- * @param  props: Props These are the props for EditEventDialogWindow
- *
+ * This is the OverlapEventDialogWindow component displayed in the ScheduleOverlapScreen on event clicks
+ * @author Lewis Sheaffer lewiss@iastate.edu
  */
-function EditEventDialogWindow(props: Props) {
+class OverlapEventDialogWindow extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      name: '',
+      description: '',
+      creatorNetId: '',
+      creatorFirstName: '',
+      creatorLastName: '',
+      fromDate: '',
+      toDate: '',
+    }
+  }
 
-  const [originalEvent, setOriginalEvent] = useState<Event>({
-    eventId: props.eventId,
-    creator: props.creatorId,
-    name: '',
-    description: '',
-    location: '',
-    startTime: new Date(),
-    endTime: new Date(),
-    label: ''
-  });
-  const [currentEventParticipants, setCurrentEventParticipants] = useState<{ userId: string, name: string, email: string }[]>([]);
-  const [titleInput, setTitleInput] = useState<string>('');
-  const [labelInput, setLabelInput] = useState<string>('');
-  const [startTime, setStartTime] = useState<Date>(new Date());
-  const [endTime, setEndTime] = useState<Date>(new Date());
-  const [locationInput, setLocationInput] = useState<string>('');
-  const [descriptionInput, setDescriptionInput] = useState<string>('');
-  const [showShareEventDialogWindow, setShowShareEventDialogWindow] = useState<boolean>(false);
-  const [showDeleteEventDialog, setShowDeleteEventDialog] = useState<boolean>(false);
-  const [update, setUpdate] = useState<boolean>(false);
+  componentDidUpdate(prevProps) {
+    // Check to see if the userId array  prop was updated
+    if (this.props.eventId !== prevProps.eventId) {
+      this.getEventInfo();
+    }
+  }
 
-  const [labelColor, setLabelColor] = useState<string>('');
 
   /**
- *  getEvent grabs an event using an eventId and creatorId
- *
- * @param  creatorId
- * @param eventId
- *
- */
-  function getEvent(creatorId: string, eventId: string) {
-    if (eventId !== '' && props.visible) {
+   * getEventInfo - This method retrieves event info given a particular eventId
+   */
+  getEventInfo() {
+    if (this.props.eventId !== '') {
       try {
-        fetch('/getEvent', {
+        fetch('/getEventWithId', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            creatorId: creatorId,
-            eventId: eventId
+            eventId: this.props.eventId
           }),
         }).then((response) => response.json())
           .then((json) => {
             if(json.length > 0){
-            setTitleInput(json[0].name);
-            setStartTime(json[0].startTime);
-            setEndTime(json[0].endTime);
-            setLocationInput(json[0].location);
-            setDescriptionInput(json[0].description);
-            setOriginalEvent({
-              eventId: props.eventId,
-              creator: creatorId,
+            this.setState({
               name: json[0].name,
               description: json[0].description,
-              location: json[0].location,
-              startTime: json[0].startTime,
-              endTime: json[0].endTime,
-              label: json[0].label
+              fromDate: json[0].startTime,
+              toDate: json[0].endTime,
             })
+            this.getUserName(json[0].creator)
           }
           });
       } catch (err) {
@@ -148,58 +126,70 @@ function EditEventDialogWindow(props: Props) {
   }
 
 
-
-    /**
- * getEventParticipants grabs the event participants for a given event
- *
- * @param eventId
- *
- */
-  function getEventParticipants(eventId: string) {
-    if (eventId !== '' && props.visible) {
+  /**
+   * getUserName - This method retrieves info for the user who created the displayed event
+   *
+   * @param userId : This is the userId of the user who created the displayed event
+   */
+  getUserName(userId : string) {
       try {
-        fetch('/getEventParticipants', {
+        fetch('/getUser', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            eventId: eventId
+            UserId: userId
           }),
         }).then((response) => response.json())
           .then((json) => {
-            let newEventParticipants: { userId: string, name: string, email: string }[] = [];
-            if (json.length > 0) {
-              json.forEach((sharee: string[]) => {
-                newEventParticipants.push({
-                  userId: sharee[0],
-                  name: sharee[3] + ' ' + sharee[2],
-                  email: sharee[1] + '@iastate.edu'
-                });
-              });
-            }
-            setCurrentEventParticipants(newEventParticipants);
+            if(json.length > 0){
+            this.setState({
+              creatorNetId: json[0].netId,
+              creatorFirstName: json[0].firstName,
+              creatorLastName: json[0].lastName,
+            })
+          }
           });
       } catch (err) {
         console.log(err);
       }
-    }
   }
 
-  if (props.eventId !== originalEvent.eventId) {
-    getEvent(props.creatorId, props.eventId);
-    getEventParticipants(props.eventId);
-  } else if (props.update !== update) {
-    getEvent(props.creatorId, props.eventId);
-    getEventParticipants(props.eventId);
-    setUpdate(props.update);
+  /**
+ * This method renders and returns the jsx body of this component
+ * @return The contents of this jsx component
+ */
+  render() {
+    return(
+      <div>
+        <Dialog maxWidth = {'md'} open = {this.props.visible} onBackdropClick = {() => {this.props.onClose()}}>
+          <DialogTitle>{this.state.name}</DialogTitle>
+              <DialogContent>
+                <div style = {{flexDirection: 'column', }}>
+                  <div style = {{marginBottom: '5px'}}>
+                    Created by {this.state.creatorFirstName} {this.state.creatorLastName}, {this.state.creatorNetId}@iastate.edu
+                  </div>
+                  <div style = {{marginBottom: '5px'}}>
+                    Description: {this.state.description}
+                  </div>
+                  <div style = {{marginBottom: '5px'}}>
+                    From: {dateFormat(this.state.fromDate, 'dddd, mmmm dS, yyyy, h:MM TT')}
+                  </div>
+                  <div style = {{marginBottom: '5px'}}>
+                    To: {dateFormat(this.state.toDate, 'dddd, mmmm dS, yyyy, h:MM TT')}
+                  </div>
+                  <div style = {{marginBottom: '5px', display:'flex',justifyContent:'flex-end' }}>
+                    <div style = {{}}>
+                      <Button onClick = {() => {this.props.onClose()}} style = {{color:'black'}}>Close</Button>
+                    </div>
+                  </div>
+              </div>
+            </DialogContent>
+        </Dialog>
+      </div>
+    );
   }
-
-  return (
-   <p>sdf</p>
-  );
-
 }
-
-export default EditEventDialogWindow;
+export default OverlapEventDialogWindow;

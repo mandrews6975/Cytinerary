@@ -9,8 +9,8 @@ import {
   ArrowForward,
   ArrowBack
 } from '@material-ui/icons';
-import EditEventDialogWindow from '../dialog_windows/EditEventDialogWindow';
-import ViewParticipantEventDialogWindow from '../dialog_windows/ViewParticipantEventDialogWindow';
+import OverlapEventDialogWindow from '../dialog_windows/OverlapEventDialogWindow';
+
 
 
 /**
@@ -57,19 +57,11 @@ interface OverlapViewSchedularGridState {
   /**
    * This is the state variable used to toggle the visibility status of the creator events EditEventDialogWindow
    */
-  showEditEventDialogWindow: boolean,
+  showOverlapEventDialogWindow: boolean,
   /**
    * This is the state variable that contains the eventId of the timeblock that was last clicked on
    */
   selectedEvent: string,
-  /**
-   * This is the statevariable used by the editEventDialogWindow to rerender this component
-   */
-  updateEventDialogWindow: boolean,
-  /**
-   * This is the state variable used to toggle the visibility status of the participant event's ParticipantEventDialogWindow
-   */
-  showViewParticipantEventDialogWindow: boolean
 }
 
 
@@ -86,10 +78,8 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
       selectedDate: new Date(),
       startDate: '',
       endDate: '',
-      showEditEventDialogWindow: false,
+      showOverlapEventDialogWindow: false,
       selectedEvent: '',
-      updateEventDialogWindow: false,
-      showViewParticipantEventDialogWindow: false
     }
   }
 
@@ -226,7 +216,6 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     });
   }
 
-
   /**
    * getWeeklyEvents - This method determines that start and end date of the current week and stores all of the user's creator and participant events in the respective state variables
    *
@@ -248,7 +237,6 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     this.getWeeklyParticipantEvents(startDate, endDate);
   }
 
-
   /**
    * setNextWeek - This method increments the current week of this component
    */
@@ -260,7 +248,6 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     }, () => { this.getWeeklyEvents(); });
   }
 
-
   /**
    * setPreviousWeek - This method deincrements the current week of this component
    */
@@ -271,7 +258,6 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
       selectedDate: new Date(previousDate),
     }, () => { this.getWeeklyEvents(); });
   }
-
 
   /**
    * This method returns the local time timestamp string given a Date object
@@ -301,6 +287,7 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
     const times: String[] = ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 AM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM']
     return (
       <div style={{ display: 'flex', flexDirection: 'column', flex: '1', minHeight: '400px', maxHeight: '400px', minWidth: '600px', marginTop: '10 px', borderColor: 'red', borderStyle: 'solid', borderWidth: '2px', backgroundColor: 'white' }} >
+        <OverlapEventDialogWindow visible = {this.state.showOverlapEventDialogWindow} eventId = {this.state.selectedEvent} onClose={() => {this.setState({showOverlapEventDialogWindow:false})}} />
         <div style={{ display: 'flex', marginRight: "20px", borderBottom: 'solid', borderColor: 'black', flexDirection: 'row', }}>
           <div style={{ flex: '1' }}>
             <IconButton
@@ -363,14 +350,12 @@ class OverlapViewScheduleGrid extends React.Component<OverlapViewSchedularGridPr
               <div className={'BodyCell'}>
                 {
                   this.state.creatorEvents.map((event, index) => (
-                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={false} onDragEnd={(e) => {
-                       this.setState({ showEditEventDialogWindow: true, selectedEvent: event.eventId, updateEventDialogWindow: !this.state.updateEventDialogWindow });
-                    }} onClick={() => { }} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock id = "CreatorEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} onClick={() => {this.setState({selectedEvent: event.eventId, showOverlapEventDialogWindow:true})}} eventId={event.eventId} color={"red"} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
                 {
                   this.state.participantEvents.map((event, index) => (
-                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({showViewParticipantEventDialogWindow: true, selectedEvent: event.eventId})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
+                    <TimeBlock id = "ParticipantEvent" name={event.name} draggable={false} onDragEnd={(e) => {}} eventId={event.eventId} color={"blue"} onClick={() => {this.setState({selectedEvent: event.eventId, showOverlapEventDialogWindow:true})}} key={uuidv4()} height={event.minutes} xinit={97 * event.dateIndex} yinit={event.startMinute} />
                   ))
                 }
               </div>
