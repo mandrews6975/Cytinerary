@@ -42,6 +42,12 @@ public class ScheduleKeyController {
 	  }
 	  return scheduleKeyRepository.getScheduleKey((String) payload.get("userId"));
   }
+  
+  @ApiOperation(value = "Retrieve user associated with specific schedule key")
+  @PostMapping("/getScheduleKeyUser")
+  public @ResponseBody Collection<ScheduleKey> getScheduleKeyUser(@RequestBody Map<String, Object> payload) {
+	  return scheduleKeyRepository.getScheduleKeyUser((String) payload.get("scheduleKey"));
+  }
 
   @ApiOperation(value = "Generate new schedule key (overwrite current key) for specific user")
   @Transactional
