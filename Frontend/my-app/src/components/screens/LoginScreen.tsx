@@ -68,8 +68,6 @@ interface LoginProps {
   redux_authentication: any
 }
 
-
-
 /**
  * This is the login screen component for this application
  * @author Lewis Sheaffer lewiss@iastate.edu
@@ -209,7 +207,10 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
               width: '35%',
               marginBottom: '100px'
             }}>
-              <IconButton onClick={() => this.setState({ scheduleKeySectionExpanded: false })}>
+              <IconButton
+                onClick={() => this.setState({ scheduleKeySectionExpanded: false })}
+                id='schedule_key_section_close'
+              >
                 <ExpandLess />
               </IconButton>
               <TextField
@@ -232,7 +233,9 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
                       <Button onClick={() => {
                         this.getScheduleKeyUser();
                         this.setState({ scheduleKeyInput: '' });
-                      }}>
+                      }}
+                        id='schedule_key_submit'
+                      >
                         Enter
                     </Button>
                     </InputAdornment>
@@ -261,7 +264,10 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
             <Typography variant='body1'>
               Have a schedule key?
             </Typography>
-            <IconButton onClick={() => this.setState({ scheduleKeySectionExpanded: true })}>
+            <IconButton
+              onClick={() => this.setState({ scheduleKeySectionExpanded: true })}
+              id='schedule_key_section_expand'
+            >
               <ExpandMore />
             </IconButton>
           </div>)}
