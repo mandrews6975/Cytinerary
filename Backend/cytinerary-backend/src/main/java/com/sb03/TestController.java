@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 class TestController {
 
-	@RequestMapping("/")
+	@RequestMapping({"/", "/home", "/sharedschedules", "/login"})
 	public String res() {
 		return "index.html";
 	}
