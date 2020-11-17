@@ -8,6 +8,7 @@ import red from '@material-ui/core/colors/red';
 import yellow from '@material-ui/core/colors/yellow';
 import grey from '@material-ui/core/colors/grey';
 import NewEventModal from '../dialog_windows/newEventModal'
+import AdminDropDown from '../dropdowns/AdminDropDown'
 import SharedWithMeDropDown from '../dropdowns/SharedWithMeDropDown'
 import OverlapViewScheduleGrid from '../schedular/OverlapViewScheduleGrid'
 import { connect } from 'react-redux';
@@ -47,7 +48,8 @@ interface ScheduleOverlapScreenProps {
  * @param  props: ScheduleOverlapScreenProps This is the props object for this ScheduleOverlapScreen component
  * @return The jsx contents of the ScheduleOverlapScreen component
  */
-function ScheduleOverlapScreen(props: ScheduleOverlapScreenProps) {;
+function ScheduleOverlapScreen(props: ScheduleOverlapScreenProps) {
+  ;
   const [showNewEventDialog, setNewEventDialog] = useState<boolean>(false);
   const [selectedUserIdsArray, updateSelectedArray] = useState<string[]>([]);
   const userId = props.redux_authentication.userId;
@@ -70,8 +72,13 @@ function ScheduleOverlapScreen(props: ScheduleOverlapScreenProps) {;
           //alignItems: 'center',
           //justifyContent: 'center'
         }}>
-          <SharedWithMeDropDown onUpdate = {(selectedList) => {updateSelectedArray(selectedList)}} userId = {userId}/>
-          <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit = {() => {}} onClose={() => { setNewEventDialog(false) }} />
+          {props.redux_authentication.isAdmin ?
+            <AdminDropDown onUpdate={(selectedList) => { updateSelectedArray(selectedList) }} />
+            :
+            <SharedWithMeDropDown onUpdate={(selectedList) => { updateSelectedArray(selectedList) }} userId={userId} />
+          }
+
+          <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit={() => { }} onClose={() => { setNewEventDialog(false) }} />
 
           <Button color='primary' variant='contained' onClick={() => { setNewEventDialog(true) }}>Create a New Event</Button>
         </div>
@@ -79,7 +86,7 @@ function ScheduleOverlapScreen(props: ScheduleOverlapScreenProps) {;
           display: 'flex',
           marginTop: '10px'
         }}>
-          <OverlapViewScheduleGrid userIdArray = {selectedUserIdsArray}/>
+          <OverlapViewScheduleGrid userIdArray={selectedUserIdsArray} />
         </div>
       </div>
     </ThemeProvider>

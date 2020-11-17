@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import {
   ACTION_userLogin
 } from "../../state/reducers/AuthenticationReducer";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import OverlapViewScheduleGrid from '../schedular/OverlapViewScheduleGrid';
 
@@ -113,11 +113,12 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
         netId: this.state.username,
         password: this.state.password
       }),
-    }).then((response) => response.text())
-      .then((text) => {
-        if (text) {
-          localStorage.setItem('userId', text);
-          this.props.ACTION_userLogin(text);
+    }).then((response) => response.json())
+      .then((json) => {
+        if (json.length > 0) {
+          localStorage.setItem('userId', json[0]);
+          localStorage.setItem('isAdmin', json[1]);
+          this.props.ACTION_userLogin(json);
         }
       });
   }
@@ -176,7 +177,7 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
    * @return This method returns the displayed frontend jsx components for this login screen component
    */
   render() {
-    if(this.state.createAccountBoolean){
+    if (this.state.createAccountBoolean) {
       return <Redirect to="/createaccount"></Redirect>
     }
 
@@ -204,10 +205,10 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
           </Typography>
           <TextField onChange={(event) => this.setState({ username: event.target.value })} label={"netId"} style={{ marginBottom: '20px' }} />
           <TextField onChange={(event) => this.setState({ password: event.target.value })} label={"Password"} style={{ marginBottom: '20px' }} inputProps={{ type: 'password' }} />
-          <Button onClick={()=> {this.setState({createAccountBoolean: true})}}>Create Account</Button>
-          <Button onClick={() => { this.sendRequest() }} style={{ marginBottom: '50px' }}>
+          <Button onClick={() => { this.sendRequest() }}>
             Login
           </Button>
+          <Button onClick={() => { this.setState({ createAccountBoolean: true }) }} style={{ marginBottom: '50px' }}>Create Account</Button>
           {this.state.scheduleKeySectionExpanded ? (
             <div style={{
               display: 'flex',

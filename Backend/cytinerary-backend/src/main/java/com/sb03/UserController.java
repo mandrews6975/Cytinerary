@@ -53,7 +53,7 @@ public class UserController {
 
   @ApiOperation(value = "Get user token necessary for sending user-specific requests (token should be stored in local storage of browser)")
   @PostMapping("/authenticateUser")
-  public @ResponseBody String authenticateUser(@RequestBody Map<String, Object> payload) throws NoSuchAlgorithmException {
+  public @ResponseBody String[] authenticateUser(@RequestBody Map<String, Object> payload) throws NoSuchAlgorithmException {
     //MessageDigest digest = MessageDigest.getInstance("SHA-256");
     //byte[] hash = digest.digest(((String) payload.get("password")).getBytes(StandardCharsets.UTF_8));
     //
@@ -64,7 +64,11 @@ public class UserController {
       return null;
     }
     String userId = ((User) result.toArray()[0]).getUserId();
-    return userId;
+    String isAdmin = ((User) result.toArray()[0]).isAdmin();
+    String[] res = new String[2];
+    res[0] = userId;
+    res[1] = isAdmin;
+    return res;
   }
 
   @ApiOperation(value = "Remove user from the database")
