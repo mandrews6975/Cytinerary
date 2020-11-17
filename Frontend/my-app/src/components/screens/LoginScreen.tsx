@@ -11,7 +11,6 @@ import {
   ACTION_userLogin
 } from "../../state/reducers/AuthenticationReducer"
 
-
 /**
  * This is the interface used to define the state of this LoginScreen component
  * @author Lewis Sheaffer lewiss@iastate.edu
@@ -66,7 +65,7 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
 
 
   /**
-   * sendRequest - This method sends the request to the backend to authenticate the username and password. It will set the response in local storage accordinly
+   * sendRequest - This method sends the request to the backend to authenticate the username and password. It will set the response in local storage accordingly
    */
   sendRequest() {
     fetch('/authenticateUser', {
@@ -119,6 +118,7 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
           </Typography>
           <TextField onChange={(event) => this.setState({ username: event.target.value })} label={"netId"} style={{ marginBottom: '20px' }} />
           <TextField onChange={(event) => this.setState({ password: event.target.value })} label={"Password"} style={{ marginBottom: '20px' }} inputProps={{ type: 'password' }} />
+          <Button>Create Account</Button>
           <Button onClick={() => { this.sendRequest() }}>
             Login
           </Button>

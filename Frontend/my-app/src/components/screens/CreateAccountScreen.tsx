@@ -1,46 +1,129 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {TextField, Button} from '@material-ui/core';
 
-import red from '@material-ui/core/colors/red';
-import yellow from '@material-ui/core/colors/yellow';
+ /*
+    Create Account Page UI:
+        - First Name
+        - Last Name
+        - ISU Email
+        - New Password, min 8 characters with special requirements
+        - Repeat password with requirements
+        - Submit button
+        - Cancel button
+ */
 
-import { TextField, Button, Typography } from '@material-ui/core'
+export default function CreateAccountScreen(){
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import {
-  ACTION_userLogin
-} from "../../state/reducers/AuthenticationReducer"
+    const[validPass, setValidPass] = useState(false);
+    const[canCreateAccount, setCanCreateAccount] = useState(false);
+    const[passwordsAreSimilar, setPasswordsAreSimilar] = useState(false);
+    const[pass, setPass] = useState('');
+    const[errorMessage, setErrorMessage] = useState('');
 
-interface CreateAccountState {
-  username: string,
-  password: string,
-}
+    function checkRequirements()
+    {
+        if(validPass && passwordsAreSimilar)
+        {
+            setCanCreateAccount(true);
+            setErrorMessage('');
+        }
+        else
+        {
+            var str = "";
 
-interface CreateAccountProps {
-  ACTION_userLogin: Function,
-  redux_authentication: any
-}
+            if(!validPass)
+            {
+                str += "Password must be at least 8 characters long and have one special character. ";
+            }
+            
+            if(!passwordsAreSimilar)
+            {
+                str += "Your initial password and confirmed passwords are not consistent, please try reentering your password in the confirm password area. ";
+            }
 
-class CreateAccountScreen extends React.Component<CreateAccountProps, CreateAccountState>{
+            console.log(validPass + "  " + passwordsAreSimilar);
 
-  constructor(props: CreateAccountProps) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
+            setErrorMessage(str);
+        }
     }
-  }
 
-  render() {
-    return (
-      <div>
-          <h1>Create Account</h1>
-          <TextField>UserName</TextField>
-          <TextField>Password</TextField>
-          <Button>Create Account</Button>
-      </div>
+    const checkPass=(e: any)=>{
+        let hasCorrectLength = false;
+        let hasSpecialChar = false;
+
+        if(e.target.value === '' || e.target.value.length < 8)
+        {
+            //Empty or it's too short, disable button so they cannot create an account
+            hasCorrectLength = false;
+        }
+        else if(e.target.value.length >= 8)
+        {
+            //This has the correct length
+            hasCorrectLength = true;
+        }
+        
+        for(var i = 0; i < e.target.value.length; i++)
+        {
+            var asciiValue = e.target.value.charCodeAt(i);
+
+            if((asciiValue >= 33 && asciiValue <= 47) || (asciiValue >= 58 && asciiValue <= 63) || (asciiValue >= 91 && asciiValue <= 96))
+            {
+                hasSpecialChar = true;
+            }
+            else
+            {
+                hasSpecialChar = false;
+            }
+        }
+
+        if(hasCorrectLength && hasSpecialChar)
+        {
+            setValidPass(true);
+        }
+        else
+        {
+            setValidPass(false);
+        }
+
+        setPass(e.target.value);
+        checkRequirements();
+    }
+
+    return(
+        <div style={{
+
+
+        }}>
+            <h1>Create Account</h1>
+            <br></br>
+            <TextField label="Enter First Name" name="firstName"></TextField>
+            <br></br><br></br>
+            <TextField label="Enter Last Name" name="lastName"></TextField>
+            <br></br><br></br>
+            <TextField label="Enter ISU Net-ID" name="netID"></TextField>
+            <br></br><br></br>
+            <TextField label="Password" name="password"  onChange={checkPass}></TextField>
+            <br></br><br></br>
+            <TextField label="Confirm Password" name="confirmPassword"  onChange={(e)=>{
+                console.log(e.target.value === pass);
+                if(e.target.value === pass)
+                {
+                    setPasswordsAreSimilar(true);
+                }
+                else
+                {
+                    setPasswordsAreSimilar(false);
+                }
+
+                checkRequirements();
+             }}></TextField>
+            <br></br><br></br>
+            <Button variant="contained" disabled={!canCreateAccount} onClick={(e)=>{}}>Create Account</Button>&nbsp;&nbsp;
+            <Button variant="contained" onClick={(e)=>{
+                
+            }}>Go to Login</Button>
+
+            <h4 id="text_red">{errorMessage}</h4>
+        </div>
     );
-  }
 }
-
-export default CreateAccountScreen;
