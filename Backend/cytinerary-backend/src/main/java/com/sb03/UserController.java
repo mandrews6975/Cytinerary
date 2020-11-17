@@ -46,7 +46,8 @@ public class UserController {
   @Transactional
   @PostMapping("/addUser")
   public @ResponseBody String addUser(@RequestBody Map<String, Object> payload) {
-    userRepository.addUser((String) payload.get("netId"), (String) payload.get("LastName"), (String) payload.get("FirstName"), (String) payload.get("password"));
+	final String hashPassword = Hashing.sha256().hashString((String) payload.get("password"), StandardCharsets.UTF_8).toString();
+    userRepository.addUser((String) payload.get("netId"), (String) payload.get("LastName"), (String) payload.get("FirstName"), hashPassword);
     return ((String) payload.get("userId") + "added");
   }
 

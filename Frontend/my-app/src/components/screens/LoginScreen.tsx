@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import {
   ACTION_userLogin
 } from "../../state/reducers/AuthenticationReducer";
-import { useHistory, withRouter, Redirect, Switch} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 
 /**
@@ -122,9 +122,7 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
           </Typography>
           <TextField onChange={(event) => this.setState({ username: event.target.value })} label={"netId"} style={{ marginBottom: '20px' }} />
           <TextField onChange={(event) => this.setState({ password: event.target.value })} label={"Password"} style={{ marginBottom: '20px' }} inputProps={{ type: 'password' }} />
-          <Button onClick={()=>{
-            this.setState({createAccountBoolean: true});
-          }}>Create Account</Button>
+          <Button onClick={()=>{this.setState({createAccountBoolean: true});}}>Create Account</Button>
           <Button onClick={() => { this.sendRequest() }}>
             Login
           </Button>
