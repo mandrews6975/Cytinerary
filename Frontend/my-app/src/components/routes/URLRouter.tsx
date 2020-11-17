@@ -46,7 +46,7 @@ interface Props {
 function URLRouter(props: Props) {
   const userId = localStorage.getItem('userId');
   if (userId !== props.redux_authentication.userId) {
-    props.ACTION_userLogin(userId);
+    props.ACTION_userLogin([localStorage.getItem('userId'), localStorage.getItem('isAdmin')]);
     //console.log(this.propsredux_authentication.userId);
   }
 

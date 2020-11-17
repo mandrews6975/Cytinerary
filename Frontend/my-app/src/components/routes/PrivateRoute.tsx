@@ -40,7 +40,7 @@ function PrivateRoute(props: Props) {
       render={() =>
         props.redux_authentication.userId !== null ? (
           <div>
-            <SideBarNavigator/>
+            <SideBarNavigator />
             <div>
               <Switch>
                 <Route exact path={props.path}>

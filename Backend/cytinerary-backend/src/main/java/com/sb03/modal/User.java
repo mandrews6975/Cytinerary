@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiModelProperty;
 @Entity
 @Table(name = "users")
 public class User {
-	
+
 	@ApiModelProperty(notes = "Unique identifier for a user", name = "userid", required = true)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +43,10 @@ public class User {
 	@Column(name = "password")
 	 private String password;
 
+	@ApiModelProperty(notes = "True if user is admin", name = "admin", required = true)
+ 	@Column(name = "admin")
+ 	private String admin;
+
 	public String getUserId() {
 		return userId;
 	}
@@ -59,6 +63,10 @@ public class User {
 	}
 	public String getPassword() {
 		return password;
+	}
+
+	public String isAdmin() {
+		return admin;
 	}
 
 	public void setUserId(String userId) {

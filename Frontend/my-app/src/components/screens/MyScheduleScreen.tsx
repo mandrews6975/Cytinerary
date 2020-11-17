@@ -101,49 +101,40 @@ function MyScheduleScreen(props: MyScheduleScreenProps) {
             visible={showShareScheduleDialog}
             userId={userId}
           />
-          <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit = {() => {forceUpdate(0)}} onClose={() => { setNewEventDialog(false) }} />
+          <LabelDialogWindow
+            onClose={() => setLabelDialog(false)}
+            visible={showLabelDialog}
+            userId={userId}
+          />
+          <NewEventModal visible={showNewEventDialog} userId={userId} onSuccessfulSubmit={() => { forceUpdate(0) }} onClose={() => { setNewEventDialog(false) }} />
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}>
+            <div>
+              <Button
+                color='primary'
+                variant='contained'
+                onClick={() => setShowShareScheduleDialog(true)}
+              >
+                Share
+            </Button>
+            </div>
+            <div>
+              <Button
+                color='primary'
+                variant='contained'
+                onClick={() => setLabelDialog(true)}
+              >
+                Labels
+            </Button>
+              <Button color='primary' variant='contained' onClick={() => { setNewEventDialog(true) }}>Create a New Event</Button>
+            </div>
+          </div>
 
-          <Button
-            color='primary'
-            variant='contained'
-            onClick={() => setShowShareScheduleDialog(true)}
-          >
-            Share
-          </Button>
-        <LabelDialogWindow
-          onClose={() => setLabelDialog(false)}
-          visible={showLabelDialog}
-          userId = {userId}
-        />
-        <Button
-          color='primary'
-          variant='contained'
-          onClick={() => setLabelDialog(true)}
-        >
-          Labels
-        </Button>
 
-          <Button color='primary' variant='contained' onClick={() => {
-            try {
-              fetch('/getEvents', {
-                method: 'POST',
-                headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  creator: userId
-                }),
-            }).then((response) => response.json())
-            .then((json) => {
-              alert(JSON.stringify(json))
-            });
-          }catch(err){
-            console.log(err);
-          }
-        }}>View this User's events</Button>
-
-          <Button color='primary' variant='contained' onClick={() => { setNewEventDialog(true) }}>Create a New Event</Button>
         </div>
         <div style={{
           display: 'flex',
@@ -151,7 +142,7 @@ function MyScheduleScreen(props: MyScheduleScreenProps) {
           //alignItems: 'center',
           //justifyContent: 'center'
         }}>
-          <ScheduleGrid userId = {userId}/>
+          <ScheduleGrid userId={userId} />
         </div>
       </div>
     </ThemeProvider>
