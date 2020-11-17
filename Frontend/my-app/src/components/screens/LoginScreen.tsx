@@ -10,7 +10,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
   ACTION_userLogin
-} from "../../state/reducers/AuthenticationReducer"
+} from "../../state/reducers/AuthenticationReducer";
+import {Redirect} from "react-router-dom";
 
 import OverlapViewScheduleGrid from '../schedular/OverlapViewScheduleGrid';
 
@@ -51,6 +52,10 @@ interface LoginState {
    * Display error for invalid schedule key if true
    */
   scheduleKeyError: boolean,
+  /**
+   * Boolean indicating whether the user should be redirected to the create account screen.
+   */
+  createAccountBoolean: boolean,
 }
 
 /**
@@ -74,7 +79,6 @@ interface LoginProps {
  */
 class LoginScreen extends React.Component<LoginProps, LoginState>{
 
-
   /**
    * constructor - This is the constructor for the LoginScreen Component, this is where the state is initialized
    *
@@ -90,12 +94,13 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
       scheduleKeyUser: '',
       scheduleKeyUserName: '',
       scheduleKeyUserEmail: '',
-      scheduleKeyError: false
+      scheduleKeyError: false,
+      createAccountBoolean: false,
     }
   }
 
   /**
-   * sendRequest - This method sends the request to the backend to authenticate the username and password. It will set the response in local storage accordinly
+   * sendRequest - This method sends the request to the backend to authenticate the username and password. It will set the response in local storage accordingly
    */
   sendRequest() {
     fetch('/authenticateUser', {
@@ -171,6 +176,10 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
    * @return This method returns the displayed frontend jsx components for this login screen component
    */
   render() {
+    if(this.state.createAccountBoolean){
+      return <Redirect to="/createaccount"></Redirect>
+    }
+
     return (
       <div style={{
         minHeight: window.innerHeight,
@@ -195,6 +204,7 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
           </Typography>
           <TextField onChange={(event) => this.setState({ username: event.target.value })} label={"netId"} style={{ marginBottom: '20px' }} />
           <TextField onChange={(event) => this.setState({ password: event.target.value })} label={"Password"} style={{ marginBottom: '20px' }} inputProps={{ type: 'password' }} />
+          <Button onClick={()=> {this.setState({createAccountBoolean: true})}}>Create Account</Button>
           <Button onClick={() => { this.sendRequest() }} style={{ marginBottom: '50px' }}>
             Login
           </Button>

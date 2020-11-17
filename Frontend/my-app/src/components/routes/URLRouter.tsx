@@ -15,6 +15,7 @@ import { bindActionCreators } from 'redux';
 import {
   ACTION_userLogin
 } from "../../state/reducers/AuthenticationReducer"
+import CreateAccountScreen from '../screens/CreateAccountScreen';
 
 
 /**
@@ -56,6 +57,9 @@ function URLRouter(props: Props) {
       <Switch>
         <PublicRoute path="/login">
           <LoginScreen />
+        </PublicRoute>
+        <PublicRoute path="/createaccount">
+          <CreateAccountScreen />
         </PublicRoute>
         <PrivateRoute path="/"/>
         <Route path="/">
