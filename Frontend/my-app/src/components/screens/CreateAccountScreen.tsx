@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {TextField, Button} from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 
  /*
     Create Account Page UI:
@@ -20,6 +21,9 @@ export default function CreateAccountScreen(){
     const[pass, setPass] = useState('');
     const[errorMessage, setErrorMessage] = useState('');
 
+    const history = useHistory();
+    const goToLogin = () => history.push('login');
+    
     function checkRequirements()
     {
         if(validPass && passwordsAreSimilar)
@@ -119,9 +123,7 @@ export default function CreateAccountScreen(){
              }}></TextField>
             <br></br><br></br>
             <Button variant="contained" disabled={!canCreateAccount} onClick={(e)=>{}}>Create Account</Button>&nbsp;&nbsp;
-            <Button variant="contained" onClick={(e)=>{
-                
-            }}>Go to Login</Button>
+            <Button variant="contained" onClick={goToLogin}>Go to Login</Button>
 
             <h4 id="text_red">{errorMessage}</h4>
         </div>

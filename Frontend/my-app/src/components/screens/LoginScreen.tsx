@@ -3,13 +3,15 @@ import React from 'react';
 import red from '@material-ui/core/colors/red';
 import yellow from '@material-ui/core/colors/yellow';
 
-import { TextField, Button, Typography } from '@material-ui/core'
+import { TextField, Button, Typography } from '@material-ui/core';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
   ACTION_userLogin
-} from "../../state/reducers/AuthenticationReducer"
+} from "../../state/reducers/AuthenticationReducer";
+import { useHistory, withRouter, Redirect, Switch} from "react-router-dom";
+
 
 /**
  * This is the interface used to define the state of this LoginScreen component
@@ -24,6 +26,7 @@ interface LoginState {
    * This is the entered value of the password text input
    */
   password: string,
+  createAccountBoolean: boolean,
 }
 
 /**
@@ -42,13 +45,11 @@ interface LoginProps {
 }
 
 
-
 /**
  * This is the login screen component for this application
  * @author Lewis Sheaffer lewiss@iastate.edu
  */
 class LoginScreen extends React.Component<LoginProps, LoginState>{
-
 
   /**
    * constructor - This is the constructor for the LoginScreen Component, this is where the state is initialized
@@ -59,10 +60,10 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      createAccountBoolean: false,
     }
   }
-
 
   /**
    * sendRequest - This method sends the request to the backend to authenticate the username and password. It will set the response in local storage accordingly
@@ -87,13 +88,16 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
       });
   }
 
-
   /**
    * render - This is the render method for this component, it contains all of the visible frontend components for this login screen
    *
    * @return This method returns the displayed frontend jsx components for this login screen component
    */
   render() {
+    if(this.state.createAccountBoolean){
+      return <Redirect to="/createaccount"></Redirect>
+    }
+
     return (
       <div style={{
         height: window.innerHeight,
@@ -118,7 +122,9 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
           </Typography>
           <TextField onChange={(event) => this.setState({ username: event.target.value })} label={"netId"} style={{ marginBottom: '20px' }} />
           <TextField onChange={(event) => this.setState({ password: event.target.value })} label={"Password"} style={{ marginBottom: '20px' }} inputProps={{ type: 'password' }} />
-          <Button>Create Account</Button>
+          <Button onClick={()=>{
+            this.setState({createAccountBoolean: true});
+          }}>Create Account</Button>
           <Button onClick={() => { this.sendRequest() }}>
             Login
           </Button>
