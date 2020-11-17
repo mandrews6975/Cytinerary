@@ -179,7 +179,6 @@ function ShareScheduleKeyDialogWindow(props: Props) {
             }}
           >
             <TextField
-              id='key'
               style={{ width: '100%' }}
               label="Schedule Key"
               variant='filled'
@@ -188,15 +187,6 @@ function ShareScheduleKeyDialogWindow(props: Props) {
                 startAdornment: (
                   <InputAdornment position="start">
                     <VpnKey />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      onClick={() => navigator.clipboard.writeText(scheduleKey)}
-                    >
-                      <FilterNone />
-                    </IconButton>
                   </InputAdornment>
                 )
               }}
