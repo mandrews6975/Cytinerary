@@ -52,6 +52,10 @@ interface LoginState {
    * Display error for invalid schedule key if true
    */
   scheduleKeyError: boolean,
+  /**
+   * Boolean indicating whether the user should be redirected to the create account screen.
+   */
+  createAccountBoolean: boolean,
 }
 
 /**
@@ -90,7 +94,8 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
       scheduleKeyUser: '',
       scheduleKeyUserName: '',
       scheduleKeyUserEmail: '',
-      scheduleKeyError: false
+      scheduleKeyError: false,
+      createAccountBoolean: false,
     }
   }
 
@@ -199,6 +204,7 @@ class LoginScreen extends React.Component<LoginProps, LoginState>{
           </Typography>
           <TextField onChange={(event) => this.setState({ username: event.target.value })} label={"netId"} style={{ marginBottom: '20px' }} />
           <TextField onChange={(event) => this.setState({ password: event.target.value })} label={"Password"} style={{ marginBottom: '20px' }} inputProps={{ type: 'password' }} />
+          <Button onClick={()=> {this.setState({createAccountBoolean: true})}}>Create Account</Button>
           <Button onClick={() => { this.sendRequest() }} style={{ marginBottom: '50px' }}>
             Login
           </Button>
